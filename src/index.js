@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 const container = document.getElementById("root");
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
-  <BrowserRouter basename="/goit-react-hw-08-phonebook/">
+  <BrowserRouter basename="/final_project_react_node_frontend/">
     <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
       <App />
