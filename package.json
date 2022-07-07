@@ -5,17 +5,23 @@
   "homepage": "https://codajoker.github.io/final_project_react_node_frontend/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
+    "@tanstack/react-table": "^8.1.4",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "gh-pages": "^4.0.0",
     "nanoid": "^4.0.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-ellipsis-text": "^1.2.1",
+    "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^5.1.5",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^2.1.3",
+    "react-toastify": "^9.0.5",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.3"
@@ -46,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-plugin-react": "^7.30.1"
   }
 }
