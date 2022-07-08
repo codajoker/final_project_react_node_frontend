@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
+import PreviewPage from './pages/PreviewPage';
 
-
- const App = () => {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,9 +18,9 @@ import React from 'react';
           Learn React
         </a>
       </header>
+      <PreviewPage />
     </div>
   );
-}
-
+};
 
 export default App;
