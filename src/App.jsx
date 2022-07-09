@@ -7,6 +7,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <UserInfo />
       <Routes>
         <Route path="/" />
         <Route path="/signin" />
