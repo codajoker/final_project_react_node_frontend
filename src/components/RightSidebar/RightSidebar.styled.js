@@ -33,7 +33,6 @@ export const Container = styled.aside`
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
     padding: 15% 8% 50px 5%;
     background-image: url(${bgImageDesktop});
     background-position: center right;
