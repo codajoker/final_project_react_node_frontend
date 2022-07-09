@@ -5,8 +5,8 @@ export default function DailyCalorieIntake() {
   return (
     <CalorieIntake>
         <Head>Ваша рекомендована добова норма споживання калорій становить</Head> 
-        <DailyNorm><DailyNormValue>2800</DailyNormValue> ккал</DailyNorm>
-        <HeadProducts>Продукти, які вам не варто їсти</HeadProducts>
+        <DailyNorm><DailyNormValue>2800</DailyNormValue> кКал</DailyNorm>
+        <HeadProducts>Не рекомендовано вживати</HeadProducts>
         <ProductsList>
             <li>Вироби з борошна</li>
             <li>Молоко</li>

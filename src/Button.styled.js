@@ -13,9 +13,15 @@ export const Button = styled.button`
   border-radius: 30px;
   transition: background 200ms linear, color 200ms linear;
   cursor: pointer;
+  letter-spacing: 0.04em;
 
-  &:hover {
+  :hover {
     background: ${props => props.primary ? "#fff" : palette.BUTTON_COLOR};
     color: ${props => props.primary ? palette.BUTTON_COLOR : "#fff"};
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: .7;
   }
 `;
