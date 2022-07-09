@@ -4,32 +4,28 @@ import * as palette from '../../variables/Variables';
 
 const MainPageContainer = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  padding-top: 32px;
   margin-left: auto;
   margin-right: auto;
   width: 280px;
 
   @media screen and (min-width: 768px) {
     margin-left: 30px;
-    margin-right: 30px;
-    width: 570px;
+    padding-top: 100px;
+    width: 545px;
     align-items: start;
   }
-`;
 
-const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media screen and (min-width: 768px) {
-    align-items: start;
+  @media screen and (min-width: 1280px) {
+    padding-top: 140px;
   }
 `;
 
 const FormTitle = styled.h2`
+  margin: 0 0 32px;
   font-family: 'Verdana';
   font-weight: 700;
   font-size: ${palette.TITLE_FONTSIZE_MOB};
@@ -39,12 +35,44 @@ const FormTitle = styled.h2`
   @media screen and (min-width: 768px) {
     font-size: ${palette.TITLE_FONTSIZE};
     line-height: 1.2;
+    margin: 0 0 68px;
+  }
+`;
+
+const FormWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -32px;
+    margin-left: -32px;
   }
 `;
 
 const InputWrapper = styled.div`
   @media screen and (max-width: 767px) {
     margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 64px) / 2);
+    margin-top: 32px;
+    margin-left: 32px;
+
+    :first-child {
+      order: 1;
+    }
+    :nth-child(2) {
+      order: 3;
+    }
+    :nth-child(3) {
+      order: 5;
+    }
+    :nth-child(4) {
+      order: 2;
+    }
+    :nth-child(5) {
+      order: 4;
+    }
   }
 `;
 
@@ -60,6 +88,7 @@ const Input = styled(Field)`
   font-weight: 700;
   line-height: 1.21;
   color: ${palette.MAIN_COLOR};
+  background-color: rgba(117, 190, 218, 0);
 
   ::placeholder {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -136,8 +165,8 @@ const LabelRadioInputs = styled.label`
 `;
 
 const SubmitButton = styled.button`
+  margin-top: 40px;
   display: block;
-  margin: 40px auto 0;
   padding: 0;
   width: 210px;
   height: 44px;
@@ -153,6 +182,18 @@ const SubmitButton = styled.button`
   border-radius: 30px;
   cursor: pointer;
   transition: color 250ms ease-in;
+  @media screen and (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: auto;
+  }
 
   :disabled {
     background: #edb084;

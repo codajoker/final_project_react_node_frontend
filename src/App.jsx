@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import PreviewPage from './pages/PreviewPage';
 
 const App = () => {
   return (
@@ -18,7 +17,6 @@ const App = () => {
           Learn React
         </a>
       </header>
-      <PreviewPage />
     </div>
   );
 };

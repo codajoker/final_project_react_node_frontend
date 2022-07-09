@@ -26,19 +26,19 @@ const DailyCaloriesForm = () => {
     <MainPageContainer>
       <FormTitle>Порахуй свою денну норму калорій прямо зараз</FormTitle>
 
-      <FormWrapper>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={async (values, { resetForm }) => {
-            await new Promise(r => setTimeout(r, 500));
-            alert(JSON.stringify(values, null, 2));
-            resetForm();
-          }}
-          validateOnBlur
-        >
-          {({ errors, touched, isValid, dirty }) => (
-            <Form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={async (values, { resetForm }) => {
+          await new Promise(r => setTimeout(r, 500));
+          alert(JSON.stringify(values, null, 2));
+          resetForm();
+        }}
+        validateOnBlur
+      >
+        {({ errors, touched, isValid, dirty }) => (
+          <Form>
+            <FormWrapper>
               <InputWrapper>
                 <Input name="height" placeholder="Ріст *" />
                 {touched.height && errors.height && (
@@ -78,49 +78,52 @@ const DailyCaloriesForm = () => {
                 )}
               </InputWrapper>
 
-              <LabelRadioBoxes id="blood-group">Група крові *</LabelRadioBoxes>
-              <div role="group" aria-labelledby="blood-group"></div>
+              <InputWrapper>
+                <LabelRadioBoxes id="blood-group">
+                  Група крові *
+                </LabelRadioBoxes>
+                <div role="group" aria-labelledby="blood-group">
+                  <RadioField
+                    type="radio"
+                    id="bloodType1"
+                    name="bloodType"
+                    value="1"
+                    checked
+                  />
+                  <LabelRadioInputs htmlFor="bloodType1">1</LabelRadioInputs>
 
-              <RadioField
-                type="radio"
-                id="bloodType1"
-                name="bloodType"
-                value="1"
-                checked
-              />
-              <LabelRadioInputs htmlFor="bloodType1">1</LabelRadioInputs>
+                  <RadioField
+                    type="radio"
+                    id="bloodType2"
+                    name="bloodType"
+                    value="2"
+                  />
+                  <LabelRadioInputs htmlFor="bloodType2">2</LabelRadioInputs>
 
-              <RadioField
-                type="radio"
-                id="bloodType2"
-                name="bloodType"
-                value="2"
-              />
-              <LabelRadioInputs htmlFor="bloodType2">2</LabelRadioInputs>
+                  <RadioField
+                    type="radio"
+                    id="bloodType3"
+                    name="bloodType"
+                    value="3"
+                  />
+                  <LabelRadioInputs htmlFor="bloodType3">3</LabelRadioInputs>
 
-              <RadioField
-                type="radio"
-                id="bloodType3"
-                name="bloodType"
-                value="3"
-              />
-              <LabelRadioInputs htmlFor="bloodType3">3</LabelRadioInputs>
-
-              <RadioField
-                type="radio"
-                id="bloodType4"
-                name="bloodType"
-                value="4"
-              />
-              <LabelRadioInputs htmlFor="bloodType4">4</LabelRadioInputs>
-
-              <SubmitButton type="submit" disabled={!isValid && !dirty}>
-                Start losing weight
-              </SubmitButton>
-            </Form>
-          )}
-        </Formik>
-      </FormWrapper>
+                  <RadioField
+                    type="radio"
+                    id="bloodType4"
+                    name="bloodType"
+                    value="4"
+                  />
+                  <LabelRadioInputs htmlFor="bloodType4">4</LabelRadioInputs>
+                </div>
+              </InputWrapper>
+            </FormWrapper>
+            <SubmitButton type="submit" disabled={!isValid && !dirty}>
+              Start losing weight
+            </SubmitButton>
+          </Form>
+        )}
+      </Formik>
     </MainPageContainer>
   );
 };
