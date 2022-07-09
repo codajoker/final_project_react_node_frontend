@@ -3,7 +3,7 @@ import * as palette from '../../variables/Variables';
 import bgImageDesktop from '../../images/desktop/bg-3-health-calculator.png';
 import bgImageTablet from '../../images/tablet/bg-1-tablet.png';
 
-export const Container = styled.div`
+export const Container = styled.aside`
   background-color: ${palette.SIDEBAR_COLOR};
   background-size: contain;
   background-repeat: no-repeat;
@@ -33,6 +33,7 @@ export const Container = styled.div`
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: -1;
     padding: 15% 8% 50px 5%;
     background-image: url(${bgImageDesktop});
     background-position: center right;
