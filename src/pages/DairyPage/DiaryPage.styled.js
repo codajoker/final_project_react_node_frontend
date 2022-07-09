@@ -32,10 +32,10 @@ export const CalendarTitle = styled.h1`
   }
 `;
 
-// export const FormWrap = styled.div`
-//   border-bottom: 2px solid;
-//   color: ${palette.LINE_COLOR};
-//   @media screen and (min-width: 1440px) {
-//     border: none;
-//   }
-// `;
+export const ListWrap = styled.div`
+  display: flex;
+  justify-items: start;
+  @media screen and (min-width: 768px) {
+    padding: 60px 0 55px 0;
+  }
+`;

@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
+import DiaryPage from './pages/DairyPage/DiaryPage';
+import PreviewPage from './pages/PreviewPage/PreviewPage';
 
 const App = () => {
   return (
     <>
-      <Header />
-      <UserInfo />
+      {/* <UserInfo /> */}
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<PreviewPage />} />
         <Route path="/signin" />
         <Route path="/registration" />
+        <Route path="/diary" element={<DiaryPage />}></Route>
       </Routes>
     </>
   );

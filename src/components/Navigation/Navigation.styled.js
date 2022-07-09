@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   width: 193px;
   display: flex;
   align-items: center;
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 268px;
     height: 32px;
     align-items: center;
@@ -33,7 +33,7 @@ export const Link = styled(NavLink)`
     margin-right: 0px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     border: none;
     &:first-child {
       margin-left: 20px;
