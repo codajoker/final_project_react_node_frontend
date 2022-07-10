@@ -1,4 +1,7 @@
-import closeIcon from '../../images/mobile/X.svg'; // change for react-icons close icon
+
+
+import { GrClose } from 'react-icons/gr';
+// import { SECONDARY_COLOR } from '../../variables/Variables';
 import { Product, ProductInfo } from './DairyProductListItem.styled';
 export const DairyProductListItem = ({product}) => {
     const { title, weight, calories } = product;
@@ -8,7 +11,6 @@ export const DairyProductListItem = ({product}) => {
             <div>{weight} г</div>
             <div>{calories} Ккал</div>
         </ProductInfo>
-            
-        <button type="button"><img src={closeIcon} alt='Close'/></button>
+        <button type="button"><GrClose /></button>
         </Product>
 }
