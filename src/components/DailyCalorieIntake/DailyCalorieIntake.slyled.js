@@ -5,8 +5,8 @@ import { Button } from '../../Button.styled';
 export const CalorieIntake = styled.div`
   color: ${palette.MAIN_COLOR};
   line-height: 1.2;
-  max-width: 560px;
-  margin: 30px;
+  max-width: 420px;
+  margin: 30px auto;
 `;
 
 export const Head = styled.h2`

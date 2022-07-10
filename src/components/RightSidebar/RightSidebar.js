@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useSelector } from 'react-redux';
-import { translate } from '../../helpers/translate';
+// import { translate } from '../../helpers/translate';
 import { Container, Head, CalloriesList, ProductsList, EmptyProducts } from './RightSidebar.styled';
 import { getCalories, getProducts } from '../../redux/dailyRate/dailyRateSelectors';
 
@@ -48,7 +48,7 @@ export default function RightSidebar() {
                     {
                         products.map((product, index) => {
                             return (
-                                <Fragment key={index}>{translate(product)}{index !== products.length-1 && ', '}</Fragment>
+                                <Fragment key={index}>{product}{index !== products.length-1 && ', '}</Fragment>
                             )
                         })
                     }

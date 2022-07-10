@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { translate } from '../../helpers/translate';
+// import { translate } from '../../helpers/translate';
 import { CalorieIntake, Head, DailyNorm, DailyNormValue, HeadProducts, ProductsList, EmptyProducts, ButtonStart } from './DailyCalorieIntake.slyled';
 import { getCalories, getProducts } from '../../redux/dailyRate/dailyRateSelectors';
 
@@ -19,7 +19,7 @@ export default function DailyCalorieIntake() {
                 {
                     products.map((product, index) => {
                         return (
-                            <li key={index}>{translate(product)}</li>
+                            <li key={index}>{product}</li>
                         )
                     })
                 }
