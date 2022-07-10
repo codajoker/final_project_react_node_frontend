@@ -3,8 +3,6 @@ import bgImageForTablet from '../../images/tablet/bg-tablet.png';
 import bgImageForDesctop from '../../images/desktop/desctop_min.png';
 
 const Main = styled.main`
-  height: 100vh;
-
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     position: relative;
   }
@@ -37,6 +35,7 @@ const BgBoxDesctop = styled.div`
     left: 0;
     background-image: url(${bgImageForDesctop});
     background-repeat: no-repeat;
+    background-size: contain;
     background-position: right;
     height: 100vh;
     width: 100vw;

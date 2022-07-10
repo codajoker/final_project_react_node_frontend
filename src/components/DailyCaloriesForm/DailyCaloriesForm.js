@@ -13,15 +13,20 @@ import {
   RadioField,
   SubmitButton,
 } from './DailyCaloriesForm.styled';
+import { dailyRateOperations } from '../../redux/dailyRate';
+import { useDispatch } from 'react-redux';
 
 const DailyCaloriesForm = () => {
   const initialValues = {
     height: '',
     age: '',
     currentWeight: '',
-    desiredWeight: '',
+    goalWeight: '',
     bloodType: '1',
   };
+
+  const dispatch = useDispatch();
+
   return (
     <MainPageContainer>
       <FormTitle>Порахуй свою денну норму калорій прямо зараз</FormTitle>
@@ -29,9 +34,8 @@ const DailyCaloriesForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={async (values, { resetForm }) => {
-          await new Promise(r => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={(values, { resetForm }) => {
+          dispatch(dailyRateOperations.fethDailyRate(values));
           resetForm();
         }}
         validateOnBlur
@@ -67,14 +71,14 @@ const DailyCaloriesForm = () => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="desiredWeight"></label>
+                <label htmlFor="goalWeight"></label>
                 <Input
-                  id="desiredWeight"
-                  name="desiredWeight"
+                  id="goalWeight"
+                  name="goalWeight"
                   placeholder="Бажана вага *"
                 />
-                {touched.desiredWeight && errors.desiredWeight && (
-                  <ErrorDescr>{errors.desiredWeight}</ErrorDescr>
+                {touched.goalWeight && errors.goalWeight && (
+                  <ErrorDescr>{errors.goalWeight}</ErrorDescr>
                 )}
               </InputWrapper>
 
