@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import * as palette from '../../variables/Variables';
 import { Button } from '../../Button.styled';
 
@@ -94,5 +95,32 @@ export const AuthButton = styled(Button)`
       margin-bottom: 0;
       margin-right: 32px;
     }
+  }
+`;
+
+export const LinkButton = styled(NavLink)`
+  display: inline-block;
+  text-align: center;
+  background: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
+  color: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
+  box-shadow: ${props =>
+    props.primary ? '0 4px 10px rgba(252, 132, 45, .5)' : null};
+  border: 2px solid #fc842d;
+  font-size: 14px;
+  font-weight: 700;
+  width: 182px;
+  padding: 13px 25px;
+  border-radius: 30px;
+  transition: background 200ms linear, color 200ms linear;
+  cursor: pointer;
+
+  :hover {
+    background: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
+    color: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: 0.7;
   }
 `;
