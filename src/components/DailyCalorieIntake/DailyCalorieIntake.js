@@ -1,16 +1,17 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { translate } from '../../helpers/translate';
-import { CalorieIntake, Head, DailyNorm, DailyNormValue, HeadProducts, ProductsList, EmptyProducts } from './DailyCalorieIntake.slyled';
-import { Button } from '../../Button.styled';
+import { CalorieIntake, Head, DailyNorm, DailyNormValue, HeadProducts, ProductsList, EmptyProducts, ButtonStart } from './DailyCalorieIntake.slyled';
+import { getCalories, getProducts } from '../../redux/dailyRate/dailyRateSelectors';
 
 export default function DailyCalorieIntake() {
-  const products = useSelector(state => state.products) || [];
-  const normCalories = useSelector(state => state.calories) || 0;
+  const products = useSelector(getProducts) || [];
+  const dailyCalories = useSelector(getCalories) || 0;
 
   return (
     <CalorieIntake>
         <Head>Ваша рекомендована добова норма споживання калорій становить</Head> 
-        <DailyNorm><DailyNormValue>{normCalories}</DailyNormValue> кКал</DailyNorm>
+        <DailyNorm><DailyNormValue>{dailyCalories}</DailyNormValue> кКал</DailyNorm>
         <HeadProducts>Не рекомендовано вживати</HeadProducts>
         {
           products.length > 0 ?
@@ -26,7 +27,9 @@ export default function DailyCalorieIntake() {
           :
           <EmptyProducts>Тут відображатиметься ваша дієта</EmptyProducts>
         }
-        <Button primary>Розпочати втрату ваги</Button>
+        <NavLink to={'/registration'}>
+          <ButtonStart primary>Почати худнути</ButtonStart>
+        </NavLink>
     </CalorieIntake>
   );
 }

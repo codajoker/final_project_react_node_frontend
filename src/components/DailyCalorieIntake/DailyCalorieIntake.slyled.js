@@ -60,17 +60,15 @@ export const ProductsList = styled.ol`
   ::-webkit-scrollbar-thumb {
     background: ${palette.INTAKE_DAILY_COLOR}; 
   }
-  + ${Button} {
-    margin: 0 auto;
-    display: block;
-  }
 `;
 
 export const EmptyProducts = styled.div`
   color: ${palette.SECONDARY_COLOR};
   margin: 20px 0 40px;
-  + ${Button} {
-    margin: 0 auto;
-    display: block;
-  }
+`;
+
+export const ButtonStart = styled(Button)`
+  margin: 0 auto;
+  display: block;
+  width: 210px;
 `;

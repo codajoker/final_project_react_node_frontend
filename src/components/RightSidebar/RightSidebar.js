@@ -2,15 +2,16 @@ import { Fragment } from "react";
 import { useSelector } from 'react-redux';
 import { translate } from '../../helpers/translate';
 import { Container, Head, CalloriesList, ProductsList, EmptyProducts } from './RightSidebar.styled';
+import { getCalories, getProducts } from '../../redux/dailyRate/dailyRateSelectors';
 
 export default function RightSidebar() {
 
     const date = useSelector(state => state.date) || new Date().toLocaleString().split(',')[0];
-    const products = useSelector(state => state.products) || [];
+    const products = useSelector(getProducts) || [];
     const consumed = useSelector(state => state.consumed) || 0;
-    const normCalories = useSelector(state => state.calories) || 0;
-    const left = normCalories > 0 ? normCalories - consumed : 0;
-    const norm_persent = normCalories > 0 ? (consumed * 100 / normCalories).toFixed(1) : 0;
+    const dailyCalories = useSelector(getCalories) || 0;
+    const left = dailyCalories > 0 ? dailyCalories - consumed : 0;
+    const norm_persent = dailyCalories > 0 ? (consumed * 100 / dailyCalories).toFixed(1) : 0;
 
   return (
     <Container>
@@ -21,8 +22,8 @@ export default function RightSidebar() {
                     <span>Залишилось</span>
                     <span>
                         { left < 0 && "Ви вжили більше норми"}
-                        { normCalories > 0 && left === 0 && "Ви вжили всю норму калорій"}
-                        { left > 0 || normCalories === 0 && left === 0 && `${left} кКал`}
+                        { dailyCalories > 0 && left === 0 && "Ви вжили всю норму калорій"}
+                        { left > 0 || dailyCalories === 0 && left === 0 && `${left} кКал`}
                     </span>
                 </li>
                 <li>
@@ -31,7 +32,7 @@ export default function RightSidebar() {
                 </li>
                 <li>
                     <span>Добова норма</span>
-                    <span>{normCalories} кКал</span>
+                    <span>{dailyCalories} кКал</span>
                 </li>
                 <li>
                     <span>n% від норми</span>
