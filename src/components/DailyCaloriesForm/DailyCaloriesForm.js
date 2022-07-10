@@ -40,7 +40,7 @@ const DailyCaloriesForm = () => {
           <Form>
             <FormWrapper>
               <InputWrapper>
-                <Input name="height" placeholder="Ріст *" />
+                <Input name="height" placeholder="Зріст *" />
                 {touched.height && errors.height && (
                   <ErrorDescr>{errors.height}</ErrorDescr>
                 )}
@@ -119,7 +119,7 @@ const DailyCaloriesForm = () => {
               </InputWrapper>
             </FormWrapper>
             <SubmitButton type="submit" disabled={!isValid && !dirty}>
-              Start losing weight
+              Почати худнути
             </SubmitButton>
           </Form>
         )}
