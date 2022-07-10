@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="final_project_react_node_frontend">
       <Provider store={store}>
         {/* <PersistGate loading={null} persistor={persistor}> */}
         <App />

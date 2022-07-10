@@ -19,7 +19,7 @@ const validationSchema = yup.object().shape({
     .max(500, 'Вага має бути до 500 кг')
     .typeError('Вага має бути числом')
     .required(`Обов'язкове поле`),
-  desiredWeight: yup
+  goalWeight: yup
     .number()
     .min(20, 'Вага має бути від 20 кг')
     .max(500, 'Вага має бути до 500 кг')
@@ -27,7 +27,7 @@ const validationSchema = yup.object().shape({
     .required(`Обов'язкове поле`)
     .when('currentWeight', (currentWeight, schema) => {
       return schema.test({
-        test: desiredWeight => !!currentWeight && desiredWeight < currentWeight,
+        test: goalWeight => !!currentWeight && goalWeight < currentWeight,
         message: 'Бажана вага має бути меншою за поточний',
       });
     }),
