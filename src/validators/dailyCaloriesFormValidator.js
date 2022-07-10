@@ -3,8 +3,8 @@ import * as yup from 'yup';
 const validationSchema = yup.object().shape({
   height: yup
     .number()
-    .min(110, 'Ріст має бути від 110 см')
-    .max(300, 'Ріст має бути до 300 см')
+    .min(100, 'Ріст має бути від 100 см')
+    .max(250, 'Ріст має бути до 250 см')
     .typeError('Ріст має бути числом')
     .required('Обовязкове поле'),
   age: yup
@@ -24,7 +24,14 @@ const validationSchema = yup.object().shape({
     .min(20, 'Вага має бути від 20 кг')
     .max(500, 'Вага має бути до 500 кг')
     .typeError('Вага має бути числом')
-    .required('Обовязкове поле'),
+    .required('Обовязкове поле')
+    .when('currentWeight', (currentWeight, schema) => {
+      return schema.test({
+        test: desiredWeight => !!currentWeight && desiredWeight < currentWeight,
+        message: 'Бажана вага має бути меншою за поточний',
+      });
+    }),
+  bloodType: yup.number().required('Обовязково'),
 });
 
 export default validationSchema;
