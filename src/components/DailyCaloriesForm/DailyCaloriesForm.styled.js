@@ -4,7 +4,7 @@ import * as palette from '../../variables/Variables';
 
 const MainPageContainer = styled.div`
   display: flex;
-  position: relative;
+  /* position: relative; */
   flex-direction: column;
   padding-top: 32px;
   margin-left: 10px;
