@@ -24,7 +24,7 @@ export const LogoImg = styled.div`
   width: 44px;
   height: 46.6px;
   margin-right: 10.3px;
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 `;
@@ -37,7 +37,7 @@ export const LogoText = styled.div`
     width: 105.3px;
     height: 16px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     background-image: url(${logoDesk});
     display: block;
     align-items: center;
@@ -47,7 +47,7 @@ export const LogoText = styled.div`
 `;
 
 export const LogoTextWrap = styled.div`
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     display: block;
     width: 167px;
     margin-right: 20px;

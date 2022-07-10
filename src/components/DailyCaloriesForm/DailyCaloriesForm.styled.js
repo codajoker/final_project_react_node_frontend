@@ -4,11 +4,9 @@ import * as palette from '../../variables/Variables';
 
 const MainPageContainer = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
-  align-items: center;
   padding-top: 32px;
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: auto;
   width: 280px;
 
