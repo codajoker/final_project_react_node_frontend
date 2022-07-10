@@ -1,20 +1,16 @@
 import React from 'react';
+import { HeaderDivider } from '../Header/Header.slyled';
+import {  UserInfoList, UserText,   UserExit } from "./UserNic.styled";
 
-import { UserInfoContainer, UserInfoList, UserText,   UserExit } from "./UserNic.styled";
-import { ReactComponent as VerticalLine } from '../../images/desktop/VerticalLine.svg';
 
 const UserInfo = () => {
    
-
     return (
-        <UserInfoContainer>
+        
             <UserInfoList>
-              <li><UserText>Nic</UserText></li> 
-              
-              <VerticalLine />
-              
-              <li><UserExit>Exit</UserExit></li> 
+              <li><UserText>Імя</UserText></li> 
+              <HeaderDivider />
+              <li><UserExit>Вихід</UserExit></li> 
             </UserInfoList>
-        </UserInfoContainer>
-    );
+          );
 }
