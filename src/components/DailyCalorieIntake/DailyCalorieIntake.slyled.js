@@ -42,7 +42,7 @@ export const HeadProducts = styled.h3`
 export const ProductsList = styled.ol`
   font-size: 14px;
   list-style: auto;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 30px;
   color: ${palette.SECONDARY_COLOR};
   letter-spacing: 0.04em;
   display: flex;
@@ -60,6 +60,15 @@ export const ProductsList = styled.ol`
   ::-webkit-scrollbar-thumb {
     background: ${palette.INTAKE_DAILY_COLOR}; 
   }
+  + ${Button} {
+    margin: 0 auto;
+    display: block;
+  }
+`;
+
+export const EmptyProducts = styled.div`
+  color: ${palette.SECONDARY_COLOR};
+  margin: 20px 0 40px;
   + ${Button} {
     margin: 0 auto;
     display: block;
