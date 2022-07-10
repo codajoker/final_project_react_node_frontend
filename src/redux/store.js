@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authSlice } from './auth/authSlice';
+
 import {
   persistStore,
   persistReducer,
@@ -12,20 +13,24 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
-const persistAuthConfig = {
+import dailyRateReducer from './dailyRate/dailyRateReducer';
+
+const persistConfigAuth = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
 const persistedReducerAuth = persistReducer(
-  persistAuthConfig,
+
+  persistConfigAuth,
   authSlice.reducer
 );
-
 export const store = configureStore({
   reducer: {
     auth: persistedReducerAuth,
+    dailyRate: dailyRateReducer,
+
   },
 
   middleware: getDefaultMiddleware => [
@@ -37,4 +42,5 @@ export const store = configureStore({
   ],
 });
 
-export const persistor = persistStore(store);
+
+export let persistor = persistStore(store);
