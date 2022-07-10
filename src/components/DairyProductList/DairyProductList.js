@@ -7,7 +7,7 @@ export const DairyProductList = ({ products }) => {
     // useEffect який при виборі дати буде з беку брати список продуктів на вибране число в іншому випадку буде підгружати продукти на поточну дату
     return <>
     {/* {isLoading && "...підставити компонент лоадер"} */} 
-    <ProductsList style={products.length > 6 ? {overflowY: scroll} : null}>
+    <ProductsList>
         {products.map( product => <DairyProductListItem  key={product._id.$oid} product={product} /> 
        )}
    </ProductsList>
