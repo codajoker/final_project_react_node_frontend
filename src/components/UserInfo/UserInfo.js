@@ -1,13 +1,12 @@
 import React from 'react';
 import { HeaderDivider } from '../Header/Header.slyled';
-import {  UserInfoList, UserText,   UserExit } from "./UserNic.styled";
+import {  UserInfoList, UserText,   UserExit } from "./UserInfo.styled";
 
 
 const UserInfo = () => {
    
     return (
-        
-            <UserInfoList>
+        <UserInfoList>
               <li><UserText>Імя</UserText></li> 
               <HeaderDivider />
               <li><UserExit>Вихід</UserExit></li> 
