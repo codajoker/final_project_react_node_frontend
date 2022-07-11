@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../Modal/Modal';
 import { Formik, Form } from 'formik';
 import validationSchema from '../../validators/dailyCaloriesFormValidator';
 import {
@@ -29,6 +31,19 @@ const DailyCaloriesForm = () => {
   };
 
   const dispatch = useDispatch();
+  const [modalShow, setModalShow] = useState(false);
+  const handleOpen = () => setModalShow(true);
+  const handleClose = () => setModalShow(false);
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') {
+        setModalShow(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () => window.removeEventListener('keydown', close)
+  }, []);
+
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   const handleSubmit = (values, { resetForm }) => {
@@ -137,9 +152,13 @@ const DailyCaloriesForm = () => {
                 </div>
               </InputWrapper>
             </FormWrapper>
-            <SubmitButton type="submit" disabled={!isValid && !dirty}>
+            <SubmitButton type="submit" disabled={!isValid && !dirty}
+            onClick={handleOpen}
+            >
               Почати худнути
             </SubmitButton>
+            <Modal isOpen={modalShow}
+             onCancel={handleClose}/>
           </Form>
         )}
       </Formik>
