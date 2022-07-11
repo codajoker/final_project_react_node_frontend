@@ -1,27 +1,42 @@
+import { Fragment } from "react";
+import { useSelector } from 'react-redux';
+// import { translate } from '../../helpers/translate';
 import { Container, Head, CalloriesList, ProductsList, EmptyProducts } from './RightSidebar.styled';
+import { getCalories, getProducts } from '../../redux/dailyRate/dailyRateSelectors';
 
 export default function RightSidebar() {
-  const products = ["Молоко", "Копченості", "Вироби з борошна", "Червоне мясо"];
+
+    const date = useSelector(state => state.date) || new Date().toLocaleString().split(',')[0];
+    const products = useSelector(getProducts) || [];
+    const consumed = useSelector(state => state.consumed) || 0;
+    const dailyCalories = useSelector(getCalories) || 0;
+    const left = dailyCalories > 0 ? dailyCalories - consumed : 0;
+    const norm_persent = dailyCalories > 0 ? (consumed * 100 / dailyCalories).toFixed(1) : 0;
+
   return (
     <Container>
         <div>
-            <Head>Підсумки за 06/20/2020</Head>
+            <Head>Всього за {date}</Head>
             <CalloriesList>
                 <li>
                     <span>Залишилось</span>
-                    <span>000 кКал</span>
+                    <span>
+                        { left < 0 && "Ви вжили більше норми"}
+                        { dailyCalories > 0 && left === 0 && "Ви вжили всю норму калорій"}
+                        { left > 0 || dailyCalories === 0 && left === 0 && `${left} кКал`}
+                    </span>
                 </li>
                 <li>
                     <span>Вжито</span>
-                    <span>000 кКал</span>
+                    <span>{consumed} кКал</span>
                 </li>
                 <li>
                     <span>Добова норма</span>
-                    <span>000 кКал</span>
+                    <span>{dailyCalories} кКал</span>
                 </li>
                 <li>
                     <span>n% від норми</span>
-                    <span>000 кКал</span>
+                    <span>{norm_persent} %</span>
                 </li>
             </CalloriesList>
         </div>
@@ -33,7 +48,7 @@ export default function RightSidebar() {
                     {
                         products.map((product, index) => {
                             return (
-                                <span key={index}>{product.toLowerCase()}</span>
+                                <Fragment key={index}>{product}{index !== products.length-1 && ', '}</Fragment>
                             )
                         })
                     }

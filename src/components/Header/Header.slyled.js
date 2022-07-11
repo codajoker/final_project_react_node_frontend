@@ -7,9 +7,6 @@ export const HeaderEl = styled.header`
   padding: 20px;
   position: relative;
   z-index: 1;
-  @media screen and (min-width: 768px) {
-    padding: 20px 32px 16px 32px;
-  }
   @media screen and (min-width: 1280px) {
     padding-top: 80px;
     flex-direction: row;

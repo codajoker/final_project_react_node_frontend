@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { register } from '../../redux/auth/authOperations';
 import {
   Wrapper,
@@ -9,6 +8,7 @@ import {
   Input,
   ButtonWrapper,
   AuthButton,
+  LinkButton,
 } from './RegistrationForm.styled';
 
 export default function RegistrationForm() {
@@ -77,10 +77,9 @@ export default function RegistrationForm() {
           onChange={handlePasswordInputChanges}
         />
         <ButtonWrapper>
-          <NavLink to={'/signin'}>
-            <AuthButton type="submit">Вхід</AuthButton>
-          </NavLink>
           <AuthButton type="submit">Зареєструватися</AuthButton>
+
+          <LinkButton to={'/signin'}>Вхід</LinkButton>
         </ButtonWrapper>
       </Form>
     </Wrapper>

@@ -5,8 +5,8 @@ import { Button } from '../../Button.styled';
 export const CalorieIntake = styled.div`
   color: ${palette.MAIN_COLOR};
   line-height: 1.2;
-  max-width: 560px;
-  margin: 30px;
+  max-width: 420px;
+  margin: 30px auto;
 `;
 
 export const Head = styled.h2`
@@ -42,7 +42,7 @@ export const HeadProducts = styled.h3`
 export const ProductsList = styled.ol`
   font-size: 14px;
   list-style: auto;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 30px;
   color: ${palette.SECONDARY_COLOR};
   letter-spacing: 0.04em;
   display: flex;
@@ -60,8 +60,15 @@ export const ProductsList = styled.ol`
   ::-webkit-scrollbar-thumb {
     background: ${palette.INTAKE_DAILY_COLOR}; 
   }
-  + ${Button} {
-    margin: 0 auto;
-    display: block;
-  }
+`;
+
+export const EmptyProducts = styled.div`
+  color: ${palette.SECONDARY_COLOR};
+  margin: 20px 0 40px;
+`;
+
+export const ButtonStart = styled(Button)`
+  margin: 0 auto;
+  display: block;
+  width: 210px;
 `;

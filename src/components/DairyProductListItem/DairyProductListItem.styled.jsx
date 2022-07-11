@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { LINE_COLOR, TEXT_FONTSIZE, SECONDARY_COLOR, MAIN_COLOR } from "../../variables/Variables"
+import styled from "styled-components";
+import { LINE_COLOR, TEXT_FONTSIZE, MAIN_COLOR, SECONDARY_COLOR } from "../../variables/Variables"
 export const Product = styled.li`
     display: flex;
     align-items: center;
@@ -10,26 +10,32 @@ export const Product = styled.li`
    
     color: ${MAIN_COLOR};
     > button {
-         
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: transparent;
          padding: 0;
          height: 10px;
          width: 10px;
-
+         
          cursor: pointer;
-       
-       > img {
+         
+       > svg {
          display: block;
-          width: 100%;
-          height: 100%;
+         width: 100%;
+         height: 100%;
          object-fit: contain;
          
-         /* fill:${SECONDARY_COLOR}; */ 
-       }
+         > path {
+          
+          stroke: ${SECONDARY_COLOR};;
+         }
+      }
     }
     @media screen and (min-width: 768px) {
         width: 565px;
          & > button {
-           
+            
             height: 12px;
             width: 12px;
          }

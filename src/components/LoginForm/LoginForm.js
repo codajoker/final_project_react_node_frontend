@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { Navigate } from 'react-router-dom';
 import { logIn } from '../../redux/auth/authOperations';
 import {
   Wrapper,
@@ -9,12 +10,14 @@ import {
   Input,
   ButtonWrapper,
   AuthButton,
+  LinkButton,
 } from '../RegistrationForm/RegistrationForm.styled';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const handleEmailInputChanges = ({ target: { value } }) => {
     setEmail(value);
@@ -62,9 +65,10 @@ export default function LoginForm() {
         />
         <ButtonWrapper>
           <AuthButton type="submit">Вхід</AuthButton>
-          <NavLink to={'/registration'}>
-            <AuthButton type="submit">Зареєструватися</AuthButton>
-          </NavLink>
+
+          <LinkButton to={'/registration'}>Зареєструватися </LinkButton>
+
+          {isLoggedIn && <Navigate to="/diary" />}
         </ButtonWrapper>
       </Form>
     </Wrapper>
