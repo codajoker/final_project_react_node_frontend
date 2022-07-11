@@ -13,7 +13,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
-import dailyRateReducer from './dailyRate/dailyRateReducer';
+import dailyRateReducer from './dailyRate/dailyRateSlice';
 
 const persistConfigAuth = {
   key: 'auth',
@@ -22,7 +22,6 @@ const persistConfigAuth = {
 };
 
 const persistedReducerAuth = persistReducer(
-
   persistConfigAuth,
   authSlice.reducer
 );
@@ -30,7 +29,6 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducerAuth,
     dailyRate: dailyRateReducer,
-
   },
 
   middleware: getDefaultMiddleware => [
@@ -41,6 +39,5 @@ export const store = configureStore({
     }),
   ],
 });
-
 
 export let persistor = persistStore(store);

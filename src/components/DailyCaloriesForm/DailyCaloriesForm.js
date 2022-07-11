@@ -16,7 +16,10 @@ import {
   SubmitButton,
 } from './DailyCaloriesForm.styled';
 import { dailyRateOperations } from '../../redux/dailyRate';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DailyCaloriesForm = () => {
   const initialValues = {
@@ -41,6 +44,22 @@ const DailyCaloriesForm = () => {
     return () => window.removeEventListener('keydown', close)
   }, []);
 
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  const handleSubmit = (values, { resetForm }) => {
+    try {
+      if (isLoggedIn) {
+        dispatch(dailyRateOperations.fetchDailyRateAuthorized(values));
+      } else {
+        dispatch(dailyRateOperations.fethDailyRate(values));
+      }
+    } catch (error) {
+      toast.error('Помилка серверу, спробуйте пізніше!');
+    } finally {
+      resetForm();
+    }
+  };
+
   return (
     <MainPageContainer>
       <FormTitle>Порахуй свою денну норму калорій прямо зараз</FormTitle>
@@ -48,10 +67,7 @@ const DailyCaloriesForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          dispatch(dailyRateOperations.fethDailyRate(values));
-          resetForm();
-        }}
+        onSubmit={handleSubmit}
         validateOnBlur
       >
         {({ errors, touched, isValid, dirty }) => (
