@@ -1,17 +1,11 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000';
-
 export const fetchDailyRate = async userData => {
-  try {
-    const { data } = await axios.post('/calories', userData);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.post('/calories', userData);
+  return data;
 };
 
-export const fetchDailyRateAuthorized = async () => {
-  const { data } = axios.post('/users/calories');
+export const fetchDailyRateAuthorized = async userData => {
+  const { data } = axios.post('/users/calories', userData);
   return data;
 };
