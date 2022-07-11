@@ -15,7 +15,7 @@ export const Container = styled.aside`
   @media (min-width: 481px) {
     padding: 80px 30px;
   }
-  @media (min-width: 481px) and (max-width: 768px) {
+  @media (min-width: 481px) and (max-width: 1279px) {
     background-image: url(${bgImageTablet});
     background-position: bottom right;
     display: flex;
@@ -25,7 +25,7 @@ export const Container = styled.aside`
       flex: 0 0 45%;
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: column;
     max-width: 520px;
     width: 35%;
@@ -49,10 +49,10 @@ export const Head = styled.h3`
 export const CalloriesList = styled.ul`
   color: ${palette.SECONDARY_COLOR}; 
   margin-bottom: 30px;
-  @media (min-width: 481px) and (max-width: 7689px) {
+  @media (min-width: 481px) and (max-width: 1279px) {
     margin-bottom: 0;
   } 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 50px;
   } 
   li{
@@ -72,10 +72,6 @@ export const ProductsList = styled.div`
   line-height: 1.4;
   :first-letter{
     text-transform: uppercase;
-  }
-  > span:not(:last-child):after{
-    margin-right: 5px;
-    content: ","
   }
 `;
 
