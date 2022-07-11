@@ -1,20 +1,23 @@
 import React from 'react';
+import { HeaderDivider } from '../Header/Header.slyled';
+import {  UserInfoList, UserText,   UserExit } from "./UserInfo.styled";
+import { authOperations } from"../../redux/auth/authOperations";
+import { useDispatch } from 'react-redux';
+import { name } from '../../redux/auth/authSlice';
+//import { Link, Navigate } from 'react-router-dom';
 
-import { UserInfoContainer, UserInfoList, UserText,   UserExit } from "./UserNic.styled";
-import { ReactComponent as VerticalLine } from '../../images/desktop/VerticalLine.svg';
 
 const UserInfo = () => {
-   
+
+const dispatch = useDispatch(); 
 
     return (
-        <UserInfoContainer>
-            <UserInfoList>
-              <li><UserText>Nic</UserText></li> 
-              
-              <VerticalLine />
-              
-              <li><UserExit>Exit</UserExit></li> 
+        <UserInfoList>
+              <li><UserText>{name}І'мя</UserText></li> 
+              <HeaderDivider />
+              <li><UserExit onClick={() => dispatch(authOperations.logOut())}>Вихід</UserExit></li> 
             </UserInfoList>
-        </UserInfoContainer>
-    );
+          );
 }
+
+export default UserInfo;
