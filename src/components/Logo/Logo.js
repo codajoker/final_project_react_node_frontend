@@ -1,12 +1,16 @@
+import { useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 import {
-  LogoWrap,
   LogoLink,
   LogoImg,
   LogoText,
+  LogoWrap,
   LogoTextWrap,
+  LogoTextLogged,
 } from './Logo.styled';
 
 export default function Logo() {
+  const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <LogoWrap>
       <LogoLink to="/diary">
@@ -14,7 +18,7 @@ export default function Logo() {
           <LogoImg />
         </div>
         <LogoTextWrap>
-          <LogoText />
+          {isLoggedIn ? <LogoTextLogged /> : <LogoText />}
         </LogoTextWrap>
       </LogoLink>
     </LogoWrap>
