@@ -1,15 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as usersAPI from '../../services/users-api';
-import { toast } from 'react-toastify';
+import {
+  registerSuccessToast,
+  alreadyHaveEmailToast,
+  successfulLoginToast,
+  errorLoginToast,
+} from '../../components/RegistrationForm/authToasts';
 
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
       const response = await usersAPI.registerUser(credentials);
+      registerSuccessToast();
       return response;
     } catch (error) {
-      toast.error('We already have a user with such email.');
+      alreadyHaveEmailToast();
       return rejectWithValue(error.message);
     }
   }
@@ -20,9 +26,10 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const response = await usersAPI.logInUser(credentials);
+      successfulLoginToast();
       return response;
     } catch (error) {
-      toast.error('Email or password is incorrect.');
+      errorLoginToast();
       return rejectWithValue(error.message);
     }
   }

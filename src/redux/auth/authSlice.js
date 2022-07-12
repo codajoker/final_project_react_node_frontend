@@ -6,12 +6,18 @@ const initialState = {
   token: null,
   isRefreshing: false,
   isLoggedIn: false,
+  isRegister: false,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [register.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.isRegister = true;
+    },
+
     [logIn.fulfilled](state, action) {
       state.user = {
         name: action.payload.data.name,
@@ -26,7 +32,7 @@ export const authSlice = createSlice({
     },
 
     [register.rejected](state) {
-      state.isLoggedIn = false;
+      state.isRegister = false;
     },
 
     [logOut.fulfilled](state) {
