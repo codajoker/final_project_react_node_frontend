@@ -21,12 +21,8 @@ export const Title = styled.h1`
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-bottom: 72px;
+  margin-bottom: 60px;
   color: ${palette.BUTTON_COLOR};
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 60px;
-  }
 `;
 
 export const Form = styled.form`
@@ -35,9 +31,15 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
+export const Label = styled.label`
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+`;
+
 export const Input = styled.input`
   border-bottom: 1px solid #e0e0e0;
-  width: 236px;
+  width: 280px;
   height: 40px;
   padding-bottom: 20px;
   font-family: 'Verdana';
@@ -61,10 +63,6 @@ export const Input = styled.input`
     color: ${palette.MAIN_COLOR};
   }
 
-  &:not(:last-child) {
-    margin-bottom: 40px;
-  }
-
   @media screen and (min-width: 768px) {
     width: 240px;
   }
@@ -76,7 +74,7 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 40px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -123,4 +121,16 @@ export const LinkButton = styled(NavLink)`
     pointer-events: none;
     opacity: 0.7;
   }
+`;
+
+export const Text = styled.span`
+  color: #e10000;
+  font-size: 0.77em; // ${palette.TEXT_FONTSIZE};
+  margin-top: 5px;
+  position: relative;
+`;
+
+export const Stub = styled.div`
+  height: 20px;
+  position: relative;
 `;
