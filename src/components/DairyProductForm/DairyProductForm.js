@@ -5,38 +5,49 @@ import {
   FormBtnMobile,
   FormBtn,
   FormLabel,
-  FormInputProduct,
   FormInputWeight,
+  FormInputProduct,
 } from './DairyProductForm.styled';
+import { getProductByQuery } from '../../services/productsApi';
 
-export default function DiaryProductForm({ onSubmit }) {
-  const [product, setProduct] = useState('');
+const loadOptions = async (inputValue, callback) => {
+  const { products } = await getProductByQuery(inputValue);
+  callback(
+    products.map(product => {
+      const title = product.title.ua;
+      return { label: title, value: title };
+    })
+  );
+};
+
+export default function DiaryProductForm({ onSubmit, className }) {
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [weight, setWeight] = useState('');
+
   const handleSubmit = event => {
     event.preventDefault();
     onSubmit({
-      product: product,
+      product: selectedProduct,
       weight: weight,
     });
+
     reset();
   };
 
   const reset = () => {
-    setProduct('');
+    setSelectedProduct('');
     setWeight('');
   };
+
   return (
     <Fragment>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit} className={className}>
         <FormLabel>
           <FormInputProduct
-            type="text"
-            name="product"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Введіть назву продукту"
-            required
-            value={product}
-            onChange={e => setProduct(e.target.value)}
+            classNamePrefix={'react-select'}
+            defaultValue={selectedProduct}
+            onChange={option => setSelectedProduct(option.value)}
+            loadOptions={loadOptions}
             placeholder="Введіть назву продукту"
           />
         </FormLabel>

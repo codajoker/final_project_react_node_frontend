@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
 
+import AsyncSelect from 'react-select/async';
+
 export const StyledForm = styled.form`
   display: flex;
   margin-top: 80px;
@@ -44,10 +46,54 @@ export const FormInputBase = styled.input`
   }
 `;
 
-export const FormInputProduct = styled(FormInputBase)`
+export const FormInputProduct = styled(AsyncSelect)`
+  font-size: ${palette.TEXT_FONTSIZE};
+  font-family: 'Verdana';
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: ${palette.MAIN_COLOR};
+
   @media screen and (min-width: 768px) {
+    margin-right: 24px;
     width: 240px;
-    margin-right: 22px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 50px;
+  }
+
+  .react-select__control {
+    border: none;
+    border-bottom: 1px solid ${palette.LINE_COLOR};
+    border-radius: 0;
+    &:hover {
+      border-bottom-color: ${palette.MAIN_COLOR};
+    }
+    &--is-focused {
+      outline: none;
+      border-bottom-color: ${palette.MAIN_COLOR};
+      box-shadow: none;
+    }
+  }
+  .react-select__value-container {
+    margin: 0;
+    padding: 8px 0;
+
+    @media screen and (min-width: 768px) {
+      padding-bottom: 20px;
+    }
+  }
+
+  .react-select__input-container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .react-select__placeholder {
+    color: ${palette.SECONDARY_COLOR};
+  }
+  .react-select__indicators {
+    display: none;
   }
 `;
 
@@ -64,7 +110,7 @@ export const FormInputWeight = styled(FormInputBase)`
   }
 `;
 
-const FormBtnBase = styled.button`
+export const FormBtnBase = styled.button`
   font-family: 'Verdana';
   display: inline-block;
   background: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};

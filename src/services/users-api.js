@@ -18,7 +18,7 @@ export const registerUser = async body => {
 
 export const logInUser = async body => {
   const { data } = await axios.post('users/login', body);
-  token.set(data.token);
+  token.set(data.data.token);
   return data;
 };
 
