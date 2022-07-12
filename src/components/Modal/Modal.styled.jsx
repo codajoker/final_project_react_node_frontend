@@ -37,7 +37,10 @@ export const Content = styled.div`
   padding-right: 20px;
   padding-left: 20px;
   @media screen and (min-width: 768px) {
-    padding: 72px 74px;
+    padding: 72px 165px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 64px;
   }
 `
 export const MobileBloc = styled.div`
@@ -71,50 +74,3 @@ margin-top: 12px;
 margin-left: 15px;
 cursor: pointer;
 `
-
-// export const Title = styled.h2`
-//   font-weight: 700;
-//   font-size: 18px;
-//   line-height: 1.44;
-//   color: #212121;
-//   @media screen and (min-width: 768px) {
-//     font-size: 26px;
-//     line-height: 1.23;
-//     text-align: center;
-// }
-// `
-// export const Norm = styled.p`
-//   font-weight: 700;
-//   font-size: 48px;
-//   line-height: 1.2;
-//   text-align: center;
-//   letter-spacing: 0.04em;
-//   color: #264061;
-//   margin-top: 40px;
-// `
-// export const TxtCcal = styled.span`
-// font-size: 16px;
-// `
-
-// export const SecondTitle = styled.h3`
-//   font-weight: 700;
-//   font-size: 14px;
-//   margin-top: 20px;
-//   line-height: 1.2;
-//   letter-spacing: 0.04em;
-//   color: #212121;
-// `
-// export const ProductBloc = styled.div`
-//   margin-top: 35px;
-//   border-top: 1px solid #e0e0e0;
-// `
-// export const List = styled.ul`
-//   list-style: none;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 1.2;
-//   letter-spacing: 0.04em;
-//   color: #9b9faa;
-//   margin-top: 20px;
-//   margin-bottom: 40px;
-// `
