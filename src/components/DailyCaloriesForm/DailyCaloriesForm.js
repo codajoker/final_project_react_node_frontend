@@ -71,7 +71,6 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="age"></label>
                 <Input id="age" name="age" placeholder="Вік *" />
                 {touched.age && errors.age && (
                   <ErrorDescr>{errors.age}</ErrorDescr>
@@ -79,7 +78,6 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="currentWeight"></label>
                 <Input
                   id="currentWeight"
                   name="currentWeight"
@@ -91,7 +89,6 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="goalWeight"></label>
                 <Input
                   id="goalWeight"
                   name="goalWeight"
