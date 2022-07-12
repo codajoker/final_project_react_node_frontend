@@ -110,13 +110,18 @@ const ErrorDescr = styled.p`
 `;
 
 const LabelRadioBoxes = styled.div`
+  margin-bottom: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 1.21;
   color: ${palette.SECONDARY_COLOR};
-  margin-bottom: 10px;
+
+  border-bottom: 1px solid ${palette.LINE_COLOR};
 `;
 const RadioField = styled(Field)`
   appearance: none;

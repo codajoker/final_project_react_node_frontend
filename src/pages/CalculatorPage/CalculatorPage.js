@@ -7,17 +7,17 @@ import { SidebarWrapper, UserInfoContainer } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {
   return (
-    <Fragment>
+    <>
       <Header />
 
-      <UserInfoContainer>{/* <UserInfo /> */}</UserInfoContainer>
+      <UserInfoContainer></UserInfoContainer>
 
       <DailyCaloriesForm />
 
       <SidebarWrapper>
         <RightSidebar />
       </SidebarWrapper>
-    </Fragment>
+    </>
   );
 };
 
