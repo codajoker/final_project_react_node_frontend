@@ -8,8 +8,7 @@ export const Nav = styled.nav`
   align-items: center;
   @media screen and (min-width: 1280px) {
     width: 268px;
-    height: 32px;
-    align-items: center;
+    height: 26px;
   }
 `;
 

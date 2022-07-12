@@ -6,9 +6,12 @@ export const HeaderEl = styled.header`
   color: ${palette.LINE_COLOR};
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 20px 16px 20px;
   position: relative;
   z-index: 1;
+  @media screen and (min-width: 1280px) {
+    padding: 32px 20px 16px 32px;
+  }
   @media screen and (min-width: 1280px) {
     border: none;
     padding-top: 80px;

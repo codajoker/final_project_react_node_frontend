@@ -11,9 +11,10 @@ import {
 
 export default function Logo() {
   const isLoggedIn = useSelector(getIsLoggedIn);
+
   return (
     <LogoWrap>
-      <LogoLink to="/diary">
+      <LogoLink to={isLoggedIn ? '/diary' : '/'}>
         <div>
           <LogoImg />
         </div>
