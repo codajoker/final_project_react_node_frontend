@@ -6,6 +6,6 @@ export const fetchDailyRate = async userData => {
 };
 
 export const fetchDailyRateAuthorized = async userData => {
-  const { data } = axios.post('/users/calories', userData);
+  const { data } = await axios.post('/users/calories', userData);
   return data;
 };

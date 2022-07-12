@@ -10,7 +10,7 @@ export const fetchDailyRateAuthorized = createAsyncThunk(
       return data;
     } catch (error) {
       toast.error('Помилка серверу, спробуйте пізніше');
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );

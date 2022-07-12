@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const DailyCaloriesForm = ({ onOpen, getData }) => {
   const initialValues = {
@@ -29,6 +30,7 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isLoggedIn = useSelector(getIsLoggedIn);
 
@@ -36,6 +38,7 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
     try {
       if (isLoggedIn) {
         dispatch(dailyRateOperations.fetchDailyRateAuthorized(values));
+        navigate('/diary');
       } else {
         getData(values);
         onOpen();
