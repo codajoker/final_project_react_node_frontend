@@ -23,7 +23,7 @@ export const logInUser = async body => {
 };
 
 export const logOutUser = async () => {
-  const { data } = await axios.post('/users/logout');
+  const { data } = await axios.get('/users/logout');
   token.unset();
   return data;
 };

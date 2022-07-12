@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import { fetchDailyRate } from '../../services/dailyRateApi';
 import { toast } from 'react-toastify';
-import UserInfo from '../../components/UserInfo/UserInfo';
+
 
 const PreviewPage = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -38,7 +38,7 @@ const PreviewPage = () => {
   return (
     <Fragment>
       <Header />
-      <UserInfo />
+      
       <Main>
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
         <BgBoxTablet />
