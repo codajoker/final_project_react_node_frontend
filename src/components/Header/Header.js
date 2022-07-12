@@ -15,7 +15,6 @@ export default function Header() {
   );
   const isLoggedIn = useSelector(getIsLoggedIn);
 
-  console.log(isLoggedIn);
   return (
     <HeaderEl>
       <Logo />
