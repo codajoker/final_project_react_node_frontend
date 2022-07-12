@@ -1,6 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import Modal from '../Modal/Modal';
 import { Formik, Form } from 'formik';
 import validationSchema from '../../validators/dailyCaloriesFormValidator';
 import {
@@ -20,8 +18,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
-const DailyCaloriesForm = () => {
+const DailyCaloriesForm = ({ onOpen, getData }) => {
   const initialValues = {
     height: '',
     age: '',
@@ -31,18 +30,7 @@ const DailyCaloriesForm = () => {
   };
 
   const dispatch = useDispatch();
-  const [modalShow, setModalShow] = useState(false);
-  const handleOpen = () => setModalShow(true);
-  const handleClose = () => setModalShow(false);
-  useEffect(() => {
-    const close = (e) => {
-      if (e.key === 'Escape') {
-        setModalShow(false)
-      }
-    }
-    window.addEventListener('keydown', close)
-    return () => window.removeEventListener('keydown', close)
-  }, []);
+  const navigate = useNavigate();
 
   const isLoggedIn = useSelector(getIsLoggedIn);
 
@@ -50,8 +38,10 @@ const DailyCaloriesForm = () => {
     try {
       if (isLoggedIn) {
         dispatch(dailyRateOperations.fetchDailyRateAuthorized(values));
+        navigate('/diary');
       } else {
-        dispatch(dailyRateOperations.fethDailyRate(values));
+        getData(values);
+        onOpen();
       }
     } catch (error) {
       toast.error('Помилка серверу, спробуйте пізніше!');
@@ -152,13 +142,9 @@ const DailyCaloriesForm = () => {
                 </div>
               </InputWrapper>
             </FormWrapper>
-            <SubmitButton type="submit" disabled={!isValid && !dirty}
-            onClick={handleOpen}
-            >
+            <SubmitButton type="submit" disabled={!isValid || !dirty}>
               Почати худнути
             </SubmitButton>
-            <Modal isOpen={modalShow}
-             onCancel={handleClose}/>
           </Form>
         )}
       </Formik>

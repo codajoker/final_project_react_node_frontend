@@ -47,6 +47,7 @@ const FormWrapper = styled.div`
 `;
 
 const InputWrapper = styled.div`
+  height: 40px;
   @media screen and (max-width: 767px) {
     margin-bottom: 32px;
   }
@@ -77,7 +78,7 @@ const InputWrapper = styled.div`
 const Input = styled(Field)`
   padding: 0;
   width: 240px;
-  height: 35px;
+  height: 40px;
   border: none;
   border-bottom: 1px solid ${palette.LINE_COLOR};
 
