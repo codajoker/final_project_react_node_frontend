@@ -47,6 +47,7 @@ const FormWrapper = styled.div`
 `;
 
 const InputWrapper = styled.div`
+  height: 40px;
   @media screen and (max-width: 767px) {
     margin-bottom: 32px;
   }
@@ -77,7 +78,7 @@ const InputWrapper = styled.div`
 const Input = styled(Field)`
   padding: 0;
   width: 240px;
-  height: 35px;
+  height: 40px;
   border: none;
   border-bottom: 1px solid ${palette.LINE_COLOR};
 
@@ -109,13 +110,18 @@ const ErrorDescr = styled.p`
 `;
 
 const LabelRadioBoxes = styled.div`
+  margin-bottom: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 1.21;
   color: ${palette.SECONDARY_COLOR};
-  margin-bottom: 10px;
+
+  border-bottom: 1px solid ${palette.LINE_COLOR};
 `;
 const RadioField = styled(Field)`
   appearance: none;

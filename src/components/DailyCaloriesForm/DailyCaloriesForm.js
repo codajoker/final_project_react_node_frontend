@@ -14,9 +14,13 @@ import {
   SubmitButton,
 } from './DailyCaloriesForm.styled';
 import { dailyRateOperations } from '../../redux/dailyRate';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
-const DailyCaloriesForm = () => {
+const DailyCaloriesForm = ({ onOpen, getData }) => {
   const initialValues = {
     height: '',
     age: '',
@@ -26,6 +30,25 @@ const DailyCaloriesForm = () => {
   };
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isLoggedIn = useSelector(getIsLoggedIn);
+
+  const handleSubmit = (values, { resetForm }) => {
+    try {
+      if (isLoggedIn) {
+        dispatch(dailyRateOperations.fetchDailyRateAuthorized(values));
+        navigate('/diary');
+      } else {
+        getData(values);
+        onOpen();
+      }
+    } catch (error) {
+      toast.error('Помилка серверу, спробуйте пізніше!');
+    } finally {
+      resetForm();
+    }
+  };
 
   return (
     <MainPageContainer>
@@ -34,10 +57,7 @@ const DailyCaloriesForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm }) => {
-          dispatch(dailyRateOperations.fethDailyRate(values));
-          resetForm();
-        }}
+        onSubmit={handleSubmit}
         validateOnBlur
       >
         {({ errors, touched, isValid, dirty }) => (
@@ -51,7 +71,6 @@ const DailyCaloriesForm = () => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="age"></label>
                 <Input id="age" name="age" placeholder="Вік *" />
                 {touched.age && errors.age && (
                   <ErrorDescr>{errors.age}</ErrorDescr>
@@ -59,7 +78,6 @@ const DailyCaloriesForm = () => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="currentWeight"></label>
                 <Input
                   id="currentWeight"
                   name="currentWeight"
@@ -71,7 +89,6 @@ const DailyCaloriesForm = () => {
               </InputWrapper>
 
               <InputWrapper>
-                <label htmlFor="goalWeight"></label>
                 <Input
                   id="goalWeight"
                   name="goalWeight"
@@ -122,7 +139,7 @@ const DailyCaloriesForm = () => {
                 </div>
               </InputWrapper>
             </FormWrapper>
-            <SubmitButton type="submit" disabled={!isValid && !dirty}>
+            <SubmitButton type="submit" disabled={!isValid || !dirty}>
               Почати худнути
             </SubmitButton>
           </Form>

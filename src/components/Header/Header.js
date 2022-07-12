@@ -1,23 +1,33 @@
-import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+// import { useSelector } from 'react-redux';
+// import { useState, useCallback } from 'react';
+// import { HamburgerCollapse } from 'react-animated-burgers';
+// import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 import Navigation from '../Navigation/Navigation';
+import { HeaderEl, HeaderDivider } from './Header.styled';
 import Logo from '../Logo/Logo';
-import { HeaderEl, HeaderWrap, HeaderDivider } from './Header.slyled';
-import { LogoTextWrap } from '../Logo/Logo.styled';
-// import MobileMenu from '../MobileMenu/MobileMenu';
-export default function Header() {
-  const isLoggedIn = useSelector(getIsLoggedIn);
-  console.log(isLoggedIn);
-  return (
-    <HeaderWrap>
-      <HeaderEl>
-        <LogoTextWrap>
-          <Logo />
-        </LogoTextWrap>
-        <HeaderDivider />
 
-        {isLoggedIn ? <button>Меню</button> : <Navigation />}
-      </HeaderEl>
-    </HeaderWrap>
+export default function Header() {
+  // const [isActive, setIsActive] = useState(false);
+
+  // const toggleButton = useCallback(
+  //   () => setIsActive(prevState => !prevState),
+  //   []
+  // );
+  // const isLoggedIn = useSelector(getIsLoggedIn);
+
+  return (
+    <HeaderEl>
+      <Logo />
+      <HeaderDivider />
+      {/* <BurgerWrap>
+        <HamburgerCollapse
+          buttonWidth={18}
+          buttonColor="transparent"
+          barColor="#212121"
+          {...{ isActive, toggleButton }}
+        />
+      </BurgerWrap> */}
+      <Navigation />
+    </HeaderEl>
   );
 }

@@ -1,5 +1,10 @@
 import styled from 'styled-components';
+import { FormBtnBase } from '../../components/DairyProductForm/DairyProductForm.styled';
 import * as palette from '../../variables/Variables';
+
+import Datetime from 'react-datetime';
+
+import 'react-datetime/css/react-datetime.css';
 
 export const CalendarWrap = styled.div`
   display: flex;
@@ -9,6 +14,40 @@ export const CalendarWrap = styled.div`
   @media screen and (min-width: 768px) {
     width: 219px;
     height: 38px;
+  }
+`;
+
+export const PageWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 85px);
+  position: relative;
+`;
+export const SidebarWrap = styled.div`
+  margin-top: auto;
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 0;
+  }
+`;
+
+export const Calendar = styled(Datetime)`
+  .rdtPicker {
+    width: 100px;
+    left: -105px;
+    top: 30px;
+  }
+
+  .rdtPicker td.rdtToday:before {
+    border-bottom: 7px solid ${palette.BUTTON_COLOR};
+  }
+  .rdtPicker td.rdtActive,
+  .rdtPicker td.rdtActive:hover {
+    background-color: ${palette.BUTTON_COLOR};
+    text-shadow: 0 -1px 0 ${palette.BUTTON_COLOR};
+  }
+  @media screen and (min-width: 768px) {
+    width: 219px;
   }
 `;
 
@@ -26,7 +65,7 @@ export const CalendarTitle = styled.h1`
     font-size: 34px;
     line-height: 41px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 34px;
     line-height: 41px;
   }
@@ -38,4 +77,21 @@ export const ListWrap = styled.div`
   @media screen and (min-width: 768px) {
     padding: 60px 0 55px 0;
   }
+`;
+
+export const AddBtnMobile = styled(FormBtnBase)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 0;
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
 `;

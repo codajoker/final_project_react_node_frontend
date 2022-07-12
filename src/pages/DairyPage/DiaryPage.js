@@ -1,194 +1,122 @@
 import moment from 'moment';
 import { Fragment, useState } from 'react';
-import Datetime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
+import { useDispatch } from 'react-redux';
 import { IconContext } from 'react-icons';
+import { BsPlusLg } from 'react-icons/bs';
 import { RiCalendar2Line } from 'react-icons/ri';
 import { Container } from '../../Container.styled';
-import { CalendarWrap, CalendarTitle, ListWrap } from './DiaryPage.styled';
+import {
+  CalendarWrap,
+  CalendarTitle,
+  ListWrap,
+  AddBtnMobile,
+  Calendar,
+  PageWrap,
+  SidebarWrap,
+} from './DiaryPage.styled';
 import DiaryProductForm from '../../components/DairyProductForm/DairyProductForm';
-import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
+// import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
-
+import { addProduct } from '../../redux/products/productsOperations';
 import Header from '../../components/Header/Header';
+import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 export default function DiaryPage() {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
-
-  const products = [
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff553b',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Яйцо куриное (желток сухой)',
-        ua: 'Яйце куряче (жовток сухий)',
-      },
-      calories: 623,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff554d',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Горох маш Ярмарка Платинум',
-        ua: 'Горох маш Ярмарка Платинум',
-      },
-      calories: 312,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff555c',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Гречневая крупа (ядрица) зелёная',
-        ua: 'Гречана крупа (ядриця) зелена',
-      },
-      calories: 296,
-      groupBloodNotAllowed: [null, true, false, true, true],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff553a',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Яйцо куриное (вареное всмятку)',
-        ua: 'Яйце куряче (варене всмятку)',
-      },
-      calories: 159,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff5530',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Омлет с сыром',
-        ua: 'Омлет із сиром',
-      },
-      calories: 342,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff5539',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Яйцо куриное (вареное вкрутую)',
-        ua: 'Яйце куряче (варене круто)',
-      },
-      calories: 160,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff552c',
-      },
-      categories: ['яйца'],
-      weight: 100,
-      title: {
-        ru: 'Меланж яичный',
-        ua: 'Меланж яєчний',
-      },
-      calories: 157,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff5547',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Булгур',
-        ua: 'Булгур',
-      },
-      calories: 342,
-      groupBloodNotAllowed: [null, true, false, false, false],
-      __v: 0,
-    },
-    {
-      _id: {
-        $oid: '5d51694802b2373622ff5565',
-      },
-      categories: ['зерновые'],
-      weight: 100,
-      title: {
-        ru: 'Гречневые хлопья Myllyn Paras для каши',
-        ua: 'Гречані пластівці Myllyn Paras для каші',
-      },
-      calories: 340,
-      groupBloodNotAllowed: [null, true, false, true, true],
-      __v: 0,
-    },
-  ];
+  const [mobileAddSelected, setMobileAddSelected] = useState(false);
+  const dispatch = useDispatch();
+  const today = moment();
+  const disableFutureDt = current => {
+    return current.isBefore(today);
+  };
   const formatedDate = moment(date).format('DD.MM.yyyy');
+
+  const closeDropdown = () => {
+    setOpen(false);
+  };
+  const ref = useDetectClickOutside({ onTriggered: closeDropdown });
+  const formSubmitHandler = data => {
+    const { product, weight } = data;
+    // const addedProduct = productList.find(
+    //   product => product.toLowerCase() === product.toLowerCase()
+    // );
+    // if (addedProduct) {
+    //   alert(`${product} is already in contacts.`);
+    //   return;
+    // }
+    dispatch(
+      addProduct({
+        diary_day: formatedDate,
+        meal: { title: product, weight_g: parseInt(weight) },
+      })
+    );
+    setMobileAddSelected(false);
+    addProduct(data);
+  };
 
   return (
     <Fragment>
       <Header />
-      <Container>
-        <CalendarWrap>
-          <CalendarTitle>{formatedDate}</CalendarTitle>
-          <Datetime
-            open={open}
-            value={date}
-            renderInput={() => (
-              <IconContext.Provider
-                value={{
-                  style: {
-                    color: '#9B9FAA',
-                    width: '18px',
-                    height: '20px',
-                    verticalAlign: 'middle',
-                  },
+      <PageWrap>
+        <MobileSidebar onGoBack={() => setMobileAddSelected(false)} />
+        <Container>
+          <CalendarWrap>
+            <CalendarTitle>{formatedDate}</CalendarTitle>
+            <div ref={ref}>
+              <Calendar
+                open={open}
+                value={date}
+                isValidDate={disableFutureDt}
+                renderInput={() => (
+                  <IconContext.Provider
+                    value={{
+                      style: {
+                        color: '#9B9FAA',
+                        width: '18px',
+                        height: '20px',
+                        verticalAlign: 'middle',
+                        cursor: 'pointer',
+                      },
+                    }}
+                  >
+                    <RiCalendar2Line
+                      onClick={() => setOpen(!open)}
+                      color="#9B9FAA"
+                    />
+                  </IconContext.Provider>
+                )}
+                timeFormat={false}
+                onChange={momentObj => {
+                  setDate(momentObj.toDate());
+                  setOpen(false);
                 }}
-              >
-                <RiCalendar2Line
-                  onClick={() => setOpen(!open)}
-                  color="#9B9FAA"
-                />
-              </IconContext.Provider>
-            )}
-            timeFormat={false}
-            onChange={momentObj => {
-              setDate(momentObj.toDate());
-              setOpen(false);
-            }}
-          />
-        </CalendarWrap>
-        <div>
-          <DiaryProductForm />
-        </div>
-        <ListWrap>
-          <DairyProductList products={products} />
-        </ListWrap>
-        <div>
+              />
+            </div>
+          </CalendarWrap>
+          <div>
+            <DiaryProductForm
+              onSubmit={formSubmitHandler}
+              className={mobileAddSelected ? '' : 'hideOnMobile'}
+            />
+          </div>
+          {!mobileAddSelected && (
+            <AddBtnMobile
+              className={'showOnMobile'}
+              onClick={() => setMobileAddSelected(true)}
+            >
+              <BsPlusLg size={14} />
+            </AddBtnMobile>
+          )}
+          <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
+            {/* <DairyProductList products={products} /> */}
+          </ListWrap>
+        </Container>
+        <SidebarWrap>
           <RightSidebar />
-        </div>
-      </Container>
+        </SidebarWrap>
+      </PageWrap>
     </Fragment>
   );
 }
