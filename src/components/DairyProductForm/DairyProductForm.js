@@ -21,8 +21,8 @@ const loadOptions = async (inputValue, callback) => {
 };
 
 export default function DiaryProductForm({ onSubmit, className }) {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [weight, setWeight] = useState('');
+  let [selectedProduct, setSelectedProduct] = useState(null);
+  let [weight, setWeight] = useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -65,7 +65,10 @@ export default function DiaryProductForm({ onSubmit, className }) {
         </FormLabel>
         <FormBtnMobile type="submit">Додати</FormBtnMobile>
 
-        <FormBtn type="submit">
+        <FormBtn
+          type="submit"
+          disabled={selectedProduct === null || weight === '' ? true : false}
+        >
           <BsPlusLg size={14} />
         </FormBtn>
       </StyledForm>

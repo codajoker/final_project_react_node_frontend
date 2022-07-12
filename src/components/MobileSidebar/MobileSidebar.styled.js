@@ -9,6 +9,7 @@ export const MobileSidebarWrap = styled.div`
   padding: 4px 20px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -16,8 +17,8 @@ export const MobileSidebarWrap = styled.div`
 
 export const MobileSidebarBtn = styled.button`
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   background-color: transparent;
   border: none;

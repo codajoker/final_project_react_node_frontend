@@ -23,43 +23,22 @@ export const FormLabel = styled.label`
   }
 `;
 
-export const FormInputBase = styled.input`
-  font-size: ${palette.TEXT_FONTSIZE};
-  font-family: 'Verdana';
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  color: ${palette.MAIN_COLOR};
-  width: 100%;
-  padding: 8px 0;
-  border-bottom: 1px solid ${palette.LINE_COLOR};
-  outline: none;
-  transition: border-color 0.3s;
-  ::placeholder {
-    color: ${palette.SECONDARY_COLOR};
-  }
-  &:focus {
-    border-bottom-color: ${palette.MAIN_COLOR};
-  }
-  @media screen and (min-width: 768px) {
-    padding-bottom: 20px;
-  }
-`;
-
 export const FormInputProduct = styled(AsyncSelect)`
   font-size: ${palette.TEXT_FONTSIZE};
   font-family: 'Verdana';
   font-weight: 700;
   letter-spacing: 0.04em;
   color: ${palette.MAIN_COLOR};
+  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
-    margin-right: 24px;
+    margin-right: 22px;
+    margin-bottom: 0;
     width: 240px;
   }
 
   @media screen and (min-width: 1280px) {
-    margin-right: 50px;
+    margin-right: 48px;
   }
 
   .react-select__control {
@@ -97,15 +76,33 @@ export const FormInputProduct = styled(AsyncSelect)`
   }
 `;
 
-export const FormInputWeight = styled(FormInputBase)`
-  margin-bottom: 32px;
+export const FormInputWeight = styled.input`
+  margin-bottom: 60px;
+  font-size: ${palette.TEXT_FONTSIZE};
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: ${palette.MAIN_COLOR};
+  width: 100%;
+  padding: 8px 0;
+  border-bottom: 1px solid ${palette.LINE_COLOR};
+  outline: none;
+  transition: border-color 0.3s;
+  ::placeholder {
+    color: ${palette.SECONDARY_COLOR};
+  }
+  &:focus {
+    border-bottom-color: ${palette.MAIN_COLOR};
+  }
   @media screen and (min-width: 768px) {
     width: 106px;
     margin-bottom: 0;
+    padding-bottom: 20px;
     text-align: end;
     margin-right: 87px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 60px;
   }
 `;
