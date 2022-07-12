@@ -7,6 +7,7 @@ import Modal from '../../components/Modal/Modal';
 import { fetchDailyRate } from '../../services/dailyRateApi';
 import { toast } from 'react-toastify';
 
+
 const PreviewPage = () => {
   const [modalShow, setModalShow] = useState(false);
   const [dailyRate, setDailyRate] = useState(null);
@@ -37,6 +38,7 @@ const PreviewPage = () => {
   return (
     <Fragment>
       <Header />
+      
       <Main>
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
         <BgBoxTablet />
