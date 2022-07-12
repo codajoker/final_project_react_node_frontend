@@ -6,7 +6,6 @@ export const CalorieIntake = styled.div`
   color: ${palette.MAIN_COLOR};
   line-height: 1.2;
   max-width: 420px;
-  margin: 30px auto;
 `;
 
 export const Head = styled.h2`
@@ -14,7 +13,7 @@ export const Head = styled.h2`
   margin-bottom: 20px;
   text-align: center;
   color: ${palette.MAIN_COLOR};
-  @media screen and (min-width: 481px) {
+  @media screen and (min-width: 768px) {
     font-size: ${palette.SUBTITLE_FONTSIZE_DESC}
   }
 `;
@@ -34,9 +33,13 @@ export const DailyNormValue = styled.span`
 
 export const HeadProducts = styled.h3`
   font-size: 14px;
-  padding-top: 15px;
+  padding-top: 12px;
   border-top: 1px solid ${palette.LINE_COLOR};
   letter-spacing: 0.04em;
+  @media screen and (min-width: 768px) {
+     text-align: center;
+  }
+ 
 `;
 
 export const ProductsList = styled.ol`
@@ -48,8 +51,9 @@ export const ProductsList = styled.ol`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
   margin-bottom: 40px;
-  max-height: 205px;
+  max-height: 100px;
   overflow: auto;
   ::-webkit-scrollbar {
     width: 6px;
@@ -59,6 +63,9 @@ export const ProductsList = styled.ol`
   }  
   ::-webkit-scrollbar-thumb {
     background: ${palette.INTAKE_DAILY_COLOR}; 
+  }
+  @media screen and (min-width: 768px) {
+     margin-left: 45px;
   }
 `;
 
