@@ -142,7 +142,7 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
                 </div>
               </InputWrapper>
             </FormWrapper>
-            <SubmitButton type="submit" disabled={!isValid && !dirty}>
+            <SubmitButton type="submit" disabled={!isValid || !dirty}>
               Почати худнути
             </SubmitButton>
           </Form>
