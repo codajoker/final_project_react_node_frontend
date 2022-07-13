@@ -116,6 +116,7 @@ button,
 input,
 textarea {
   border: none;
+  background-color: transparent;
 }
 
 button:active,
