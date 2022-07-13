@@ -10,6 +10,7 @@ import {
   ErrorDescr,
   LabelRadioBoxes,
   LabelRadioInputs,
+  RadioFieldWrapper,
   RadioField,
   SubmitButton,
 } from './DailyCaloriesForm.styled';
@@ -103,7 +104,7 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
                 <LabelRadioBoxes id="blood-group">
                   Група крові *
                 </LabelRadioBoxes>
-                <div role="group" aria-labelledby="blood-group">
+                <RadioFieldWrapper role="group" aria-labelledby="blood-group">
                   <RadioField
                     type="radio"
                     id="bloodType1"
@@ -136,7 +137,7 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
                     value="4"
                   />
                   <LabelRadioInputs htmlFor="bloodType4">4</LabelRadioInputs>
-                </div>
+                </RadioFieldWrapper>
               </InputWrapper>
             </FormWrapper>
             <SubmitButton type="submit" disabled={!isValid || !dirty}>

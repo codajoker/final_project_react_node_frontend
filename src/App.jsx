@@ -3,7 +3,7 @@ import './App.css';
 import Toast from './components/Toast';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import PublicRoute from './components/PublicRoute/publicRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
 
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));

@@ -21,7 +21,7 @@ export const Container = styled.aside`
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    > div{
+    > div {
       flex: 0 0 45%;
     }
   }
@@ -33,7 +33,7 @@ export const Container = styled.aside`
     top: 0;
     right: 0;
     bottom: 0;
-    padding: 15% 8% 50px 5%;
+    padding: 292px 8% 50px 5%;
     background-image: url(${bgImageDesktop});
     background-position: center right;
   }
@@ -47,30 +47,30 @@ export const Head = styled.h3`
 `;
 
 export const CalloriesList = styled.ul`
-  color: ${palette.SECONDARY_COLOR}; 
+  color: ${palette.SECONDARY_COLOR};
   margin-bottom: 30px;
   @media (min-width: 481px) and (max-width: 1279px) {
     margin-bottom: 0;
-  } 
+  }
   @media screen and (min-width: 1280px) {
     margin-bottom: 50px;
-  } 
-  li{
+  }
+  li {
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 10px;
-    span:last-child{
+    span:last-child {
       white-space: nowrap;
     }
-  }  
+  }
 `;
 
 export const ProductsList = styled.div`
   color: ${palette.SECONDARY_COLOR};
   line-height: 1.4;
-  :first-letter{
+  :first-letter {
     text-transform: uppercase;
   }
 `;

@@ -12,13 +12,13 @@ export const UserInfoContainer = styled.div`
     position: absolute;
     top: 35px;
     right: 104px;
+    z-index: 2;
   }
 
   @media screen and (min-width: 1280px) {
     position: absolute;
-    top: 130px;
-    right: 5px;
-    z-index: 2;
+    top: 124px;
+    right: 18px;
   }
 `;
 
