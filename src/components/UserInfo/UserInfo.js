@@ -1,5 +1,4 @@
 
-
 import { UserInfoList, UserText,   UserExit, VerticalLine } from "./UserInfo.styled";
 import { getUserName } from '../../redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
