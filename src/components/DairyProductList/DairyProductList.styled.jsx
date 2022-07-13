@@ -24,7 +24,7 @@ export const ProductsList = styled.ul`
     overflow-y: scroll;
     height: 240px;
     width: 640px;
-    
+    align-items: flex-start;
     ::-webkit-scrollbar { width: 6px;  }
     ::-webkit-scrollbar-thumb {background:rgb(38, 64, 97); }
     ::-webkit-scrollbar-track { background: ${SIDEBAR_COLOR} }
