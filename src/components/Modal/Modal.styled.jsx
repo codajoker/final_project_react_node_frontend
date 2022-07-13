@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as palette from '../../variables/Variables';
 import { GrClose } from "react-icons/gr";
 import { IoMdReturnLeft } from 'react-icons/io';
 
@@ -11,7 +12,7 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: white;
   z-index: 1200;
   @media screen and (min-width: 768px) {
     background-color: rgba(33, 33, 33, 0.12);
@@ -23,7 +24,7 @@ position: relative;
 background-color: white;
 @media screen and (min-width: 120px) and (max-width: 767px) {
     max-width: 350px;
-    height: 100%;
+    border: 1px solid ${palette.LINE_COLOR};
 }
 @media screen and (min-width: 768px) {
     max-width: 672px;
@@ -36,8 +37,9 @@ export const Content = styled.div`
   justify-content: center;
   padding-right: 20px;
   padding-left: 20px;
+  padding-bottom: 120px;
   @media screen and (min-width: 768px) {
-    padding: 72px 165px;
+    padding: 72px 130px 72px 130px;
   }
   @media screen and (min-width: 1280px) {
     padding-top: 64px;
