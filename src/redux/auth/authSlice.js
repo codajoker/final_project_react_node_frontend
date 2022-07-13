@@ -47,7 +47,11 @@ export const authSlice = createSlice({
     },
 
     [refresh.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = {
+        name: action.payload.data.name,
+        email: action.payload.data.email,
+        dailyCalories: action.payload.data.dailyCalories,
+      };
       state.isRefreshing = false;
       state.isLoggedIn = true;
     },

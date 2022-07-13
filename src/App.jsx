@@ -1,9 +1,11 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Toast from './components/Toast';
-import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
+import { refresh } from './redux/auth/authOperations';
 
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -14,6 +16,12 @@ const CalculatorPage = lazy(() =>
 const DiaryPage = lazy(() => import('./pages/DairyPage/DiaryPage'));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
   return (
     <>
       {/* <UserInfo /> */}
