@@ -48,10 +48,10 @@ export const logOut = createAsyncThunk(
 );
 
 export const refresh = createAsyncThunk(
-  'auth/refresh',
+  'auth/current',
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
-    const persistedToken = state.users.auth.token;
+    const persistedToken = state.auth.token;
 
     if (!persistedToken) {
       return rejectWithValue();
