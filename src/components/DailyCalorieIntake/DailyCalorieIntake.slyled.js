@@ -53,7 +53,7 @@ export const ProductsList = styled.ol`
   gap: 10px;
   margin-top: 20px;
   margin-bottom: 40px;
-  max-height: 100px;
+  max-height: 125px;
   overflow: auto;
   ::-webkit-scrollbar {
     width: 6px;
