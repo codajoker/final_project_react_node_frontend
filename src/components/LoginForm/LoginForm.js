@@ -1,10 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { logIn } from '../../redux/auth/authOperations';
-import { getIsLoggedIn } from '../../redux/auth/authSelectors';
-import { getCalories } from '../../redux/dailyRate/dailyRateSelectors';
 import {
   emailValidation,
   passwordValidation,
@@ -29,16 +26,7 @@ const validationSchema = yup.object({
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(getIsLoggedIn);
-  const isCalories = useSelector(getCalories);
-  const navigate = useNavigate();
-
-  const isHasCalories = () => {
-    if (isCalories) {
-      navigate('/dairy');
-    }
-  };
-  // else {navigate('/calculator');}
+  // const isLoggedIn = useSelector(getIsLoggedIn);
 
   const formik = useFormik({
     initialValues: {
@@ -48,7 +36,6 @@ export default function LoginForm() {
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(logIn(values));
-      isHasCalories();
       resetForm();
     },
   });
@@ -92,7 +79,6 @@ export default function LoginForm() {
         <ButtonWrapper>
           <AuthButton type="submit">Вхід</AuthButton>
           <LinkButton to={'/registration'}>Зареєструватися </LinkButton>
-          {isLoggedIn && <Navigate to="/calculator" />}
         </ButtonWrapper>
       </Form>
     </Wrapper>

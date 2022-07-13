@@ -48,8 +48,13 @@ const FormWrapper = styled.div`
 
 const InputWrapper = styled.div`
   height: 40px;
+  :last-child {
+    position: relative;
+  }
   @media screen and (max-width: 767px) {
-    margin-bottom: 32px;
+    :not(:last-child) {
+      margin-bottom: 32px;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -110,7 +115,6 @@ const ErrorDescr = styled.p`
 `;
 
 const LabelRadioBoxes = styled.div`
-  margin-bottom: 10px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -121,8 +125,21 @@ const LabelRadioBoxes = styled.div`
   line-height: 1.21;
   color: ${palette.SECONDARY_COLOR};
 
-  border-bottom: 1px solid ${palette.LINE_COLOR};
+  @media screen and (min-width: 768px) {
+    border-bottom: 1px solid ${palette.LINE_COLOR};
+  }
 `;
+
+const RadioFieldWrapper = styled.div`
+  position: absolute;
+  top: 30px;
+  left: -5px;
+
+  @media screen and (min-width: 768px) {
+    top: 40px;
+  }
+`;
+
 const RadioField = styled(Field)`
   appearance: none;
   display: inline-block;
@@ -169,7 +186,7 @@ const LabelRadioInputs = styled.label`
 `;
 
 const SubmitButton = styled.button`
-  margin-top: 40px;
+  margin-top: 65px;
   display: block;
   padding: 0;
   width: 210px;
@@ -219,6 +236,7 @@ export {
   ErrorDescr,
   LabelRadioBoxes,
   LabelRadioInputs,
+  RadioFieldWrapper,
   RadioField,
   SubmitButton,
 };
