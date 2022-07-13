@@ -22,7 +22,7 @@ export default function RightSidebar({date = new Date().toLocaleString().split('
                     <span>
                         { left < 0 && "Ви вжили більше норми"}
                         { dailyCalories > 0 && left === 0 && "Ви вжили свою норму калорій"}
-                        { left > 0 && `${left} кКал`}
+                        { left > 0 || dailyCalories === 0 && `${left} кКал`}
                     </span>
                 </li>
                 <li>
