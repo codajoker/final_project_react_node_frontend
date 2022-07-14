@@ -36,6 +36,7 @@ export default function LoginForm() {
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(logIn(values));
+
       resetForm();
     },
   });
