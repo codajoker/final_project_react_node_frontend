@@ -32,7 +32,7 @@ export const getProductByQuery = async query => {
 
 export const getProductsListByDate = async date => {
   try {
-    const { data } = await axios.post("/users/dayinfo/", {
+    const { data } = await axios.post("/users/dayinfo", {
       day: moment(date).format('DD.MM.yyyy'),
     });
     return data;
