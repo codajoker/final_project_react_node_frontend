@@ -14,7 +14,7 @@ export const HeaderEl = styled.header`
   }
   @media screen and (min-width: 1280px) {
     border: none;
-    padding-top: 80px;
+    padding: 80px 16px 0px 16px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;

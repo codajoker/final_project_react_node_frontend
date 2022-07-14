@@ -30,12 +30,13 @@ export default function DiaryPage() {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
-  const { productsList } = useSelector(getProductsList);
+  const productsList = useSelector(getProductsList);
   const dispatch = useDispatch();
   const today = moment();
   const disableFutureDt = current => {
     return current.isBefore(today);
   };
+
   const formatedDate = moment(date).format('DD.MM.yyyy');
   useEffect(() => {
     dispatch(getProductsListByDate(date));
@@ -46,16 +47,15 @@ export default function DiaryPage() {
   };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
-  const formSubmitHandler = data => {
+  const formSubmitHandler = async data => {
     const { product, weight } = data;
-    console.log(data);
-    dispatch(
+    await dispatch(
       addProduct({
         diary_day: formatedDate,
         meal: { title: product, weight_g: parseInt(weight) },
       })
     );
-
+    dispatch(getProductsListByDate(date));
     setMobileAddSelected(false);
   };
 
@@ -63,7 +63,10 @@ export default function DiaryPage() {
     <Fragment>
       <Header />
       <PageWrap>
-        <MobileSidebar onGoBack={() => setMobileAddSelected(false)} />
+        <MobileSidebar
+          onGoBack={() => setMobileAddSelected(false)}
+          mobileAddSelected={mobileAddSelected}
+        />
         <Container>
           <CalendarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
             <CalendarTitle>{formatedDate}</CalendarTitle>
@@ -104,6 +107,10 @@ export default function DiaryPage() {
               className={mobileAddSelected ? '' : 'hideOnMobile'}
             />
           </div>
+
+          <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
+            <DairyProductList products={productsList} date={date} />
+          </ListWrap>
           {!mobileAddSelected && (
             <AddBtnMobile
               className={'showOnMobile'}
@@ -112,14 +119,11 @@ export default function DiaryPage() {
               <BsPlusLg size={14} />
             </AddBtnMobile>
           )}
-          <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
-            <DairyProductList products={productsList} />
-          </ListWrap>
         </Container>
         <SidebarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
           <RightSidebar date={formatedDate} />
         </SidebarWrap>
-    </PageWrap>
+      </PageWrap>
     </Fragment>
   );
 }

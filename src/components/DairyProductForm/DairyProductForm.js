@@ -49,6 +49,14 @@ export default function DiaryProductForm({ onSubmit, className }) {
             onChange={option => setSelectedProduct(option.value)}
             loadOptions={loadOptions}
             placeholder="Введіть назву продукту"
+            noOptionsMessage={({ selectedProduct }) =>
+              !selectedProduct
+                ? 'Введіть назву продукту'
+                : 'Такого продукту нема'
+            }
+            loadingMessage={({ selectedProduct }) =>
+              !selectedProduct ? 'Шукаю...' : 'Такого продукту нема'
+            }
           />
         </FormLabel>
         <FormLabel>
