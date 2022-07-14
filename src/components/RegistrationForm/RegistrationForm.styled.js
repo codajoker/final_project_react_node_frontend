@@ -2,6 +2,43 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as palette from '../../variables/Variables';
 import { Button } from '../../Button.styled';
+import { Container } from '../../Container.styled';
+import desctop from '../../images/desktop/desctop_min.png';
+import tablet from '../../images/tablet/bg-2-tablet.png';
+
+export const WrapperLoginPage = styled(Container)`
+  @media screen and (min-width: 320px) {
+    padding-top: 40px;
+    padding-bottom: 175px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 160px;
+    padding-bottom: 250px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 160px;
+    padding-bottom: 240px;
+  }
+`;
+
+export const WrapperRegisterPage = styled(Container)`
+  @media screen and (min-width: 320px) {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 160px;
+    padding-bottom: 200px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 160px;
+    padding-bottom: 180px;
+  }
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -125,7 +162,7 @@ export const LinkButton = styled(NavLink)`
 
 export const Text = styled.span`
   color: #e10000;
-  font-size: 0.77em; // ${palette.TEXT_FONTSIZE};
+  font-size: 0.77em;
   margin-top: 5px;
   position: relative;
 `;
@@ -133,4 +170,29 @@ export const Text = styled.span`
 export const Stub = styled.div`
   height: 20px;
   position: relative;
+`;
+
+export const BackgroundImage = styled.div`
+  display: block;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    top: 245;
+    background-image: url(${tablet});
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 0;
+    background-image: url(${desctop});
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+  }
 `;

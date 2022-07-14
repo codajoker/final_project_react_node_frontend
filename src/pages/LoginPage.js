@@ -1,14 +1,18 @@
 import LoginForm from '../components/LoginForm';
-import { Container } from '../Container.styled';
+import {
+  WrapperLoginPage,
+  BackgroundImage,
+} from '../components/RegistrationForm/RegistrationForm.styled';
 import Header from '../components/Header/Header';
 
 function LoginPage() {
   return (
     <>
       <Header />
-      <Container>
+      <WrapperLoginPage>
+        <BackgroundImage alt="backgroundImage" />
         <LoginForm />
-      </Container>
+      </WrapperLoginPage>
     </>
   );
 }

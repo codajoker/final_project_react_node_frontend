@@ -1,14 +1,18 @@
 import RegistrationForm from '../components/RegistrationForm';
-import { Container } from '../Container.styled';
+import {
+  WrapperRegisterPage,
+  BackgroundImage,
+} from '../components/RegistrationForm/RegistrationForm.styled';
 import Header from '../components/Header/Header';
 
 function RegisterPage() {
   return (
     <>
       <Header />
-      <Container>
+      <WrapperRegisterPage>
+        <BackgroundImage alt="backgroundImage" />
         <RegistrationForm />
-      </Container>
+      </WrapperRegisterPage>
     </>
   );
 }
