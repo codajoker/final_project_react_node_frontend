@@ -1,16 +1,22 @@
-
-
 import { GrClose } from 'react-icons/gr';
-// import { SECONDARY_COLOR } from '../../variables/Variables';
+import { useDispatch } from 'react-redux';
 import { Product, ProductInfo } from './DairyProductListItem.styled';
-export const DairyProductListItem = ({product}) => {
-    const { title, weight, calories } = product;
-    return <Product>
-        <ProductInfo>
-            <div>{title.ua}</div>
-            <div>{weight} г</div>
-            <div>{calories} Ккал</div>
-        </ProductInfo>
-        <button type="button"><GrClose /></button>
-        </Product>
-}
+import { deleteProduct } from '../../redux/products/productsOperations';
+
+export const DairyProductListItem = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const { title, weight_g, calories_kcal } = product;
+  return (
+    <Product>
+      <ProductInfo>
+        <div>{title}</div>
+        <div>{weight_g} г</div>
+        <div>{calories_kcal} Ккал</div>
+      </ProductInfo>
+      <button type="button" onClick={() => dispatch(deleteProduct(product))}>
+        <GrClose />
+      </button>
+    </Product>
+  );
+};

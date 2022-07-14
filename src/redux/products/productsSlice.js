@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addProduct,
-  //   deleteProduct,
-  //   getProductByQuery,
-  //   getProductsListByDate,
+  deleteProduct,
+  getProductsListByDate,
 } from './productsOperations';
 
 const initialState = {
   meal: [],
+  isLoading: false,
 };
 
 export const productsSlice = createSlice({
@@ -15,8 +15,16 @@ export const productsSlice = createSlice({
   initialState,
   extraReducers: {
     [addProduct.fulfilled](state, action) {
-      console.log(action.payload);
-      state.meal.push(action.payload);
+      state.meal.unshift(action.payload);
+    },
+    [getProductsListByDate.fulfilled](state, action) {
+      if (!action.payload?.data?.foodList) {
+        state.meal = [];
+      } else { state.meal = action.payload.data.foodList;}
+      
+    },
+    [deleteProduct.fulfilled](state, action) {
+      state.meal.filter(product => product._id !== action.payload._id);
     },
   },
 });

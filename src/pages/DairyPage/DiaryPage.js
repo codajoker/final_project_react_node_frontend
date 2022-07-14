@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { Fragment, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { Fragment, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { IconContext } from 'react-icons';
 import { BsPlusLg } from 'react-icons/bs';
 import { RiCalendar2Line } from 'react-icons/ri';
@@ -15,9 +15,13 @@ import {
   SidebarWrap,
 } from './DiaryPage.styled';
 import DiaryProductForm from '../../components/DairyProductForm/DairyProductForm';
-// import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
+import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
-import { addProduct } from '../../redux/products/productsOperations';
+import { getProductsList } from '../../redux/products/productsSelectors';
+import {
+  addProduct,
+  getProductsListByDate,
+} from '../../redux/products/productsOperations';
 import Header from '../../components/Header/Header';
 import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
@@ -26,34 +30,33 @@ export default function DiaryPage() {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
+  const { productsList } = useSelector(getProductsList);
   const dispatch = useDispatch();
   const today = moment();
   const disableFutureDt = current => {
     return current.isBefore(today);
   };
   const formatedDate = moment(date).format('DD.MM.yyyy');
+  useEffect(() => {
+    dispatch(getProductsListByDate(date));
+  }, [date]);
 
   const closeDropdown = () => {
     setOpen(false);
   };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
+
   const formSubmitHandler = data => {
     const { product, weight } = data;
-    // const addedProduct = productList.find(
-    //   product => product.toLowerCase() === product.toLowerCase()
-    // );
-    // if (addedProduct) {
-    //   alert(`${product} is already in contacts.`);
-    //   return;
-    // }
+    console.log(data);
     dispatch(
       addProduct({
         diary_day: formatedDate,
         meal: { title: product, weight_g: parseInt(weight) },
       })
     );
+
     setMobileAddSelected(false);
-    addProduct(data);
   };
 
   return (
@@ -62,7 +65,7 @@ export default function DiaryPage() {
       <PageWrap>
         <MobileSidebar onGoBack={() => setMobileAddSelected(false)} />
         <Container>
-          <CalendarWrap>
+          <CalendarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
             <CalendarTitle>{formatedDate}</CalendarTitle>
             <div ref={ref}>
               <Calendar
@@ -110,13 +113,13 @@ export default function DiaryPage() {
             </AddBtnMobile>
           )}
           <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
-            {/* <DairyProductList products={products} /> */}
+            <DairyProductList products={productsList} />
           </ListWrap>
         </Container>
-        <SidebarWrap>
-          <RightSidebar />
+        <SidebarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
+          <RightSidebar date={formatedDate} />
         </SidebarWrap>
-      </PageWrap>
+    </PageWrap>
     </Fragment>
   );
 }

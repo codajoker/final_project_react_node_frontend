@@ -1,20 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as productsApi from '../../services/productsApi';
-// import { toast } from 'react-toastify';
 
 export const addProduct = createAsyncThunk(
   'product/addDiaryFood',
   async (product, { rejectWithValue }) => {
     try {
-      await productsApi.addProduct(product);
-      return product;
+      const addedProduct = await productsApi.addProduct(product);
+      return addedProduct.data.foodData;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
 
-export const getProductsList = createAsyncThunk(
+export const getProductsListByDate = createAsyncThunk(
   'users/dayinfo',
   async (date, { rejectWithValue }) => {
     try {
@@ -27,11 +26,11 @@ export const getProductsList = createAsyncThunk(
 );
 
 export const deleteProduct = createAsyncThunk(
-  'product/deleteProduct',
+  'product/delDiaryFood',
   async (id, { rejectWithValue }) => {
     try {
-      await productsApi.deleteProduct(id);
-      return id;
+      const deletedProduct = await productsApi.deleteProduct(id);
+      return deletedProduct;
     } catch (error) {
       return rejectWithValue(error.message);
     }
