@@ -33,6 +33,7 @@ export const currentUserRefresh = async persistedToken => {
     throw Error(console.log('no token!'));
   }
   token.set(persistedToken);
+
   try {
     const { data } = await axios.get('/users/current');
     return data;
