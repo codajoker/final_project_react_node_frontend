@@ -41,7 +41,7 @@ const App = () => {
             <Route
               path="/signin"
               element={
-                <PublicRoute restricted>
+                <PublicRoute restricted path="/signin">
                   <LoginPage />
                 </PublicRoute>
               }
@@ -59,7 +59,7 @@ const App = () => {
             <Route
               path="/diary"
               element={
-                <PrivateRoute navigateTo="/diary">
+                <PrivateRoute path="/diary">
                   <DiaryPage />
                 </PrivateRoute>
               }
@@ -68,7 +68,7 @@ const App = () => {
             <Route
               path="/calculator"
               element={
-                <PrivateRoute navigateTo="/calculator">
+                <PrivateRoute path="/calculator">
                   <CalculatorPage />
                 </PrivateRoute>
               }

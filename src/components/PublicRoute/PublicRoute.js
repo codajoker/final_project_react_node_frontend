@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
-import { getCalories } from '../../redux/auth/authSelectors';
 
 export default function PublicRoute({
   children,
@@ -9,9 +8,13 @@ export default function PublicRoute({
   navigateTo,
 }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
-  const calories = useSelector(getCalories);
 
-  navigateTo = calories ? '/diary' : '/calculator';
+  const location = useLocation();
+  const from = location.state?.from.pathname || '/diary';
+
+  if (isLoggedIn) {
+    return <Navigate to={from} />;
+  }
 
   const shouldRedirect = isLoggedIn && restricted;
   return shouldRedirect ? <Navigate to={navigateTo} /> : children;
