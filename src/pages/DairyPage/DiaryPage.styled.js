@@ -11,6 +11,7 @@ export const CalendarWrap = styled.div`
   align-items: center;
   width: 116px;
   height: 20px;
+  margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     width: 219px;
     height: 38px;
@@ -83,7 +84,7 @@ export const AddBtnMobile = styled(FormBtnBase)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin: 60px auto;
   padding: 0;
   border-radius: 100%;
   width: 48px;
@@ -92,6 +93,4 @@ export const AddBtnMobile = styled(FormBtnBase)`
   flex-grow: 0;
   right: 0;
   left: 0;
-  margin-right: auto;
-  margin-left: auto;
 `;

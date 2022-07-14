@@ -12,9 +12,12 @@ export const addProduct = async product => {
   }
 };
 
-export const deleteProduct = async id => {
+export const deleteProduct = async (date, id) => {
   try {
-    const deletedProduct = await axios.delete("/product/delDiaryFood", { id });
+    const formatedDate = moment(date).format('DD.MM.yyyy');
+    const deletedProduct = await axios.delete(
+      `/product/delDiaryFood/?day=${formatedDate}&id=${id}`
+    );
     return deletedProduct;
   } catch (error) {
     console.log(error);
@@ -32,6 +35,7 @@ export const getProductByQuery = async query => {
 
 export const getProductsListByDate = async date => {
   try {
+
     const { data } = await axios.post("/users/dayinfo", {
       day: moment(date).format('DD.MM.yyyy'),
     });

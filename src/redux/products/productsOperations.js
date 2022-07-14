@@ -27,10 +27,10 @@ export const getProductsListByDate = createAsyncThunk(
 
 export const deleteProduct = createAsyncThunk(
   'product/delDiaryFood',
-  async (id, { rejectWithValue }) => {
+  async ({ date, _id }, { rejectWithValue }) => {
     try {
-      const deletedProduct = await productsApi.deleteProduct(id);
-      return deletedProduct;
+      const deletedProduct = await productsApi.deleteProduct(date, _id);
+      return deletedProduct.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
