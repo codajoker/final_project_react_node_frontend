@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { logIn, refresh } from '../../redux/auth/authOperations';
+import { logIn } from '../../redux/auth/authOperations';
 import {
   emailValidation,
   passwordValidation,
@@ -27,15 +27,6 @@ const validationSchema = yup.object({
 export default function LoginForm() {
   const dispatch = useDispatch();
 
-  const fetchCurrent = async values => {
-    await Promise.all([
-      dispatch(logIn(values)),
-      setTimeout(() => {
-        dispatch(refresh());
-      }, 1000),
-    ]);
-  };
-
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -43,7 +34,7 @@ export default function LoginForm() {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-      fetchCurrent(values);
+      dispatch(logIn(values));
 
       resetForm();
     },

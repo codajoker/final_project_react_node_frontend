@@ -7,7 +7,7 @@ export default function PrivateRoute({ children, navigateTo = '/signin' }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   if (!isLoggedIn) {
-    return <Navigate to="/" state={{ from: location }} />;
+    return <Navigate to="/signin" state={{ from: location }} />;
   }
 
   return isLoggedIn ? children : <Navigate to={navigateTo} />;
