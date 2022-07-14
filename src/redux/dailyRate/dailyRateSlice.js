@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchDailyRateAuthorized } from './dailyRateOperations';
+import { refresh } from '../auth/authOperations';
 
 const initialState = {
   dailyCalories: null,
@@ -21,6 +22,10 @@ const dailyRateSlice = createSlice({
     },
     [fetchDailyRateAuthorized.rejected]: (state, { payload }) => {
       state.error = payload;
+    },
+    [refresh.fulfilled]: (state, { payload }) => {
+      state.dailyCalories = payload.data.dailyCalories;
+      state.uniqCategories = payload.data.notAllowedFood;
     },
   },
 });

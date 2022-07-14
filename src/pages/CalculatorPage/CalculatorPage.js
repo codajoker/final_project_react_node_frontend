@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
 import Header from '../../components/Header/Header';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
