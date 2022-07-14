@@ -22,6 +22,7 @@ export const productsSlice = createSlice({
         state.totalDayCalories + action.payload.calories_kcal;
     },
     [getProductsListByDate.fulfilled](state, action) {
+      console.log(action.payload);
       state.meal = action.payload.data.foodList;
       state.isLoading = false;
       state.totalDayCalories = action.payload.data.totalDayCalories;
