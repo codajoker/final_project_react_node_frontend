@@ -32,6 +32,7 @@ display: block;
     border-color: ${palette.SECONDARY_COLOR}`;
 
 export const UserExit = styled.button`
+background-color: transparent;
 font-style: normal;
 font-weight: 700;
 font-size: 14px;
