@@ -59,7 +59,7 @@ const App = () => {
             <Route
               path="/diary"
               element={
-                <PrivateRoute navigateTo="/diary">
+                <PrivateRoute>
                   <DiaryPage />
                 </PrivateRoute>
               }
@@ -68,7 +68,7 @@ const App = () => {
             <Route
               path="/calculator"
               element={
-                <PrivateRoute navigateTo="/calculator">
+                <PrivateRoute>
                   <CalculatorPage />
                 </PrivateRoute>
               }

@@ -1,24 +1,29 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
 import Header from '../../components/Header/Header';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
-import { SidebarWrapper, UserInfoContainer } from './CalculatorPage.styled';
+import {
+  Main,
+  SidebarWrapper,
+  UserInfoContainer,
+} from './CalculatorPage.styled';
 import UserInfo from '../../components/UserInfo/UserInfo';
 
 const CalculatorPage = () => {
   return (
     <>
       <Header />
+      <Main>
+        <UserInfoContainer>
+          <UserInfo />
+        </UserInfoContainer>
 
-      <UserInfoContainer>
-        <UserInfo />
-      </UserInfoContainer>
+        <DailyCaloriesForm />
 
-      <DailyCaloriesForm />
-
-      <SidebarWrapper>
-        <RightSidebar />
-      </SidebarWrapper>
+        <SidebarWrapper>
+          <RightSidebar />
+        </SidebarWrapper>
+      </Main>
     </>
   );
 };

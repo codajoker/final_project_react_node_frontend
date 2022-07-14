@@ -1,6 +1,6 @@
-// import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-// import { translate } from '../../helpers/translate';
+import { translate } from '../../helpers/translate';
+import product_dictionary from '../../product_dictionary';
 import {
   CalorieIntake,
   Head,
@@ -26,7 +26,7 @@ export default function DailyCalorieIntake({ dailyRate }) {
       {products.length > 0 ? (
         <ProductsList>
           {products.map((product, index) => {
-            return <li key={index}>{product}</li>;
+            return <li key={index}>{translate(product_dictionary, product)}</li>;
           })}
         </ProductsList>
       ) : (

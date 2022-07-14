@@ -14,6 +14,7 @@ import {
 } from '../../redux/dailyRate/dailyRateSelectors';
 import { getUserTotalCalories } from '../../redux/products/productsSelectors';
 
+
 export default function RightSidebar({ date }) {
   const products = useSelector(getProducts) || [];
   const dailyNormCalories = useSelector(getCalories) || 0;
@@ -73,3 +74,4 @@ export default function RightSidebar({ date }) {
     </Container>
   );
 }
+
