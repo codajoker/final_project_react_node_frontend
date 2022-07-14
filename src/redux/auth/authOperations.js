@@ -49,12 +49,12 @@ export const logOut = createAsyncThunk(
 
 export const refresh = createAsyncThunk(
   'auth/current',
-  async (_, { getState, rejectWithValue }) => {
+  async (_, { getState, }) => {
     const state = getState();
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
-      return rejectWithValue();
+      // return rejectWithValue();
     }
 
     const response = await usersAPI.currentUserRefresh(persistedToken);
