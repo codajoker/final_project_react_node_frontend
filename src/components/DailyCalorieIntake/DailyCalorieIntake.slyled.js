@@ -41,7 +41,7 @@ export const HeadProducts = styled.h3`
 export const ProductsList = styled.ol`
   font-size: 14px;
   list-style: auto;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 23px;
   color: ${palette.SECONDARY_COLOR};
   letter-spacing: 0.04em;
   display: flex;
@@ -49,7 +49,7 @@ export const ProductsList = styled.ol`
   gap: 10px;
   margin-top: 20px;
   margin-bottom: 40px;
-  max-height: 100px;
+  max-height: 125px;
   overflow: auto;
   ::-webkit-scrollbar {
     width: 6px;
