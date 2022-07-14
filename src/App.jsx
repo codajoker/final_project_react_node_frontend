@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import { refresh } from './redux/auth/authOperations';
 import { getIsRefreshing } from './redux/auth/authSelectors';
+import Loader from './components/Loader/Loader';
 
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
@@ -27,7 +28,7 @@ const App = () => {
   return (
     !isRefreshing && (
       <>
-        <Suspense fallback={<p>Загрузка...</p>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route
               path="/"

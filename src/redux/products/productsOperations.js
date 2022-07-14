@@ -20,6 +20,13 @@ export const getProductsListByDate = createAsyncThunk(
       const products = await productsApi.getProductsListByDate(date);
       return products;
     } catch (error) {
+      if (error.response.status === 404) {
+        return {
+          data: {
+            foodList: [],
+          },
+        };
+      }
       return rejectWithValue(error.message);
     }
   }
