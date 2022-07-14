@@ -15,6 +15,7 @@ li {
 
 export const UserText = styled.h2`
 font-style: normal;
+font-weight: 700;
 font-size: ${palette.TEXT_FONTSIZE};
 line-height: 2.2;
 text-align: right;
@@ -31,8 +32,8 @@ display: block;
     border-color: ${palette.SECONDARY_COLOR}`;
 
 export const UserExit = styled.button`
-font-family: Gotham Pro;
-font-weight: bold;
+font-style: normal;
+font-weight: 700;
 font-size: 14px;
 line-height: 2.2;
 letter-spacing: 0.04em;
