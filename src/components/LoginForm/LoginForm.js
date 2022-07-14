@@ -26,7 +26,6 @@ const validationSchema = yup.object({
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-  // const isLoggedIn = useSelector(getIsLoggedIn);
 
   const formik = useFormik({
     initialValues: {

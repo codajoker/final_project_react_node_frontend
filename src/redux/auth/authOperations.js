@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as usersAPI from '../../services/users-api';
+import * as usersAPI from '../../services/usersApi';
 import {
   registerSuccessToast,
   alreadyHaveEmailToast,
   successfulLoginToast,
   errorLoginToast,
-} from '../../components/RegistrationForm/authToasts';
+} from '../../helpers/authToasts';
 
 export const register = createAsyncThunk(
   'auth/register',
