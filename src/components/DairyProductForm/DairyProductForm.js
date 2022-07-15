@@ -26,16 +26,17 @@ export default function DiaryProductForm({ onSubmit, className }) {
 
   const handleSubmit = event => {
     event.preventDefault();
+    const weightNumber = parseInt(weight);
+    if (!selectedProduct || isNaN(weightNumber)) return;
     onSubmit({
-      product: selectedProduct,
-      weight: weight,
+      product: selectedProduct.value,
+      weight: weightNumber,
     });
-
     reset();
   };
 
   const reset = () => {
-    setSelectedProduct('');
+    setSelectedProduct(null);
     setWeight('');
   };
 
@@ -45,8 +46,11 @@ export default function DiaryProductForm({ onSubmit, className }) {
         <FormLabel>
           <FormInputProduct
             classNamePrefix={'react-select'}
-            defaultValue={selectedProduct}
-            onChange={option => setSelectedProduct(option.value)}
+            value={selectedProduct}
+            isClearable
+            backspaceRemovesValue
+            escapeClearsValue
+            onChange={option => setSelectedProduct(option)}
             loadOptions={loadOptions}
             placeholder="Введіть назву продукту"
             noOptionsMessage={({ selectedProduct }) =>

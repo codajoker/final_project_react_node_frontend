@@ -48,6 +48,9 @@ export const ProductInfo = styled.div`
   display: flex;
 
   > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     border-bottom: 1px solid ${LINE_COLOR};
     padding-bottom: 8px;
 

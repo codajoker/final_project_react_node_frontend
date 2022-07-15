@@ -17,7 +17,10 @@ import {
 import DiaryProductForm from '../../components/DairyProductForm/DairyProductForm';
 import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
-import { getProductsList } from '../../redux/products/productsSelectors';
+import {
+  getIsLoading,
+  getProductsList,
+} from '../../redux/products/productsSelectors';
 import {
   addProduct,
   getProductsListByDate,
@@ -25,10 +28,12 @@ import {
 import Header from '../../components/Header/Header';
 import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
+import Loader from '../../components/Loader/Loader';
 
 export default function DiaryPage() {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
+  const isLoading = useSelector(getIsLoading);
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
   const productsList = useSelector(getProductsList);
   const dispatch = useDispatch();
@@ -47,15 +52,14 @@ export default function DiaryPage() {
   };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
-  const formSubmitHandler = async data => {
+  const formSubmitHandler = data => {
     const { product, weight } = data;
-    await dispatch(
+    dispatch(
       addProduct({
         diary_day: formatedDate,
-        meal: { title: product, weight_g: parseInt(weight) },
+        meal: { title: product, weight_g: weight },
       })
     );
-    dispatch(getProductsListByDate(date));
     setMobileAddSelected(false);
   };
 
@@ -109,7 +113,11 @@ export default function DiaryPage() {
           </div>
 
           <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
-            <DairyProductList products={productsList} date={date} />
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <DairyProductList products={productsList} date={date} />
+            )}
           </ListWrap>
           {!mobileAddSelected && (
             <AddBtnMobile

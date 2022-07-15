@@ -8,7 +8,6 @@ import {
 const initialState = {
   meal: [],
   isLoading: false,
-  totalDayCalories: 0,
 };
 
 export const productsSlice = createSlice({
@@ -16,24 +15,25 @@ export const productsSlice = createSlice({
   initialState,
   extraReducers: {
     [addProduct.fulfilled](state, action) {
-      state.meal.unshift(action.payload);
+      const existingProduct = state.meal.find(
+        x => x._id === action.payload._id
+      );
+      if (existingProduct) {
+        existingProduct.weight_g = action.payload.weight_g;
+        existingProduct.calories_kcal = action.payload.calories_kcal;
+      } else {
+        state.meal.unshift(action.payload);
+      }
       state.isLoading = false;
-      state.totalDayCalories =
-        state.totalDayCalories + action.payload.calories_kcal;
     },
     [getProductsListByDate.fulfilled](state, action) {
-      console.log(action.payload);
       state.meal = action.payload.data.foodList;
       state.isLoading = false;
-      state.totalDayCalories = action.payload.data.totalDayCalories;
     },
     [deleteProduct.fulfilled](state, action) {
       state.meal = state.meal.filter(
         product => product._id !== action.payload.data.delletedProduct._id
       );
-      state.totalDayCalories =
-        state.totalDayCalories -
-        action.payload.data.delletedProduct.calories_kcal;
       state.isLoading = false;
     },
 
