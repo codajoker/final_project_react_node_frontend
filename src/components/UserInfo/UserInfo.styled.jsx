@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
-
+import { Box } from '@mui/material';
+import { Button } from "../../Button.styled";
 export const UserInfoWrap = styled.div`
   display: flex;
   align-items: center;
@@ -40,7 +41,41 @@ export const UserExit = styled.button`
   letter-spacing: 0.04em;
   color: ${palette.SECONDARY_COLOR};
   margin-left: 15px;
+  cursor: pointer;
   @media screen and (min-width: 1280px) {
     margin-left: 20px;
   }
 `;
+
+export const Wrap = styled(Box)`
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: white;
+  padding: 40px;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+`
+export const BtnWrap = styled.div`
+display: flex;
+justify-content: space-around;
+margin-top: 50px;
+` 
+export const ModalTxt = styled.p`
+text-align: center;
+font-size: 22px;
+font-weight: 700;
+color: ${palette.MAIN_COLOR};
+@media screen and (min-width: 768px) {
+    font-size: ${palette.SUBTITLE_FONTSIZE_DESC};
+  }
+`
+export const Btn = styled(Button)`
+padding: 13px 30px;
+@media screen and (min-width: 768px) {
+    padding: 13px 45px;
+  }
+`
