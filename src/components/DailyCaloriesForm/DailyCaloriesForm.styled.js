@@ -203,7 +203,7 @@ const SubmitButton = styled.button`
   border-radius: 30px;
   cursor: pointer;
   transition: color 250ms ease-in;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: px) {
     margin-left: auto;
     margin-right: auto;
   }

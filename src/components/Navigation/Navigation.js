@@ -1,14 +1,18 @@
-import { Nav, Link } from './Navigation.styled';
+import { Nav, Link, LoggedNav, NavWrap } from './Navigation.styled';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
-import MenuNavigation from '../MobileMenu/MenuNavigation';
 
 export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
-    <>
+    <NavWrap>
       {isLoggedIn ? (
-        <MenuNavigation />
+        <>
+          <LoggedNav>
+            <Link to="/diary">Щоденник</Link>
+            <Link to="/calculator">Калькулятор</Link>
+          </LoggedNav>
+        </>
       ) : (
         <>
           <Nav>
@@ -17,6 +21,6 @@ export default function Navigation() {
           </Nav>
         </>
       )}
-    </>
+    </NavWrap>
   );
 }

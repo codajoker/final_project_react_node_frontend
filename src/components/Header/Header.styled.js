@@ -6,11 +6,10 @@ export const HeaderEl = styled.header`
   color: ${palette.LINE_COLOR};
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 20px 16px 20px;
-  position: relative;
-  z-index: 1;
-  @media screen and (min-width: 1280px) {
-    padding: 32px 20px 16px 32px;
+  @media screen and (min-width: 768px) {
+    padding: 20px 32px 16px 20px;
   }
   @media screen and (min-width: 1280px) {
     border: none;
@@ -18,7 +17,6 @@ export const HeaderEl = styled.header`
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    position: static;
   }
 `;
 
@@ -32,9 +30,32 @@ export const HeaderDivider = styled.div`
   }
 `;
 
+export const UserInfoWrap = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    margin-right: 53px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 0;
+  }
+`;
+
 export const BurgerWrap = styled.button`
   background-color: transparent;
   @media screen and (min-width: 1280px) {
     display: none;
+  }
+`;
+export const HeaderWrap = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 `;

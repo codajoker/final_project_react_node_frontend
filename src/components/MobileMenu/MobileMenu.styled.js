@@ -15,14 +15,6 @@ export const MenuWrap = styled.div`
 
 export const MenuNav = styled.nav`
   display: none;
-
-  @media screen and (min-width: 1280px) {
-    width: 268px;
-    display: flex;
-    height: 27px;
-    flex-direction: row;
-  }
-  
   @media screen and (max-width: 1279px) {
     height: 100vh;
     position: fixed;
@@ -99,7 +91,8 @@ export const BurgerIcon = styled.span`
     background-color: ${palette.MAIN_COLOR};
     transition: top 0.3s;
     position: relative;
-    &:before, &:after{
+    &:before,
+    &:after {
       width: 100%;
       height: 2px;
       background-color: ${palette.MAIN_COLOR};
@@ -130,20 +123,21 @@ export const BurgerButton = styled.button`
     width: 24px;
     height: 24px;
   }
-  &.close{
-    span{
+  &.close {
+    span {
       background-color: transparent;
-      &:before, &:after{
+      &:before,
+      &:after {
         top: 0;
       }
-      &:before{
+      &:before {
         transform: rotate(45deg);
       }
-      &:after{
+      &:after {
         transform: rotate(-45deg);
       }
     }
-    ~ ${MenuNav}{
+    ~ ${MenuNav} {
       width: 100%;
       opacity: 1;
     }
