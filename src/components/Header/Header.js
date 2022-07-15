@@ -15,7 +15,6 @@ export default function Header() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   let location = useLocation();
   let currentLocation = location.pathname;
-  console.log(location.pathname);
   return (
     <HeaderEl>
       <Logo />
