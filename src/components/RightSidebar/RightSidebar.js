@@ -19,10 +19,14 @@ import {
   getProductsList,
 } from '../../redux/products/productsSelectors';
 import Loader from '../Loader/Loader';
+import moment from 'moment';
 
-export default function RightSidebar({ date }) {
+var currentDate = moment().format('DD.MM.yyyy');
+
+export default function RightSidebar({ date = currentDate }) {
   const products = useSelector(getProducts) || [];
-  const dailyNormCalories = useSelector(getCalories) || 0;
+  const dailyNormCalories = useSelector(getCalories);
+  console.log(dailyNormCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
   const totalDayCalories = productsList.reduce(
@@ -49,27 +53,30 @@ export default function RightSidebar({ date }) {
         <>
           <div>
             <Head>Всього за {date}</Head>
-
-            <CalloriesList>
-              <li>
-                <span>Залишилось</span>
-                <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
-              </li>
-              <li>
-                <span>Вжито</span>
-                <span>
-                  {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
-                </span>
-              </li>
-              <li>
-                <span>Добова норма</span>
-                <span>{dailyNormCalories} кКал</span>
-              </li>
-              <li>
-                <span>n% від норми</span>
-                <span>{norm_persent} %</span>
-              </li>
-            </CalloriesList>
+            {dailyNormCalories !== null ? (
+              <CalloriesList>
+                <li>
+                  <span>Залишилось</span>
+                  <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
+                </li>
+                <li>
+                  <span>Вжито</span>
+                  <span>
+                    {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
+                  </span>
+                </li>
+                <li>
+                  <span>Добова норма</span>
+                  <span>{dailyNormCalories} кКал</span>
+                </li>
+                <li>
+                  <span>n% від норми</span>
+                  <span>{norm_persent} %</span>
+                </li>
+              </CalloriesList>
+            ) : (
+              <Head> Необхідно ввести дані в форму!</Head>
+            )}
           </div>
           <div>
             <Head>Не рекомендовано вживати</Head>

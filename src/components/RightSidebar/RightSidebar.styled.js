@@ -7,6 +7,7 @@ export const Container = styled.aside`
   background-color: ${palette.SIDEBAR_COLOR};
   background-size: contain;
   background-repeat: no-repeat;
+  overflow: hidden;
   line-height: 1.2;
   font-size: 14px;
   color: ${palette.MAIN_COLOR};

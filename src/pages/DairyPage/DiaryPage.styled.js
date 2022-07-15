@@ -23,12 +23,19 @@ export const PageWrap = styled.div`
   flex-direction: column;
   height: calc(100vh - 85px);
   position: relative;
+  @media screen and (min-width: 768px) {
+    overflow: hidden;
+  }
+  @media screen and (min-width: 1280px) {
+    height: auto;
+  }
 `;
 export const SidebarWrap = styled.div`
   margin-top: auto;
 
   @media screen and (min-width: 1280px) {
     margin-top: 0;
+    overflow: hidden;
   }
 `;
 
