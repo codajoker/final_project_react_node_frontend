@@ -22,7 +22,7 @@
   font-style: normal;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .hideOnMobile {
     display: none !important;
   }
@@ -125,6 +125,14 @@ body {
   margin-bottom: 0;
 }
 
-.no-scroll{
+.no-scroll {
   overflow: hidden;
+}
+
+.remove-pointer {
+  pointer-events: none;
+}
+
+.add-pointer {
+  pointer-events: all;
 }

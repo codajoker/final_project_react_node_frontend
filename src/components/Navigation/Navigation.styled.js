@@ -3,10 +3,31 @@ import { NavLink } from 'react-router-dom';
 import * as palette from '../../variables/Variables';
 
 export const Nav = styled.nav`
-  width: 193px;
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   @media screen and (min-width: 1280px) {
+    width: 100%;
+    height: 26px;
+    padding-bottom: 5px;
+  }
+`;
+
+export const NavWrap = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+    height: 26px;
+  }
+`;
+
+export const LoggedNav = styled.nav`
+  display: none;
+  @media screen and (min-width: 1280px) {
+    display: block;
+    align-items: center;
     width: 268px;
     height: 26px;
   }

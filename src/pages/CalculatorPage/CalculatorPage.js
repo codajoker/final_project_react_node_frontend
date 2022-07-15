@@ -2,22 +2,13 @@ import React from 'react';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
 import Header from '../../components/Header/Header';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
-import {
-  Main,
-  SidebarWrapper,
-  UserInfoContainer,
-} from './CalculatorPage.styled';
-import UserInfo from '../../components/UserInfo/UserInfo';
+import { Main, SidebarWrapper } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {
   return (
     <>
       <Header />
       <Main>
-        <UserInfoContainer>
-          <UserInfo />
-        </UserInfoContainer>
-
         <DailyCaloriesForm />
 
         <SidebarWrapper>
