@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000/';
+axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
 
 export const token = {
   set(token) {
