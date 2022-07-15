@@ -207,6 +207,8 @@ const SubmitButton = styled.button`
   margin-right: auto;
   @media screen and (min-width: 768px) {
     margin-top: 60px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   @media screen and (min-width: 1280px) {
