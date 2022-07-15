@@ -5,7 +5,7 @@ import './App.css';
 import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
-import { refresh } from './redux/auth/authOperations';
+import { refreshUser } from './redux/auth/authOperations';
 import { getIsRefreshing } from './redux/auth/authSelectors';
 import Loader from './components/Loader/Loader';
 
@@ -22,7 +22,7 @@ const App = () => {
   const isRefreshing = useSelector(getIsRefreshing);
 
   useEffect(() => {
-    dispatch(refresh());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (

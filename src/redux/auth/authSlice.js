@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refresh,tokenValid } from './authOperations';
+import { register, logIn, logOut, refreshUser, refreshToken } from './authOperations';
 
 const initialState = {
   user: { name: null, email: null, dailyCalories: null },
   token: null,
+  tokenExpires: null,
   isRefreshing: false,
   isLoggedIn: false,
   isRegister: false,
@@ -13,15 +14,6 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-   
-     
-  [tokenValid.rejected]: (state,) => {
-  state.token = null;
-  state.isLoggedIn = false;
-  state.isRegister = false;
-  state.user = { name: null, email: null, dailyCalories: null };
-},
-    
     [register.fulfilled](state) {
       state.isRegister = true;
     },
@@ -33,11 +25,8 @@ export const authSlice = createSlice({
         dailyCalories: action.payload.data.dailyCalories,
       };
       state.token = action.payload.data.token;
+      state.tokenExpires = action.payload.data.tokenExpires;
       state.isLoggedIn = true;
-    },
-
-    [logIn.rejected](state) {
-      state.isLoggedIn = false;
     },
 
     [register.rejected](state) {
@@ -49,13 +38,22 @@ export const authSlice = createSlice({
       state.token = initialState.token;
       state.isLoggedIn = initialState.isLoggedIn;
       state.isRegister = initialState.isRegister;
+      state.token = initialState.token;
     },
 
-    [refresh.pending](state) {
+    [logOut.rejected](state) {
+      state.user = initialState.user;
+      state.token = initialState.token;
+      state.isLoggedIn = initialState.isLoggedIn;
+      state.isRegister = initialState.isRegister;
+      state.token = initialState.token;
+    },
+
+    [refreshUser.pending](state) {
       state.isRefreshing = true;
     },
 
-    [refresh.fulfilled](state, action) {
+    [refreshUser.fulfilled](state, action) {
       state.user = {
         name: action.payload.data.name,
         email: action.payload.data.email,
@@ -65,9 +63,15 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
-    [refresh.rejected](state) {
+    [refreshUser.rejected](state) {
       state.isRefreshing = false;
-      state.isLoggedIn = false;
+    },
+
+    [refreshToken.fulfilled](state, action) {
+
+    
+      state.token = action.payload.data.token;
+      state.tokenExpires = action.payload.data.tokenExpires;
     },
   },
 });

@@ -29,7 +29,6 @@ import Header from '../../components/Header/Header';
 import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import Loader from '../../components/Loader/Loader';
-import { tokenValid } from '../../redux/auth/authOperations';
 
 
 export default function DiaryPage() {
@@ -45,10 +44,6 @@ export default function DiaryPage() {
   };
   
   const formatedDate = moment(date).format('DD.MM.yyyy');
-
-  useEffect(() => {
- dispatch(tokenValid())
-  }, [])
   
   useEffect(() => {
    
