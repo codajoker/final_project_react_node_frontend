@@ -47,28 +47,16 @@ export const logOut = createAsyncThunk(
   }
 );
 
-export const refresh = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   'auth/current',
-  async (_, { getState, }) => {
-    const state = getState();
-    const persistedToken = state.auth.token;
-
-    if (!persistedToken) {
-      // return rejectWithValue();
-    }
-
-    const response = await usersAPI.currentUserRefresh(persistedToken);
-    return response;
+  async () => {
+    return await usersAPI.currentUserRefresh();
   }
 );
-export const tokenValid = createAsyncThunk(
-  'auth/tokenValid',
+
+export const refreshToken = createAsyncThunk(
+  'auth/refresh-token',
   async () => {
-    
-
-      const response = await usersAPI.tokenFindUser();
-        return response;
-
-  
+    return await usersAPI.refreshToken();
   }
 );
