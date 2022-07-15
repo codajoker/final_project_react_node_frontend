@@ -61,3 +61,14 @@ export const refresh = createAsyncThunk(
     return response;
   }
 );
+export const tokenValid = createAsyncThunk(
+  'auth/tokenValid',
+  async () => {
+    
+
+      const response = await usersAPI.tokenFindUser();
+        return response;
+
+  
+  }
+);

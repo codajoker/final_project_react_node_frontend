@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 
-axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 export const addProduct = async product => {
   const { data } = await axios.post('/product/addDiaryFood', product);

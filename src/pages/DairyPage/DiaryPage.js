@@ -29,6 +29,8 @@ import Header from '../../components/Header/Header';
 import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import Loader from '../../components/Loader/Loader';
+import { tokenValid } from '../../redux/auth/authOperations';
+
 
 export default function DiaryPage() {
   const [date, setDate] = useState(new Date());
@@ -41,9 +43,15 @@ export default function DiaryPage() {
   const disableFutureDt = current => {
     return current.isBefore(today);
   };
-
+  
   const formatedDate = moment(date).format('DD.MM.yyyy');
+
   useEffect(() => {
+ dispatch(tokenValid())
+  }, [])
+  
+  useEffect(() => {
+   
     dispatch(getProductsListByDate(date));
   }, [date]);
 

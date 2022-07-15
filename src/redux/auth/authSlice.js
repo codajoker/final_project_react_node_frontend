@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refresh } from './authOperations';
+import { register, logIn, logOut, refresh,tokenValid } from './authOperations';
 
 const initialState = {
   user: { name: null, email: null, dailyCalories: null },
@@ -13,6 +13,15 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+   
+     
+  [tokenValid.rejected]: (state,) => {
+  state.token = null;
+  state.isLoggedIn = false;
+  state.isRegister = false;
+  state.user = { name: null, email: null, dailyCalories: null };
+},
+    
     [register.fulfilled](state) {
       state.isRegister = true;
     },

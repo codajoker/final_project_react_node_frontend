@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 export const token = {
   set(token) {
@@ -32,7 +32,6 @@ export const currentUserRefresh = async persistedToken => {
   if (!persistedToken) {
     throw Error(console.log('no token!'));
   }
-  token.set(persistedToken);
 
   try {
     const { data } = await axios.get('/users/current');
@@ -41,3 +40,14 @@ export const currentUserRefresh = async persistedToken => {
     return error;
   }
 };
+
+export const tokenFindUser = async () => {
+
+  try {
+    const { data } = await axios.get('/users/token');
+    console.log(data);
+    return data;
+  } catch (error) {
+      throw new Error(error) ;
+  }
+  }
