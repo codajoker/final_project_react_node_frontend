@@ -5,7 +5,7 @@ import AsyncSelect from 'react-select/async';
 
 export const StyledForm = styled.form`
   display: flex;
-  margin-top: 80px;
+  margin-top: 60px;
   justify-content: center;
   align-items: center;
   flex-direction: column;

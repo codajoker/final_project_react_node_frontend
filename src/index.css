@@ -52,29 +52,6 @@ img {
   height: auto;
 }
 
-.container {
-
-}
-
-@media screen and (min-width: 320px) {
-  .container {
-
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container {
- 
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container {
-  
-  }
-}
-
-
 
 .visually-hidden {
   position: absolute;
