@@ -28,6 +28,7 @@ export default function RightSidebar({ date = currentDate }) {
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
+
   const totalDayCalories = productsList.reduce(
     (total, x) => total + x.calories_kcal,
     0

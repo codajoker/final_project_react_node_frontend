@@ -6,7 +6,7 @@ import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import { refreshUser } from './redux/auth/authOperations';
-import { getIsRefreshing } from './redux/auth/authSelectors';
+import { getIsRefreshing, getUserEmail } from './redux/auth/authSelectors';
 import Loader from './components/Loader/Loader';
 
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
@@ -20,10 +20,11 @@ const DiaryPage = lazy(() => import('./pages/DairyPage/DiaryPage'));
 const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
+  const currentUserEmail = useSelector(getUserEmail)
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch,currentUserEmail ]);
 
   return (
     !isRefreshing && (
