@@ -29,8 +29,5 @@ export const ProductsList = styled.ul`
     ::-webkit-scrollbar-thumb {background:rgb(38, 64, 97); }
     ::-webkit-scrollbar-track { background: ${SIDEBAR_COLOR} }
 }
-@media screen and (min-width: 1280px) {
-    height: 270px;
-   
-}
+
 `

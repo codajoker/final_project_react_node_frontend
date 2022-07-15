@@ -19,15 +19,10 @@ export const CalendarWrap = styled.div`
 `;
 
 export const PageWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 85px);
-  position: relative;
-  @media screen and (min-width: 768px) {
-    overflow: hidden;
-  }
-  @media screen and (min-width: 1280px) {
-    height: auto;
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 85px);
   }
 `;
 export const SidebarWrap = styled.div`
@@ -83,7 +78,7 @@ export const ListWrap = styled.div`
   display: flex;
   justify-items: start;
   @media screen and (min-width: 768px) {
-    padding: 60px 0 55px 0;
+    padding: 60px 0 0 0;
   }
 `;
 
