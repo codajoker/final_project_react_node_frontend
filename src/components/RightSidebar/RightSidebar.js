@@ -26,7 +26,6 @@ var currentDate = moment().format('DD.MM.yyyy');
 export default function RightSidebar({ date = currentDate }) {
   const products = useSelector(getProducts) || [];
   const dailyNormCalories = useSelector(getCalories);
-  console.log(dailyNormCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
   const totalDayCalories = productsList.reduce(

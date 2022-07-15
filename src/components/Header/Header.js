@@ -22,7 +22,8 @@ export default function Header() {
       <HeaderWrap>
         <UserInfoWrap>{isLoggedIn ? <UserInfo /> : <></>}</UserInfoWrap>
         {currentLocation === '/signin' ||
-        currentLocation === '/registration' ? (
+        currentLocation === '/registration' ||
+        currentLocation === '/' ? (
           <></>
         ) : (
           <MobileMenu />
