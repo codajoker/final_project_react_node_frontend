@@ -28,10 +28,7 @@ const dailyRateSlice = createSlice({
       state.dailyCalories = payload.data.dailyCalories;
       state.uniqCategories = payload.data.notAllowedFood;
     },
-    [logOut.fulfilled]: state => {
-      state.dailyCalories = null;
-      state.uniqCategories = [];
-    },
+  
   },
 });
 
