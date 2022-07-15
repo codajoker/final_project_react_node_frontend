@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchDailyRateAuthorized } from './dailyRateOperations';
-import { refreshUser } from '../auth/authOperations';
+import { refreshUser, logOut } from '../auth/authOperations';
 
 
 const initialState = {
@@ -28,6 +28,15 @@ const dailyRateSlice = createSlice({
       state.dailyCalories = payload.data.dailyCalories;
       state.uniqCategories = payload.data.notAllowedFood;
     },
+    [logOut.fulfilled]: state => {
+      state.dailyCalories = null;
+      state.uniqCategories = [];
+    },
+    [logOut.rejected]: state => {
+      state.dailyCalories = null;
+      state.uniqCategories = [];
+    },
+
   
   },
 });

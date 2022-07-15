@@ -34,12 +34,18 @@ export const VerticalLine = styled.div`
 export const UserExit = styled.button`
   background-color: transparent;
   font-style: normal;
+  padding: 0;
+  cursor: pointer;
   font-weight: 700;
   font-size: 14px;
   line-height: 2.2;
   letter-spacing: 0.04em;
   color: ${palette.SECONDARY_COLOR};
   margin-left: 15px;
+  &:hover {
+    color: ${palette.MAIN_COLOR};
+      transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   @media screen and (min-width: 1280px) {
     margin-left: 20px;
   }
