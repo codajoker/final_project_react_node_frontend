@@ -5,6 +5,8 @@ import { Button } from '../../Button.styled';
 import { Container } from '../../Container.styled';
 import desctop from '../../images/desktop/desctop_min.png';
 import tablet from '../../images/tablet/bg-2-tablet.png';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 export const WrapperLoginPage = styled(Container)`
   @media screen and (min-width: 320px) {
@@ -196,3 +198,16 @@ export const BackgroundImage = styled.div`
     background-repeat: no-repeat;
   }
 `;
+
+export const ShowPasswIcon = styled(RemoveRedEyeOutlinedIcon)`
+position: absolute;
+right: 15px;
+color: #9B9FAA;
+cursor: pointer;
+`
+export const HidePasswIcon = styled(VisibilityOffOutlinedIcon)`
+position: absolute;
+right: 15px;
+color: #9B9FAA;
+cursor: pointer;
+`

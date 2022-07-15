@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -20,6 +21,8 @@ import {
   LinkButton,
   Text,
   Stub,
+  ShowPasswIcon,
+  HidePasswIcon
 } from './RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -31,6 +34,11 @@ const validationSchema = yup.object({
 export default function RegistrationForm() {
   const dispatch = useDispatch();
   const isRegister = useSelector(getIsRegister);
+
+  const [showPassw, setShowPassw] = useState(false);
+  const toggleShowPassw = () => {
+        setShowPassw(!showPassw)
+    };
 
   const formik = useFormik({
     initialValues: {
@@ -81,16 +89,18 @@ export default function RegistrationForm() {
           <Stub />
         )}
 
-        <Label htmlFor="password"></Label>
+        <Label htmlFor="password" style={{position: "relative"}}>
         <Input
           placeholder="Пароль *"
           id="password"
           name="password"
-          type="password"
+          type={showPassw ? "text" : "password"}
           onChange={formik.handleChange}
           value={formik.values.password}
           autoComplete="current-password"
         />
+          {showPassw ? <HidePasswIcon onClick={() => { toggleShowPassw() }} /> : <ShowPasswIcon onClick={() => { toggleShowPassw() }} />}
+          </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
           <Text>{formik.touched.password && formik.errors.password}</Text>
         ) : (
