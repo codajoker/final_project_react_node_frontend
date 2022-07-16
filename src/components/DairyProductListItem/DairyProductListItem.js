@@ -1,18 +1,79 @@
-import { GrClose } from 'react-icons/gr';
+import { GrClose, GrEdit } from 'react-icons/gr';
+import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { Product, ProductInfo } from './DairyProductListItem.styled';
+import { useState } from 'react';
+import { Product, ProductInfo, EditButton, FormEdit, FormInput, FormInputWeight, ButtonsWrap } from './DairyProductListItem.styled';
 import { deleteProduct } from '../../redux/products/productsOperations';
 
 export const DairyProductListItem = ({ product, date }) => {
   const dispatch = useDispatch();
-
   const { title, weight_g, calories_kcal, _id } = product;
+  let [isEdditing, setIsEdditing] = useState(false);
+  let [weight, setWeight] = useState(weight_g);
+
+  const editProductWeight = (e) => {
+    e.preventDefault();
+    console.log(e);
+  }
+
   return (
     <Product>
       <ProductInfo>
         <div title={title}>{title}</div>
-        <div>{weight_g} г</div>
-        <div>{calories_kcal} Ккал</div>
+          {
+            isEdditing ?
+            <FormEdit onSubmit={editProductWeight}>
+              <FormInput>
+                <FormInputWeight
+                  type="number"
+                  min={1}
+                  name="weight"
+                  title="Введіть нову кількість вжитого продукту"
+                  required
+                  value={weight}
+                  onChange={e => setWeight(e.target.value)}
+                  autoFocus
+                  placeholder={weight}
+                  // onBlur={() => setIsEdditing(false)}
+                />
+                <span>г</span>
+              </FormInput>
+              <ButtonsWrap>
+                <EditButton
+                  type="submit"
+                  onClick={() => setIsEdditing(false)}
+                  title="Зберегти"
+                >
+                  {window.innerWidth > 768 ?
+                    <IoCheckmarkCircleOutline />
+                    :
+                    "Зберегти"
+                  }
+                </EditButton>
+                <EditButton
+                  type="button"
+                  onClick={() => setIsEdditing(false)}
+                  title="Відмінити"
+                >
+                  {window.innerWidth > 768 ?
+                    <IoCloseCircleOutline />
+                    :
+                    "Відмінити"
+                  }
+                </EditButton>
+              </ButtonsWrap>
+            </FormEdit>
+            : 
+            null
+          }
+          <div>{weight_g} г</div>
+          <EditButton
+            type="button"
+            onClick={() => setIsEdditing(!isEdditing)}
+          >
+            <GrEdit />
+          </EditButton>
+        <div>{calories_kcal} кКал</div>
       </ProductInfo>
       <button
         type="button"

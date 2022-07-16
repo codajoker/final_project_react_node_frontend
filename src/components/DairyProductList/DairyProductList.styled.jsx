@@ -18,10 +18,10 @@ export const ProductsList = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
-   
+
     
 @media screen and (min-width: 768px) {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 240px;
     width: 640px;
     align-items: flex-start;
