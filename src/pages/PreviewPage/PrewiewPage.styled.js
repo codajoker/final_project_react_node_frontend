@@ -140,7 +140,7 @@ const BgStrawberryTablet = styled.div`
     display: block;
     position: absolute;
     right: 0;
-    bottom: 25%;
+    bottom: 15%;
     background-image: url(${bgImageTabletStrawberry});
     background-repeat: no-repeat;
     background-size: contain;
