@@ -75,7 +75,7 @@ export const DairyProductListItem = ({ product, date }) => {
           >
             <GrEdit />
           </EditButton>
-        <div>{calories_kcal} кКал</div>
+          <div>{calories_kcal} <Calories>кKал</Calories></div>
       </ProductInfo>
       <button
         type="button"

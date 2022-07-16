@@ -118,6 +118,7 @@ export const EditButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   margin-left: -10px;
+  height: 20px;
   :hover path{
     stroke: ${MAIN_COLOR};
   }
@@ -193,14 +194,14 @@ export const ButtonsWrap = styled.div`
       display: inline-block;
       background: transparent;
       color: ${BUTTON_COLOR};
-      border: 2px solid #FC842D;
+      border: 1px solid #FC842D;
       font-size: 10px;
-      font-weight: 700;
-      padding: 5px 8px;
+      font-weight: 500;
+      padding: 3px 8px;
       border-radius: 20px;
       letter-spacing: 0.04em;
       &:last-child{
-        box-shadow: 0 4px 10px rgba(252, 132, 45, .5);
+        box-shadow: 0 1px 5px rgba(252, 132, 45, .5);
       }
       &:first-child{
         background: ${BUTTON_COLOR};
