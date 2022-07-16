@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import * as palette from '../../variables/Variables';
 
 export const MobileSidebarWrap = styled.div`
   width: 100%;
   height: 40px;
-  background-color: ${palette.SIDEBAR_COLOR};
+  background-color: ${props => props.theme.SIDEBAR_COLOR};
   display: flex;
   padding: 4px 20px;
   justify-content: space-between;

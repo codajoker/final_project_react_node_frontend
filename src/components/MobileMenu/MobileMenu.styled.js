@@ -25,7 +25,7 @@ export const MenuNav = styled.nav`
     top: 84px;
     right: 0;
     flex-direction: column;
-    background: ${palette.INTAKE_DAILY_COLOR};
+    background: ${props => props.theme.INTAKE_DAILY_COLOR};
     align-items: center;
     padding-top: 100px;
     display: flex;
@@ -45,10 +45,10 @@ export const MenuLink = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
 
   &.active {
-    color: ${palette.TEXT_COLOR};
+    color: ${props => props.theme.TEXT_COLOR};
   }
 
   @media screen and (min-width: 1280px) {
@@ -58,13 +58,13 @@ export const MenuLink = styled(NavLink)`
     font-family: 'GothamPro';
     font-weight: 700;
     margin-right: 16px;
-    color: ${palette.SECONDARY_COLOR};
+    color: ${props => props.theme.SECONDARY_COLOR};
     &:hover {
-      color: ${palette.MAIN_COLOR};
+      color: ${props => props.theme.MAIN_COLOR};
       transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     &.active {
-      color: ${palette.MAIN_COLOR};
+      color: ${props => props.theme.MAIN_COLOR};
     }
     &:first-child {
       margin-left: 20px;
@@ -73,9 +73,9 @@ export const MenuLink = styled(NavLink)`
   @media screen and (max-width: 1279px) {
     font-size: 24px;
     line-height: 1.2;
-    color: ${palette.SECONDARY_COLOR};
+    color: ${props => props.theme.SECONDARY_COLOR};
     &.active {
-      color: ${palette.TEXT_COLOR};
+      color: ${props => props.theme.TEXT_COLOR};
     }
   }
   @media screen and (max-width: 480px) {
@@ -88,14 +88,14 @@ export const BurgerIcon = styled.span`
     display: block;
     width: 18px;
     height: 2px;
-    background-color: ${palette.MAIN_COLOR};
+    background-color: ${props => props.theme.MAIN_COLOR};
     transition: top 0.3s;
     position: relative;
     &:before,
     &:after {
       width: 100%;
       height: 2px;
-      background-color: ${palette.MAIN_COLOR};
+      background-color: ${props => props.theme.MAIN_COLOR};
       display: inline-block;
       margin: 0;
       transition: top 0.3s;
