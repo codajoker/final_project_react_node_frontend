@@ -20,6 +20,7 @@ import {
 } from '../../redux/products/productsSelectors';
 import Loader from '../Loader/Loader';
 import moment from 'moment';
+import { useLocation } from 'react-router-dom';
 
 var currentDate = moment().format('DD.MM.yyyy');
 
@@ -28,6 +29,7 @@ export default function RightSidebar({ date = currentDate }) {
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
 
   const totalDayCalories = productsList.reduce(
     (total, x) => total + x.calories_kcal,
@@ -55,24 +57,26 @@ export default function RightSidebar({ date = currentDate }) {
             <Head>Всього за {date}</Head>
             {dailyNormCalories !== null ? (
               <CalloriesList>
-                <li>
+                {location.pathname === "/calculator" ? <></>:  <li>
                   <span>Залишилось</span>
                   <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
-                </li>
-                <li>
+                </li>}
+                {location.pathname === "/calculator" ? <></>: <li>
                   <span>Вжито</span>
                   <span>
                     {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
                   </span>
-                </li>
+                </li>}
+                
                 <li>
                   <span>Добова норма</span>
                   <span>{dailyNormCalories} кКал</span>
                 </li>
+                {location.pathname === "/calculator" ? <></>: 
                 <li>
                   <span>n% від норми</span>
                   <span>{norm_persent} %</span>
-                </li>
+                </li>}
               </CalloriesList>
             ) : (
               <Head> Необхідно ввести дані в форму!</Head>

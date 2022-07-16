@@ -115,6 +115,8 @@ const ErrorDescr = styled.p`
 `;
 
 const LabelRadioBoxes = styled.div`
+
+width: 240px;
   height: 40px;
   display: flex;
   align-items: center;
