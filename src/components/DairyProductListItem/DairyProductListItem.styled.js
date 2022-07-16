@@ -7,12 +7,10 @@ import {
 } from '../../variables/Variables';
 export const Product = styled.li`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
+  align-items: baseline;
   width: 280px;
   margin-bottom: 20px;
-
   color: ${MAIN_COLOR};
   > button {
     display: flex;
@@ -46,37 +44,57 @@ export const Product = styled.li`
 `;
 export const ProductInfo = styled.div`
   display: flex;
-
   > div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     border-bottom: 1px solid ${LINE_COLOR};
     padding-bottom: 8px;
-
+    width: 49px;
+    :first-child {
+      width: 130px;
+    }
+    :last-child{
+      width: 65px;
+      white-space: nowrap;
+    text-overflow: none;
+    }
     font-size: ${TEXT_FONTSIZE};
     line-height: 17px;
     text-align: start;
     letter-spacing: 0.04em;
-    :first-child {
-      width: 130px;
-    }
+
     :not(:last-child) {
       margin-right: 8px;
     }
   }
 
+
   @media screen and (min-width: 768px) {
-    width: 520px;
+    width: 520px; 
     justify-content: space-between;
     > div {
+      text-align: end;
       padding-bottom: 20px;
       margin-right: 0;
       width: 106px;
       margin: 0;
       :first-child {
         width: 240px;
+        text-align: start;
       }
+      :last-child{
+        width: 106px;
     }
+    
+    }
+  }
+`;
+
+
+export const Calories = styled.span`
+   font-size: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: ${TEXT_FONTSIZE};
   }
 `;

@@ -1,6 +1,6 @@
 import { GrClose } from 'react-icons/gr';
 import { useDispatch } from 'react-redux';
-import { Product, ProductInfo } from './DairyProductListItem.styled';
+import { Product, ProductInfo,Calories } from './DairyProductListItem.styled';
 import { deleteProduct } from '../../redux/products/productsOperations';
 
 export const DairyProductListItem = ({ product, date }) => {
@@ -12,7 +12,7 @@ export const DairyProductListItem = ({ product, date }) => {
       <ProductInfo>
         <div title={title}>{title}</div>
         <div>{weight_g} г</div>
-        <div>{calories_kcal} Ккал</div>
+        <div>{calories_kcal} <Calories>кKал</Calories></div>
       </ProductInfo>
       <button
         type="button"
