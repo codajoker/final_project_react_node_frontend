@@ -3,7 +3,7 @@ import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from 'react-icons/io5'
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Product, ProductInfo, EditButton, FormEdit, FormInput, FormInputWeight, ButtonsWrap } from './DairyProductListItem.styled';
-import { deleteProduct } from '../../redux/products/productsOperations';
+import { deleteProduct, changeProduct } from '../../redux/products/productsOperations';
 
 export const DairyProductListItem = ({ product, date }) => {
   const dispatch = useDispatch();
@@ -11,9 +11,12 @@ export const DairyProductListItem = ({ product, date }) => {
   let [isEdditing, setIsEdditing] = useState(false);
   let [weight, setWeight] = useState(weight_g);
 
-  const editProductWeight = (e) => {
+  console.log(changeProduct({date, product}));
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    setIsEdditing(false);
+    changeProduct({ date, product });
   }
 
   return (
@@ -22,7 +25,7 @@ export const DairyProductListItem = ({ product, date }) => {
         <div title={title}>{title}</div>
           {
             isEdditing ?
-            <FormEdit onSubmit={editProductWeight}>
+            <FormEdit onSubmit={handleSubmit}>
               <FormInput>
                 <FormInputWeight
                   type="number"
@@ -41,7 +44,6 @@ export const DairyProductListItem = ({ product, date }) => {
               <ButtonsWrap>
                 <EditButton
                   type="submit"
-                  onClick={() => setIsEdditing(false)}
                   title="Зберегти"
                 >
                   {window.innerWidth > 768 ?

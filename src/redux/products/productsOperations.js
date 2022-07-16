@@ -13,6 +13,18 @@ export const addProduct = createAsyncThunk(
   }
 );
 
+export const changeProduct = createAsyncThunk(
+  'product/changeProduct',
+  async ({ date, product }, { rejectWithValue }) => {
+    try {
+      const changedProduct = await productsApi.changeProduct(date, product);
+      return changedProduct.data.foodData;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const getProductsListByDate = createAsyncThunk(
   'users/dayinfo',
   async (date, { rejectWithValue }) => {
