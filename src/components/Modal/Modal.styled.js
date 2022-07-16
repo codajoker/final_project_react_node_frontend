@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import * as palette from '../../variables/Variables';
-import { GrClose } from "react-icons/gr";
+import styled from 'styled-components';
+// import * as palette from '../../variables/Variables';
+import { GrClose } from 'react-icons/gr';
 import { IoMdReturnLeft } from 'react-icons/io';
 
 export const Overlay = styled.div`
@@ -12,24 +12,24 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: ${props => props.theme.TEXT_COLOR};
   z-index: 1200;
   @media screen and (min-width: 768px) {
     background-color: rgba(33, 33, 33, 0.12);
   }
-`
+`;
 
 export const ModalContainer = styled.div`
-position: relative;
-background-color: white;
-@media screen and (min-width: 120px) and (max-width: 767px) {
+  position: relative;
+  background-color: ${props => props.theme.TEXT_COLOR};
+  @media screen and (min-width: 120px) and (max-width: 767px) {
     max-width: 350px;
-    border: 1px solid ${palette.LINE_COLOR};
-}
-@media screen and (min-width: 768px) {
+    border: 1px solid ${props => props.theme.LINE_COLOR};
+  }
+  @media screen and (min-width: 768px) {
     max-width: 672px;
   }
-`
+`;
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,18 +44,18 @@ export const Content = styled.div`
   @media screen and (min-width: 1280px) {
     padding-top: 64px;
   }
-`
+`;
 export const MobileBloc = styled.div`
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
-`
+`;
 export const ExitMobile = styled.div`
   width: 100%;
   height: 40px;
   background: #eff1f3;
   margin-bottom: 40px;
-`
+`;
 export const CloseBtn = styled(GrClose)`
   position: absolute;
   right: 13px;
@@ -66,13 +66,13 @@ export const CloseBtn = styled(GrClose)`
   transition: 0.5s;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: none;
-}
- :hover {
-      transform: scale(1.3);  
-    }
-`
+  }
+  :hover {
+    transform: scale(1.3);
+  }
+`;
 export const ExitMobBtn = styled(IoMdReturnLeft)`
-margin-top: 12px;
-margin-left: 15px;
-cursor: pointer;
-`
+  margin-top: 12px;
+  margin-left: 15px;
+  cursor: pointer;
+`;

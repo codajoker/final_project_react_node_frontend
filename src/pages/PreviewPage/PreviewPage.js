@@ -1,12 +1,23 @@
 import { React, Fragment } from 'react';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
-import { Main, BgBoxTablet, BgBoxDesctop } from './PrewiewPage.styled';
+import {
+  Main,
+  BgBoxDesctop,
+  BgBanana,
+  BgStrawberry,
+  BgLeaves,
+  BgFigure,
+  BgBoxTablet,
+  BgBananaTablet,
+  BgStrawberryTablet,
+  BgLeavesTablet,
+  BgFigureTablet,
+} from './PrewiewPage.styled';
 import Header from '../../components/Header/Header';
 import { useEffect, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import { fetchDailyRate } from '../../services/dailyRateApi';
 import { toast } from 'react-toastify';
-
 
 const PreviewPage = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -38,11 +49,23 @@ const PreviewPage = () => {
   return (
     <Fragment>
       <Header />
-      
+
       <Main>
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
-        <BgBoxTablet />
-        <BgBoxDesctop />
+
+        <BgBoxTablet>
+          <BgBananaTablet />
+          <BgStrawberryTablet />
+          <BgLeavesTablet />
+          <BgFigureTablet />
+        </BgBoxTablet>
+
+        <BgBoxDesctop>
+          <BgBanana />
+          <BgStrawberry />
+          <BgLeaves />
+          <BgFigure />
+        </BgBoxDesctop>
         {dailyRate && (
           <Modal
             isOpen={modalShow}

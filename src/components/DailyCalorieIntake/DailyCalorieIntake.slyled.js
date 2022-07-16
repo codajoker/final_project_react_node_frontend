@@ -14,7 +14,7 @@ export const Head = styled.h2`
   text-align: center;
   color: ${palette.MAIN_COLOR};
   @media screen and (min-width: 768px) {
-    font-size: ${palette.SUBTITLE_FONTSIZE_DESC}
+    font-size: ${palette.SUBTITLE_FONTSIZE_DESC};
   }
 `;
 
@@ -55,10 +55,10 @@ export const ProductsList = styled.ol`
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: ${palette.SIDEBAR_COLOR}; 
-  }  
+    background: ${palette.SIDEBAR_COLOR};
+  }
   ::-webkit-scrollbar-thumb {
-    background: ${palette.INTAKE_DAILY_COLOR}; 
+    background: ${palette.INTAKE_DAILY_COLOR};
   }
 `;
 
