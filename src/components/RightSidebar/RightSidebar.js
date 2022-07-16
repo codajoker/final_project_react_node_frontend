@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { translate } from '../../helpers/translate';
+import { useLocation } from 'react-router-dom';
 
 import product_dictionary from '../../product_dictionary';
 import {
@@ -28,6 +29,7 @@ export default function RightSidebar({ date = currentDate }) {
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
+  const location = useLocation();
 
   const totalDayCalories = productsList.reduce(
     (total, x) => total + x.calories_kcal,
@@ -55,24 +57,37 @@ export default function RightSidebar({ date = currentDate }) {
             <Head>Всього за {date}</Head>
             {dailyNormCalories !== null ? (
               <CalloriesList>
-                <li>
-                  <span>Залишилось</span>
-                  <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
-                </li>
-                <li>
-                  <span>Вжито</span>
-                  <span>
-                    {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
-                  </span>
-                </li>
+                {location.pathname === '/calculator' ? (
+                  <></>
+                ) : (
+                  <li>
+                    <span>Залишилось</span>
+                    <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
+                  </li>
+                )}
+
+                {location.pathname === '/calculator' ? (
+                  <></>
+                ) : (
+                  <li>
+                    <span>Вжито</span>
+                    <span>
+                      {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
+                    </span>
+                  </li>
+                )}
                 <li>
                   <span>Добова норма</span>
                   <span>{dailyNormCalories} кКал</span>
                 </li>
-                <li>
-                  <span>n% від норми</span>
-                  <span>{norm_persent} %</span>
-                </li>
+                {location.pathname === '/calculator' ? (
+                  <></>
+                ) : (
+                  <li>
+                    <span>n% від норми</span>
+                    <span>{norm_persent} %</span>
+                  </li>
+                )}
               </CalloriesList>
             ) : (
               <Head> Необхідно ввести дані в форму!</Head>

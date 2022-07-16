@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { SIDEBAR_COLOR } from "../../variables/Variables";
 export const ProductsListThumb = styled.div`
  position: relative;
+ max-height: 240px;
  @media screen and (min-width: 768px) {
     :before{
     width: 634px; 
@@ -22,7 +23,7 @@ export const ProductsList = styled.ul`
     
 @media screen and (min-width: 768px) {
     overflow-y: scroll;
-    height: 240px;
+    max-height: 230px;
     width: 640px;
     align-items: flex-start;
     ::-webkit-scrollbar { width: 6px;  }
