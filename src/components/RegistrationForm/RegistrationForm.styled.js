@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import * as palette from '../../variables/Variables';
 import { Button } from '../../Button.styled';
 import { Container } from '../../Container.styled';
-import desctop from '../../images/desktop/desctop_min.png';
-import tablet from '../../images/tablet/bg-2-tablet.png';
+// import desctop from '../../images/desktop/desctop_min.png';
+// import tablet from '../../images/tablet/bg-2-tablet.png';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
@@ -56,12 +56,12 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   font-family: 'GothamPro';
   font-weight: 700;
-  font-size: ${palette.TEXT_FONTSIZE};
+  font-size: ${props => props.theme.TEXT_FONTSIZE};
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 60px;
-  color: ${palette.BUTTON_COLOR};
+  color: ${props => props.theme.BUTTON_COLOR};
 `;
 
 export const Form = styled.form`
@@ -86,20 +86,21 @@ export const Input = styled.input`
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 17px;
   letter-spacing: 0.04em;
-  color: ${palette.MAIN_COLOR};
-  border-bottom: 1px solid ${palette.LINE_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
+  border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
   transition: border-color 0.3s;
+  background-color: rgba(117, 190, 218, 0);
 
   ::placeholder {
-    color: ${palette.SECONDARY_COLOR};
+    color: ${props => props.theme.SECONDARY_COLOR};
   }
 
   &:focus {
-    border-bottom-color: ${palette.MAIN_COLOR};
+    border-bottom-color: ${props => props.theme.MAIN_COLOR};
   }
 
   &.active {
-    color: ${palette.MAIN_COLOR};
+    color: ${props => props.theme.MAIN_COLOR};
   }
 
   @media screen and (min-width: 768px) {
@@ -122,6 +123,13 @@ export const ButtonWrapper = styled.div`
 
 export const AuthButton = styled(Button)`
   width: 182px;
+  background: transparent;
+
+  :hover,
+  :focus {
+    background: ${props => props.theme.BUTTON_COLOR};
+    color: #fff;
+  }
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -138,7 +146,8 @@ export const AuthButton = styled(Button)`
 export const LinkButton = styled(NavLink)`
   display: inline-block;
   text-align: center;
-  background: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
+  background: ${props =>
+    props.primary ? palette.BUTTON_COLOR : 'transparent'};
   color: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
   box-shadow: ${props =>
     props.primary ? '0 4px 10px rgba(252, 132, 45, .5)' : null};
@@ -151,9 +160,11 @@ export const LinkButton = styled(NavLink)`
   transition: background 200ms linear, color 200ms linear;
   cursor: pointer;
 
-  :hover {
+  :hover,
+  :focus {
     background: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
     color: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
+    outline: none;
   }
 
   :disabled {
@@ -174,40 +185,40 @@ export const Stub = styled.div`
   position: relative;
 `;
 
-export const BackgroundImage = styled.div`
-  display: block;
-  position: absolute;
-  right: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
+// export const BackgroundImage = styled.div`
+//   display: block;
+//   position: absolute;
+//   right: 0;
+//   z-index: -1;
+//   width: 100vw;
+//   height: 100vh;
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    top: 245;
-    background-image: url(${tablet});
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-  }
+//   @media screen and (min-width: 768px) and (max-width: 1279px) {
+//     top: 245;
+//     background-image: url(${tablet});
+//     background-repeat: no-repeat;
+//     background-position: right;
+//     background-size: contain;
+//   }
 
-  @media screen and (min-width: 1280px) {
-    top: 0;
-    background-image: url(${desctop});
-    background-size: contain;
-    background-position: right;
-    background-repeat: no-repeat;
-  }
-`;
+//   @media screen and (min-width: 1280px) {
+//     top: 0;
+//     background-image: url(${desctop});
+//     background-size: contain;
+//     background-position: right;
+//     background-repeat: no-repeat;
+//   }
+// `;
 
 export const ShowPasswIcon = styled(RemoveRedEyeOutlinedIcon)`
-position: absolute;
-right: 15px;
-color: #9B9FAA;
-cursor: pointer;
-`
+  position: absolute;
+  right: 15px;
+  color: ${props => props.theme.SECONDARY_COLOR};
+  cursor: pointer;
+`;
 export const HidePasswIcon = styled(VisibilityOffOutlinedIcon)`
-position: absolute;
-right: 15px;
-color: #9B9FAA;
-cursor: pointer;
-`
+  position: absolute;
+  right: 15px;
+  color: ${props => props.theme.SECONDARY_COLOR};
+  cursor: pointer;
+`;
