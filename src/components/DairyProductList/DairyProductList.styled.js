@@ -10,7 +10,7 @@ export const ProductsListThumb = styled.div`
       height: 50px;
       left: 0;
       right: 0;
-      background: linear-gradient(0, #fff, transparent);
+      background: ${props => props.theme.PRODUCT_LIST_THUMB_GRADIENT};
       content: '';
     }
   }

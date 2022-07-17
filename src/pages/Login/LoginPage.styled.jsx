@@ -24,7 +24,6 @@ const BgStrawberryTablet = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: block;
     position: absolute;
-    left: 50px;
     bottom: 23%;
     background-image: url(${bgImageTabletStrawberry});
     background-repeat: no-repeat;

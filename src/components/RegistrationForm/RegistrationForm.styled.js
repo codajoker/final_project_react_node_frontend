@@ -56,7 +56,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   font-family: 'GothamPro';
   font-weight: 700;
-  font-size: ${props => props.theme.TEXT_FONTSIZE};
+  font-size: ${palette.TEXT_FONTSIZE};
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;

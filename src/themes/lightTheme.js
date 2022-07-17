@@ -21,6 +21,7 @@ export const lightTheme = {
   INTAKE_DAILY_COLOR: '#264061',
   SELECT_CONTAINER_COLOR: '#FFF',
   SELECT_PLACEHOLDER_COLOR: '#9B9FAA',
+  PRODUCT_LIST_THUMB_GRADIENT: 'linear-gradient(0, #fff, transparent)',
   LOGO_MOBILE: logo,
   LOGO_TABLET: logotext,
   LOGO_DESKTOP: logoDesk,

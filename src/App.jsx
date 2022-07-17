@@ -14,7 +14,7 @@ import { GlobalStyles } from './themes/globalStyle';
 import { darkTheme, lightTheme } from './themes';
 import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 import { ThemeProvider } from 'styled-components';
-
+import { getIsLoggedIn } from './redux/auth/authSelectors';
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/Login/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/Register/RegisterPage'));
@@ -24,6 +24,7 @@ const CalculatorPage = lazy(() =>
 const DiaryPage = lazy(() => import('./pages/DairyPage/DiaryPage'));
 
 const App = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
@@ -39,7 +40,13 @@ const App = () => {
     !isRefreshing && (
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+        <ToggleTheme
+          theme={theme}
+          toggleTheme={toggleTheme}
+          className={
+            isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
+          }
+        />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route
