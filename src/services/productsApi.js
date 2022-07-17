@@ -10,7 +10,6 @@ export const addProduct = async product => {
 
 export const changeProduct = async (date, meal) => {
   const formatedDate = moment(date).format('DD.MM.yyyy');
-  console.log(date, meal);
   const { data } = await axios.patch('/product/changeProduct', {day: formatedDate, meal});
   return data;
 };

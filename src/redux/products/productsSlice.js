@@ -28,7 +28,9 @@ export const productsSlice = createSlice({
       state.isLoading = false;
     },
     [changeProduct.fulfilled](state, action) {
-      console.log("state, action", state, action);
+      const index = state.meal.findIndex(product => product._id === action.payload.foodData._id);
+      state.meal[index].weight_g = action.payload.foodData.weight_g;
+      state.meal[index].calories_kcal = action.payload.foodData.calories_kcal;
       state.isLoading = false;
     },
     [getProductsListByDate.fulfilled](state, action) {
