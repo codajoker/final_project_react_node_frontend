@@ -18,7 +18,7 @@ export default function UserInfo() {
   const name = useSelector(getUserName);
   const dispatch = useDispatch();
 
-  let sliced = name.slice(0,15);
+  let sliced = name.slice(0,18);
   if (sliced.length < name.length) {
   sliced += '...';
   }
