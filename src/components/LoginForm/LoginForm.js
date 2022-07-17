@@ -19,7 +19,7 @@ import {
   Text,
   Stub,
   ShowPasswIcon,
-  HidePasswIcon
+  HidePasswIcon,
 } from '../RegistrationForm/RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -32,8 +32,8 @@ export default function LoginForm() {
 
   const [showPassw, setShowPassw] = useState(false);
   const toggleShowPassw = () => {
-        setShowPassw(!showPassw)
-    };
+    setShowPassw(!showPassw);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -43,7 +43,6 @@ export default function LoginForm() {
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(logIn(values));
-
       resetForm();
     },
   });
@@ -68,18 +67,30 @@ export default function LoginForm() {
           <Stub />
         )}
 
-        <Label htmlFor="password" style={{position: "relative"}}>
-        <Input
-          placeholder="Пароль *"
-          id="password"
-          name="password"
-          type={showPassw ? "text" : "password"}
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          autoComplete="current-password"
+        <Label htmlFor="password" style={{ position: 'relative' }}>
+          <Input
+            placeholder="Пароль *"
+            id="password"
+            name="password"
+            type={showPassw ? 'text' : 'password'}
+            onChange={formik.handleChange}
+            value={formik.values.password.trim()}
+            autoComplete="current-password"
           />
-          {showPassw ? <HidePasswIcon onClick={() => { toggleShowPassw() }} /> : <ShowPasswIcon onClick={() => { toggleShowPassw() }} />}
-          </Label>
+          {showPassw ? (
+            <HidePasswIcon
+              onClick={() => {
+                toggleShowPassw();
+              }}
+            />
+          ) : (
+            <ShowPasswIcon
+              onClick={() => {
+                toggleShowPassw();
+              }}
+            />
+          )}
+        </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
           <Text>{formik.touched.password && formik.errors.password}</Text>
         ) : (
@@ -87,7 +98,9 @@ export default function LoginForm() {
         )}
 
         <ButtonWrapper>
-          <AuthButton type="submit">Вхід</AuthButton>
+          <AuthButton primary type="submit">
+            Вхід
+          </AuthButton>
           <LinkButton to={'/registration'}>Зареєструватися </LinkButton>
         </ButtonWrapper>
       </Form>
