@@ -18,13 +18,18 @@ export default function UserInfo() {
   const name = useSelector(getUserName);
   const dispatch = useDispatch();
 
+  let sliced = name.slice(0,15);
+  if (sliced.length < name.length) {
+  sliced += '...';
+  }
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <UserInfoWrap>
-      <UserText>{name}</UserText>
+      <UserText>{sliced}</UserText>
       <VerticalLine />
       <UserExit onClick={handleOpen}>Вихід</UserExit>
       <Modal
