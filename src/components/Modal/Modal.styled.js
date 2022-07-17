@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as palette from '../../variables/Variables';
 import { GrClose } from "react-icons/gr";
 import { IoMdReturnLeft } from 'react-icons/io';
 
@@ -22,12 +21,10 @@ export const Overlay = styled.div`
 export const ModalContainer = styled.div`
 position: relative;
 background-color: white;
-@media screen and (min-width: 120px) and (max-width: 767px) {
-    max-width: 350px;
-    border: 1px solid ${palette.LINE_COLOR};
-}
+height: 100%;
 @media screen and (min-width: 768px) {
     max-width: 672px;
+    height: auto;
   }
 `
 export const Content = styled.div`
@@ -64,7 +61,7 @@ export const CloseBtn = styled(GrClose)`
   height: 12px;
   cursor: pointer;
   transition: 0.5s;
-  @media screen and (min-width: 320px) and (max-width: 767px) {
+  @media screen and (min-width: 200px) and (max-width: 767px) {
     display: none;
 }
  :hover {
