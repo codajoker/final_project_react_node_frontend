@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FormBtnBase } from '../../components/DairyProductForm/DairyProductForm.styled';
-import * as palette from '../../variables/Variables';
 
 import Datetime from 'react-datetime';
 
@@ -42,12 +41,12 @@ export const Calendar = styled(Datetime)`
   }
 
   .rdtPicker td.rdtToday:before {
-    border-bottom: 7px solid ${palette.BUTTON_COLOR};
+    border-bottom: 7px solid ${props => props.theme.BUTTON_COLOR};
   }
   .rdtPicker td.rdtActive,
   .rdtPicker td.rdtActive:hover {
-    background-color: ${palette.BUTTON_COLOR};
-    text-shadow: 0 -1px 0 ${palette.BUTTON_COLOR};
+    background-color: ${props => props.theme.BUTTON_COLOR};
+    text-shadow: 0 -1px 0 ${props => props.theme.BUTTON_COLOR};
   }
   @media screen and (min-width: 768px) {
     width: 219px;
@@ -63,7 +62,7 @@ export const CalendarTitle = styled.h1`
   display: flex;
   align-items: center;
   margin-right: 21px;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   @media screen and (min-width: 768px) {
     font-size: 34px;
     line-height: 41px;
@@ -95,4 +94,5 @@ export const AddBtnMobile = styled(FormBtnBase)`
   flex-grow: 0;
   right: 0;
   left: 0;
+  background: transparent;
 `;

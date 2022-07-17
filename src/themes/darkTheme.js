@@ -1,21 +1,21 @@
 import logoLight from '../images/mobile/logo-light.png';
 import logotextLight from '../images/mobile/logo-text-light.png';
 import logoDeskLight from '../images/desktop/logo-light.png';
-import bgImageDesktopFigure from '../images/desktop/bg-figure-dark.png';
+import bgImageDesktopFigure from '../images/desktop/figure-dark-desc.png';
 import bgImageTabletFigure from '../images/tablet/figure-dark-tablet.png';
 
 export const darkTheme = {
-  body: '#0D0D0D',
-  MAIN_COLOR: '#DEDEDE',
-  SECONDARY_COLOR: '#55575c',
+  body: '#12191a',
+  MAIN_COLOR: '#b0b3b8',
+  SECONDARY_COLOR: '#e4e6eb',
   TEXT_COLOR: '#FFFFFF',
   BACKGROUND_COLOR: '#E5E5E5',
-  SIDEBAR_COLOR: '#1A1A1A',
-  SIDEBAR_TEXT_COLOR: '#9B9FAA',
+  SIDEBAR_COLOR: '#212121',
+  SIDEBAR_TEXT_COLOR: '#282a36',
   BUTTON_COLOR: '#FC842D',
   LINE_COLOR: '#E0E0E0',
-  INTAKE_DAILY_COLOR: '#264061',
-  SELECT_CONTAINER_COLOR: '#212121',
+  INTAKE_DAILY_COLOR: '#242526',
+  SELECT_CONTAINER_COLOR: '#1a1818',
   SELECT_PLACEHOLDER_COLOR: '#264061',
   LOGO_MOBILE: logoLight,
   LOGO_TABLET: logotextLight,

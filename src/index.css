@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Verdana';
-  src: url("./fonts/Verdana-Bold.ttf");
+  src: url('./fonts/Verdana-Bold.ttf');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Verdana';
-  src: url("./fonts/Verdana.ttf");
+  src: url('./fonts/Verdana.ttf');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -16,13 +16,11 @@
 
 @font-face {
   font-family: 'GothamPro';
-  src: url("./fonts/gothampro_bold.ttf");
+  src: url('./fonts/gothampro_bold.ttf');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
 }
-
-
 
 html {
   box-sizing: border-box;
@@ -37,9 +35,7 @@ html {
 
 body {
   font-family: Verdana;
-
 }
-
 
 select,
 textarea {
@@ -51,7 +47,6 @@ img {
   width: 100%;
   height: auto;
 }
-
 
 .visually-hidden {
   position: absolute;
@@ -65,8 +60,6 @@ img {
   clip-path: inset(50%);
   margin: -1px;
 }
-
-
 
 .--is-hidden {
   opacity: 0;
@@ -105,7 +98,8 @@ textarea:focus {
   outline: none;
 }
 
-ul,ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -118,4 +112,8 @@ body {
   margin-right: 0;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.q {
+  color: #1a1818;
 }

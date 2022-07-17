@@ -217,7 +217,8 @@ const SubmitButton = styled.button`
   }
 
   :disabled {
-    background: #edb084;
+    background: #ffa05c;
+    box-shadow: none;
     pointer-events: none;
     border: none;
   }
