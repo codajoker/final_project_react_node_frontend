@@ -8,7 +8,9 @@ export const darkTheme = {
   body: '#12191a',
   MAIN_COLOR: '#b0b3b8',
   SECONDARY_COLOR: '#e4e6eb',
-  TEXT_COLOR: '#FFFFFF',
+  TEXT_COLOR: '#212121',
+  SECONDARY_TEXT_COLOR: '#fff',
+  CALORIES_TEXT_COLOR: '#264061',
   BACKGROUND_COLOR: '#E5E5E5',
   SIDEBAR_COLOR: '#212121',
   SIDEBAR_TEXT_COLOR: '#282a36',
@@ -22,4 +24,5 @@ export const darkTheme = {
   LOGO_DESKTOP: logoDeskLight,
   BG_FIGURE: bgImageDesktopFigure,
   BG_FIGURE_TABLET: bgImageTabletFigure,
+  FILTER: 'invert(1)',
 };

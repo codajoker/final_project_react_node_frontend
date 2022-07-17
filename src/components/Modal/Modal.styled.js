@@ -12,8 +12,8 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.TEXT_COLOR};
   z-index: 1200;
+  background-color: ${props => props.theme.TEXT_COLOR};
   @media screen and (min-width: 768px) {
     background-color: rgba(33, 33, 33, 0.12);
   }
@@ -55,6 +55,7 @@ export const ExitMobile = styled.div`
   height: 40px;
   background: #eff1f3;
   margin-bottom: 40px;
+  background: ${props => props.theme.TEXT_COLOR};
 `;
 export const CloseBtn = styled(GrClose)`
   position: absolute;
@@ -64,6 +65,8 @@ export const CloseBtn = styled(GrClose)`
   height: 12px;
   cursor: pointer;
   transition: 0.5s;
+  filter: ${props => props.theme.FILTER};
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     display: none;
   }
@@ -71,8 +74,13 @@ export const CloseBtn = styled(GrClose)`
     transform: scale(1.3);
   }
 `;
-export const ExitMobBtn = styled(IoMdReturnLeft)`
+export const ExitMobBtn = styled.button`
+  background: transparent;
+`;
+
+export const ExitMobBtnIcon = styled(IoMdReturnLeft)`
   margin-top: 12px;
   margin-left: 15px;
   cursor: pointer;
+  color: ${props => props.theme.MAIN_COLOR};
 `;

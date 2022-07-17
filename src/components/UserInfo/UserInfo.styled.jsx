@@ -61,7 +61,7 @@ export const Wrap = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
-  background-color: white;
+  background: ${props => props.theme.TEXT_COLOR};
   padding: 40px;
   @media screen and (min-width: 768px) {
     width: 400px;
@@ -76,7 +76,7 @@ export const ModalTxt = styled.p`
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   @media screen and (min-width: 768px) {
     font-size: ${palette.SUBTITLE_FONTSIZE_DESC};
   }

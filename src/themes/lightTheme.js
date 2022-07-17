@@ -9,6 +9,8 @@ export const lightTheme = {
   MAIN_COLOR: '#212121',
   SECONDARY_COLOR: '#9B9FAA',
   TEXT_COLOR: '#FFFFFF',
+  SECONDARY_TEXT_COLOR: '#212121',
+  CALORIES_TEXT_COLOR: '#264061',
   BACKGROUND_COLOR: '#E5E5E5',
   SIDEBAR_COLOR: '#F0F1F3',
   SIDEBAR_TEXT_COLOR: '#9B9FAA',
@@ -22,4 +24,5 @@ export const lightTheme = {
   LOGO_DESKTOP: logoDesk,
   BG_FIGURE: bgImageDesktopFigure,
   BG_FIGURE_TABLET: bgImageTabletFigure,
+  FILTER: 'invert(0)',
 };

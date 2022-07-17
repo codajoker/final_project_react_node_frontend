@@ -8,7 +8,7 @@ import {
   Wrap,
   BtnWrap,
   ModalTxt,
-  Btn
+  Btn,
 } from './UserInfo.styled';
 import { getUserName } from '../../redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,14 +27,12 @@ export default function UserInfo() {
       <UserText>{name}</UserText>
       <VerticalLine />
       <UserExit onClick={handleOpen}>Вихід</UserExit>
-      <Modal
-        open={open}
-        onClose={handleClose}>
+      <Modal open={open} onClose={handleClose}>
         <Wrap>
           <ModalTxt>Бажаєте вийти?</ModalTxt>
           <BtnWrap>
-          <Btn primary onClick={() => dispatch(logOut())}>Так</Btn>
-          <Btn onClick={handleClose}>Ні</Btn>
+            <Btn onClick={() => dispatch(logOut())}>Так</Btn>
+            <Btn onClick={handleClose}>Ні</Btn>
           </BtnWrap>
         </Wrap>
       </Modal>
