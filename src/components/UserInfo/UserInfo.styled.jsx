@@ -18,6 +18,7 @@ export const UserText = styled.h2`
   line-height: 2.2;
   text-align: right;
   letter-spacing: 0.04em;
+  white-space: nowrap;
   color: ${palette.MAIN_COLOR};
   margin-right: 15px;
   @media screen and (min-width: 1280px) {
