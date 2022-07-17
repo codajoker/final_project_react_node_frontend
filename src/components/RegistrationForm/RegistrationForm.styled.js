@@ -103,7 +103,7 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    width: 240px;
+    width: 315px;
   }
 `;
 
@@ -163,6 +163,10 @@ export const LinkButton = styled(NavLink)`
 `;
 
 export const Text = styled.span`
+  @media screen and (max-width: 767px) {
+    font-size: 0.67em;
+  }
+
   color: #e10000;
   font-size: 0.77em;
   margin-top: 5px;
@@ -200,14 +204,14 @@ export const BackgroundImage = styled.div`
 `;
 
 export const ShowPasswIcon = styled(RemoveRedEyeOutlinedIcon)`
-position: absolute;
-right: 15px;
-color: #9B9FAA;
-cursor: pointer;
-`
+  position: absolute;
+  right: 15px;
+  color: #9b9faa;
+  cursor: pointer;
+`;
 export const HidePasswIcon = styled(VisibilityOffOutlinedIcon)`
-position: absolute;
-right: 15px;
-color: #9B9FAA;
-cursor: pointer;
-`
+  position: absolute;
+  right: 15px;
+  color: #9b9faa;
+  cursor: pointer;
+`;
