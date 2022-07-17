@@ -11,7 +11,7 @@ export const ProductsListThumb = styled.div`
     right: 6px;
     background: linear-gradient(0, rgba(255,255,255,1), rgba(255,255,255,0));
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
     content: '';
   }
   @media screen and (max-width: 767px) {
