@@ -6,6 +6,7 @@ const MainPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 32px;
+
   margin-left: 10px;
   margin-right: auto;
   width: 280px;
@@ -115,8 +116,7 @@ const ErrorDescr = styled.p`
 `;
 
 const LabelRadioBoxes = styled.div`
-
-width: 240px;
+  width: 240px;
   height: 40px;
   display: flex;
   align-items: center;
