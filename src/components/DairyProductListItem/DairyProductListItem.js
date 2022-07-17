@@ -2,6 +2,7 @@ import { GrClose, GrEdit } from 'react-icons/gr';
 import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 import { Product, ProductInfo, Calories, EditButton, FormEdit, FormInput, FormInputWeight, ButtonsWrap } from './DairyProductListItem.styled';
 import { deleteProduct, changeProduct } from '../../redux/products/productsOperations';
 
@@ -18,52 +19,57 @@ export const DairyProductListItem = ({ product, date }) => {
     setIsEdditing(false);
   }
 
+  const closeEditting = () => {
+    setIsEdditing(false);
+  };
+  const ref = useDetectClickOutside({ onTriggered: closeEditting });
+
   return (
-    <Product>
+    <Product ref={ref}>
       <ProductInfo>
         <div title={title}>{title}</div>
           {
             isEdditing ?
             <FormEdit onSubmit={handleSubmit}>
-              <FormInput>
-                <FormInputWeight
-                  type="number"
-                  min={1}
-                  name="weight"
-                  title="Введіть нову кількість вжитого продукту"
-                  required
-                  value={weight}
-                  onChange={e => setWeight(e.target.value)}
-                  autoFocus
-                  placeholder={weight}
-                  // onBlur={() => setIsEdditing(false)}
-                />
-                <span>г</span>
-              </FormInput>
-              <ButtonsWrap>
-                <EditButton
-                  type="submit"
-                  title="Зберегти"
-                  disabled={weight === weight_g}
-                >
-                  {window.innerWidth > 768 ?
-                    <IoCheckmarkCircleOutline />
-                    :
-                    "Зберегти"
-                  }
-                </EditButton>
-                <EditButton
-                  type="button"
-                  onClick={() => setIsEdditing(false)}
-                  title="Відмінити"
-                >
-                  {window.innerWidth > 768 ?
-                    <IoCloseCircleOutline />
-                    :
-                    "Відмінити"
-                  }
-                </EditButton>
-              </ButtonsWrap>
+                <FormInput>
+                  <FormInputWeight
+                    type="number"
+                    min={1}
+                    name="weight"
+                    title="Введіть нову кількість вжитого продукту"
+                    required
+                    value={weight}
+                    onChange={e => setWeight(e.target.value)}
+                    autoFocus
+                    placeholder={weight}
+                    // onBlur={() => setIsEdditing(false)}
+                  />
+                  <span>г</span>
+                </FormInput>
+                <ButtonsWrap>
+                  <EditButton
+                    type="submit"
+                    title="Зберегти"
+                    disabled={weight === weight_g}
+                  >
+                    {window.innerWidth > 768 ?
+                      <IoCheckmarkCircleOutline />
+                      :
+                      "Зберегти"
+                    }
+                  </EditButton>
+                  <EditButton
+                    type="button"
+                    onClick={() => setIsEdditing(false)}
+                    title="Відмінити"
+                  >
+                    {window.innerWidth > 768 ?
+                      <IoCloseCircleOutline />
+                      :
+                      "Відмінити"
+                    }
+                  </EditButton>
+                </ButtonsWrap>
             </FormEdit>
             : 
             null
@@ -71,7 +77,7 @@ export const DairyProductListItem = ({ product, date }) => {
           <div>{weight_g} г</div>
           <EditButton
             type="button"
-            onClick={() => setIsEdditing(!isEdditing)}
+            onClick={() => setIsEdditing(true)}
           >
             <GrEdit />
           </EditButton>
