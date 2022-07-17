@@ -3,14 +3,14 @@ import * as yup from 'yup';
 const validationSchema = yup.object().shape({
   height: yup
     .number()
-    .min(100, 'Ріст має бути від 100 см')
-    .max(250, 'Ріст має бути до 250 см')
-    .typeError('Ріст має бути числом')
+    .min(100, 'Зріст має бути від 100 см')
+    .max(250, 'Зріст має бути до 250 см')
+    .typeError('Зріст має бути числом')
     .required(`Обов'язкове поле`),
   age: yup
     .number()
-    .min(18, 'Вік має бути від 18 лет')
-    .max(100, 'Вік має бути до 100 лет')
+    .min(18, 'Вік має бути від 18 років')
+    .max(100, 'Вік має бути до 100 років')
     .typeError('Вік має бути числом')
     .required(`Обов'язкове поле`),
   currentWeight: yup
