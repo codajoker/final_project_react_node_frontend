@@ -10,13 +10,12 @@ export const DairyProductListItem = ({ product, date }) => {
   const { title, weight_g, calories_kcal, _id } = product;
   let [isEdditing, setIsEdditing] = useState(false);
   let [weight, setWeight] = useState(weight_g);
-
-  console.log(changeProduct({date, product}));
+  const meal = {title, weight_g: weight, _id};
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(changeProduct({ date, meal }));
     setIsEdditing(false);
-    changeProduct({ date, product });
   }
 
   return (
@@ -45,6 +44,7 @@ export const DairyProductListItem = ({ product, date }) => {
                 <EditButton
                   type="submit"
                   title="Зберегти"
+                  disabled={weight === weight_g}
                 >
                   {window.innerWidth > 768 ?
                     <IoCheckmarkCircleOutline />

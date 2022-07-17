@@ -28,7 +28,7 @@ export const productsSlice = createSlice({
       state.isLoading = false;
     },
     [changeProduct.fulfilled](state, action) {
-      console.log(state, action);
+      console.log("state, action", state, action);
       state.isLoading = false;
     },
     [getProductsListByDate.fulfilled](state, action) {

@@ -15,10 +15,10 @@ export const addProduct = createAsyncThunk(
 
 export const changeProduct = createAsyncThunk(
   'product/changeProduct',
-  async ({ date, product }, { rejectWithValue }) => {
+  async ({ date, meal }, { rejectWithValue }) => {
     try {
-      const changedProduct = await productsApi.changeProduct(date, product);
-      return changedProduct.data.foodData;
+      const changedProduct = await productsApi.changeProduct(date, meal);
+      return changedProduct.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

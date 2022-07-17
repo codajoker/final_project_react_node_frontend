@@ -190,6 +190,10 @@ export const ButtonsWrap = styled.div`
   button{
     padding: 0;
     margin: 0;
+    :disabled{
+      pointer-events: none;
+      opacity: .5;
+    }
     @media screen and (max-width: 767px) {
       display: inline-block;
       background: transparent;
