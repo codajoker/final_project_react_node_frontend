@@ -9,8 +9,13 @@ import bgImageTabletStrawberry from '../../images/tablet/strawberry-tablet.png';
 import bgImageTabletLeaves from '../../images/tablet/leaves-tablet.png';
 
 const Main = styled.main`
+  padding-bottom: 100px;
   @media screen and (min-width: 320px) and (max-width: 1279px) {
     position: relative;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 110px;
   }
 `;
 
