@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SIDEBAR_COLOR, INTAKE_DAILY_COLOR } from "../../variables/Variables";
+import { TEXT_FONTSIZE,MAIN_COLOR, SIDEBAR_COLOR, INTAKE_DAILY_COLOR } from "../../variables/Variables";
 export const ProductsListThumb = styled.div`
  position: relative;
  max-height: 240px;
@@ -44,5 +44,45 @@ export const ProductsList = styled.ul`
       background: ${INTAKE_DAILY_COLOR}; 
     }
   }
-
 `
+
+export const ProductsQuote = styled.blockquote`
+  border-left: 10px solid #ccc;
+  padding: 0.5em 10px;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: ${TEXT_FONTSIZE};
+  line-height: 1.44;
+  color: ${MAIN_COLOR};
+  margin: 10px 0;
+  width: 280px;
+  
+  :before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+  > p {
+  display: inline;
+   }
+  }
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    
+  }
+`;
+
+export const ProductsFigure = styled.figure`
+ margin: 0;
+`;
+
+export const ProductsAuthor = styled.figcaption`
+   font-style: italic;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: ${TEXT_FONTSIZE};
+  line-height: 1.44;
+  color: ${MAIN_COLOR};
+`;
