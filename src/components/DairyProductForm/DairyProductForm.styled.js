@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
-
+import { Button } from '../../Button.styled';
 import AsyncSelect from 'react-select/async';
 
 export const StyledForm = styled.form`
   display: flex;
-  margin-top: 60px;
+  margin-bottom: 32px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
     flex-direction: row;
     justify-content: flex-start;
   }
@@ -20,6 +21,7 @@ export const FormLabel = styled.label`
   width: 100%;
   @media screen and (min-width: 768px) {
     width: auto;
+    height: 37px;
   }
 `;
 
@@ -30,14 +32,12 @@ export const FormInputProduct = styled(AsyncSelect)`
   letter-spacing: 0.04em;
   color: ${palette.MAIN_COLOR};
   margin-bottom: 32px;
-
+  padding: 0 0 8px 0;
+  height: 100%;
   @media screen and (min-width: 768px) {
     margin-right: 22px;
     margin-bottom: 0;
     width: 240px;
-  }
-
-  @media screen and (max-width: 1279px) {
     margin-right: 30px;
   }
 
@@ -70,6 +70,7 @@ export const FormInputProduct = styled(AsyncSelect)`
   .react-select__input-container {
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   .react-select__placeholder {
@@ -93,6 +94,11 @@ export const FormInputWeight = styled.input`
   border-bottom: 1px solid ${palette.LINE_COLOR};
   outline: none;
   transition: border-color 0.3s;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   ::placeholder {
     color: ${palette.SECONDARY_COLOR};
   }
@@ -111,42 +117,14 @@ export const FormInputWeight = styled.input`
   }
 `;
 
-export const FormBtnBase = styled.button`
-  font-family: 'Verdana';
-  display: inline-block;
-  background: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
-  color: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
-  box-shadow: ${props =>
-    props.primary ? '0 4px 10px rgba(252, 132, 45, .5)' : null};
-  border: 2px solid ${palette.BUTTON_COLOR};
-  font-size: 14px;
-  font-weight: 700;
-  width: 176px;
-  height: 44px;
-  border-radius: 30px;
-  transition: background 200ms linear, color 200ms linear;
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  margin-top: 60px;
-  :hover {
-    background: ${props => (props.primary ? '#fff' : palette.BUTTON_COLOR)};
-    color: ${props => (props.primary ? palette.BUTTON_COLOR : '#fff')};
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  }
-  :disabled {
-    pointer-events: none;
-    opacity: 0.7;
-  }
-`;
-
-export const FormBtnMobile = styled(FormBtnBase)`
+export const FormBtnMobile = styled(Button)`
   display: block;
   @media screen and (min-width: 768px) {
     display: none;
   }
 `;
 
-export const FormBtn = styled(FormBtnBase)`
+export const FormBtn = styled(Button)`
   display: none;
   border-radius: 100%;
   width: 48px;

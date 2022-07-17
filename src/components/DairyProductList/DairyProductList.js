@@ -1,13 +1,22 @@
 import { DairyProductListItem } from '../DairyProductListItem/DairyProductListItem';
-import { ProductsList, ProductsListThumb } from './DairyProductList.styled';
+import { ProductsList, ProductsListThumb, ProductsQuote, ProductsFigure, ProductsAuthor } from './DairyProductList.styled';
+
+import { useEffect, useState } from 'react';
+import { quotes } from '../../quotes';
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 export const DairyProductList = ({ products, date }) => {
-  // якщо продуктів більше шести з'являється скрол
-  // useSelector для isLoading
-  // useEffect який при виборі дати буде з беку брати список продуктів на вибране число в іншому випадку буде підгружати продукти на поточну дату
+  const [quoteIndex, setQuoteIndex] = useState(getRandomInt(quotes.length));
+  useEffect(() => {
+    setQuoteIndex(getRandomInt(quotes.length));
+  }, [date]);
+  const quote = quotes[quoteIndex];
   return (
     <>
-      {/* {isLoading && "...підставити компонент лоадер"} */}
-      {products.length !== 0 && (
+      {products.length !== 0 ? (
         <ProductsListThumb>
           <ProductsList>
             {products.map(product => (
@@ -19,6 +28,14 @@ export const DairyProductList = ({ products, date }) => {
             ))}
           </ProductsList>
         </ProductsListThumb>
+      ) : (
+        <ProductsFigure>
+          <ProductsQuote>
+            <p>  {quote.text}</p>
+          
+          </ProductsQuote>
+          <ProductsAuthor>{quote.author}</ProductsAuthor>
+        </ProductsFigure>
       )}
     </>
   );

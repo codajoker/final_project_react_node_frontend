@@ -53,14 +53,12 @@ export default function DiaryProductForm({ onSubmit, className }) {
             onChange={option => setSelectedProduct(option)}
             loadOptions={loadOptions}
             placeholder="Введіть назву продукту"
-            noOptionsMessage={({ selectedProduct }) =>
-              !selectedProduct
-                ? 'Введіть назву продукту'
-                : 'Такого продукту нема'
+            noOptionsMessage={({ inputValue }) =>
+              inputValue
+                ? 'Такого продукту нема'
+                : 'Введіть назву продукту'
             }
-            loadingMessage={({ selectedProduct }) =>
-              !selectedProduct ? 'Шукаю...' : 'Такого продукту нема'
-            }
+            loadingMessage={() => 'Шукаю...'}
           />
         </FormLabel>
         <FormLabel>
@@ -75,10 +73,10 @@ export default function DiaryProductForm({ onSubmit, className }) {
             placeholder="Грами"
           />
         </FormLabel>
-        <FormBtnMobile type="submit">Додати</FormBtnMobile>
+        <FormBtnMobile type="submit"  primary  disabled={selectedProduct === null || weight === '' ? true : false}>Додати</FormBtnMobile>
 
         <FormBtn
-          type="submit"
+          type="submit" primary
           disabled={selectedProduct === null || weight === '' ? true : false}
         >
           <BsPlusLg size={14} />
