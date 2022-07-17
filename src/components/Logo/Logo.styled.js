@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import * as palette from '../../variables/Variables';
 
 export const LogoWrap = styled.div`
   @media screen and (min-width: 1280px) {
@@ -16,7 +15,7 @@ export const LogoLink = styled(NavLink)`
   letter-spacing: 0.04em;
   font-weight: 100;
   margin-right: 16px;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
 `;
 
 export const LogoImg = styled.div`

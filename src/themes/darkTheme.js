@@ -7,7 +7,7 @@ import bgImageTabletFigure from '../images/tablet/figure-dark-tablet.png';
 export const darkTheme = {
   body: '#0D0D0D',
   MAIN_COLOR: '#DEDEDE',
-  SECONDARY_COLOR: '#9B9FAA',
+  SECONDARY_COLOR: '#55575c',
   TEXT_COLOR: '#FFFFFF',
   BACKGROUND_COLOR: '#E5E5E5',
   SIDEBAR_COLOR: '#1A1A1A',
@@ -15,6 +15,8 @@ export const darkTheme = {
   BUTTON_COLOR: '#FC842D',
   LINE_COLOR: '#E0E0E0',
   INTAKE_DAILY_COLOR: '#264061',
+  SELECT_CONTAINER_COLOR: '#212121',
+  SELECT_PLACEHOLDER_COLOR: '#264061',
   LOGO_MOBILE: logoLight,
   LOGO_TABLET: logotextLight,
   LOGO_DESKTOP: logoDeskLight,

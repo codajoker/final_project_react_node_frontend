@@ -1,17 +1,12 @@
 import styled from 'styled-components';
-import {
-  LINE_COLOR,
-  TEXT_FONTSIZE,
-  MAIN_COLOR,
-  SECONDARY_COLOR,
-} from '../../variables/Variables';
+import { TEXT_FONTSIZE } from '../../variables/Variables';
 export const Product = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   width: 280px;
   margin-bottom: 20px;
-  color: ${MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   > button {
     display: flex;
     justify-content: center;
@@ -30,7 +25,7 @@ export const Product = styled.li`
       object-fit: contain;
 
       > path {
-        stroke: ${SECONDARY_COLOR};
+        stroke: ${props => props.theme.SECONDARY_COLOR};
       }
     }
   }
@@ -48,16 +43,16 @@ export const ProductInfo = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-bottom: 1px solid ${LINE_COLOR};
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
     padding-bottom: 8px;
     width: 49px;
     :first-child {
       width: 130px;
     }
-    :last-child{
+    :last-child {
       width: 65px;
       white-space: nowrap;
-    text-overflow: none;
+      text-overflow: none;
     }
     font-size: ${TEXT_FONTSIZE};
     line-height: 17px;
@@ -69,9 +64,8 @@ export const ProductInfo = styled.div`
     }
   }
 
-
   @media screen and (min-width: 768px) {
-    width: 520px; 
+    width: 520px;
     justify-content: space-between;
     > div {
       text-align: end;
@@ -83,17 +77,15 @@ export const ProductInfo = styled.div`
         width: 240px;
         text-align: start;
       }
-      :last-child{
+      :last-child {
         width: 106px;
-    }
-    
+      }
     }
   }
 `;
 
-
 export const Calories = styled.span`
-   font-size: 10px;
+  font-size: 10px;
   @media screen and (min-width: 768px) {
     font-size: ${TEXT_FONTSIZE};
   }
