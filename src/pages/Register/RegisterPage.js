@@ -1,6 +1,6 @@
-import LoginForm from '../components/LoginForm';
-import { WrapperLoginPage } from '../components/RegistrationForm/RegistrationForm.styled';
-import Header from '../components/Header/Header';
+import RegistrationForm from '../../components/RegistrationForm';
+import { WrapperRegisterPage } from '../../components/RegistrationForm/RegistrationForm.styled';
+import Header from '../../components/Header/Header';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -8,13 +8,15 @@ import {
   BgLeaves,
   BgFigure,
   BgBoxTablet,
+} from '../PreviewPage/PrewiewPage.styled';
+import {
   BgBananaTablet,
   BgStrawberryTablet,
   BgLeavesTablet,
   BgFigureTablet,
-} from './PreviewPage/PrewiewPage.styled';
+} from '../Login/LoginPage.styled';
 
-function LoginPage() {
+function RegisterPage() {
   return (
     <>
       <Header />
@@ -31,11 +33,12 @@ function LoginPage() {
         <BgLeaves />
         <BgFigure />
       </BgBoxDesctop>
-      <WrapperLoginPage>
-        <LoginForm />
-      </WrapperLoginPage>
+
+      <WrapperRegisterPage>
+        <RegistrationForm />
+      </WrapperRegisterPage>
     </>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

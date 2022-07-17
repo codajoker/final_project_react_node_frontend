@@ -16,8 +16,8 @@ import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 import { ThemeProvider } from 'styled-components';
 
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
-const LoginPage = lazy(() => import('./pages/LoginPage'));
-const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/Login/LoginPage'));
+const RegisterPage = lazy(() => import('./pages/Register/RegisterPage'));
 const CalculatorPage = lazy(() =>
   import('./pages/CalculatorPage/CalculatorPage')
 );
