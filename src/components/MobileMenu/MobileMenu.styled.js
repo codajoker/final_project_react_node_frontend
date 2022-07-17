@@ -45,10 +45,10 @@ export const MenuLink = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: ${props => props.theme.SECONDARY_COLOR};
+  color: ${props => props.theme.MOBILE_MENU_TEXT_COLOR};
 
   &.active {
-    color: ${props => props.theme.TEXT_COLOR};
+    color: ${props => props.theme.MOBILE_MENU_ACTIVE_TEXT_COLOR};
   }
 
   @media screen and (min-width: 1280px) {
@@ -58,7 +58,7 @@ export const MenuLink = styled(NavLink)`
     font-family: 'GothamPro';
     font-weight: 700;
     margin-right: 16px;
-    color: ${props => props.theme.SECONDARY_COLOR};
+    color: ${props => props.theme.MOBILE_MENU_TEXT_COLOR};
     &:hover {
       color: ${props => props.theme.MAIN_COLOR};
       transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -73,9 +73,9 @@ export const MenuLink = styled(NavLink)`
   @media screen and (max-width: 1279px) {
     font-size: 24px;
     line-height: 1.2;
-    color: ${props => props.theme.SECONDARY_COLOR};
+    color: ${props => props.theme.MOBILE_MENU_TEXT_COLOR};
     &.active {
-      color: ${props => props.theme.TEXT_COLOR};
+      color: ${props => props.theme.MOBILE_MENU_ACTIVE_TEXT_COLOR};
     }
   }
   @media screen and (max-width: 480px) {

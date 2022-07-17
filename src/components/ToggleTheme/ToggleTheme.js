@@ -1,14 +1,12 @@
 import React from 'react';
-import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
+import { ThemeToggleBtn } from './ToggleTheme.styled';
 
 export const ToggleTheme = ({ theme, toggleTheme }) => {
   return (
-    <button onClick={toggleTheme}>
-      {theme === 'light' ? (
-        <BsFillMoonStarsFill size="20px" />
-      ) : (
-        <BsFillSunFill size="20px" />
-      )}
-    </button>
+    <ThemeToggleBtn
+      duration={750}
+      onToggle={toggleTheme}
+      toggled={theme === 'light'}
+    />
   );
 };
