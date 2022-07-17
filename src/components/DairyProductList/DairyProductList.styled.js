@@ -30,7 +30,7 @@ export const ProductsList = styled.ul`
   align-items: flex-start;
 
   @media screen and (min-width: 768px) {
-    width: 640px;
+    width: 600px;
     ::-webkit-scrollbar {
       width: 6px;
     }

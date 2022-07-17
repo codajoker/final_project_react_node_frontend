@@ -8,12 +8,12 @@ import {
 export const Product = styled.li`
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  width: 280px;
+  justify-content: flex-start;
   margin-bottom: 20px;
   color: ${MAIN_COLOR};
   :last-child{
     position: relative;
+    z-index: 1;
   }
   > button {
     background-color: transparent;
@@ -21,6 +21,7 @@ export const Product = styled.li`
     height: 10px;
     width: 10px;
     cursor: pointer;
+    margin-left: 17px;
 
     > svg {
       display: block;
@@ -31,11 +32,16 @@ export const Product = styled.li`
     }
 
   @media screen and (min-width: 768px) {
-    width: 565px;
+    width: 540px;
     & > button {
       height: 12px;
       width: 12px;
+      margin-left: 32px;
     }
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 570px;
   }
 `;
 export const ProductInfo = styled.div`
@@ -48,36 +54,62 @@ export const ProductInfo = styled.div`
     padding-bottom: 8px;
     font-size: ${TEXT_FONTSIZE};
     line-height: 17px;
-    text-align: start;
+    text-align: right;
     letter-spacing: 0.04em;
     :first-child {
       width: 130px;
+      text-align: left;
     }
     width: 49px;
     :last-child{
-      width: 59px;
+      flex: 0 0 63px;
     }
     :not(:last-child) {
-      margin-right: 8px;
+      margin-right: 32px;
+    }
+    :first-child {
+      margin-right: 48px;
     }
   }
 
   @media screen and (min-width: 768px) {
-    width: 520px;
+    width: 532px;
     justify-content: space-between;
     > div {
       padding-bottom: 20px;
       margin-right: 0;
-      width: 106px;
+      flex: 0 0 106px;
       margin: 0;
       text-align: end;
       :first-child {
-        width: 240px;
+        flex: 0 0 240px;
         text-align: start;
       }
       :last-child{
-        width: 106px;
+        flex: 0 0 106px;
     }
+    }
+  }
+  @media screen and (max-width: 1279px) {
+    width: 620px;
+    > div {
+      :not(:last-child), :first-child{
+        margin-right: 30px;
+      } 
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    > div {
+      :not(:last-child), :first-child{
+        margin-right: 8px;
+      } 
+      :last-child{
+        span{
+          font-size: 10px;
+        }
+      }
     }
   }
 `;

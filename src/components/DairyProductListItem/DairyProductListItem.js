@@ -12,7 +12,7 @@ export const DairyProductListItem = ({ product, date }) => {
       <ProductInfo>
         <div title={title}>{title}</div>
         <div>{weight_g} г</div>
-        <div>{calories_kcal} Ккал</div>
+        <div>{calories_kcal} <span>кКал</span></div>
       </ProductInfo>
       <button
         type="button"
