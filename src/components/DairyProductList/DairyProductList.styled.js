@@ -8,10 +8,11 @@ export const ProductsListThumb = styled.div`
       width: 634px;
       position: absolute;
       bottom: 0;
-      height: 50px;
+      height: 60px;
       left: 0;
       right: 0;
-      background: linear-gradient(0, #fff, transparent);
+      background: linear-gradient(0, rgba(255,255,255,1), rgba(255,255,255,0));
+      pointer-events: none;
       content: '';
     }
   }
@@ -23,7 +24,7 @@ export const ProductsList = styled.ul`
     max-height: 230px;
 
   @media screen and (min-width: 768px) {
-    overflow-y: scroll;
+    overflow-y: auto;
    
     width: 640px;
     align-items: flex-start;

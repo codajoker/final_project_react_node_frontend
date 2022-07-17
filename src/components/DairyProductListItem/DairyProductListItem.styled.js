@@ -12,6 +12,9 @@ export const Product = styled.li`
   width: 280px;
   margin-bottom: 20px;
   color: ${MAIN_COLOR};
+  :last-child{
+    position: relative;
+  }
   > button {
     background-color: transparent;
     padding: 0;
