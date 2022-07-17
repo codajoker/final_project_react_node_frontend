@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { register } from '../../redux/auth/authOperations';
-import { getIsRegister } from '../../redux/auth/authSelectors';
 import {
   nameValidation,
   emailValidation,
@@ -22,7 +21,7 @@ import {
   Text,
   Stub,
   ShowPasswIcon,
-  HidePasswIcon
+  HidePasswIcon,
 } from './RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -33,12 +32,12 @@ const validationSchema = yup.object({
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
-  const isRegister = useSelector(getIsRegister);
+  const navigate = useNavigate();
 
   const [showPassw, setShowPassw] = useState(false);
   const toggleShowPassw = () => {
-        setShowPassw(!showPassw)
-    };
+    setShowPassw(!showPassw);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -47,8 +46,9 @@ export default function RegistrationForm() {
       password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values, { resetForm }) => {
-      dispatch(register(values));
+    onSubmit: async (values, { resetForm }) => {
+      await dispatch(register(values));
+      navigate('/signin', { replace: true });
       resetForm();
     },
   });
@@ -89,18 +89,30 @@ export default function RegistrationForm() {
           <Stub />
         )}
 
-        <Label htmlFor="password" style={{position: "relative"}}>
-        <Input
-          placeholder="Пароль *"
-          id="password"
-          name="password"
-          type={showPassw ? "text" : "password"}
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          autoComplete="current-password"
-        />
-          {showPassw ? <HidePasswIcon onClick={() => { toggleShowPassw() }} /> : <ShowPasswIcon onClick={() => { toggleShowPassw() }} />}
-          </Label>
+        <Label htmlFor="password" style={{ position: 'relative' }}>
+          <Input
+            placeholder="Пароль *"
+            id="password"
+            name="password"
+            type={showPassw ? 'text' : 'password'}
+            onChange={formik.handleChange}
+            value={formik.values.password.trim()}
+            autoComplete="current-password"
+          />
+          {showPassw ? (
+            <HidePasswIcon
+              onClick={() => {
+                toggleShowPassw();
+              }}
+            />
+          ) : (
+            <ShowPasswIcon
+              onClick={() => {
+                toggleShowPassw();
+              }}
+            />
+          )}
+        </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
           <Text>{formik.touched.password && formik.errors.password}</Text>
         ) : (
@@ -108,9 +120,10 @@ export default function RegistrationForm() {
         )}
 
         <ButtonWrapper>
-          <AuthButton type="submit">Зареєструватися</AuthButton>
+          <AuthButton primary type="submit">
+            Зареєструватися
+          </AuthButton>
           <LinkButton to={'/signin'}>Вхід</LinkButton>
-          {isRegister && <Navigate to="/signin" />}
         </ButtonWrapper>
       </Form>
     </Wrapper>

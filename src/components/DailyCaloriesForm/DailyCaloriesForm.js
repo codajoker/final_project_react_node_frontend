@@ -110,7 +110,6 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
                     id="bloodType1"
                     name="bloodType"
                     value="1"
-                    checked
                   />
                   <LabelRadioInputs htmlFor="bloodType1">1</LabelRadioInputs>
 
