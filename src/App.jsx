@@ -29,7 +29,7 @@ const App = () => {
   return (
     !isRefreshing && (
       <>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader full />}>
           <Routes>
             <Route
               path="/"

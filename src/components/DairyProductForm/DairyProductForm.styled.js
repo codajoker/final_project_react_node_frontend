@@ -37,6 +37,10 @@ export const FormInputProduct = styled(AsyncSelect)`
     width: 240px;
   }
 
+  @media screen and (max-width: 1279px) {
+    margin-right: 30px;
+  }
+
   @media screen and (min-width: 1280px) {
     margin-right: 48px;
   }
@@ -100,7 +104,7 @@ export const FormInputWeight = styled.input`
     margin-bottom: 0;
     padding-bottom: 20px;
     text-align: end;
-    margin-right: 87px;
+    margin-right: 48px;
   }
   @media screen and (min-width: 1280px) {
     margin-right: 60px;

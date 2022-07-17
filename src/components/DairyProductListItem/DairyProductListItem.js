@@ -1,6 +1,6 @@
 import { GrClose } from 'react-icons/gr';
 import { useDispatch } from 'react-redux';
-import { Product, ProductInfo,Calories } from './DairyProductListItem.styled';
+import { Product, ProductInfo, Calories } from './DairyProductListItem.styled';
 import { deleteProduct } from '../../redux/products/productsOperations';
 
 export const DairyProductListItem = ({ product, date }) => {
