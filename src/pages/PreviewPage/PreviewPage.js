@@ -8,11 +8,14 @@ import {
   BgLeaves,
   BgFigure,
   BgBoxTablet,
+} from './PrewiewPage.styled';
+import {
   BgBananaTablet,
   BgStrawberryTablet,
   BgLeavesTablet,
   BgFigureTablet,
-} from './PrewiewPage.styled';
+} from '../../pages/Login/LoginPage.styled';
+
 import Header from '../../components/Header/Header';
 import { useEffect, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
@@ -54,10 +57,10 @@ const PreviewPage = ({ theme, toggleTheme }) => {
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
 
         <BgBoxTablet>
-          <BgBananaTablet />
-          <BgStrawberryTablet />
-          <BgLeavesTablet />
-          <BgFigureTablet />
+        <BgBananaTablet />
+        <BgStrawberryTablet />
+        <BgLeavesTablet />
+        <BgFigureTablet />
         </BgBoxTablet>
 
         <BgBoxDesctop>

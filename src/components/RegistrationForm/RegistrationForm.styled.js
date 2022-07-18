@@ -2,45 +2,11 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as palette from '../../variables/Variables';
 import { Button } from '../../Button.styled';
-import { Container } from '../../Container.styled';
 // import desctop from '../../images/desktop/desctop_min.png';
 // import tablet from '../../images/tablet/bg-2-tablet.png';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
-export const WrapperLoginPage = styled(Container)`
-  @media screen and (min-width: 320px) {
-    padding-top: 40px;
-    padding-bottom: 175px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-top: 160px;
-    padding-bottom: 250px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-top: 160px;
-    padding-bottom: 240px;
-  }
-`;
-
-export const WrapperRegisterPage = styled(Container)`
-  @media screen and (min-width: 320px) {
-    padding-top: 40px;
-    padding-bottom: 100px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding-top: 160px;
-    padding-bottom: 200px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-top: 160px;
-    padding-bottom: 180px;
-  }
-`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -60,6 +26,7 @@ export const Title = styled.h1`
   line-height: 13px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  padding-top: 40px;
   margin-bottom: 60px;
   color: ${props => props.theme.BUTTON_COLOR};
 `;

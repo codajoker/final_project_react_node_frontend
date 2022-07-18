@@ -6,8 +6,8 @@ import bgImageTabletFigure from '../images/tablet/figure-dark-tablet.png';
 
 export const darkTheme = {
   body: '#12191a',
-  MAIN_COLOR: '#b0b3b8',
-  SECONDARY_COLOR: '#e4e6eb',
+  MAIN_COLOR: '#e4e6eb',
+  SECONDARY_COLOR: '#b0b3b8',
   TEXT_COLOR: '#212121',
   SECONDARY_TEXT_COLOR: '#fff',
   MOBILE_MENU_TEXT_COLOR: '#9B9FAA',

@@ -15,6 +15,7 @@ export const MobileSidebarWrap = styled.div`
 `;
 
 export const MobileSidebarBtn = styled.button`
+  filter: ${props => props.theme.FILTER};
   display: block;
   width: 20px;
   height: 20px;

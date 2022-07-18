@@ -12,7 +12,6 @@ const BgBananaTablet = styled.div`
     right: 0;
     background-image: url(${bgImageTabletBanana});
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: right bottom;
     height: 530px;
     width: 740px;
@@ -24,11 +23,11 @@ const BgStrawberryTablet = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: block;
     position: absolute;
-    bottom: 23%;
+    right: -55px;
+    bottom: 230px;
     background-image: url(${bgImageTabletStrawberry});
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
+    background-position: bottom right;
     width: 100%;
     height: 340px;
   }
@@ -39,13 +38,12 @@ const BgLeavesTablet = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: block;
     position: absolute;
-    right: 40px;
+    right: 135px;
     bottom: 100px;
     background-image: url(${bgImageTabletLeaves});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-
     width: 600px;
     height: 100%;
   }
@@ -62,7 +60,7 @@ const BgFigureTablet = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right bottom;
-    width: 750px;
+    width: 553px;
     height: 700px;
     z-index: -2;
   }
