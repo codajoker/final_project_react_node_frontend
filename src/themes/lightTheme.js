@@ -31,4 +31,5 @@ export const lightTheme = {
   FILTER: 'invert(0)',
   ICONS_COLOR: '#9B9FAA',
   ICONS_COLOR_HOVER: '#212121',
+  EDIT_BG_COLOR: '#F0F1F3',
 };

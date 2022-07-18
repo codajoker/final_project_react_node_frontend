@@ -30,4 +30,5 @@ export const darkTheme = {
   FILTER: 'invert(1)',
   ICONS_COLOR: '#9B9FAA',
   ICONS_COLOR_HOVER: '#fff',
+  EDIT_BG_COLOR: '#242526',
 };

@@ -275,7 +275,7 @@ export const FormEdit = styled.form`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${props => props.theme.INTAKE_DAILY_COLOR};
+    background: ${props => props.theme.EDIT_BG_COLOR};
     z-index: 1;
     padding: 30px;
     margin-right: 0;
