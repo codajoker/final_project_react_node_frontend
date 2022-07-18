@@ -31,6 +31,7 @@ export const DairyProductListItem = ({ product, date }) => {
           {
             isEdditing ?
             <FormEdit onSubmit={handleSubmit}>
+                <div>{title}</div>
                 <FormInput>
                   <FormInputWeight
                     type="number"
@@ -42,7 +43,6 @@ export const DairyProductListItem = ({ product, date }) => {
                     onChange={e => setWeight(e.target.value)}
                     autoFocus
                     placeholder={weight}
-                    // onBlur={() => setIsEdditing(false)}
                   />
                   <span>г</span>
                 </FormInput>
@@ -77,7 +77,7 @@ export const DairyProductListItem = ({ product, date }) => {
           <div>{weight_g} г</div>
           <EditButton
             type="button"
-            onClick={() => setIsEdditing(true)}
+            onClick={() => setIsEdditing(!isEdditing)}
           >
             <GrEdit />
           </EditButton>

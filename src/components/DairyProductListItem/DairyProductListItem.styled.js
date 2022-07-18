@@ -137,7 +137,7 @@ export const EditButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   margin-left: -5px;
-  height: 20px;
+  
   :hover path{
     stroke: ${props => props.theme.ICONS_COLOR_HOVER};
   }
@@ -146,6 +146,7 @@ export const EditButton = styled.button`
   }
   @media screen and (min-width: 768px) {
     margin-left: -25px;
+    height: 20px;
   }
   @media screen and (min-width: 1280px) {
     margin-left: -40px;
@@ -162,7 +163,6 @@ export const EditButton = styled.button`
 export const FormInput = styled.div`
   position: relative;
   font-size: 14px;
-
   > span{
     position: absolute;
     right: 3px;
@@ -209,8 +209,8 @@ export const ButtonsWrap = styled.div`
     width: 20px;
   }
   @media screen and (max-width: 767px) {
-    margin-top: 10px;
-    gap: 5px;
+    margin-top: 20px;
+    gap: 20px;
     button{
       flex: 1 0 auto
     }
@@ -227,9 +227,8 @@ export const ButtonsWrap = styled.div`
       background: transparent;
       color: ${BUTTON_COLOR};
       border: 1px solid #FC842D;
-      font-size: 10px;
       font-weight: 500;
-      padding: 3px 8px;
+      padding: 8px;
       border-radius: 20px;
       letter-spacing: 0.04em;
       &:last-child{
@@ -258,21 +257,27 @@ export const FormEdit = styled.form`
   margin-right: 30px;
 
   @media screen and (min-width: 768px) {
-    + div, ~ button{
+    + div, ~ button, > div:first-child{
       display: none;
     }
   }
   @media screen and (max-width: 767px) {
-    position: absolute;
-    top: 100%;
-    right: 40px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: ${props => props.theme.SELECT_CONTAINER_COLOR};
     z-index: 1;
-    padding: 15px 10px;
-    box-shadow: 3px 2px 10px 2px rgb(0 0 0 / 20%);
-    border-radius: 8px;
-    width: 165px;
-
+    padding: 30px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: slideUp 0.8s cubic-bezier(0.68,-0.55,0.265,1.55);
+    border-radius: 20px 20px 0 0;
+    > div:first-child{
+      margin-bottom: 20px;
+    }
     input{
       margin: 0;
       padding-bottom: 5px;
