@@ -123,7 +123,6 @@ export const ButtonWrapper = styled.div`
 
 export const AuthButton = styled(Button)`
   width: 182px;
-  background: transparent;
 
   :hover,
   :focus {

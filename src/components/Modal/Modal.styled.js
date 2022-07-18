@@ -21,13 +21,13 @@ export const Overlay = styled.div`
 export const ModalContainer = styled.div`
   position: relative;
   background-color: ${props => props.theme.TEXT_COLOR};
-  @media screen and (min-width: 120px) and (max-width: 767px) {
+  height: 100%;
+  /* @media screen and (min-width: 120px) and (max-width: 767px) {
     max-width: 350px;
     border: 1px solid ${props => props.theme.LINE_COLOR};
-  }
+  } */
 
   @media screen and (min-width: 768px) {
-    height: 100%;
     max-width: 672px;
     height: auto;
   }
@@ -40,6 +40,7 @@ export const Content = styled.div`
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 120px;
+
   @media screen and (min-width: 768px) {
     padding: 72px 130px 72px 130px;
   }

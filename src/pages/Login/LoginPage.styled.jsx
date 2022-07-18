@@ -56,7 +56,7 @@ const BgFigureTablet = styled.div`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: block;
     position: absolute;
-    bottom: -50px;
+    bottom: 0;
     right: 0;
     background-image: url(${props => props.theme.BG_FIGURE_TABLET});
     background-repeat: no-repeat;

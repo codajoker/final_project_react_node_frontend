@@ -157,7 +157,7 @@ body {
 
 @media screen and (min-width: 1280px) {
   .theme-mobile-loggedIn {
-    top: 114px;
+    top: 95px;
     left: 480px;
   }
   .theme-mobile-not-loggedIn {

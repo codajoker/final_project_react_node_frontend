@@ -134,7 +134,7 @@ export const FormBtnBase = styled.button`
   font-family: 'Verdana';
   display: inline-block;
   background: ${props =>
-    props.primary ? props => props.theme.BUTTON_COLOR : 'transparent'};
+    props.primary ? props => props.theme.BUTTON_COLOR : '#fff'};
   color: ${props =>
     props.primary ? '#fff' : props => props.theme.BUTTON_COLOR};
   box-shadow: ${props =>
@@ -151,7 +151,7 @@ export const FormBtnBase = styled.button`
   margin-top: 60px;
   :hover {
     background: ${props =>
-      props.primary ? 'transparent' : props => props.theme.BUTTON_COLOR};
+      props.primary ? '#fff' : props => props.theme.BUTTON_COLOR};
     color: ${props =>
       props.primary ? props => props.theme.BUTTON_COLOR : '#fff'};
     box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
@@ -164,7 +164,7 @@ export const FormBtnBase = styled.button`
 
 export const FormBtnMobile = styled(FormBtnBase)`
   display: block;
-  background: transparent;
+  /* background: transparent; */
   @media screen and (min-width: 768px) {
     display: none;
   }

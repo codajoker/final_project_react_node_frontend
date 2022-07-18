@@ -80,5 +80,5 @@ export const AddBtnMobile = styled(Button)`
   flex-grow: 0;
   right: 0;
   left: 0;
-  background: transparent;
+  /* background: transparent; */
 `;
