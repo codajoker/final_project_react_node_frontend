@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import {
   TEXT_FONTSIZE,
-  MAIN_COLOR,
-  SECONDARY_COLOR,
   BUTTON_COLOR
 } from '../../variables/Variables';
 
@@ -26,7 +24,7 @@ export const Product = styled.li`
     cursor: pointer;
 
     :hover > svg > path{
-      stroke: ${MAIN_COLOR};
+      stroke: ${props => props.theme.ICONS_COLOR_HOVER};
     }
 
     > svg {
@@ -36,7 +34,7 @@ export const Product = styled.li`
       object-fit: contain;
 
       > path {
-        stroke: ${props => props.theme.SECONDARY_COLOR};
+        stroke: ${props => props.theme.ICONS_COLOR};
       }
     }
   }
@@ -141,10 +139,10 @@ export const EditButton = styled.button`
   margin-left: -5px;
   height: 20px;
   :hover path{
-    stroke: ${MAIN_COLOR};
+    stroke: ${props => props.theme.ICONS_COLOR_HOVER};
   }
   path{
-    stroke: ${SECONDARY_COLOR};
+    stroke: ${props => props.theme.ICONS_COLOR};
   }
   @media screen and (min-width: 768px) {
     margin-left: -25px;
@@ -180,14 +178,15 @@ export const FormInputWeight = styled.input`
   letter-spacing: 0.04em;
   border-bottom: 1px solid #E0E0E0;
   width: 106px;
-  color: ${MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   font-family: Verdana;
   height: 38px;
+  background: transparent;
   :focus{
-    border-bottom-color: ${MAIN_COLOR};
+    border-bottom-color: ${props => props.theme.MAIN_COLOR};
   }
   ::placeholder{
-    color: ${MAIN_COLOR};
+    color: ${props => props.theme.MAIN_COLOR};
   }
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -267,7 +266,7 @@ export const FormEdit = styled.form`
     position: absolute;
     top: 100%;
     right: 40px;
-    background: #fff;
+    background: ${props => props.theme.SELECT_CONTAINER_COLOR};
     z-index: 1;
     padding: 15px 10px;
     box-shadow: 3px 2px 10px 2px rgb(0 0 0 / 20%);

@@ -26,6 +26,7 @@ export const ProductsList = styled.ul`
   flex-direction: column;
   align-items: center;
   max-height: 240px;
+  min-height: 120px;
   overflow-x: hidden;
   overflow-y: auto;
   align-items: flex-start;

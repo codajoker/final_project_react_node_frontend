@@ -29,4 +29,6 @@ export const lightTheme = {
   BG_FIGURE: bgImageDesktopFigure,
   BG_FIGURE_TABLET: bgImageTabletFigure,
   FILTER: 'invert(0)',
+  ICONS_COLOR: '#9B9FAA',
+  ICONS_COLOR_HOVER: '#212121',
 };
