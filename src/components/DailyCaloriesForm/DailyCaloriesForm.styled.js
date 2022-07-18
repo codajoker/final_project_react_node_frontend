@@ -29,7 +29,7 @@ const FormTitle = styled.h2`
   font-weight: 700;
   font-size: ${palette.TITLE_FONTSIZE_MOB};
   line-height: 1.44;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
 
   @media screen and (min-width: 768px) {
     font-size: ${palette.TITLE_FONTSIZE};
@@ -86,13 +86,13 @@ const Input = styled(Field)`
   width: 240px;
   height: 40px;
   border: none;
-  border-bottom: 1px solid ${palette.LINE_COLOR};
+  border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: ${palette.TEXT_FONTSIZE};
   font-weight: 700;
   line-height: 1.21;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   background-color: rgba(117, 190, 218, 0);
 
   ::placeholder {
@@ -100,7 +100,7 @@ const Input = styled(Field)`
     font-weight: 700;
     font-size: ${palette.TEXT_FONTSIZE};
     line-height: 1.21;
-    color: ${palette.SECONDARY_COLOR};
+    color: ${props => props.theme.SECONDARY_COLOR};
   }
 
   :hover,
@@ -125,10 +125,10 @@ const LabelRadioBoxes = styled.div`
   font-weight: 700;
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 1.21;
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
 
   @media screen and (min-width: 768px) {
-    border-bottom: 1px solid ${palette.LINE_COLOR};
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
   }
 `;
 
@@ -147,10 +147,10 @@ const RadioField = styled(Field)`
   display: inline-block;
   position: relative;
   top: 4px;
-  color: ${palette.LINE_COLOR};
+  color: ${props => props.theme.LINE_COLOR};
   height: 18px;
   width: 18px;
-  border: 1px solid ${palette.SECONDARY_COLOR};
+  border: 1px solid ${props => props.theme.SECONDARY_COLOR};
   border-radius: 10px;
   cursor: pointer;
   outline: none;
@@ -160,7 +160,7 @@ const RadioField = styled(Field)`
     position: absolute;
     width: 10px;
     height: 10px;
-    background: ${palette.BUTTON_COLOR};
+    background: ${props => props.theme.BUTTON_COLOR};
 
     border-radius: 100%;
     left: 3px;
@@ -176,7 +176,7 @@ const LabelRadioInputs = styled.label`
   font-weight: 400;
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 1.21;
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
 
   &:not(:last-of-type) {
     margin-right: 24px;
@@ -198,10 +198,10 @@ const SubmitButton = styled.button`
   font-size: ${palette.TEXT_FONTSIZE};
   line-height: 1.21;
   letter-spacing: 0.04em;
-  color: ${palette.TEXT_COLOR};
-  background: ${palette.BUTTON_COLOR};
+  color: ${props => props.theme.TEXT_COLOR};
+  background: ${props => props.theme.BUTTON_COLOR};
   box-shadow: 0 4px 10px rgb(252 132 45 / 50%);
-  border: 2px solid ${palette.BUTTON_COLOR};
+  border: 2px solid ${props => props.theme.BUTTON_COLOR};
   border-radius: 30px;
   cursor: pointer;
   transition: color 250ms ease-in;
@@ -218,7 +218,8 @@ const SubmitButton = styled.button`
   }
 
   :disabled {
-    background: #edb084;
+    background: #ffa05c;
+    box-shadow: none;
     pointer-events: none;
     border: none;
   }

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import * as palette from '../../variables/Variables';
+// import * as palette from '../../variables/Variables';
 
 export const HeaderEl = styled.header`
   border-bottom: 2px solid;
-  color: ${palette.LINE_COLOR};
+  color: ${props => props.theme.LINE_COLOR};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@ export const HeaderEl = styled.header`
   }
   @media screen and (min-width: 1280px) {
     border: none;
-    padding: 5% 16px 0px 16px;
+    padding: 60px 16px 0px 16px;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
@@ -26,7 +26,7 @@ export const HeaderDivider = styled.div`
     display: block;
     height: 32px;
     border-right: 2px solid;
-    border-color: ${palette.SECONDARY_COLOR};
+    border-color: ${props => props.theme.SECONDARY_COLOR};
   }
 `;
 

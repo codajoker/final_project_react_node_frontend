@@ -40,13 +40,13 @@ export const Link = styled(NavLink)`
   font-family: 'GothamPro';
   font-weight: 700;
   margin-right: 16px;
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
   &:hover {
-    color: ${palette.MAIN_COLOR};
+    color: ${props => props.theme.MAIN_COLOR};
     transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   &.active {
-    color: ${palette.MAIN_COLOR};
+    color: ${props => props.theme.MAIN_COLOR};
   }
 
   &:last-child {

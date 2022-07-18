@@ -1,20 +1,17 @@
 import styled from 'styled-components';
-import {
-  LINE_COLOR,
-  TEXT_FONTSIZE,
-  MAIN_COLOR,
-  SECONDARY_COLOR,
-} from '../../variables/Variables';
+import { TEXT_FONTSIZE } from '../../variables/Variables';
 export const Product = styled.li`
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
   margin-bottom: 20px;
-  color: ${MAIN_COLOR};
-  :last-child{
+  color: ${props => props.theme.MAIN_COLOR};
+
+  :last-child {
     position: relative;
     z-index: 1;
   }
+
   > button {
     display: flex;
     justify-content: center;
@@ -33,7 +30,7 @@ export const Product = styled.li`
       object-fit: contain;
 
       > path {
-        stroke: ${SECONDARY_COLOR};
+        stroke: ${props => props.theme.SECONDARY_COLOR};
       }
     }
   }
@@ -55,14 +52,16 @@ export const ProductInfo = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-bottom: 1px solid ${LINE_COLOR};
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
     padding-bottom: 8px;
     width: 49px;
     :first-child {
       width: 130px;
     }
-    :last-child{
+
+    :last-child {
       flex: 0 0 65px;
+
       white-space: nowrap;
       text-overflow: none;
     }
@@ -79,7 +78,6 @@ export const ProductInfo = styled.div`
     }
   }
 
-
   @media screen and (min-width: 768px) {
     width: 532px;
     justify-content: space-between;
@@ -93,28 +91,30 @@ export const ProductInfo = styled.div`
         flex: 0 0 240px;
         text-align: start;
       }
-      :last-child{
+
+      :last-child {
         flex: 0 0 106px;
-    }
-    
+      }
     }
   }
   @media screen and (max-width: 1279px) {
     width: 620px;
     > div {
-      :not(:last-child), :first-child{
+      :not(:last-child),
+      :first-child {
         margin-right: 30px;
-      } 
+      }
     }
   }
   @media screen and (max-width: 767px) {
     width: 100%;
     > div {
-      :not(:last-child), :first-child{
+      :not(:last-child),
+      :first-child {
         margin-right: 8px;
-      } 
-      :last-child{
-        span{
+      }
+      :last-child {
+        span {
           font-size: 10px;
         }
       }
@@ -122,9 +122,8 @@ export const ProductInfo = styled.div`
   }
 `;
 
-
 export const Calories = styled.span`
-   font-size: 10px;
+  font-size: 10px;
   @media screen and (min-width: 768px) {
     font-size: ${TEXT_FONTSIZE};
   }

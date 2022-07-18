@@ -5,6 +5,7 @@ import {
   ExitMobile,
   CloseBtn,
   ExitMobBtn,
+  ExitMobBtnIcon,
   Overlay,
 } from './Modal.styled';
 import Header from '../Header/Header';
@@ -25,12 +26,12 @@ const Modal = ({ isOpen, onCancel, dailyRate }) => {
               <MobileBloc>
                 <Header />
                 <ExitMobile>
-                  <button type="button" onClick={onCancel}>
-                    <ExitMobBtn />
-                  </button>
+                  <ExitMobBtn type="button" onClick={onCancel}>
+                    <ExitMobBtnIcon />
+                  </ExitMobBtn>
                 </ExitMobile>
               </MobileBloc>
-              <CloseBtn onClick={onCancel} />
+              <CloseBtn onClick={onCancel} fill="none" />
               <Content>
                 <DailyCalorieIntake dailyRate={dailyRate} />
               </Content>
