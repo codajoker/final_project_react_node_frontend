@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { Fragment, useState, useEffect } from 'react';
+import {  useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconContext } from 'react-icons';
 import { BsPlusLg } from 'react-icons/bs';
@@ -29,10 +29,12 @@ import Header from '../../components/Header/Header';
 import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import Loader from '../../components/Loader/Loader';
+import { useSearchParams } from 'react-router-dom';
 
 
 export default function DiaryPage() {
-  const [date, setDate] = useState(new Date());
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [date, setDate] = useState(searchParams.has("date")? new Date(parseInt(searchParams.get("date"))): new Date());
   const [open, setOpen] = useState(false);
   const isLoading = useSelector(getIsLoading);
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
@@ -42,12 +44,11 @@ export default function DiaryPage() {
   const disableFutureDt = current => {
     return current.isBefore(today);
   };
-  
   const formatedDate = moment(date).format('DD.MM.yyyy');
   
   useEffect(() => {
-   
     dispatch(getProductsListByDate(date));
+    setSearchParams({date: date.valueOf()})
   }, [date]);
 
   const closeDropdown = () => {
@@ -67,7 +68,7 @@ export default function DiaryPage() {
   };
 
   return (
-    <Fragment>
+    <>
       <Header />
       <PageWrap>
         <MobileSidebar
@@ -124,6 +125,7 @@ export default function DiaryPage() {
           </ListWrap>
           {!mobileAddSelected && (
             <AddBtnMobile
+              primary
               className={'showOnMobile'}
               onClick={() => setMobileAddSelected(true)}
             >
@@ -135,6 +137,6 @@ export default function DiaryPage() {
           <RightSidebar date={formatedDate} />
         </SidebarWrap>
       </PageWrap>
-    </Fragment>
+    </>
   );
 }

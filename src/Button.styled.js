@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import * as palette from './variables/Variables';
 
 export const Button = styled.button`
   display: inline-block;
-  background: ${props => props.primary ? palette.BUTTON_COLOR : "#fff"};
-  color: ${props => props.primary ? "#fff" : palette.BUTTON_COLOR};
-  box-shadow: ${props => props.primary ? "0 4px 10px rgba(252, 132, 45, .5)" : null};
-  border: 2px solid #FC842D;
+  background: ${props =>
+    props.primary ? props.theme.BUTTON_COLOR : 'transparent'};
+  color: ${props => (props.primary ? '#fff' : props.theme.BUTTON_COLOR)};
+  box-shadow: ${props =>
+    props.primary ? '0 4px 10px rgba(252, 132, 45, .5)' : null};
+  border: 2px solid #fc842d;
   font-size: 14px;
   font-weight: 700;
   padding: 13px 25px;
@@ -16,12 +17,13 @@ export const Button = styled.button`
   letter-spacing: 0.04em;
 
   :hover {
-    background: ${props => props.primary ? "#fff" : palette.BUTTON_COLOR};
-    color: ${props => props.primary ? palette.BUTTON_COLOR : "#fff"};
+    background: ${props =>
+      props.primary ? 'transparent' : props.theme.BUTTON_COLOR};
+    color: ${props => (props.primary ? props.theme.BUTTON_COLOR : '#fff')};
   }
 
   :disabled {
     pointer-events: none;
-    opacity: .7;
+    opacity: 0.7;
   }
 `;

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import * as palette from '../../variables/Variables';
 import bgImageDesktop from '../../images/desktop/bg-3-health-calculator.png';
 import bgImageTablet from '../../images/tablet/bg-1-tablet.png';
 
 export const Container = styled.aside`
-  background-color: ${palette.SIDEBAR_COLOR};
+  background-color: ${props => props.theme.SIDEBAR_COLOR};
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   line-height: 1.2;
   font-size: 14px;
-  color: ${palette.MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
   padding: 40px 20px;
   letter-spacing: 0.04em;
   @media (min-width: 481px) {
@@ -48,7 +47,7 @@ export const Head = styled.h3`
 `;
 
 export const CalloriesList = styled.ul`
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
   margin-bottom: 30px;
   @media (min-width: 481px) and (max-width: 1279px) {
     margin-bottom: 0;
@@ -69,7 +68,7 @@ export const CalloriesList = styled.ul`
 `;
 
 export const ProductsList = styled.div`
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
   line-height: 1.4;
   :first-letter {
     text-transform: uppercase;
@@ -77,5 +76,5 @@ export const ProductsList = styled.div`
 `;
 
 export const EmptyProducts = styled.div`
-  color: ${palette.SECONDARY_COLOR};
+  color: ${props => props.theme.SECONDARY_COLOR};
 `;

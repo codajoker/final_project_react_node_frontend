@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {
-  LINE_COLOR,
   TEXT_FONTSIZE,
   MAIN_COLOR,
   SECONDARY_COLOR,
@@ -12,7 +11,8 @@ export const Product = styled.li`
   align-items: baseline;
   justify-content: flex-start;
   margin-bottom: 20px;
-  color: ${MAIN_COLOR};
+  color: ${props => props.theme.MAIN_COLOR};
+
   > button {
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@ export const Product = styled.li`
       object-fit: contain;
 
       > path {
-        stroke: ${SECONDARY_COLOR};
+        stroke: ${props => props.theme.SECONDARY_COLOR};
       }
     }
   }
@@ -61,7 +61,7 @@ export const ProductInfo = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-bottom: 1px solid ${LINE_COLOR};
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
     padding-bottom: 8px;
     width: 49px;
     font-size: ${TEXT_FONTSIZE};
@@ -72,8 +72,10 @@ export const ProductInfo = styled.div`
       width: 120px;
       margin-right: 48px;
     }
-    :last-child{
+
+    :last-child {
       flex: 0 0 65px;
+
       white-space: nowrap;
       text-overflow: none;
     }
@@ -81,7 +83,6 @@ export const ProductInfo = styled.div`
       margin-right: 32px;
     }
   }
-
 
   @media screen and (min-width: 768px) {
     width: 100%;
@@ -96,28 +97,30 @@ export const ProductInfo = styled.div`
         flex: 0 0 240px;
         text-align: start;
       }
-      :last-child{
+
+      :last-child {
         flex: 0 0 106px;
-    }
-    
+      }
     }
   }
   @media screen and (max-width: 1279px) {
     width: 620px;
     > div {
-      :not(:last-child), :first-child{
+      :not(:last-child),
+      :first-child {
         margin-right: 30px;
-      } 
+      }
     }
   }
   @media screen and (max-width: 767px) {
     width: 100%;
     > div {
-      :not(:last-child), :first-child{
+      :not(:last-child),
+      :first-child {
         margin-right: 8px;
-      } 
-      :last-child{
-        span{
+      }
+      :last-child {
+        span {
           font-size: 10px;
         }
       }
@@ -125,9 +128,8 @@ export const ProductInfo = styled.div`
   }
 `;
 
-
 export const Calories = styled.span`
-   font-size: 10px;
+  font-size: 10px;
   @media screen and (min-width: 768px) {
     font-size: ${TEXT_FONTSIZE};
   }
