@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { FormBtnBase } from '../../components/DairyProductForm/DairyProductForm.styled';
-
+import { Button } from '../../Button.styled';
 import Datetime from 'react-datetime';
 
 import 'react-datetime/css/react-datetime.css';
@@ -14,6 +13,7 @@ export const CalendarWrap = styled.div`
   @media screen and (min-width: 768px) {
     width: 219px;
     height: 38px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -54,34 +54,20 @@ export const Calendar = styled(Datetime)`
 `;
 
 export const CalendarTitle = styled.h1`
-  font-family: 'Verdana';
-  font-style: normal;
-  font-weight: 700;
   font-size: 18px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
   margin-right: 21px;
   color: ${props => props.theme.MAIN_COLOR};
   @media screen and (min-width: 768px) {
-    font-size: 34px;
-    line-height: 41px;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 34px;
-    line-height: 41px;
+    font-size: 32px;
   }
 `;
 
 export const ListWrap = styled.div`
   display: flex;
   justify-items: start;
-  @media screen and (min-width: 768px) {
-    padding: 60px 0 0 0;
-  }
 `;
 
-export const AddBtnMobile = styled(FormBtnBase)`
+export const AddBtnMobile = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;

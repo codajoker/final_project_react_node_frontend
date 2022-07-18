@@ -1,38 +1,87 @@
 import styled from 'styled-components';
+import { TEXT_FONTSIZE } from '../../variables/Variables';
 export const ProductsListThumb = styled.div`
   position: relative;
   max-height: 240px;
-  @media screen and (min-width: 768px) {
+  :before {
+    position: absolute;
+    bottom: -2px;
+    height: 60px;
+    left: 0;
+    right: 6px;
+    background: ${props => props.theme.PRODUCT_LIST_THUMB_GRADIENT};
+    pointer-events: none;
+    z-index: 1;
+    content: '';
+  }
+  @media screen and (max-width: 767px) {
     :before {
-      width: 634px;
-      position: absolute;
-      bottom: 0;
-      height: 50px;
-      left: 0;
       right: 0;
-      background: ${props => props.theme.PRODUCT_LIST_THUMB_GRADIENT};
-      content: '';
+      height: 40px;
     }
   }
 `;
+
 export const ProductsList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 240px;
+  overflow-y: auto;
+  align-items: flex-start;
+  padding-right: 15px;
 
   @media screen and (min-width: 768px) {
-    overflow-y: scroll;
-    max-height: 230px;
-    width: 640px;
-    align-items: flex-start;
+    width: 600px;
+
     ::-webkit-scrollbar {
       width: 6px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgb(38, 64, 97);
     }
     ::-webkit-scrollbar-track {
       background: ${props => props.theme.SIDEBAR_COLOR};
     }
+    ::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.INTAKE_DAILY_COLOR};
+    }
   }
+`;
+
+export const ProductsQuote = styled.blockquote`
+  border-left: 10px solid #ccc;
+  padding: 0.5em 10px;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: ${TEXT_FONTSIZE};
+  line-height: 1.44;
+  color: ${props => props.theme.MAIN_COLOR};
+  margin: 10px 0;
+  width: 280px;
+
+  :before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    > p {
+      display: inline;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
+`;
+
+export const ProductsFigure = styled.figure`
+  margin: 0;
+`;
+
+export const ProductsAuthor = styled.figcaption`
+  font-style: italic;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: ${TEXT_FONTSIZE};
+  line-height: 1.44;
+  color: ${props => props.theme.MAIN_COLOR};
 `;

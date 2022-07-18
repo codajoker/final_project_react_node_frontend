@@ -47,7 +47,8 @@ const App = () => {
             isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
           }
         />
-        <Suspense fallback={<Loader />}>
+
+        <Suspense fallback={<Loader full />}>
           <Routes>
             <Route
               path="/"

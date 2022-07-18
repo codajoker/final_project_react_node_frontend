@@ -6,19 +6,20 @@ const MainPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 32px;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: auto;
   width: 280px;
 
   @media screen and (min-width: 768px) {
-    margin-left: 30px;
+    margin-left: 32px;
     padding-top: 100px;
     width: 545px;
     align-items: start;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 140px;
+    padding-top: 7%;
+    margin-left: 16px;
   }
 `;
 

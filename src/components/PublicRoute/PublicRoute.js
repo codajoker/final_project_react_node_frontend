@@ -8,10 +8,8 @@ export default function PublicRoute({
   // navigateTo,
 }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
-
   const location = useLocation();
-  const from = location.state?.from.pathname || '/diary';
-
+  const from = location.state?.from || '/diary';
   const shouldRedirect = isLoggedIn && restricted;
   return shouldRedirect ? <Navigate to={from} /> : children;
 }

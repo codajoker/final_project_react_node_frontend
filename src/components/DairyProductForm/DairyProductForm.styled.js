@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
-
+import { Button } from '../../Button.styled';
 import AsyncSelect from 'react-select/async';
 
 export const StyledForm = styled.form`
   display: flex;
-  margin-top: 60px;
+  margin-bottom: 32px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
     flex-direction: row;
     justify-content: flex-start;
   }
@@ -20,6 +21,7 @@ export const FormLabel = styled.label`
   width: 100%;
   @media screen and (min-width: 768px) {
     width: auto;
+    height: 37px;
   }
 `;
 
@@ -30,11 +32,14 @@ export const FormInputProduct = styled(AsyncSelect)`
   letter-spacing: 0.04em;
   margin-bottom: 32px;
   background: transparent;
+  padding: 0 0 8px 0;
+  height: 100%;
 
   @media screen and (min-width: 768px) {
     margin-right: 22px;
     margin-bottom: 0;
     width: 240px;
+    margin-right: 30px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -72,6 +77,7 @@ export const FormInputProduct = styled(AsyncSelect)`
 
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   .react-select__placeholder {
@@ -101,6 +107,11 @@ export const FormInputWeight = styled.input`
   border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
   outline: none;
   transition: border-color 0.3s;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   ::placeholder {
     color: ${props => props.theme.SECONDARY_COLOR};
   }
@@ -112,7 +123,7 @@ export const FormInputWeight = styled.input`
     margin-bottom: 0;
     padding-bottom: 20px;
     text-align: end;
-    margin-right: 87px;
+    margin-right: 48px;
   }
   @media screen and (min-width: 1280px) {
     margin-right: 60px;
@@ -159,7 +170,7 @@ export const FormBtnMobile = styled(FormBtnBase)`
   }
 `;
 
-export const FormBtn = styled(FormBtnBase)`
+export const FormBtn = styled(Button)`
   display: none;
   border-radius: 100%;
   width: 48px;

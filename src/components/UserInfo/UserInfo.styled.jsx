@@ -18,7 +18,9 @@ export const UserText = styled.h2`
   line-height: 2.2;
   text-align: right;
   letter-spacing: 0.04em;
+
   color: ${props => props.theme.MAIN_COLOR};
+  white-space: nowrap;
   margin-right: 15px;
   @media screen and (min-width: 1280px) {
     margin-left: 20px;
