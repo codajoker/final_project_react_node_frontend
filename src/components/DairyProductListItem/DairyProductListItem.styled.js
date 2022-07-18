@@ -55,6 +55,7 @@ export const Product = styled.li`
 `;
 export const ProductInfo = styled.div`
   display: flex;
+  align-items: flex-start;
   > div {
     white-space: nowrap;
     overflow: hidden;
