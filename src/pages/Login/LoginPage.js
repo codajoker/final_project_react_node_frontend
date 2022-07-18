@@ -1,6 +1,7 @@
 import LoginForm from '../../components/LoginForm';
-import { WrapperLoginPage } from '../../components/RegistrationForm/RegistrationForm.styled';
 import Header from '../../components/Header/Header';
+
+import { Container } from '../../Container.styled';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -34,9 +35,9 @@ function LoginPage() {
         <BgFigure />
       </BgBoxDesctop>
 
-      <WrapperLoginPage>
+      <Container>
         <LoginForm />
-      </WrapperLoginPage>
+      </Container>
     </>
   );
 }

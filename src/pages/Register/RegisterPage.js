@@ -1,5 +1,5 @@
 import RegistrationForm from '../../components/RegistrationForm';
-import { WrapperRegisterPage } from '../../components/RegistrationForm/RegistrationForm.styled';
+import { Container } from '../../Container.styled';
 import Header from '../../components/Header/Header';
 import {
   BgBoxDesctop,
@@ -34,9 +34,9 @@ function RegisterPage() {
         <BgFigure />
       </BgBoxDesctop>
 
-      <WrapperRegisterPage>
+      <Container>
         <RegistrationForm />
-      </WrapperRegisterPage>
+      </Container>
     </>
   );
 }
