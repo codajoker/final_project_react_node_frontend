@@ -34,6 +34,8 @@ export const FormInputProduct = styled(AsyncSelect)`
   background: transparent;
   padding: 0 0 8px 0;
   height: 100%;
+  position: relative;
+  z-index: 5;
 
   @media screen and (min-width: 768px) {
     margin-right: 22px;
@@ -90,6 +92,18 @@ export const FormInputProduct = styled(AsyncSelect)`
   .react-select__menu {
     background: ${props => props.theme.SELECT_CONTAINER_COLOR};
     color: ${props => props.theme.SELECT_PLACEHOLDER_COLOR};
+  }
+
+  .react-select__menu-list{
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${props => props.theme.SIDEBAR_COLOR};
+    }
+    ::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.INTAKE_DAILY_COLOR};
+    }
   }
 `;
 
