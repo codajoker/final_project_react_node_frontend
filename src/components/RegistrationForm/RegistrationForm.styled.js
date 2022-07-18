@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import * as palette from '../../variables/Variables';
-import { Button } from '../../Button.styled';
-// import desctop from '../../images/desktop/desctop_min.png';
-// import tablet from '../../images/tablet/bg-2-tablet.png';
+import { Link } from 'react-router-dom';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-
+import * as palette from '../../variables/Variables';
+import { Button } from '../../Button.styled';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -91,12 +89,6 @@ export const ButtonWrapper = styled.div`
 export const AuthButton = styled(Button)`
   width: 182px;
 
-  :hover,
-  :focus {
-    background: ${props => props.theme.BUTTON_COLOR};
-    color: #fff;
-  }
-
   &:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -161,9 +153,18 @@ export const ShowPasswIcon = styled(RemoveRedEyeOutlinedIcon)`
   color: ${props => props.theme.SECONDARY_COLOR};
   cursor: pointer;
 `;
+
 export const HidePasswIcon = styled(VisibilityOffOutlinedIcon)`
   position: absolute;
   right: 15px;
   color: ${props => props.theme.SECONDARY_COLOR};
   cursor: pointer;
+`;
+
+export const RedirectLink = styled(Link)`
+  font-family: 'GothamPro';
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: ${props => props.theme.BUTTON_COLOR};
 `;

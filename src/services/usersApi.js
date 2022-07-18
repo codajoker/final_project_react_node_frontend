@@ -24,3 +24,13 @@ export const currentUserRefresh = async () => {
   const { data } = await axios.get('/users/current');
   return data;
 };
+
+export const verifiedUser = async verificationToken => {
+  const { data } = await axios.get(`/users/verify/${verificationToken}`);
+  return data;
+};
+
+export const resendVerifyUser = async body => {
+  const { data } = await axios.post('/users/verify', body);
+  return data;
+};

@@ -20,6 +20,7 @@ import {
   Stub,
   ShowPasswIcon,
   HidePasswIcon,
+  RedirectLink,
 } from '../RegistrationForm/RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -96,6 +97,9 @@ export default function LoginForm() {
         ) : (
           <Stub />
         )}
+        <RedirectLink to="/verify">
+          Не підвердили електронну адресу?
+        </RedirectLink>
 
         <ButtonWrapper>
           <AuthButton primary type="submit">
