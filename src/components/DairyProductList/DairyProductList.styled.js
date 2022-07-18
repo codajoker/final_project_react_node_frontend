@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { SIDEBAR_COLOR, INTAKE_DAILY_COLOR } from "../../variables/Variables";
 export const ProductsListThumb = styled.div`
  position: relative;
- max-height: 240px;
  :before {
     position: absolute;
     bottom: -2px;
@@ -27,12 +26,13 @@ export const ProductsList = styled.ul`
     flex-direction: column;
     align-items: center;
     max-height: 240px;
+    overflow-x: hidden;
     overflow-y: auto;
     align-items: flex-start;
     padding-right: 15px;
     
   @media screen and (min-width: 768px) {
-    width: 600px;
+    padding-right: 32px;
 
     ::-webkit-scrollbar {
       width: 6px;

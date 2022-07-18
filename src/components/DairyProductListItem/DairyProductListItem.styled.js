@@ -13,10 +13,6 @@ export const Product = styled.li`
   justify-content: flex-start;
   margin-bottom: 20px;
   color: ${MAIN_COLOR};
-  :last-child{
-    position: relative;
-    z-index: 1;
-  }
   > button {
     display: flex;
     justify-content: center;
@@ -56,7 +52,7 @@ export const Product = styled.li`
     }
   }
   @media screen and (min-width: 1280px) {
-    width: 570px;
+    width: 595px;
   }
 `;
 export const ProductInfo = styled.div`
@@ -88,7 +84,7 @@ export const ProductInfo = styled.div`
 
 
   @media screen and (min-width: 768px) {
-    width: 532px;
+    width: 100%;
     justify-content: space-between;
     > div {
       text-align: end;
@@ -140,13 +136,19 @@ export const Calories = styled.span`
 export const EditButton = styled.button`
   background-color: transparent;
   cursor: pointer;
-  margin-left: -10px;
+  margin-left: -5px;
   height: 20px;
   :hover path{
     stroke: ${MAIN_COLOR};
   }
   path{
     stroke: ${SECONDARY_COLOR};
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: -25px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: -40px;
   }
   @media screen and (max-width: 767px) {
     padding: 0 15px 0 8px;
@@ -176,10 +178,12 @@ export const FormInputWeight = styled.input`
   letter-spacing: 0.04em;
   border-bottom: 1px solid #E0E0E0;
   width: 106px;
-  margin-left: -30px;
   color: ${MAIN_COLOR};
   font-family: Verdana;
   height: 38px;
+  :focus{
+    border-bottom-color: ${MAIN_COLOR};
+  }
   ::placeholder{
     color: ${MAIN_COLOR};
   }
@@ -250,6 +254,7 @@ export const ButtonsWrap = styled.div`
 
 export const FormEdit = styled.form`
   position: relative;
+  margin-right: 30px;
 
   @media screen and (min-width: 768px) {
     + div, ~ button{
