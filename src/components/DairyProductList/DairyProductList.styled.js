@@ -1,38 +1,31 @@
 import styled from 'styled-components';
 import { TEXT_FONTSIZE } from '../../variables/Variables';
 export const ProductsListThumb = styled.div`
- position: relative;
- :before {
-    position: absolute;
-    bottom: -2px;
-    height: 60px;
-    left: 0;
-    right: 6px;
-    background: ${props => props.theme.PRODUCT_LIST_THUMB_GRADIENT};
-    pointer-events: none;
-    z-index: 1;
-    content: '';
-  }
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 1280px) {
+    position: relative;
     :before {
-      right: 0;
-      height: 40px;
-    }
+        position: absolute;
+        bottom: -2px;
+        height: 60px;
+        left: 0;
+        right: 6px;
+        background: ${props => props.theme.PRODUCT_LIST_THUMB_GRADIENT};
+        pointer-events: none;
+        z-index: 1;
+        content: '';
+      }
   }
 `;
 
 export const ProductsList = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-height: 240px;
-  min-height: 120px;
-  overflow-x: hidden;
-  overflow-y: auto;
   align-items: flex-start;
-  padding-right: 15px;
     
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
+    max-height: 240px;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding-right: 32px;
 
     ::-webkit-scrollbar {

@@ -222,6 +222,11 @@ export const ButtonsWrap = styled.div`
       pointer-events: none;
       opacity: .5;
     }
+    @media screen and (min-width: 768px) {
+      span{
+        display: none;
+      }
+    }
     @media screen and (max-width: 767px) {
       display: inline-block;
       background: transparent;
@@ -237,6 +242,9 @@ export const ButtonsWrap = styled.div`
       &:first-child{
         background: ${BUTTON_COLOR};
         color: #FFF;
+      }
+      svg{
+        display: none;
       }
     }
     svg{
@@ -266,7 +274,7 @@ export const FormEdit = styled.form`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${props => props.theme.SELECT_CONTAINER_COLOR};
+    background: ${props => props.theme.INTAKE_DAILY_COLOR};
     z-index: 1;
     padding: 30px;
     margin-right: 0;
@@ -274,7 +282,7 @@ export const FormEdit = styled.form`
     flex-direction: column;
     justify-content: center;
     animation: slideUp 0.8s cubic-bezier(0.68,-0.55,0.265,1.55);
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
     > div:first-child{
       margin-bottom: 20px;
     }

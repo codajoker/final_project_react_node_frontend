@@ -52,22 +52,16 @@ export const DairyProductListItem = ({ product, date }) => {
                     title="Зберегти"
                     disabled={weight === weight_g}
                   >
-                    {window.innerWidth > 768 ?
-                      <IoCheckmarkCircleOutline />
-                      :
-                      "Зберегти"
-                    }
+                    <IoCheckmarkCircleOutline />
+                    <span>Зберегти</span>
                   </EditButton>
                   <EditButton
                     type="button"
                     onClick={() => setIsEdditing(false)}
                     title="Відмінити"
                   >
-                    {window.innerWidth > 768 ?
-                      <IoCloseCircleOutline />
-                      :
-                      "Відмінити"
-                    }
+                    <IoCloseCircleOutline />
+                    <span>Відмінити</span>
                   </EditButton>
                 </ButtonsWrap>
             </FormEdit>
