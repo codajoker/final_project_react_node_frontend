@@ -1,5 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser, refreshToken } from './authOperations';
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  refreshToken,
+  verifyUser,
+} from './authOperations';
 
 const initialState = {
   user: { name: null, email: null, dailyCalories: null },
@@ -7,15 +14,19 @@ const initialState = {
   tokenExpires: null,
   isRefreshing: false,
   isLoggedIn: false,
-  isRegister: false,
+  verificationToken: null,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [register.fulfilled](state) {
-      state.isRegister = true;
+    [register.fulfilled](state, action) {
+      state.verificationToken = action.payload.data.verificationToken;
+    },
+
+    [verifyUser.fulfilled](state) {
+      state.verificationToken = initialState.verificationToken;
     },
 
     [logIn.fulfilled](state, action) {
@@ -29,15 +40,10 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
-    [register.rejected](state) {
-      state.isRegister = false;
-    },
-
     [logOut.fulfilled](state) {
       state.user = initialState.user;
       state.token = initialState.token;
       state.isLoggedIn = initialState.isLoggedIn;
-      state.isRegister = initialState.isRegister;
       state.token = initialState.token;
     },
 
@@ -45,7 +51,6 @@ export const authSlice = createSlice({
       state.user = initialState.user;
       state.token = initialState.token;
       state.isLoggedIn = initialState.isLoggedIn;
-      state.isRegister = initialState.isRegister;
       state.token = initialState.token;
     },
 
@@ -68,8 +73,6 @@ export const authSlice = createSlice({
     },
 
     [refreshToken.fulfilled](state, action) {
-
-    
       state.token = action.payload.data.token;
       state.tokenExpires = action.payload.data.tokenExpires;
     },

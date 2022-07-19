@@ -5,6 +5,7 @@ import {
   alreadyHaveEmailToast,
   successfulLoginToast,
   errorLoginToast,
+  verificationSuccessToast,
 } from '../../helpers/authToasts';
 
 export const register = createAsyncThunk(
@@ -13,6 +14,9 @@ export const register = createAsyncThunk(
     try {
       const response = await usersAPI.registerUser(credentials);
       registerSuccessToast();
+      if (response.data.verificationToken) {
+        verificationSuccessToast();
+      }
       return response;
     } catch (error) {
       alreadyHaveEmailToast();
@@ -47,16 +51,22 @@ export const logOut = createAsyncThunk(
   }
 );
 
-export const refreshUser = createAsyncThunk(
-  'auth/current',
-  async () => {
-    return await usersAPI.currentUserRefresh();
-  }
-);
+export const refreshUser = createAsyncThunk('auth/current', async () => {
+  return await usersAPI.currentUserRefresh();
+});
 
-export const refreshToken = createAsyncThunk(
-  'auth/refresh-token',
-  async () => {
-    return await usersAPI.refreshToken();
+export const refreshToken = createAsyncThunk('auth/refresh-token', async () => {
+  return await usersAPI.refreshToken();
+});
+
+export const verifyUser = createAsyncThunk(
+  'auth/verify/:verificationToken',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const response = await usersAPI.verifiedUser(credentials);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );

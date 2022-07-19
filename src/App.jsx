@@ -22,6 +22,12 @@ const CalculatorPage = lazy(() =>
   import('./pages/CalculatorPage/CalculatorPage')
 );
 const DiaryPage = lazy(() => import('./pages/DairyPage/DiaryPage'));
+const VerificationFormPage = lazy(() =>
+  import('./pages/VerificationFormPage/VerificationFormPage')
+);
+const VerificationTokenPage = lazy(() =>
+  import('./pages/VerificationTokenPage/VerificationTokenPage')
+);
 
 const App = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -73,6 +79,24 @@ const App = () => {
               element={
                 <PublicRoute restricted>
                   <RegisterPage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/verify/:verificationToken"
+              element={
+                <PublicRoute restricted>
+                  <VerificationTokenPage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/verify"
+              element={
+                <PublicRoute restricted>
+                  <VerificationFormPage />
                 </PublicRoute>
               }
             />
