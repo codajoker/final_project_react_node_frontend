@@ -168,3 +168,8 @@ export const RedirectLink = styled(Link)`
   letter-spacing: 0.04em;
   color: ${props => props.theme.BUTTON_COLOR};
 `;
+
+export const isMediaMatch = () => {
+  const mediaMatch = window.matchMedia('(max-width: 1279px)');
+  return mediaMatch.matches ? 'email' : 'text';
+};

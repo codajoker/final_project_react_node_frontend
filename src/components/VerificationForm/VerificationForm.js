@@ -15,6 +15,7 @@ import {
   LinkButton,
   Text,
   Stub,
+  isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -46,7 +47,7 @@ export default function VerificationForm() {
           placeholder="Пошта *"
           id="email"
           name="email"
-          type="email"
+          type={isMediaMatch()}
           onChange={formik.handleChange}
           value={formik.values.email}
           autoComplete="email"
