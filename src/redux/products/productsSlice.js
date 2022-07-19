@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addProduct,
+  changeProduct,
   deleteProduct,
   getProductsListByDate,
 } from './productsOperations';
@@ -26,6 +27,12 @@ export const productsSlice = createSlice({
       }
       state.isLoading = false;
     },
+    [changeProduct.fulfilled](state, action) {
+      const index = state.meal.findIndex(product => product._id === action.payload.foodData._id);
+      state.meal[index].weight_g = action.payload.foodData.weight_g;
+      state.meal[index].calories_kcal = action.payload.foodData.calories_kcal;
+      state.isLoading = false;
+    },
     [getProductsListByDate.fulfilled](state, action) {
       state.meal = action.payload.data.foodList;
       state.isLoading = false;
@@ -46,6 +53,9 @@ export const productsSlice = createSlice({
     [deleteProduct.pending](state) {
       state.isLoading = true;
     },
+    [changeProduct.pending](state) {
+      state.isLoading = true;
+    },
     [addProduct.rejected](state) {
       state.isLoading = false;
     },
@@ -55,5 +65,8 @@ export const productsSlice = createSlice({
     [deleteProduct.rejected](state) {
       state.isLoading = false;
     },
-  },
+    [changeProduct.rejected](state) {
+      state.isLoading = false;
+    },
+ },
 });
