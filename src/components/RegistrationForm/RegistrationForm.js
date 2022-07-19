@@ -22,6 +22,7 @@ import {
   Stub,
   ShowPasswIcon,
   HidePasswIcon,
+  isMediaMatch,
 } from './RegistrationForm.styled';
 
 const validationSchema = yup.object({
@@ -48,7 +49,7 @@ export default function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       await dispatch(register(values));
-      navigate('/signin', { state: {from: "/calculator"},  replace: true });
+      navigate('/signin', { state: { from: '/calculator' }, replace: true });
       resetForm();
     },
   });
@@ -78,7 +79,7 @@ export default function RegistrationForm() {
           placeholder="Пошта *"
           id="email"
           name="email"
-          type="email"
+          type={isMediaMatch()}
           onChange={formik.handleChange}
           value={formik.values.email}
           autoComplete="email"
