@@ -21,6 +21,8 @@ import { dailyRateOperations } from '../../redux/dailyRate';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 
 export default function DailyCaloriesForm({ onOpen, getData }) {
+  const bloodType = [1, 2, 3, 4];
+
   const initialValues = {
     height: '',
     age: '',
@@ -104,37 +106,21 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                   Група крові *
                 </LabelRadioBoxes>
                 <RadioFieldWrapper role="group" aria-labelledby="blood-group">
-                  <RadioField
-                    type="radio"
-                    id="bloodType1"
-                    name="bloodType"
-                    value="1"
-                  />
-                  <LabelRadioInputs htmlFor="bloodType1">1</LabelRadioInputs>
+                  {bloodType.map((value, index) => (
+                    <div key={index}>
+                      <RadioField
+                        key={index}
+                        type="radio"
+                        id={`bloodType${value}`}
+                        name="bloodType"
+                        value={value.toString()}
+                      />
 
-                  <RadioField
-                    type="radio"
-                    id="bloodType2"
-                    name="bloodType"
-                    value="2"
-                  />
-                  <LabelRadioInputs htmlFor="bloodType2">2</LabelRadioInputs>
-
-                  <RadioField
-                    type="radio"
-                    id="bloodType3"
-                    name="bloodType"
-                    value="3"
-                  />
-                  <LabelRadioInputs htmlFor="bloodType3">3</LabelRadioInputs>
-
-                  <RadioField
-                    type="radio"
-                    id="bloodType4"
-                    name="bloodType"
-                    value="4"
-                  />
-                  <LabelRadioInputs htmlFor="bloodType4">4</LabelRadioInputs>
+                      <LabelRadioInputs htmlFor={`bloodType${value}`}>
+                        {value}
+                      </LabelRadioInputs>
+                    </div>
+                  ))}
                 </RadioFieldWrapper>
               </InputWrapper>
             </FormWrapper>
