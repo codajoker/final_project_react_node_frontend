@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import * as palette from '../../variables/Variables';
-import { Button } from '../../Button.styled';
+import { Button } from '../../styles/Button.styled';
 
 export const Wrapper = styled.div`
   display: flex;

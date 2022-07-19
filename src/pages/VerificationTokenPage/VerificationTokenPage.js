@@ -1,5 +1,5 @@
 import VerificationToken from '../../components/VerificationForm/VerificationToken';
-import { Container } from '../../Container.styled';
+import { Container } from '../../styles/Container.styled';
 
 export default function VerificationTokenPage() {
   return (

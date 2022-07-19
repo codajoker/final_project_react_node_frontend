@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Button } from '../../Button.styled';
+import { Button } from '../../styles/Button.styled';
 import Datetime from 'react-datetime';
-
 import 'react-datetime/css/react-datetime.css';
 
 export const CalendarWrap = styled.div`

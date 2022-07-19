@@ -6,18 +6,18 @@ import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import { refreshUser } from './redux/auth/authOperations';
-import { getIsRefreshing, getUserEmail } from './redux/auth/authSelectors';
+import { getIsRefreshing, getToken, getUserEmail } from './redux/auth/authSelectors';
 import Loader from './components/Loader/Loader';
 
-import { useDarkMode } from './themes/useDarkMode';
-import { GlobalStyles } from './themes/globalStyle';
-import { darkTheme, lightTheme } from './themes';
+import { useDarkMode } from './styles/themes/useDarkMode';
+import { GlobalStyles } from './styles/themes/globalStyle';
+import { darkTheme, lightTheme } from './styles/themes';
 import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 import { ThemeProvider } from 'styled-components';
 import { getIsLoggedIn } from './redux/auth/authSelectors';
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
-const LoginPage = lazy(() => import('./pages/Login/LoginPage'));
-const RegisterPage = lazy(() => import('./pages/Register/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const CalculatorPage = lazy(() =>
   import('./pages/CalculatorPage/CalculatorPage')
 );
@@ -37,10 +37,15 @@ const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
   const currentUserEmail = useSelector(getUserEmail);
+  
+  const token = useSelector(getToken);
+  
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch, currentUserEmail]);
+    if(token){
+      dispatch(refreshUser());
+    }
+  }, [dispatch, currentUserEmail, token]);
 
   return (
     !isRefreshing && (

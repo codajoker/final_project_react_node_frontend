@@ -1,9 +1,10 @@
+import moment from 'moment';
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { translate } from '../../helpers/translate';
 import { useLocation } from 'react-router-dom';
-
-import product_dictionary from '../../product_dictionary';
+import {Loader} from '../index';
+import { translate } from '../../helpers/translate';
+import product_dictionary from '../../data/product_dictionary';
 import {
   Container,
   Head,
@@ -19,8 +20,6 @@ import {
   getIsLoading,
   getProductsList,
 } from '../../redux/products/productsSelectors';
-import Loader from '../Loader/Loader';
-import moment from 'moment';
 
 var currentDate = moment().format('DD.MM.yyyy');
 

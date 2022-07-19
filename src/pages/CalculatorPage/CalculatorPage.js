@@ -1,8 +1,4 @@
-import React from 'react';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
-import Header from '../../components/Header/Header';
-import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
-import RightSidebar from '../../components/RightSidebar/RightSidebar';
+import {Header, MobileSidebar, RightSidebar, DailyCaloriesForm} from "../../components/index"
 import { Main, SidebarWrapper } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {
@@ -12,7 +8,6 @@ const CalculatorPage = () => {
       <MobileSidebar />
       <Main>
         <DailyCaloriesForm />
-
         <SidebarWrapper>
           <RightSidebar />
         </SidebarWrapper>

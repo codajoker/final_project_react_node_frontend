@@ -1,5 +1,5 @@
+import { toast } from 'react-toastify';
 import { React, Fragment } from 'react';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm/DailyCaloriesForm';
 import {
   Main,
   BgBoxDesctop,
@@ -14,15 +14,13 @@ import {
   BgStrawberryTablet,
   BgLeavesTablet,
   BgFigureTablet,
-} from '../../pages/Login/LoginPage.styled';
+} from '../../pages/LoginPage/LoginPage.styled';
 
-import Header from '../../components/Header/Header';
+import { Header, Modal, DailyCaloriesForm } from '../../components/index';
 import { useEffect, useState } from 'react';
-import Modal from '../../components/Modal/Modal';
 import { fetchDailyRate } from '../../services/dailyRateApi';
-import { toast } from 'react-toastify';
 
-const PreviewPage = ({ theme, toggleTheme }) => {
+export default function PreviewPage({ theme, toggleTheme }) {
   const [modalShow, setModalShow] = useState(false);
   const [dailyRate, setDailyRate] = useState(null);
 
@@ -57,10 +55,10 @@ const PreviewPage = ({ theme, toggleTheme }) => {
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
 
         <BgBoxTablet>
-        <BgBananaTablet />
-        <BgStrawberryTablet />
-        <BgLeavesTablet />
-        <BgFigureTablet />
+          <BgBananaTablet />
+          <BgStrawberryTablet />
+          <BgLeavesTablet />
+          <BgFigureTablet />
         </BgBoxTablet>
 
         <BgBoxDesctop>
@@ -79,6 +77,4 @@ const PreviewPage = ({ theme, toggleTheme }) => {
       </Main>
     </Fragment>
   );
-};
-
-export default PreviewPage;
+}

@@ -1,14 +1,20 @@
-import { DairyProductListItem } from '../DairyProductListItem/DairyProductListItem';
-import { ProductsList, ProductsListThumb, ProductsQuote, ProductsFigure, ProductsAuthor } from './DairyProductList.styled';
+import DairyProductListItem from '../DairyProductListItem/DairyProductListItem';
+import {
+  ProductsList,
+  ProductsListThumb,
+  ProductsQuote,
+  ProductsFigure,
+  ProductsAuthor,
+} from './DairyProductList.styled';
 
 import { useEffect, useState } from 'react';
-import { quotes } from '../../quotes';
+import { quotes } from '../../data/quotes';
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-export const DairyProductList = ({ products, date }) => {
+export default function DairyProductList({ products, date }) {
   const [quoteIndex, setQuoteIndex] = useState(getRandomInt(quotes.length));
   useEffect(() => {
     setQuoteIndex(getRandomInt(quotes.length));
@@ -31,12 +37,11 @@ export const DairyProductList = ({ products, date }) => {
       ) : (
         <ProductsFigure>
           <ProductsQuote>
-            <p>  {quote.text}</p>
-          
+            <p> {quote.text}</p>
           </ProductsQuote>
           <ProductsAuthor>{quote.author}</ProductsAuthor>
         </ProductsFigure>
       )}
     </>
   );
-};
+}

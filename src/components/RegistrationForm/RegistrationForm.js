@@ -48,7 +48,7 @@ export default function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       await dispatch(register(values));
-      navigate('/signin', { replace: true });
+      navigate('/signin', { state: {from: "/calculator"},  replace: true });
       resetForm();
     },
   });

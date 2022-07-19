@@ -5,7 +5,6 @@ import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 export default function PublicRoute({
   children,
   restricted = false,
-  // navigateTo,
 }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const location = useLocation();

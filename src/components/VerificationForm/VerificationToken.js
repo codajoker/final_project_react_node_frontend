@@ -13,7 +13,7 @@ export default function VerificationToken() {
 
     if (result.message === 'Verification successful') {
       verifiedSuccessToast();
-      navigate('/signin');
+      navigate('/signin', { state: {from: "/calculator"},  replace: true });
     }
   };
 

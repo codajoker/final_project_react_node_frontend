@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeToggleBtn } from './ToggleTheme.styled';
 
 export const ToggleTheme = ({ theme, toggleTheme, className }) => {

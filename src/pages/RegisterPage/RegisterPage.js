@@ -1,6 +1,5 @@
-import RegistrationForm from '../../components/RegistrationForm';
-import { Container } from '../../Container.styled';
-import Header from '../../components/Header/Header';
+import { Container } from '../../styles/Container.styled';
+import {Header, RegistrationForm} from '../../components/index';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -14,9 +13,9 @@ import {
   BgStrawberryTablet,
   BgLeavesTablet,
   BgFigureTablet,
-} from '../Login/LoginPage.styled';
+} from '../LoginPage/LoginPage.styled';
 
-function RegisterPage() {
+export default function RegisterPage() {
   return (
     <>
       <Header />
@@ -41,4 +40,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+

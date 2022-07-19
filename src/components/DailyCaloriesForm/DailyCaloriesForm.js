@@ -1,5 +1,8 @@
-import React from 'react';
 import { Formik, Form } from 'formik';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import validationSchema from '../../validators/dailyCaloriesFormValidator';
 import {
   MainPageContainer,
@@ -15,13 +18,9 @@ import {
   SubmitButton,
 } from './DailyCaloriesForm.styled';
 import { dailyRateOperations } from '../../redux/dailyRate';
-import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 
-const DailyCaloriesForm = ({ onOpen, getData }) => {
+export default function DailyCaloriesForm({ onOpen, getData }) {
   const initialValues = {
     height: '',
     age: '',
@@ -147,6 +146,4 @@ const DailyCaloriesForm = ({ onOpen, getData }) => {
       </Formik>
     </MainPageContainer>
   );
-};
-
-export default DailyCaloriesForm;
+}

@@ -8,11 +8,10 @@ import {
   ExitMobBtnIcon,
   Overlay,
 } from './Modal.styled';
-import Header from '../Header/Header';
+import {Header, DailyCalorieIntake } from '../index';
 import Portal from './Portal';
-import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
-const Modal = ({ isOpen, onCancel, dailyRate }) => {
+export default function Modal({ isOpen, onCancel, dailyRate }) {
   return (
     <>
       {isOpen && (
@@ -41,6 +40,4 @@ const Modal = ({ isOpen, onCancel, dailyRate }) => {
       )}
     </>
   );
-};
-
-export default Modal;
+}

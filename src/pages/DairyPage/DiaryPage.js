@@ -1,10 +1,11 @@
 import moment from 'moment';
-import {  useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconContext } from 'react-icons';
 import { BsPlusLg } from 'react-icons/bs';
 import { RiCalendar2Line } from 'react-icons/ri';
-import { Container } from '../../Container.styled';
+import { Container } from '../../styles/Container.styled';
 import {
   CalendarWrap,
   CalendarTitle,
@@ -14,9 +15,7 @@ import {
   PageWrap,
   SidebarWrap,
 } from './DiaryPage.styled';
-import DiaryProductForm from '../../components/DairyProductForm/DairyProductForm';
-import { DairyProductList } from '../../components/DairyProductList/DairyProductList';
-import RightSidebar from '../../components/RightSidebar/RightSidebar';
+import {DiaryProductForm, DairyProductList, RightSidebar, Header, MobileSidebar, Loader} from '../../components/index';
 import {
   getIsLoading,
   getProductsList,
@@ -25,16 +24,15 @@ import {
   addProduct,
   getProductsListByDate,
 } from '../../redux/products/productsOperations';
-import Header from '../../components/Header/Header';
-import MobileSidebar from '../../components/MobileSidebar/MobileSidebar';
 import { useDetectClickOutside } from 'react-detect-click-outside';
-import Loader from '../../components/Loader/Loader';
-import { useSearchParams } from 'react-router-dom';
-
 
 export default function DiaryPage() {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [date, setDate] = useState(searchParams.has("date")? new Date(parseInt(searchParams.get("date"))): new Date());
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [date, setDate] = useState(
+    searchParams.has('date')
+      ? new Date(parseInt(searchParams.get('date')))
+      : new Date()
+  );
   const [open, setOpen] = useState(false);
   const isLoading = useSelector(getIsLoading);
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
@@ -45,10 +43,10 @@ export default function DiaryPage() {
     return current.isBefore(today);
   };
   const formatedDate = moment(date).format('DD.MM.yyyy');
-  
+
   useEffect(() => {
-    dispatch(getProductsListByDate(date));
-    setSearchParams({date: date.valueOf()})
+    dispatch(getProductsListByDate(formatedDate));
+    setSearchParams({ date: date.valueOf() });
   }, [date]);
 
   const closeDropdown = () => {
@@ -58,12 +56,11 @@ export default function DiaryPage() {
 
   const formSubmitHandler = data => {
     const { product, weight } = data;
-    dispatch(
-      addProduct({
-        diary_day: formatedDate,
-        meal: { title: product, weight_g: weight },
-      })
-    );
+    const payload = {
+      diary_day: formatedDate,
+      meal: { title: product, weight_g: weight },
+    };
+    dispatch(addProduct(payload));
     setMobileAddSelected(false);
   };
 
