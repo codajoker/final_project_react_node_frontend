@@ -134,8 +134,12 @@ const LabelRadioBoxes = styled.div`
 
 const RadioFieldWrapper = styled.div`
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
   top: 30px;
-  left: -5px;
+  left: -3px;
 
   @media screen and (min-width: 768px) {
     top: 40px;
@@ -169,7 +173,7 @@ const RadioField = styled(Field)`
 `;
 
 const LabelRadioInputs = styled.label`
-  margin-left: 8px;
+  padding-left: 8px;
 
   font-family: Verdana;
   font-style: normal;
