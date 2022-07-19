@@ -40,6 +40,7 @@ const BgBanana = styled.div`
     height: 100%;
     width: 100%;
     z-index: -1;
+    animation: rotate 1.5s cubic-bezier(0.68,-0.55,0.265,1);
   }
 `;
 
@@ -59,6 +60,7 @@ const BgStrawberry = styled.div`
     width: 100%;
     height: 38%;
     z-index: -1;
+    animation: slideDown 1.5s cubic-bezier(0.68,-0.2,0.265,1);
   }
 `;
 
@@ -77,6 +79,7 @@ const BgLeaves = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
+    animation: opacity 3s linear;
   }
 `;
 
@@ -97,6 +100,7 @@ const BgFigure = styled.div`
     width: 100vw;
     height: 100vh;
     z-index: -2;
+    animation: slideFigure 1.3s cubic-bezier(0.68,-0.2,0.265,1);
   }
 `;
 
@@ -111,6 +115,7 @@ const BgBoxTablet = styled.div`
     height: 100vh;
     width: 100%;
     z-index: -1;
+    animation: opacity 3s linear;
   }
 `;
 

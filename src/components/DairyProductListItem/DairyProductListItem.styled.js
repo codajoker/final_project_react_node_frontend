@@ -283,6 +283,7 @@ export const FormEdit = styled.form`
     flex-direction: column;
     justify-content: center;
     animation: slideUp 0.8s cubic-bezier(0.68,-0.55,0.265,1.55);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .2);
     border-radius: 10px 10px 0 0;
     > div:first-child{
       margin-bottom: 20px;
