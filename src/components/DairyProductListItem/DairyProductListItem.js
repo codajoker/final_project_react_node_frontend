@@ -21,6 +21,8 @@ import {
   deleteProduct,
   changeProduct,
 } from '../../redux/products/productsOperations';
+import { Modal } from '@mui/material';
+import { Wrap, BtnWrap, ModalTxt, Btn } from '../UserInfo/UserInfo.styled';
 
 export default function DairyProductListItem({ product, date }) {
   const dispatch = useDispatch();
@@ -41,6 +43,10 @@ export default function DairyProductListItem({ product, date }) {
     setIsEdditing(false);
   };
   const ref = useDetectClickOutside({ onTriggered: closeEditting });
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Product ref={ref}>
@@ -93,10 +99,19 @@ export default function DairyProductListItem({ product, date }) {
       </ProductInfo>
       <button
         type="button"
-        onClick={() => dispatch(deleteProduct({ date: formatedDate, _id }))}
+        onClick={handleOpen}
       >
         <GrClose />
       </button>
+      <Modal open={open} onClose={handleClose}>
+        <Wrap>
+          <ModalTxt>Видалити продукт?</ModalTxt>
+          <BtnWrap>
+            <Btn onClick={() => dispatch(deleteProduct({ date: formatedDate, _id }))}>Так</Btn>
+            <Btn onClick={handleClose}>Ні</Btn>
+          </BtnWrap>
+        </Wrap>
+      </Modal>
     </Product>
   );
 }
