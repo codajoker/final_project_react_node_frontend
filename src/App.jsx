@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -33,7 +33,7 @@ const App = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
+  const location = useLocation();
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
   const currentUserEmail = useSelector(getUserEmail);
@@ -51,13 +51,14 @@ const App = () => {
     !isRefreshing && (
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        <ToggleTheme
+        {location.pathname !== "/verify" &&   <ToggleTheme
           theme={theme}
           toggleTheme={toggleTheme}
           className={
             isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
           }
-        />
+        />}
+       
 
         <Suspense fallback={<Loader full />}>
           <Routes>
