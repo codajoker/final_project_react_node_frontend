@@ -1,8 +1,8 @@
-import logoLight from '../images/mobile/logo-light.png';
-import logotextLight from '../images/mobile/logo-text-light.png';
-import logoDeskLight from '../images/desktop/logo-light.png';
-import bgImageDesktopFigure from '../images/desktop/figure-dark-desc.png';
-import bgImageTabletFigure from '../images/tablet/figure-dark-tablet.png';
+import logoLight from '../../images/mobile/logo-light.png';
+import logotextLight from '../../images/mobile/logo-text-light.png';
+import logoDeskLight from '../../images/desktop/logo-light.png';
+import bgImageDesktopFigure from '../../images/desktop/figure-dark-desc.png';
+import bgImageTabletFigure from '../../images/tablet/figure-dark-tablet.png';
 
 export const darkTheme = {
   body: '#12191a',
@@ -20,7 +20,7 @@ export const darkTheme = {
   LINE_COLOR: '#E0E0E0',
   INTAKE_DAILY_COLOR: '#242526',
   SELECT_CONTAINER_COLOR: '#1a1818',
-  SELECT_PLACEHOLDER_COLOR: '#264061',
+  SELECT_PLACEHOLDER_COLOR: '#9B9FAA',
   PRODUCT_LIST_THUMB_GRADIENT: 'linear-gradient(0deg, rgba(18, 25, 26, 1), rgba(18, 25, 26, 0))',
   LOGO_MOBILE: logoLight,
   LOGO_TABLET: logotextLight,

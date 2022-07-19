@@ -1,4 +1,3 @@
-export { default } from './RegistrationForm';
 export {
   nameValidation,
   emailValidation,

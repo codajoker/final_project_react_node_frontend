@@ -1,5 +1,5 @@
 import VerificationForm from '../../components/VerificationForm/VerificationForm';
-import { Container } from '../../Container.styled';
+import { Container } from '../../styles/Container.styled';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -13,7 +13,7 @@ import {
   BgStrawberryTablet,
   BgLeavesTablet,
   BgFigureTablet,
-} from '../../pages/Login/LoginPage.styled';
+} from '../../pages/LoginPage/LoginPage.styled';
 
 export default function VerificationFormPage() {
   return (

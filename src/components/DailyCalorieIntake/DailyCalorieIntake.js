@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { translate } from '../../helpers/translate';
-import product_dictionary from '../../product_dictionary';
+import product_dictionary from '../../data/product_dictionary';
 import {
   CalorieIntake,
   Head,

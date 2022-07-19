@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
 import { Box } from '@mui/material';
-import { Button } from '../../Button.styled';
+import { Button } from '../../styles/Button.styled';
 export const UserInfoWrap = styled.div`
   display: flex;
   align-items: center;

@@ -1,7 +1,5 @@
-import LoginForm from '../../components/LoginForm';
-import Header from '../../components/Header/Header';
-
-import { Container } from '../../Container.styled';
+import { Header, LoginForm } from '../../components/index';
+import { Container } from '../../styles/Container.styled';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -17,7 +15,7 @@ import {
   BgFigureTablet,
 } from './LoginPage.styled';
 
-function LoginPage() {
+export default function LoginPage() {
   return (
     <>
       <Header />
@@ -41,5 +39,3 @@ function LoginPage() {
     </>
   );
 }
-
-export default LoginPage;

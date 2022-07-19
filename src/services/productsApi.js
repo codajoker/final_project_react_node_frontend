@@ -1,7 +1,4 @@
 import axios from 'axios';
-import moment from 'moment';
-
-axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
 
 export const addProduct = async product => {
   const { data } = await axios.post('/product/addDiaryFood', product);
@@ -9,15 +6,13 @@ export const addProduct = async product => {
 };
 
 export const changeProduct = async (date, meal) => {
-  const formatedDate = moment(date).format('DD.MM.yyyy');
-  const { data } = await axios.patch('/product/changeProduct', {day: formatedDate, meal});
+  const { data } = await axios.patch('/product/changeProduct', {day: date, meal});
   return data;
 };
 
 export const deleteProduct = async (date, id) => {
-  const formatedDate = moment(date).format('DD.MM.yyyy');
   const deletedProduct = await axios.delete(
-    `/product/delDiaryFood/?day=${formatedDate}&id=${id}`
+    `/product/delDiaryFood/?day=${date}&id=${id}`
   );
   return deletedProduct;
 };
@@ -30,7 +25,7 @@ export const getProductByQuery = async query => {
 export const getProductsListByDate = async date => {
   try {
     const { data } = await axios.post('/users/dayinfo', {
-      day: moment(date).format('DD.MM.yyyy'),
+      day: date,
     });
     return data;
   } catch (error) {

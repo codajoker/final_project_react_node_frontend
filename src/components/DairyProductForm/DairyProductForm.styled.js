@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
-import { Button } from '../../Button.styled';
+import { Button } from '../../styles/Button.styled';
 import AsyncSelect from 'react-select/async';
 
 export const StyledForm = styled.form`

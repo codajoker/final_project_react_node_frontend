@@ -1,8 +1,8 @@
-import logo from '../images/mobile/logo.png';
-import logotext from '../images/mobile/logotext.png';
-import logoDesk from '../images/desktop/logo.png';
-import bgImageDesktopFigure from '../images/desktop/bg-figure.png';
-import bgImageTabletFigure from '../images/tablet/figure-tablet.png';
+import logo from '../../images/mobile/logo.png';
+import logotext from '../../images/mobile/logotext.png';
+import logoDesk from '../../images/desktop/logo.png';
+import bgImageDesktopFigure from '../../images/desktop/bg-figure.png';
+import bgImageTabletFigure from '../../images/tablet/figure-tablet.png';
 
 export const lightTheme = {
   body: '#fff',

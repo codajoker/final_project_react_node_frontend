@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import * as palette from '../../variables/Variables';
 
 export const HeaderEl = styled.header`
   border-bottom: 2px solid;

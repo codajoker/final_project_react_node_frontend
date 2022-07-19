@@ -21,7 +21,7 @@ const validationSchema = yup.object({
   email: emailValidation,
 });
 
-export default function Verify() {
+export default function VerificationForm() {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {

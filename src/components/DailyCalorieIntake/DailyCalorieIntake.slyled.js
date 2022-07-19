@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as palette from '../../variables/Variables';
-import { Button } from '../../Button.styled';
+import { Button } from '../../styles/Button.styled';
 
 export const CalorieIntake = styled.div`
   color: ${palette.MAIN_COLOR};
