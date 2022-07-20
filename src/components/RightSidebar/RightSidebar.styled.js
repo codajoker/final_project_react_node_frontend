@@ -78,3 +78,7 @@ export const ProductsList = styled.div`
 export const EmptyProducts = styled.div`
   color: ${props => props.theme.SECONDARY_COLOR};
 `;
+export const PersentCalories = styled.span`
+  color: ${props => props.more ? 'red' : 'green'};
+  font-weight: ${props => props.more ? '700' : '400'};
+`;

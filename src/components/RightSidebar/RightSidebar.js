@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import {Loader} from '../index';
@@ -11,6 +11,7 @@ import {
   CalloriesList,
   ProductsList,
   EmptyProducts,
+  PersentCalories
 } from './RightSidebar.styled';
 import {
   getCalories,
@@ -20,6 +21,7 @@ import {
   getIsLoading,
   getProductsList,
 } from '../../redux/products/productsSelectors';
+import { caloriesToast } from '../../helpers/authToasts';
 
 var currentDate = moment().format('DD.MM.yyyy');
 
@@ -45,6 +47,13 @@ export default function RightSidebar({ date = currentDate }) {
     dailyNormCalories > 0
       ? ((totalDayCalories * 100) / dailyNormCalories).toFixed(1)
       : 0;
+  const numberPersent = Number(norm_persent);
+  useEffect(() => {
+    if (numberPersent > 100) {
+    setTimeout(() => { caloriesToast() }, 1000);
+  }
+  }, [numberPersent])
+  
 
   return (
     <Container>
@@ -84,7 +93,7 @@ export default function RightSidebar({ date = currentDate }) {
                 ) : (
                   <li>
                     <span>n% від норми</span>
-                    <span>{norm_persent} %</span>
+                    {norm_persent > 100 ? <PersentCalories more>{norm_persent} %</PersentCalories> : <PersentCalories >{norm_persent} %</PersentCalories>}
                   </li>
                 )}
               </CalloriesList>
