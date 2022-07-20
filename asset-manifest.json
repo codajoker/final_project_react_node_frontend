@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/final_project_react_node_frontend/static/css/main.a8e90d00.css",
-    "main.js": "/final_project_react_node_frontend/static/js/main.b12aad1b.js",
+    "main.js": "/final_project_react_node_frontend/static/js/main.5da0d99f.js",
     "static/js/677.55af1618.chunk.js": "/final_project_react_node_frontend/static/js/677.55af1618.chunk.js",
     "static/js/326.83875e5b.chunk.js": "/final_project_react_node_frontend/static/js/326.83875e5b.chunk.js",
     "static/js/480.c76241f8.chunk.js": "/final_project_react_node_frontend/static/js/480.c76241f8.chunk.js",
@@ -27,7 +27,7 @@
     "static/media/bg-1-tablet.png": "/final_project_react_node_frontend/static/media/bg-1-tablet.5ed6e2d238c0e70f9e0d.png",
     "index.html": "/final_project_react_node_frontend/index.html",
     "main.a8e90d00.css.map": "/final_project_react_node_frontend/static/css/main.a8e90d00.css.map",
-    "main.b12aad1b.js.map": "/final_project_react_node_frontend/static/js/main.b12aad1b.js.map",
+    "main.5da0d99f.js.map": "/final_project_react_node_frontend/static/js/main.5da0d99f.js.map",
     "677.55af1618.chunk.js.map": "/final_project_react_node_frontend/static/js/677.55af1618.chunk.js.map",
     "326.83875e5b.chunk.js.map": "/final_project_react_node_frontend/static/js/326.83875e5b.chunk.js.map",
     "480.c76241f8.chunk.js.map": "/final_project_react_node_frontend/static/js/480.c76241f8.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.a8e90d00.css",
-    "static/js/main.b12aad1b.js"
+    "static/js/main.5da0d99f.js"
   ]
 }
