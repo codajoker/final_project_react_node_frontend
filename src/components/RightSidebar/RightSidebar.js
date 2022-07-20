@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import {Loader} from '../index';
 import { translate } from '../../helpers/translate';
 import product_dictionary from '../../data/product_dictionary';
@@ -10,7 +10,7 @@ import {
   Head,
   CalloriesList,
   ProductsList,
-  EmptyProducts,
+  EmptyProducts,CalculatorLink
 } from './RightSidebar.styled';
 import {
   getCalories,
@@ -89,7 +89,7 @@ export default function RightSidebar({ date = currentDate }) {
                 )}
               </CalloriesList>
             ) : (
-              <Head> Необхідно ввести дані в форму!</Head>
+              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator"> форму </CalculatorLink>!</Head>
             )}
           </div>
           <div>

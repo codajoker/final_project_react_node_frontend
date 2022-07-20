@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import bgImageDesktop from '../../images/desktop/bg-3-health-calculator.png';
 import bgImageTablet from '../../images/tablet/bg-1-tablet.png';
@@ -78,3 +79,6 @@ export const ProductsList = styled.div`
 export const EmptyProducts = styled.div`
   color: ${props => props.theme.SECONDARY_COLOR};
 `;
+export const CalculatorLink = styled(Link)`
+  color: ${props => props.theme.BUTTON_COLOR};
+`
