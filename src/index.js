@@ -37,7 +37,7 @@ setInterval(() => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/final_project_react_node_frontend/">
+    <BrowserRouter >
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
