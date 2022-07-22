@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import bgImageDesktop from '../../images/desktop/bg-3-health-calculator.png';
 import bgImageTablet from '../../images/tablet/bg-1-tablet.png';
@@ -82,3 +83,4 @@ export const PersentCalories = styled.span`
   color: ${props => props.more ? 'red' : 'green'};
   font-weight: ${props => props.more ? '700' : '400'};
 `;
+
