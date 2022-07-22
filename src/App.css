@@ -1,0 +1,212 @@
+@font-face {
+  font-family: 'Verdana';
+  src: url('./fonts/Verdana-Bold.ttf');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Verdana';
+  src: url('./fonts/Verdana.ttf');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamPro';
+  src: url('./fonts/gothampro_bold.ttf');
+
+  font-display: swap;
+  font-style: normal;
+}
+
+@media screen and (max-width: 768px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .showOnMobile {
+    display: none !important;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Verdana;
+}
+
+select,
+textarea {
+  font-family: Verdana;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.--is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+button,
+input,
+textarea {
+  border: none;
+}
+
+button:active,
+button:focus,
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.remove-pointer {
+  pointer-events: none;
+}
+
+.add-pointer {
+  pointer-events: all;
+}
+
+@media screen and (min-width: 320px) {
+  .theme-mobile-loggedIn {
+    top: 25px;
+    left: 200px;
+  }
+  .theme-mobile-not-loggedIn {
+    top: 25px;
+    left: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .theme-mobile-not-loggedIn {
+    top: 25px;
+    left: 200px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .theme-mobile-loggedIn {
+    top: 95px;
+    left: 480px;
+  }
+  .theme-mobile-not-loggedIn {
+    top: 95px;
+    left: 400px;
+  }
+}
+
+@-webkit-keyframes slideUp{
+  0%{transform: translateY(100%)}
+  to{transform: translateY(0)}
+}
+@keyframes slideUp{
+  0%{transform: translateY(100%)}
+  to{transform: translateY(0)}
+}
+
+@-webkit-keyframes rotate{
+  0%{transform: translateX(100%) scale(0) rotate(-70deg);opacity: 0;}
+  100%{transform: translateX(0) scale(1) rotate(0);opacity: 1;}
+}
+@keyframes rotate{
+  0%{transform: translateX(100%) scale(0) rotate(-70deg);opacity: 0;}
+  100%{transform: translateX(0) scale(1) rotate(0);opacity: 1;}
+}
+
+@-webkit-keyframes slideDown{
+  0%{transform: scale(0) rotate(170deg);opacity: 0;}
+  to{transform: scale(1) rotate(0);opacity: 1;}
+}
+@keyframes slideDown{
+  0%{transform: scale(0) rotate(170deg);opacity: 0;}
+  to{transform: scale(1) rotate(0);opacity: 1;}
+}
+
+@-webkit-keyframes slideFigure{
+  0%{transform: translate(100%, 100%);opacity: 0;}
+  to{transform: translate(0);opacity: 1;}
+}
+@keyframes slideFigure{
+  0%{transform: translate(100%, 100%);opacity: 0;}
+  to{transform: translate(0);opacity: 1;}
+}
+
+@-webkit-keyframes opacity{
+  0%{opacity: 0}
+  to{opacity: 1}
+}
+@keyframes opacity{
+  0%{opacity: 0}
+  to{opacity: 1}
+}

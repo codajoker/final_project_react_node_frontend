@@ -8,6 +8,7 @@ export const SIDEBAR_COLOR = '#F0F1F3';
 export const SIDEBAR_TEXT_COLOR = '#9B9FAA';
 export const BUTTON_COLOR = '#FC842D';
 export const LINE_COLOR = '#E0E0E0';
+export const INTAKE_DAILY_COLOR = '#264061';
 
 // Text variables
 
