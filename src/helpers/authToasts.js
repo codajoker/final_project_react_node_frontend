@@ -12,3 +12,5 @@ export const verificationSuccessToast = () =>
   toast.info('Перейдіть на пошту, щоб підтвердити її.', { autoClose: false });
 export const verifiedSuccessToast = () =>
   toast.success('Вітаємо з успішною веріфікацією.');
+export const caloriesToast = () =>
+  toast.info('Ви перевищили денну норму калорій!', { autoClose: false });
