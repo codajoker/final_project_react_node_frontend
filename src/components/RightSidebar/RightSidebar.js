@@ -1,8 +1,8 @@
 import moment from 'moment';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {  useLocation } from 'react-router-dom';
-import {Loader} from '../index';
+import { useLocation, Link } from 'react-router-dom';
+import { Loader } from '../index';
 import { translate } from '../../helpers/translate';
 import product_dictionary from '../../data/product_dictionary';
 import {
@@ -11,8 +11,7 @@ import {
   CalloriesList,
   ProductsList,
   EmptyProducts,
-  PersentCalories
-
+  PersentCalories,
 } from './RightSidebar.styled';
 import {
   getCalories,
@@ -51,10 +50,11 @@ export default function RightSidebar({ date = currentDate }) {
   const numberPersent = Number(norm_persent);
   useEffect(() => {
     if (numberPersent > 100) {
-    setTimeout(() => { caloriesToast() }, 1000);
-  }
-  }, [numberPersent])
-  
+      setTimeout(() => {
+        caloriesToast();
+      }, 1000);
+    }
+  }, [numberPersent]);
 
   return (
     <Container>
@@ -94,12 +94,19 @@ export default function RightSidebar({ date = currentDate }) {
                 ) : (
                   <li>
                     <span>n% від норми</span>
-                    {norm_persent > 100 ? <PersentCalories more>{norm_persent} %</PersentCalories> : <PersentCalories >{norm_persent} %</PersentCalories>}
+                    {norm_persent > 100 ? (
+                      <PersentCalories more>{norm_persent} %</PersentCalories>
+                    ) : (
+                      <PersentCalories>{norm_persent} %</PersentCalories>
+                    )}
                   </li>
                 )}
               </CalloriesList>
             ) : (
-              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator"> форму </CalculatorLink>!</Head>
+              <Head>
+                {' '}
+                Необхідно ввести дані в <Link to="/calculator"> форму </Link>!
+              </Head>
             )}
           </div>
           <div>
