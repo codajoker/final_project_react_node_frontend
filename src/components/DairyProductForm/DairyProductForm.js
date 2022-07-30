@@ -9,6 +9,7 @@ import {
   FormInputProduct,
 } from './DairyProductForm.styled';
 import { getProductByQuery } from '../../services/productsApi';
+import { useTranslation } from 'react-i18next';
 
 const loadOptions = async (inputValue, callback) => {
   const { products } = await getProductByQuery(inputValue);
@@ -21,6 +22,7 @@ const loadOptions = async (inputValue, callback) => {
 };
 
 export default function DiaryProductForm({ onSubmit, className }) {
+  const { t } = useTranslation();
   let [selectedProduct, setSelectedProduct] = useState(null);
   let [weight, setWeight] = useState('');
 
@@ -52,13 +54,13 @@ export default function DiaryProductForm({ onSubmit, className }) {
             escapeClearsValue
             onChange={option => setSelectedProduct(option)}
             loadOptions={loadOptions}
-            placeholder="Введіть назву продукту"
+            placeholder={t('diary_form.placeholder.products')}
             noOptionsMessage={({ inputValue }) =>
               inputValue
-                ? 'Такого продукту нема'
-                : 'Введіть назву продукту'
+                ? t('diary_form.option_no_prod_msg')
+                : t('diary_form.placeholder.products')
             }
-            loadingMessage={() => 'Шукаю...'}
+            loadingMessage={() => t('diary_form.option_loading_msg')}
           />
         </FormLabel>
         <FormLabel>
@@ -66,17 +68,24 @@ export default function DiaryProductForm({ onSubmit, className }) {
             type="number"
             min={1}
             name="weight"
-            title="Введіть кількість вжитого продукту"
+            title={t('diary_form.weight_input_title')}
             required
             value={weight}
             onChange={e => setWeight(e.target.value)}
-            placeholder="Грами"
+            placeholder={t('diary_form.placeholder.weight')}
           />
         </FormLabel>
-        <FormBtnMobile type="submit"  primary  disabled={selectedProduct === null || weight === '' ? true : false}>Додати</FormBtnMobile>
+        <FormBtnMobile
+          type="submit"
+          primary
+          disabled={selectedProduct === null || weight === '' ? true : false}
+        >
+          {t('diary_form.subm_btn_msg')}
+        </FormBtnMobile>
 
         <FormBtn
-          type="submit" primary
+          type="submit"
+          primary
           disabled={selectedProduct === null || weight === '' ? true : false}
         >
           <BsPlusLg size={14} />

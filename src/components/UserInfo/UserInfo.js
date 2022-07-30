@@ -13,14 +13,16 @@ import {
 import { getUserName } from '../../redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/authOperations';
+import { useTranslation } from 'react-i18next';
 
 export default function UserInfo() {
+  const { t } = useTranslation();
   const name = useSelector(getUserName);
   const dispatch = useDispatch();
 
-  let sliced = name.slice(0,18);
+  let sliced = name.slice(0, 18);
   if (sliced.length < name.length) {
-  sliced += '...';
+    sliced += '...';
   }
 
   const [open, setOpen] = useState(false);
@@ -31,13 +33,15 @@ export default function UserInfo() {
     <UserInfoWrap>
       <UserText>{sliced}</UserText>
       <VerticalLine />
-      <UserExit onClick={handleOpen}>Вихід</UserExit>
+      <UserExit onClick={handleOpen}>{t('logout')}</UserExit>
       <Modal open={open} onClose={handleClose}>
         <Wrap>
-          <ModalTxt>Бажаєте вийти?</ModalTxt>
+          <ModalTxt>{t('modal.logout_msg')}</ModalTxt>
           <BtnWrap>
-            <Btn onClick={() => dispatch(logOut())}>Так</Btn>
-            <Btn onClick={handleClose}>Ні</Btn>
+            <Btn onClick={() => dispatch(logOut())}>
+              {t('modal.logout_yes_btn')}
+            </Btn>
+            <Btn onClick={handleClose}>{t('modal.logout_no_btn')}</Btn>
           </BtnWrap>
         </Wrap>
       </Modal>
