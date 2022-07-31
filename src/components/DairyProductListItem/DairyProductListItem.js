@@ -23,8 +23,10 @@ import {
 } from '../../redux/products/productsOperations';
 import { Modal } from '@mui/material';
 import { Wrap, BtnWrap, ModalTxt, Btn } from '../UserInfo/UserInfo.styled';
+import { useTranslation } from 'react-i18next';
 
 export default function DairyProductListItem({ product, date }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { title, weight_g, calories_kcal, _id } = product;
   let [isEdditing, setIsEdditing] = useState(false);
@@ -97,18 +99,21 @@ export default function DairyProductListItem({ product, date }) {
           {calories_kcal} <Calories>кKал</Calories>
         </div>
       </ProductInfo>
-      <button
-        type="button"
-        onClick={handleOpen}
-      >
+      <button type="button" onClick={handleOpen}>
         <GrClose />
       </button>
       <Modal open={open} onClose={handleClose}>
         <Wrap>
-          <ModalTxt>Видалити продукт?</ModalTxt>
+          <ModalTxt>{t('diary_product_delete_modal_msg')}</ModalTxt>
           <BtnWrap>
-            <Btn onClick={() => dispatch(deleteProduct({ date: formatedDate, _id }))}>Так</Btn>
-            <Btn onClick={handleClose}>Ні</Btn>
+            <Btn
+              onClick={() =>
+                dispatch(deleteProduct({ date: formatedDate, _id }))
+              }
+            >
+              {t('modal.logout_yes_btn')}
+            </Btn>
+            <Btn onClick={handleClose}>{t('modal.logout_no_btn')}</Btn>
           </BtnWrap>
         </Wrap>
       </Modal>

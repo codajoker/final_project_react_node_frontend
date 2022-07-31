@@ -17,7 +17,6 @@ import { useTranslation } from 'react-i18next';
 export default function DailyCalorieIntake({ dailyRate }) {
   const { t } = useTranslation();
   const products = dailyRate.uniqCategories;
-  console.log(products);
   const dailyCalories = dailyRate.dailyCalories;
 
   return (

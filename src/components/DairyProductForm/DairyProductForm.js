@@ -9,13 +9,15 @@ import {
   FormInputProduct,
 } from './DairyProductForm.styled';
 import { getProductByQuery } from '../../services/productsApi';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 const loadOptions = async (inputValue, callback) => {
   const { products } = await getProductByQuery(inputValue);
   callback(
     products.map(product => {
-      const title = product.title.ua;
+      const title =
+        i18next.language === 'en' ? product.title.en : product.title.ua;
       return { label: title, value: title };
     })
   );
