@@ -23,6 +23,7 @@ import {
   RedirectLink,
   isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   email: emailValidation,
@@ -30,6 +31,7 @@ const validationSchema = yup.object({
 });
 
 export default function LoginForm() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [showPassw, setShowPassw] = useState(false);
   const toggleShowPassw = () => {
@@ -50,11 +52,11 @@ export default function LoginForm() {
 
   return (
     <Wrapper>
-      <Title>Вхід</Title>
+      <Title>{t('auth_form.login_title')}</Title>
       <Form onSubmit={formik.handleSubmit}>
         <Label htmlFor="email"></Label>
         <Input
-          placeholder="Пошта *"
+          placeholder={t('auth_form.placeholder.email')}
           id="email"
           name="email"
           type={isMediaMatch()}
@@ -70,7 +72,7 @@ export default function LoginForm() {
 
         <Label htmlFor="password" style={{ position: 'relative' }}>
           <Input
-            placeholder="Пароль *"
+            placeholder={t('auth_form.placeholder.password')}
             id="password"
             name="password"
             type={showPassw ? 'text' : 'password'}
@@ -97,15 +99,15 @@ export default function LoginForm() {
         ) : (
           <Stub />
         )}
-        <RedirectLink to="/verify">
-          Не підвердили електронну адресу?
-        </RedirectLink>
+        <RedirectLink to="/verify">{t('auth_form.verify_msg')}</RedirectLink>
 
         <ButtonWrapper>
           <AuthButton primary type="submit">
-            Вхід
+            {t('auth_form.login_title')}
           </AuthButton>
-          <LinkButton to={'/registration'}>Зареєструватися </LinkButton>
+          <LinkButton to={'/registration'}>
+            {t('auth_form.register_submit_msg')}
+          </LinkButton>
         </ButtonWrapper>
       </Form>
     </Wrapper>

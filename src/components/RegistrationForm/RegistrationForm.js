@@ -24,6 +24,7 @@ import {
   HidePasswIcon,
   isMediaMatch,
 } from './RegistrationForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   name: nameValidation,
@@ -34,6 +35,7 @@ const validationSchema = yup.object({
 export default function RegistrationForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [showPassw, setShowPassw] = useState(false);
   const toggleShowPassw = () => {
@@ -56,11 +58,11 @@ export default function RegistrationForm() {
 
   return (
     <Wrapper>
-      <Title>Реєстрація</Title>
+      <Title>{t('auth_form.register_title')}</Title>
       <Form onSubmit={formik.handleSubmit}>
         <Label htmlFor="name"></Label>
         <Input
-          placeholder="Ім'я *"
+          placeholder={t('auth_form.placeholder.name')}
           id="name"
           name="name"
           type="text"
@@ -76,7 +78,7 @@ export default function RegistrationForm() {
 
         <Label htmlFor="email"></Label>
         <Input
-          placeholder="Пошта *"
+          placeholder={t('auth_form.placeholder.email')}
           id="email"
           name="email"
           type={isMediaMatch()}
@@ -92,7 +94,7 @@ export default function RegistrationForm() {
 
         <Label htmlFor="password" style={{ position: 'relative' }}>
           <Input
-            placeholder="Пароль *"
+            placeholder={t('auth_form.placeholder.password')}
             id="password"
             name="password"
             type={showPassw ? 'text' : 'password'}
@@ -122,9 +124,9 @@ export default function RegistrationForm() {
 
         <ButtonWrapper>
           <AuthButton primary type="submit">
-            Зареєструватися
+            {t('auth_form.register_submit_msg')}
           </AuthButton>
-          <LinkButton to={'/signin'}>Вхід</LinkButton>
+          <LinkButton to={'/signin'}>{t('auth_form.login_title')}</LinkButton>
         </ButtonWrapper>
       </Form>
     </Wrapper>

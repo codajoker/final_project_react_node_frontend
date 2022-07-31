@@ -1,23 +1,25 @@
 import { Nav, Link, LoggedNav, NavWrap } from './Navigation.styled';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { useTranslation } from 'react-i18next';
 
 export default function Navigation() {
+  const { t } = useTranslation();
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <NavWrap>
       {isLoggedIn ? (
         <>
           <LoggedNav>
-            <Link to="/diary">Щоденник</Link>
-            <Link to="/calculator">Калькулятор</Link>
+            <Link to="/diary">{t('navigation.diary_msg')}</Link>
+            <Link to="/calculator">{t('navigation.calculator_msg')}</Link>
           </LoggedNav>
         </>
       ) : (
         <>
           <Nav>
-            <Link to="/signin">Увійти</Link>
-            <Link to="/registration">Реєстрація</Link>
+            <Link to="/signin">{t('navigation.signin_msg')}</Link>
+            <Link to="/registration">{t('navigation.signup_msg')}</Link>
           </Nav>
         </>
       )}

@@ -6,8 +6,10 @@ import {
   BurgerIcon,
   BurgerButton,
 } from './MobileMenu.styled';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileMenu() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   isMenuOpen
     ? document.body.classList.add('no-scroll')
@@ -26,8 +28,8 @@ export default function MobileMenu() {
         <BurgerIcon />
       </BurgerButton>
       <MenuNav className={isMenuOpen ? 'add-pointer' : 'remove-pointer'}>
-        <MenuLink to="/diary">Щоденник</MenuLink>
-        <MenuLink to="/calculator">Калькулятор</MenuLink>
+        <MenuLink to="/diary">{t('navigation.diary_msg')}</MenuLink>
+        <MenuLink to="/calculator">{t('navigation.calculator_msg')}</MenuLink>
       </MenuNav>
     </MenuWrap>
   );

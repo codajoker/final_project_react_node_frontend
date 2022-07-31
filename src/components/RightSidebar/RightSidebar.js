@@ -1,8 +1,8 @@
 import moment from 'moment';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {  useLocation } from 'react-router-dom';
-import {Loader} from '../index';
+import { useLocation, Link } from 'react-router-dom';
+import { Loader } from '../index';
 import { translate } from '../../helpers/translate';
 import product_dictionary from '../../data/product_dictionary';
 import {
@@ -11,8 +11,7 @@ import {
   CalloriesList,
   ProductsList,
   EmptyProducts,
-  PersentCalories
-
+  PersentCalories,
 } from './RightSidebar.styled';
 import {
   getCalories,
@@ -23,10 +22,12 @@ import {
   getProductsList,
 } from '../../redux/products/productsSelectors';
 import { caloriesToast } from '../../helpers/authToasts';
+import { useTranslation } from 'react-i18next';
 
 var currentDate = moment().format('DD.MM.yyyy');
 
 export default function RightSidebar({ date = currentDate }) {
+  const { t } = useTranslation();
   const products = useSelector(getProducts) || [];
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
@@ -40,10 +41,10 @@ export default function RightSidebar({ date = currentDate }) {
   let left = dailyNormCalories - totalDayCalories;
   let leftCalories =
     left < 0
-      ? 'Ви вжили більше норми'
+      ? t('sidebar.more_cal_norm_msg')
       : left === 0
-      ? 'Ви вжили свою норму калорій'
-      : `${left} кКал`;
+      ? t('sidebar.have_norm_cal_msg')
+      : `${left} ${t('calories')}`;
   const norm_persent =
     dailyNormCalories > 0
       ? ((totalDayCalories * 100) / dailyNormCalories).toFixed(1)
@@ -51,10 +52,11 @@ export default function RightSidebar({ date = currentDate }) {
   const numberPersent = Number(norm_persent);
   useEffect(() => {
     if (numberPersent > 100) {
-    setTimeout(() => { caloriesToast() }, 1000);
-  }
-  }, [numberPersent])
-  
+      setTimeout(() => {
+        caloriesToast();
+      }, 1000);
+    }
+  }, [numberPersent]);
 
   return (
     <Container>
@@ -63,14 +65,16 @@ export default function RightSidebar({ date = currentDate }) {
       ) : (
         <>
           <div>
-            <Head>Всього за {date}</Head>
+            <Head>
+              {t('sidebar.for_msg')} {date}
+            </Head>
             {dailyNormCalories !== null ? (
               <CalloriesList>
                 {location.pathname === '/calculator' ? (
                   <></>
                 ) : (
                   <li>
-                    <span>Залишилось</span>
+                    <span>{t('sidebar.its_left')}</span>
                     <span>{dailyNormCalories === 0 ? 0 : leftCalories}</span>
                   </li>
                 )}
@@ -79,31 +83,42 @@ export default function RightSidebar({ date = currentDate }) {
                   <></>
                 ) : (
                   <li>
-                    <span>Вжито</span>
+                    <span>{t('sidebar.taken')}</span>
                     <span>
-                      {dailyNormCalories === 0 ? 0 : totalDayCalories} кКал
+                      {dailyNormCalories === 0 ? 0 : totalDayCalories}{' '}
+                      {t('calories')}
                     </span>
                   </li>
                 )}
                 <li>
-                  <span>Добова норма</span>
-                  <span>{dailyNormCalories} кКал</span>
+                  <span>{t('sidebar.daily_norm')}</span>
+                  <span>
+                    {dailyNormCalories} {t('calories')}
+                  </span>
                 </li>
                 {location.pathname === '/calculator' ? (
                   <></>
                 ) : (
                   <li>
-                    <span>n% від норми</span>
-                    {norm_persent > 100 ? <PersentCalories more>{norm_persent} %</PersentCalories> : <PersentCalories >{norm_persent} %</PersentCalories>}
+                    <span>{t('sidebar.for_norm')}</span>
+                    {norm_persent > 100 ? (
+                      <PersentCalories more>{norm_persent} %</PersentCalories>
+                    ) : (
+                      <PersentCalories>{norm_persent} %</PersentCalories>
+                    )}
                   </li>
                 )}
               </CalloriesList>
             ) : (
-              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator"> форму </CalculatorLink>!</Head>
+              <Head>
+                {' '}
+                {t('sidebar.head_msg')}{' '}
+                <Link to="/calculator"> {t('sidebar.form')} </Link>!
+              </Head>
             )}
           </div>
           <div>
-            <Head>Не рекомендовано вживати</Head>
+            <Head>{t('sidebar.sec.title')}</Head>
             {products.length > 0 ? (
               <ProductsList>
                 {products.map((product, index) => {
@@ -116,7 +131,7 @@ export default function RightSidebar({ date = currentDate }) {
                 })}
               </ProductsList>
             ) : (
-              <EmptyProducts>Тут відображатиметься ваша дієта</EmptyProducts>
+              <EmptyProducts>{t('modal.cal_empty_prod_msg')}</EmptyProducts>
             )}
           </div>
         </>

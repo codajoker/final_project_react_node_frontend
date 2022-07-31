@@ -15,7 +15,14 @@ import {
   PageWrap,
   SidebarWrap,
 } from './DiaryPage.styled';
-import {DiaryProductForm, DairyProductList, RightSidebar, Header, MobileSidebar, Loader} from '../../components/index';
+import {
+  DiaryProductForm,
+  DairyProductList,
+  RightSidebar,
+  Header,
+  MobileSidebar,
+  Loader,
+} from '../../components/index';
 import {
   getIsLoading,
   getProductsList,

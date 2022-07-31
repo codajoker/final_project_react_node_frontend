@@ -1,4 +1,4 @@
-import {Navigation, Logo, MobileMenu, UserInfo} from '../index';
+import { Navigation, Logo, MobileMenu, UserInfo } from '../index';
 import {
   HeaderEl,
   HeaderDivider,

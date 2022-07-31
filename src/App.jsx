@@ -6,9 +6,13 @@ import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
 import { refreshUser } from './redux/auth/authOperations';
-import { getIsRefreshing, getToken, getUserEmail } from './redux/auth/authSelectors';
+import {
+  getIsRefreshing,
+  getToken,
+  getUserEmail,
+} from './redux/auth/authSelectors';
 import Loader from './components/Loader/Loader';
-
+import './i18n';
 import { useDarkMode } from './styles/themes/useDarkMode';
 import { GlobalStyles } from './styles/themes/globalStyle';
 import { darkTheme, lightTheme } from './styles/themes';
@@ -37,12 +41,11 @@ const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
   const currentUserEmail = useSelector(getUserEmail);
-  
+
   const token = useSelector(getToken);
-  
 
   useEffect(() => {
-    if(token){
+    if (token) {
       dispatch(refreshUser());
     }
   }, [dispatch, currentUserEmail, token]);
@@ -51,14 +54,15 @@ const App = () => {
     !isRefreshing && (
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        {location.pathname !== "/verify" &&   <ToggleTheme
-          theme={theme}
-          toggleTheme={toggleTheme}
-          className={
-            isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
-          }
-        />}
-       
+        {location.pathname !== '/verify' && (
+          <ToggleTheme
+            theme={theme}
+            toggleTheme={toggleTheme}
+            className={
+              isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
+            }
+          />
+        )}
 
         <Suspense fallback={<Loader full />}>
           <Routes>
