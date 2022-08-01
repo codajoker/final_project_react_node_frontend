@@ -11,7 +11,8 @@ import {
   CalloriesList,
   ProductsList,
   EmptyProducts,
-  PersentCalories
+  PersentCalories,
+  CalculatorLink
 
 } from './RightSidebar.styled';
 import {
@@ -99,7 +100,7 @@ export default function RightSidebar({ date = currentDate }) {
                 )}
               </CalloriesList>
             ) : (
-              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator"> форму </CalculatorLink>!</Head>
+              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator">форму</CalculatorLink>!</Head>
             )}
           </div>
           <div>
