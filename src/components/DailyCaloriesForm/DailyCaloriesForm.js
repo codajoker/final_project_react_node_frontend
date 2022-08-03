@@ -19,10 +19,11 @@ import {
 } from './DailyCaloriesForm.styled';
 import { dailyRateOperations } from '../../redux/dailyRate';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { useTranslation } from 'react-i18next';
 
 export default function DailyCaloriesForm({ onOpen, getData }) {
   const bloodType = [1, 2, 3, 4];
-
+  const { t } = useTranslation();
   const initialValues = {
     height: '',
     age: '',
@@ -54,7 +55,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
 
   return (
     <MainPageContainer>
-      <FormTitle>Порахуй свою денну норму калорій прямо зараз</FormTitle>
+      <FormTitle>{t('calc-form.title')}</FormTitle>
 
       <Formik
         initialValues={initialValues}
@@ -66,14 +67,21 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
           <Form>
             <FormWrapper>
               <InputWrapper>
-                <Input name="height" placeholder="Зріст *" />
+                <Input
+                  name="height"
+                  placeholder={t('calc-form.placeholder.height')}
+                />
                 {touched.height && errors.height && (
                   <ErrorDescr>{errors.height}</ErrorDescr>
                 )}
               </InputWrapper>
 
               <InputWrapper>
-                <Input id="age" name="age" placeholder="Вік *" />
+                <Input
+                  id="age"
+                  name="age"
+                  placeholder={t('calc-form.placeholder.age')}
+                />
                 {touched.age && errors.age && (
                   <ErrorDescr>{errors.age}</ErrorDescr>
                 )}
@@ -83,7 +91,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 <Input
                   id="currentWeight"
                   name="currentWeight"
-                  placeholder="Поточна вага *"
+                  placeholder={t('calc-form.placeholder.currentWeight')}
                 />
                 {touched.currentWeight && errors.currentWeight && (
                   <ErrorDescr>{errors.currentWeight}</ErrorDescr>
@@ -94,7 +102,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 <Input
                   id="goalWeight"
                   name="goalWeight"
-                  placeholder="Бажана вага *"
+                  placeholder={t('calc-form.placeholder.goalWeight')}
                 />
                 {touched.goalWeight && errors.goalWeight && (
                   <ErrorDescr>{errors.goalWeight}</ErrorDescr>
@@ -103,7 +111,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
 
               <InputWrapper>
                 <LabelRadioBoxes id="blood-group">
-                  Група крові *
+                  {t('calc-form.blood_group_msg')}
                 </LabelRadioBoxes>
                 <RadioFieldWrapper role="group" aria-labelledby="blood-group">
                   {bloodType.map((value, index) => (
@@ -125,7 +133,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
               </InputWrapper>
             </FormWrapper>
             <SubmitButton type="submit" disabled={!isValid || !dirty}>
-              Почати худнути
+              {t('calc-form.submbtn_msg')}
             </SubmitButton>
           </Form>
         )}

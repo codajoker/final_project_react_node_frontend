@@ -12,7 +12,7 @@ import {
   getUserEmail,
 } from './redux/auth/authSelectors';
 import Loader from './components/Loader/Loader';
-
+import './i18n';
 import { useDarkMode } from './styles/themes/useDarkMode';
 import { GlobalStyles } from './styles/themes/globalStyle';
 import { darkTheme, lightTheme } from './styles/themes';
@@ -57,6 +57,7 @@ const App = () => {
             theme={theme}
             toggleTheme={toggleTheme}
             className={'theme-btn'}
+
           />
         )}
 
