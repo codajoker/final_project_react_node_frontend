@@ -6,20 +6,18 @@ import {
   LogoText,
   LogoWrap,
   LogoTextWrap,
-  LogoTextLogged,
+  LogoSpan
 } from './Logo.styled';
 
 export default function Logo() {
   const isLoggedIn = useSelector(getIsLoggedIn);
-
   return (
     <LogoWrap>
       <LogoLink to={isLoggedIn ? '/diary' : '/'}>
-        <div>
           <LogoImg />
-        </div>
         <LogoTextWrap>
-          {isLoggedIn ? <LogoTextLogged /> : <LogoText />}
+          <LogoText>Weight </LogoText>
+          <LogoSpan>Loss</LogoSpan>
         </LogoTextWrap>
       </LogoLink>
     </LogoWrap>

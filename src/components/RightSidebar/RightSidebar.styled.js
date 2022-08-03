@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import bgImageDesktop from '../../images/desktop/bg-3-health-calculator.png';
 import bgImageTablet from '../../images/tablet/bg-1-tablet.png';
+import {BUTTON_COLOR} from '../../variables/Variables';
 
 export const Container = styled.aside`
   background-color: ${props => props.theme.SIDEBAR_COLOR};
@@ -84,3 +85,7 @@ export const PersentCalories = styled.span`
   font-weight: ${props => props.more ? '700' : '400'};
 `;
 
+
+export const CalculatorLink = styled(Link)`
+  color: ${BUTTON_COLOR};
+`;

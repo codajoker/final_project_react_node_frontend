@@ -18,7 +18,6 @@ import { GlobalStyles } from './styles/themes/globalStyle';
 import { darkTheme, lightTheme } from './styles/themes';
 import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 import { ThemeProvider } from 'styled-components';
-import { getIsLoggedIn } from './redux/auth/authSelectors';
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
@@ -34,7 +33,6 @@ const VerificationTokenPage = lazy(() =>
 );
 
 const App = () => {
-  const isLoggedIn = useSelector(getIsLoggedIn);
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const location = useLocation();
@@ -58,9 +56,8 @@ const App = () => {
           <ToggleTheme
             theme={theme}
             toggleTheme={toggleTheme}
-            className={
-              isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
-            }
+            className={'theme-btn'}
+
           />
         )}
 

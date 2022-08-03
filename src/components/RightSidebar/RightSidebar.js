@@ -12,6 +12,9 @@ import {
   ProductsList,
   EmptyProducts,
   PersentCalories,
+  CalculatorLink
+
+
 } from './RightSidebar.styled';
 import {
   getCalories,
@@ -110,11 +113,8 @@ export default function RightSidebar({ date = currentDate }) {
                 )}
               </CalloriesList>
             ) : (
-              <Head>
-                {' '}
-                {t('sidebar.head_msg')}{' '}
-                <Link to="/calculator"> {t('sidebar.form')} </Link>!
-              </Head>
+              <Head> Необхідно ввести дані в <CalculatorLink to="/calculator">форму</CalculatorLink>!</Head>
+
             )}
           </div>
           <div>
