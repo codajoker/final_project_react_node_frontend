@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { logOut, refreshToken } from './redux/auth/authOperations.js';
 
-axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 function updateAuthHeader() {
   const token = store.getState().auth.token;
@@ -19,9 +19,9 @@ updateAuthHeader();
 store.subscribe(() => updateAuthHeader());
 
 axios.interceptors.response.use(undefined, error => {
-  if(error.response?.status === 401) {
+  if (error.response?.status === 401) {
     const state = store.getState();
-    if(state.auth.isLoggedIn) {
+    if (state.auth.isLoggedIn) {
       store.dispatch(logOut());
     }
   }
@@ -30,14 +30,14 @@ axios.interceptors.response.use(undefined, error => {
 
 setInterval(() => {
   const state = store.getState();
-  if(state.auth.isLoggedIn) {
+  if (state.auth.isLoggedIn) {
     store.dispatch(refreshToken());
   }
 }, 5 * 60 * 1000);
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter >
+    <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />

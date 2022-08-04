@@ -34,3 +34,13 @@ export const resendVerifyUser = async body => {
   const { data } = await axios.post('/users/verify', body);
   return data;
 };
+
+export const userForgotPassword = async body => {
+  const { data } = await axios.post('/users/refreshPassword', body);
+  return data;
+};
+
+export const userResetPassword = async (id, body) => {
+  const { data } = await axios.patch(`/users/refreshPassword/${id}`, body);
+  return data;
+};
