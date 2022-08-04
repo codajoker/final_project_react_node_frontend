@@ -18,6 +18,8 @@ import { GlobalStyles } from './styles/themes/globalStyle';
 import { darkTheme, lightTheme } from './styles/themes';
 import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 import { ThemeProvider } from 'styled-components';
+import { getIsLoggedIn } from './redux/auth/authSelectors';
+
 const PreviewPage = lazy(() => import('./pages/PreviewPage/PreviewPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
@@ -31,8 +33,15 @@ const VerificationFormPage = lazy(() =>
 const VerificationTokenPage = lazy(() =>
   import('./pages/VerificationTokenPage/VerificationTokenPage')
 );
+const ForgotPasswordFormPage = lazy(() =>
+  import('./pages/ForgotPasswordFormPage/ForgotPasswordFormPage')
+);
+const ResetPasswordFormPage = lazy(() =>
+  import('./pages/ResetPasswordFormPage/ResetPasswordFormPage')
+);
 
 const App = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const location = useLocation();
@@ -56,8 +65,9 @@ const App = () => {
           <ToggleTheme
             theme={theme}
             toggleTheme={toggleTheme}
-            className={'theme-btn'}
-
+            className={
+              isLoggedIn ? 'theme-mobile-loggedIn' : 'theme-mobile-not-loggedIn'
+            }
           />
         )}
 
@@ -104,6 +114,24 @@ const App = () => {
               element={
                 <PublicRoute restricted>
                   <VerificationFormPage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/forgot-password"
+              element={
+                <PublicRoute restricted>
+                  <ForgotPasswordFormPage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/reset-password/:id"
+              element={
+                <PublicRoute restricted>
+                  <ResetPasswordFormPage />
                 </PublicRoute>
               }
             />

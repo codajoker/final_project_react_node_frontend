@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import { logIn } from '../../redux/auth/authOperations';
 import {
   emailValidation,
@@ -23,7 +24,6 @@ import {
   RedirectLink,
   isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
-import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   email: emailValidation,
@@ -100,6 +100,9 @@ export default function LoginForm() {
           <Stub />
         )}
         <RedirectLink to="/verify">{t('auth_form.verify_msg')}</RedirectLink>
+        <RedirectLink to="/forgot-password">
+          {t('auth_form.forgot_msg')}
+        </RedirectLink>
 
         <ButtonWrapper>
           <AuthButton primary type="submit">

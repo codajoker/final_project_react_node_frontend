@@ -29,6 +29,15 @@ export const Title = styled.h1`
   color: ${props => props.theme.BUTTON_COLOR};
 `;
 
+export const TitleFPF = styled(Title)`
+  padding-top: 10px;
+
+  &:not(:last-child) {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   align-items: flex-start;

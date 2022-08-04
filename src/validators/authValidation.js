@@ -22,3 +22,10 @@ export const passwordValidation = yup
   .min(8, i18next.t('auth_form.valid_err_msg.password.min'))
   .max(100, i18next.t('auth_form.valid_err_msg.max'))
   .required(i18next.t('auth_form.valid_err_msg.password.req'));
+
+export const confirmPasswordValidation = yup
+  .string(i18next.t('auth_form.valid_err_msg.password.type_err'))
+  .matches(REG_EXP, i18next.t('auth_form.valid_err_msg.password.symbol_err'))
+  .min(8, i18next.t('auth_form.valid_err_msg.password.min'))
+  .max(100, i18next.t('auth_form.valid_err_msg.max'))
+  .required(i18next.t('auth_form.valid_err_msg.password.req'));
