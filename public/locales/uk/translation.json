@@ -4,7 +4,8 @@
     "signin_msg": "Увійти",
     "signup_msg": "Реєстрація",
     "diary_msg": "Щоденник",
-    "calculator_msg": "Калькулятор"
+    "calculator_msg": "Калькулятор",
+    "logout": "Вихід"
   },
   "calc-form": {
     "title": "Порахуй свою денну норму калорій прямо зараз",
