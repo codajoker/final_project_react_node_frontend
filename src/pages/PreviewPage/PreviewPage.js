@@ -40,7 +40,7 @@ export default function PreviewPage({ theme, toggleTheme }) {
   const handleFetchDailyRate = async userData => {
     setDailyRate(null);
     try {
-      const { data } = await fetchDailyRate(userData);
+      const { data } = await fetchDailyRate(userData);      
       setDailyRate(data);
     } catch (error) {
       toast.error('Помилка серверу, спробуйте пізніше');
