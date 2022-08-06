@@ -38,21 +38,21 @@
     "submbtn_msg": "Zacznij tracić na wadze"
   },
   "auth_form": {
-    "register_title": "Registration",
-    "register_submit_msg": "Register",
-    "login_title": "Sign in",
+    "register_title": "Rejestracja",
+    "register_submit_msg": "Zarejestruj się",
+    "login_title": "Logowanie",
     "placeholder": {
-      "name": "Name *",
+      "name": "Nazwa *",
       "email": "Email *",
-      "password": "Password *"
+      "password": "Hasło *"
     },
-    "verify_msg": "Didn't verify your e-mail address?",
+    "verify_msg": "Nie zweryfikowałeś swojego adresu e-mail?",
     "valid_err_msg": {
-      "max": "Too long!",
+      "max": "Za długo!",
       "name": {
-        "type_err": "Enter your name",
-        "min": "The length of the name must be at least 3 characters",
-        "req": "A name is required"
+        "type_err": "Wpisz swoje imię",
+        "min": "Długość nazwy musi wynosić co najmniej 3 znaki",
+        "req": "Wymagana jest nazwa"
       },
       "email": {
         "type_err": "Enter your email address",
@@ -69,38 +69,38 @@
     }
   },
   "verify_form": {
-    "title": "Enter your email address",
-    "sbm_btn": "Send",
-    "back_btn": "Back to login"
+    "title": "Wpisz swój adres e-mail",
+    "sbm_btn": "Wyślij",
+    "back_btn": "Powrót do logowania"
   },
   "diary_form": {
-    "option_no_prod_msg": "There is no such product",
-    "option_loading_msg": "Looking for...",
-    "weight_input_title": "Enter the amount of product used",
+    "option_no_prod_msg": "Nie ma takiego produktu",
+    "option_loading_msg": "Szukając...",
+    "weight_input_title": "Wpisz ilość zużytego produktu",
     "placeholder": {
-      "products": "Product name",
-      "weight": "Grams"
+      "products": "Nazwa produktu",
+      "weight": "Gramów"
     },
-    "subm.btn.msg": "Add"
+    "subm.btn.msg": "Dodaj"
   },
   "sidebar": {
-    "more_cal_norm_msg": "You took more than the norm",
-    "have_norm_cal_msg": "You have consumed your calorie allowance",
-    "for_msg": "Summary for",
-    "its_left": "Left",
-    "taken": "Consumed",
-    "daily_norm": "Daily rate",
-    "for_norm": "n% of norm",
-    "head_msg": "It is necessary to enter data in",
-    "form": "form"
+    "more_cal_norm_msg": "Wzięłaś więcej niż norma",
+    "have_norm_cal_msg": "Zużyłeś swój limit kalorii",
+    "for_msg": "Podsumowanie dla",
+    "its_left": "Reszta",
+    "taken": "Zużyte",
+    "daily_norm": "Norma stawki dziennej",
+    "for_norm": "n% z normy",
+    "head_msg": "Konieczne jest wprowadzenie danych do",
+    "form": "formularz"
   },
   "modal": {
-    "cal_main_title_msg": "Your recommended daily calorie intake is",
-    "cal_sec_title_msg": "Food not recommended",
-    "cal_empty_prod_msg": "Your diet will be displayed here",
-    "cal_btn_msg": "Start losing weight",
-    "logout_msg": "Do you want to sign out?",
-    "logout_yes_btn": "Yes",
-    "logout_no_btn": "No"
+    "cal_main_title_msg": "Twoje zalecane dzienne spożycie kalorii to",
+    "cal_sec_title_msg": "Żywność niewskazana",
+    "cal_empty_prod_msg": "Twoja dieta będzie wyświetlana tutaj",
+    "cal_btn_msg": "Zacznij tracić na wadze",
+    "logout_msg": "Chcesz się wylogować?",
+    "logout_yes_btn": "Tak",
+    "logout_no_btn": "Nie"
   }
 }
