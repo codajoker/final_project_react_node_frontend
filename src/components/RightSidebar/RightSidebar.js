@@ -113,8 +113,11 @@ export default function RightSidebar({ date = currentDate }) {
             ) : (
               <Head>
                 {' '}
-                Необхідно ввести дані в{' '}
-                <CalculatorLink to="/calculator">форму</CalculatorLink>!
+                {t('sidebar.head_msg')}{' '}
+                <CalculatorLink to="/calculator">
+                  {t('sidebar.form')}
+                </CalculatorLink>
+                !
               </Head>
             )}
           </div>

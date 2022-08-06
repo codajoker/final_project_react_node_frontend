@@ -1,80 +1,137 @@
 const product_dictionary = {
-    "алкогольные напитки": {
-        "ua": "алкогольні напої",
-        "en": "alcoholic drinks"
-    },
-    "безалкогольные напитки": {
-        "ua": "безалкогольні напої",
-        "en": "soft drinks"
-    },
-    "грибы": {
-        "ua": "гриби",
-        "en": "mushrooms"
-    },
-    "зерновые": {
-        "ua": "зернові",
-        "en": "cereals"
-    },
-    "колбаса": {
-        "ua": "ковбаса",
-        "en": "sausage"
-    },
-    "кунжут": {
-        "ua": "кунжут",
-        "en": "sesame"
-    },
-    "мак": {
-        "ua": "мак",
-        "en": "poppy"
-    },
-    "молочные": {
-        "ua": "молочні",
-        "en": "dairy products"
-    },
-    "масла и жиры": {
-        "ua": "олії та жири",
-        "en": "oils and fats"
-    },
-    "мучные": {
-        "ua": "борошняні",
-        "en": "flour products"
-    },
-    "мясо": {
-        "ua": "м'ясо",
-        "en": "meat"
-    },
-    "орехи": {
-        "ua": "горіхи",
-        "en": "nuts"
-    },
-    "овощи и зелень": {
-        "ua": "овочі та зелень",
-        "en": "vegetables and herbs"
-    },
-    "рыба": {
-        "ua": "риба",
-        "en": "fish"
-    },
-    "семена": {
-        "ua": "насіння",
-        "en": "seeds"
-    },
-    "фрукты": {
-        "ua": "фрукти",
-        "en": "fruit"
-    },
-    "сухофрукты": {
-        "ua": "сухофрукти",
-        "en": "dried fruits"
-    },
-    "ягоды": {
-        "ua": "ягоди",
-        "en": "berries"
-    },
-    "яйца": {
-        "ua": "яйця",
-        "en": "eggs"
-    }
-}
+  'алкогольные напитки': {
+    de: 'alkoholische Getränke',
+    fr: 'boissons alcoolisées',
+    pl: 'napoje alkoholowe',
+    ua: 'алкогольні напої',
+    en: 'alcoholic drinks',
+  },
+  'безалкогольные напитки': {
+    ua: 'безалкогольні напої',
+    de: 'Erfrischungsgetränke',
+    fr: 'boissons gazeuses',
+    pl: 'napoje bezalkoholowe',
+    en: 'soft drinks',
+  },
+  грибы: {
+    ua: 'гриби',
+    de: 'сhampignons',
+    fr: 'champignons',
+    pl: 'grzyby',
+    en: 'mushrooms',
+  },
+  зерновые: {
+    ua: 'зернові',
+    de: 'getreide',
+    fr: 'céréales',
+    pl: 'zboża',
+    en: 'cereals',
+  },
+  колбаса: {
+    ua: 'ковбаса',
+    de: 'wurst',
+    fr: 'saucisse',
+    pl: 'kiełbasa',
+    en: 'sausage',
+  },
+  кунжут: {
+    ua: 'кунжут',
+    de: 'sesam',
+    fr: 'sésame',
+    pl: 'sezam',
+    en: 'sesame',
+  },
+  мак: {
+    ua: 'мак',
+    de: 'mohn',
+    fr: 'coquelicot',
+    pl: 'mak',
+    en: 'poppy',
+  },
+  молочные: {
+    ua: 'молочні',
+    de: 'molkereiprodukte',
+    fr: 'produits laitiers',
+    pl: 'produkty mleczne',
+    en: 'dairy products',
+  },
+  'масла и жиры': {
+    ua: 'олії та жири',
+    de: 'Öle und Fette',
+    fr: 'huiles et graisses',
+    pl: 'oleje i tłuszcze',
+    en: 'oils and fats',
+  },
+  мучные: {
+    ua: 'борошняні',
+    de: 'Mehlprodukte',
+    fr: 'produits de farine',
+    pl: 'produkty mączne',
+    en: 'flour products',
+  },
+  мясо: {
+    ua: "м'ясо",
+    de: 'Fleisch',
+    fr: 'viande',
+    pl: 'mięso',
+    en: 'meat',
+  },
+  орехи: {
+    ua: 'горіхи',
+    de: 'Nüsse',
+    fr: 'noix',
+    pl: 'orzechy',
+    en: 'nuts',
+  },
+  'овощи и зелень': {
+    ua: 'овочі та зелень',
+    de: 'Gemüse und Kräuter',
+    fr: 'légumes et herbes',
+    pl: 'warzywa i zioła',
+    en: 'vegetables and herbs',
+  },
+  рыба: {
+    ua: 'риба',
+    de: 'Fisch',
+    fr: 'poisson',
+    pl: 'ryba',
+    en: 'fish',
+  },
+  семена: {
+    ua: 'насіння',
+    de: 'Samen',
+    fr: 'graines',
+    pl: 'nasiona',
+    en: 'seeds',
+  },
+  фрукты: {
+    ua: 'фрукти',
+    de: 'Obst',
+    fr: 'fruit',
+    pl: 'owoce',
+    en: 'fruit',
+  },
+  сухофрукты: {
+    ua: 'сухофрукти',
+    de: 'getrocknete Früchte',
+    fr: 'fruits secs',
+    pl: 'suszone owoce',
+    en: 'dried fruits',
+  },
+  ягоды: {
+    ua: 'ягоди',
+    de: 'Beeren',
+    fr: 'baies',
+    pl: 'jagody',
+    en: 'berries',
+  },
+  яйца: {
+    ua: 'яйця',
+    de: 'Eier',
+    fr: 'œufs',
+    pl: 'jajka',
+    en: 'eggs',
+  },
+};
 
 export default product_dictionary;
