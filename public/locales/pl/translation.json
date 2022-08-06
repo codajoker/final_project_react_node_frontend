@@ -7,7 +7,7 @@
     "calculator_msg": "Kalkulator",
     "logout": "Wyjście"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Oblicz swoje dzienne spożycie kalorii już teraz",
     "placeholder": {
       "height": "Wysokość *",
@@ -46,6 +46,7 @@
       "email": "Email *",
       "password": "Hasło *"
     },
+    "forgot_pass_msg": "Nie pamiętasz hasła?",
     "verify_msg": "Nie zweryfikowałeś swojego adresu e-mail?",
     "valid_err_msg": {
       "max": "Za długo!",
@@ -55,16 +56,16 @@
         "req": "Wymagana jest nazwa"
       },
       "email": {
-        "type_err": "Enter your email address",
-        "min": "Email must be at least 3 characters long",
-        "req": "An email address is required",
-        "symbol_err": "It must contain the @ sign and a dot"
+        "type_err": "Wpisz swój adres e-mail",
+        "min": "E-mail musi mieć długość co najmniej 3 znaków",
+        "req": "Wymagany jest adres e-mail",
+        "symbol_err": "Musi zawierać znak @ i kropkę"
       },
       "password": {
-        "type_err": "Enter your password",
-        "min": "The length must be at least 8 characters",
-        "req": "Password must be entered",
-        "symbol_err": "May contain only the Latin alphabet and numbers"
+        "type_err": "Wpisz swoje hasło",
+        "min": "Długość musi wynosić co najmniej 8 znaków",
+        "req": "Hasło musi być wpisane",
+        "symbol_err": "Może zawierać tylko alfabet łaciński i cyfry"
       }
     }
   },

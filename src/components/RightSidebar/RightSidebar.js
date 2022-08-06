@@ -119,7 +119,7 @@ export default function RightSidebar({ date = currentDate }) {
             )}
           </div>
           <div>
-            <Head>{t('sidebar.sec.title')}</Head>
+            <Head>{t('modal.cal_sec_title_msg')}</Head>
             {products.length > 0 ? (
               <ProductsList>
                 {products.map((product, index) => {

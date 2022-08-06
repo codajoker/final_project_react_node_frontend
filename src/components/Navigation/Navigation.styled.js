@@ -28,7 +28,7 @@ export const LoggedNav = styled.nav`
   @media screen and (min-width: 1280px) {
     display: block;
     align-items: center;
-    width: 268px;
+    max-width: 300px;
     height: 26px;
   }
 `;

@@ -21,6 +21,9 @@ const LanguageSwitcher = () => {
   return (
     <SelectCss onChange={handleChange} value={lang}>
       <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="pl">Polski</option>
       <option value="uk">Ukrainian</option>
     </SelectCss>
   );

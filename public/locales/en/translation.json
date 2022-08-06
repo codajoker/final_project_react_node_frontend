@@ -7,7 +7,7 @@
     "calculator_msg": "Calculator",
     "logout": "Exit"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Calculate your daily calorie intake right now",
     "placeholder": {
       "height": "Height *",
@@ -46,6 +46,7 @@
       "email": "Email *",
       "password": "Password *"
     },
+    "forgot_pass_msg": "Forgot password?",
     "verify_msg": "Didn't verify your e-mail address?",
     "valid_err_msg": {
       "max": "Too long!",

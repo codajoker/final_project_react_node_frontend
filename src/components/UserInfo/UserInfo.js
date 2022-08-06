@@ -34,7 +34,7 @@ export default function UserInfo() {
     <UserInfoWrap>
       <UserText>{sliced}</UserText>
       <VerticalLine />
-      <UserExit onClick={handleOpen}>{t('logout')}</UserExit>
+      <UserExit onClick={handleOpen}>{t('navigation.logout')}</UserExit>
       <LanguageSwitcher />
       <Modal open={open} onClose={handleClose}>
         <Wrap>

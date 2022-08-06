@@ -7,7 +7,7 @@
     "calculator_msg": "Calculatrice",
     "logout": "Sortie"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Calculez dès maintenant votre apport calorique quotidien",
     "placeholder": {
       "height": "Hauteur *",
@@ -46,6 +46,7 @@
       "email": "Courriel *",
       "password": "Mot de passe *"
     },
+    "forgot_pass_msg": "Vous avez oublié votre mot de passe?",
     "verify_msg": "Vous n'avez pas vérifié votre adresse e-mail?",
     "valid_err_msg": {
       "max": "Trop long !",

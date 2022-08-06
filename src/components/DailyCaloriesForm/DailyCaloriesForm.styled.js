@@ -194,9 +194,8 @@ const LabelRadioInputs = styled.label`
 const SubmitButton = styled.button`
   margin-top: 65px;
   display: block;
-  padding: 0;
-  width: 210px;
-  height: 44px;
+  padding: 13px 25px;
+  max-width: 220px;
   font-family: Verdana;
   font-weight: 700;
   font-size: ${palette.TEXT_FONTSIZE};

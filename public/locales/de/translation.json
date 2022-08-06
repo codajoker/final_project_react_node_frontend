@@ -7,7 +7,7 @@
     "calculator_msg": "Taschenrechner",
     "logout": "Ausfahrt"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Berechnen Sie jetzt Ihre tägliche Kalorienzufuhr",
     "placeholder": {
       "height": "Höhe *",
@@ -46,6 +46,7 @@
       "email": "E-Mail *",
       "password": "Passwort *"
     },
+    "forgot_pass_msg": "Passwort vergessen?",
     "verify_msg": "Sie haben Ihre E-Mail-Adresse nicht verifiziert?",
     "valid_err_msg": {
       "max": "Zu lang!",

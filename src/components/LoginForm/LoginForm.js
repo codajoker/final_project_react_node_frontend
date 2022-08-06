@@ -101,7 +101,7 @@ export default function LoginForm() {
         )}
         <RedirectLink to="/verify">{t('auth_form.verify_msg')}</RedirectLink>
         <RedirectLink to="/forgot-password">
-          {t('auth_form.forgot_msg')}
+          {t('auth_form.forgot_pass_msg')}
         </RedirectLink>
 
         <ButtonWrapper>

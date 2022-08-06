@@ -7,7 +7,7 @@
     "calculator_msg": "Калькулятор",
     "logout": "Вихід"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Порахуй свою денну норму калорій прямо зараз",
     "placeholder": {
       "height": "Зріст *",
@@ -46,6 +46,7 @@
       "email": "Пошта *",
       "password": "Пароль *"
     },
+    "forgot_pass_msg": "Забули пароль?",
     "verify_msg": "Не підвердили електронну адресу?",
     "valid_err_msg": {
       "max": "Надто довго!",

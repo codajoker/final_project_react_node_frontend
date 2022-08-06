@@ -20,6 +20,7 @@ import {
 import { dailyRateOperations } from '../../redux/dailyRate';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 export default function DailyCaloriesForm({ onOpen, getData }) {
   const bloodType = [1, 2, 3, 4];
@@ -53,9 +54,11 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
     }
   };
 
+  useEffect(() => {}, [validationSchema]);
+
   return (
     <MainPageContainer>
-      <FormTitle>{t('calc-form.title')}</FormTitle>
+      <FormTitle>{t('calc_form.title')}</FormTitle>
 
       <Formik
         initialValues={initialValues}
@@ -69,10 +72,10 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
               <InputWrapper>
                 <Input
                   name="height"
-                  placeholder={t('calc-form.placeholder.height')}
+                  placeholder={t('calc_form.placeholder.height')}
                 />
                 {touched.height && errors.height && (
-                  <ErrorDescr>{errors.height}</ErrorDescr>
+                  <ErrorDescr>{t(errors.height)}</ErrorDescr>
                 )}
               </InputWrapper>
 
@@ -80,10 +83,10 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 <Input
                   id="age"
                   name="age"
-                  placeholder={t('calc-form.placeholder.age')}
+                  placeholder={t('calc_form.placeholder.age')}
                 />
                 {touched.age && errors.age && (
-                  <ErrorDescr>{errors.age}</ErrorDescr>
+                  <ErrorDescr>{t(errors.age)}</ErrorDescr>
                 )}
               </InputWrapper>
 
@@ -91,10 +94,10 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 <Input
                   id="currentWeight"
                   name="currentWeight"
-                  placeholder={t('calc-form.placeholder.currentWeight')}
+                  placeholder={t('calc_form.placeholder.currentWeight')}
                 />
                 {touched.currentWeight && errors.currentWeight && (
-                  <ErrorDescr>{errors.currentWeight}</ErrorDescr>
+                  <ErrorDescr>{t(errors.currentWeight)}</ErrorDescr>
                 )}
               </InputWrapper>
 
@@ -102,16 +105,16 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 <Input
                   id="goalWeight"
                   name="goalWeight"
-                  placeholder={t('calc-form.placeholder.goalWeight')}
+                  placeholder={t('calc_form.placeholder.goalWeight')}
                 />
                 {touched.goalWeight && errors.goalWeight && (
-                  <ErrorDescr>{errors.goalWeight}</ErrorDescr>
+                  <ErrorDescr>{t(errors.goalWeight)}</ErrorDescr>
                 )}
               </InputWrapper>
 
               <InputWrapper>
                 <LabelRadioBoxes id="blood-group">
-                  {t('calc-form.blood_group_msg')}
+                  {t('calc_form.blood_group_msg')}
                 </LabelRadioBoxes>
                 <RadioFieldWrapper role="group" aria-labelledby="blood-group">
                   {bloodType.map((value, index) => (
@@ -133,7 +136,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
               </InputWrapper>
             </FormWrapper>
             <SubmitButton type="submit" disabled={!isValid || !dirty}>
-              {t('calc-form.submbtn_msg')}
+              {t('calc_form.submbtn_msg')}
             </SubmitButton>
           </Form>
         )}
