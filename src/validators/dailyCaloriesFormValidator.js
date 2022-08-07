@@ -8,6 +8,9 @@ const validationSchema = yup.object().shape({
     .max(250, i18next.t('calc-form.valid_err_msg.height.max'))
     .typeError(i18next.t('calc-form.valid_err_msg.height.type_err'))
     .required(i18next.t('calc-form.valid_err_msg.required')),
+  sex: yup
+    .string()
+    .typeError(i18next.t('calc-form.valid_err_msg.age.type_err')),
   age: yup
     .number()
     .min(18, i18next.t('calc-form.valid_err_msg.age.min'))
