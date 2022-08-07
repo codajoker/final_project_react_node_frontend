@@ -17,12 +17,20 @@ function getRandomInt(max) {
 
 export default function DairyProductList({ products, date }) {
   const { i18n } = useTranslation();
-  const isEnLang = i18n.language === 'en';
+  const currentLang = i18n.language;
+
   const [quoteIndex, setQuoteIndex] = useState(getRandomInt(quotes.length));
+  const [quoteToCurrentLang, setQuoteToCurrentLang] = useState(null);
   useEffect(() => {
     setQuoteIndex(getRandomInt(quotes.length));
   }, [date]);
+  
   const quote = quotes[quoteIndex];
+  
+  useEffect(() => {
+    setQuoteToCurrentLang(quote[currentLang])
+  }, [currentLang]);
+
   return (
     <>
       {products.length !== 0 ? (
@@ -38,13 +46,13 @@ export default function DairyProductList({ products, date }) {
           </ProductsList>
         </ProductsListThumb>
       ) : (
-        <ProductsFigure>
-          <ProductsQuote>
-            <p>{isEnLang ? quote.en.text : quote.uk.text}</p>
-          </ProductsQuote>
-          <ProductsAuthor>
-            {isEnLang ? quote.en.author : quote.uk.author}
-          </ProductsAuthor>
+          <ProductsFigure>
+            {quoteToCurrentLang && (
+              <>
+               <ProductsQuote>{quoteToCurrentLang.text}</ProductsQuote>
+               <ProductsAuthor>{quoteToCurrentLang.author }</ProductsAuthor>
+              </>
+            )}
         </ProductsFigure>
       )}
     </>
