@@ -74,6 +74,11 @@
     "sbm_btn": "Send",
     "back_btn": "Back to login"
   },
+  "forgot_passw_form": {
+    "title": "Enter your email address",
+    "sec_text": "to restore the account"
+
+  },
   "diary_form": {
     "option_no_prod_msg": "There is no such product",
     "option_loading_msg": "Looking for...",

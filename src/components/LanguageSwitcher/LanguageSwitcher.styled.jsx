@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SelectCss = styled.select`
   margin-left: 10px;
+  padding: 0;
   background: transparent;
   color: ${props => props.theme.BUTTON_COLOR};
   border: none;

@@ -74,6 +74,10 @@
     "sbm_btn": "Надіслати",
     "back_btn": "Назад до входу"
   },
+  "forgot_passw_form": {
+    "title": "Введіть свою електронну адресу",
+    "sec_text": "для відновлення аккаунта"
+  },
   "diary_form": {
     "option_no_prod_msg": "Такого продукту нема",
     "option_loading_msg": "Шукаю...",

@@ -71,7 +71,7 @@ export default function RegistrationForm() {
           autoComplete="name"
         />
         {formik.touched.name && Boolean(formik.errors.name) ? (
-          <Text>{formik.touched.name && formik.errors.name}</Text>
+          <Text>{formik.touched.name && t(formik.errors.name)}</Text>
         ) : (
           <Stub />
         )}
@@ -87,7 +87,7 @@ export default function RegistrationForm() {
           autoComplete="email"
         />
         {formik.touched.email && Boolean(formik.errors.email) ? (
-          <Text>{formik.touched.email && formik.errors.email}</Text>
+          <Text>{formik.touched.email && t(formik.errors.email)}</Text>
         ) : (
           <Stub />
         )}
@@ -117,7 +117,7 @@ export default function RegistrationForm() {
           )}
         </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
-          <Text>{formik.touched.password && formik.errors.password}</Text>
+          <Text>{formik.touched.password && t(formik.errors.password)}</Text>
         ) : (
           <Stub />
         )}

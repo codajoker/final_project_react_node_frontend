@@ -74,6 +74,11 @@
     "sbm_btn": "Wyślij",
     "back_btn": "Powrót do logowania"
   },
+  "forgot_passw_form": {
+    "title": "Wpisz swój adres e-mail",
+    "sec_text": "aby przywrócić konto"
+
+  },
   "diary_form": {
     "option_no_prod_msg": "Nie ma takiego produktu",
     "option_loading_msg": "Szukając...",
