@@ -9,12 +9,13 @@ import {
 } from './authOperations';
 
 const initialState = {
-  user: { name: null, email: null, dailyCalories: null },
+  user: { name: null, email: null, dailyCalories: null,},
   token: null,
   tokenExpires: null,
   isRefreshing: false,
   isLoggedIn: false,
   verificationToken: null,
+  verify: null
 };
 
 export const authSlice = createSlice({
@@ -35,9 +36,13 @@ export const authSlice = createSlice({
         email: action.payload.data.email,
         dailyCalories: action.payload.data.dailyCalories,
       };
+      state.verify = action.payload.data.verify;
       state.token = action.payload.data.token;
       state.tokenExpires = action.payload.data.tokenExpires;
       state.isLoggedIn = true;
+    },
+    [logIn.rejected](state, action) {
+        state.verify = action.payload.verify;
     },
 
     [logOut.fulfilled](state) {
