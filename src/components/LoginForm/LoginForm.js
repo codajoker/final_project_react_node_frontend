@@ -67,7 +67,7 @@ export default function LoginForm() {
           autoComplete="email"
         />
         {formik.touched.email && Boolean(formik.errors.email) ? (
-          <Text>{formik.touched.email && formik.errors.email}</Text>
+          <Text>{formik.touched.email && t(formik.errors.email)}</Text>
         ) : (
           <Stub />
         )}
@@ -97,13 +97,13 @@ export default function LoginForm() {
           )}
         </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
-          <Text>{formik.touched.password && formik.errors.password}</Text>
+          <Text>{formik.touched.password && t(formik.errors.password)}</Text>
         ) : (
           <Stub />
         )}
         {isVerify === false && <RedirectLink to="/verify">{t('auth_form.verify_msg')}</RedirectLink>}
         <RedirectLink to="/forgot-password">
-          {t('auth_form.forgot_msg')}
+          {t('auth_form.forgot_pass_msg')}
         </RedirectLink>
 
         <ButtonWrapper>

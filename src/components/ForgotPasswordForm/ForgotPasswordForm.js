@@ -17,12 +17,14 @@ import {
   Stub,
   isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   email: emailValidation,
 });
 
 export default function ForgotPasswordForm() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -40,13 +42,13 @@ export default function ForgotPasswordForm() {
   return (
     <Wrapper className="auth-body mx-auto">
       <div>
-        <TitleFPF>Введіть свою електронну адресу</TitleFPF>
-        <TitleFPF>для відновлення аккаунта</TitleFPF>
+        <TitleFPF>{t("forgot_passw_form.title")}</TitleFPF>
+        <TitleFPF>{t('forgot_passw_form.sec_text')}</TitleFPF>
       </div>
       <Form onSubmit={formik.handleSubmit}>
         <Label htmlFor="email"></Label>
         <Input
-          placeholder="Пошта *"
+          placeholder={t('auth_form.placeholder.email')}
           id="email"
           name="email"
           type={isMediaMatch()}
@@ -55,16 +57,16 @@ export default function ForgotPasswordForm() {
           autoComplete="email"
         />
         {formik.touched.email && Boolean(formik.errors.email) ? (
-          <Text>{formik.touched.email && formik.errors.email}</Text>
+          <Text>{formik.touched.email && t(formik.errors.email)}</Text>
         ) : (
           <Stub />
         )}
 
         <ButtonWrapper>
           <AuthButton primary type="submit">
-            Надіслати
+            {t('verify_form.sbm_btn')}
           </AuthButton>
-          <LinkButton to="/signin">Назад до входу</LinkButton>
+          <LinkButton to="/signin">{t('verify_form.back_btn')}</LinkButton>
         </ButtonWrapper>
       </Form>
     </Wrapper>

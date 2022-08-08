@@ -1,0 +1,111 @@
+{
+  "calories": "kcal",
+  "navigation": {
+    "signin_msg": "Einloggen",
+    "signup_msg": "Registrieren",
+    "diary_msg": "Tagebuch",
+    "calculator_msg": "Taschenrechner",
+    "logout": "Ausfahrt"
+  },
+  "calc_form": {
+    "title": "Berechnen Sie jetzt Ihre tägliche Kalorienzufuhr",
+    "placeholder": {
+      "height": "Höhe *",
+      "age": "Alter  *",
+      "currentWeight": "Aktuelles Gewicht *",
+      "goalWeight": "Gewünschtes Gewicht *"
+    },
+    "valid_err_msg": {
+      "required": "Erforderliches Feld",
+      "height": {
+        "min": "Die Höhe sollte ab 100 cm betragen",
+        "max": "Die Höhe sollte bis zu 250 cm betragen",
+        "type_err": "Höhe muss eine Zahl sein"
+      },
+      "age": {
+        "min": "Das Alter muss 18 Jahre oder älter sein",
+        "max": "Das Alter sollte bis zu 100 Jahre betragen",
+        "type_err": "Alter muss eine Zahl sein"
+      },
+      "weight": {
+        "min": "Das Gewicht sollte ab 20 kg betragen.",
+        "max": "Das Gewicht sollte bis zu 500 kg betragen.",
+        "type_err": "Gewicht muss eine Zahl sein",
+        "quant_err": "Das gewünschte Gewicht sollte geringer sein als das aktuelle Gewicht"
+      }
+    },
+    "blood_group_msg": "Blutgruppe *",
+    "submbtn_msg": "Mit dem Abnehmen beginnen"
+  },
+  "auth_form": {
+    "register_title": "Anmeldung",
+    "register_submit_msg": "Registrieren",
+    "login_title": "Einloggen",
+    "placeholder": {
+      "name": "Der Name *",
+      "email": "E-Mail *",
+      "password": "Passwort *"
+    },
+    "forgot_pass_msg": "Passwort vergessen?",
+    "verify_msg": "Sie haben Ihre E-Mail-Adresse nicht verifiziert?",
+    "valid_err_msg": {
+      "max": "Zu lang!",
+      "name": {
+        "type_err": "Geben Sie Ihren Namen ein",
+        "min": "Die Länge des Namens muss mindestens 3 Zeichen betragen",
+        "req": "Ein Name ist erforderlich"
+      },
+      "email": {
+        "type_err": "Geben Sie Ihre E-Mail Adresse ein",
+        "min": "Die E-Mail muss mindestens 3 Zeichen lang sein",
+        "req": "Eine E-Mail Adresse ist erforderlich",
+        "symbol_err": "Er muss das Zeichen @ und einen Punkt enthalten"
+      },
+      "password": {
+        "type_err": "Geben Sie Ihr Passwort ein",
+        "min": "Die Länge muss mindestens 8 Zeichen betragen.",
+        "req": "Passwort muss eingegeben werden",
+        "symbol_err": "Darf nur das lateinische Alphabet und Zahlen enthalten"
+      }
+    }
+  },
+  "verify_form": {
+    "title": "Geben Sie Ihre E-Mail Adresse ein",
+    "sbm_btn": "Senden",
+    "back_btn": "Zurück zur Anmeldung"
+  },
+  "forgot_passw_form": {
+    "title": "Geben Sie Ihre E-Mail Adresse ein",
+    "sec_text": "um das Konto wiederherzustellen"
+  },
+  "diary_form": {
+    "option_no_prod_msg": "Ein solches Produkt gibt es nicht",
+    "option_loading_msg": "Ich suche nach...",
+    "weight_input_title": "Geben Sie die Menge des verwendeten Produkts ein",
+    "placeholder": {
+      "products": "Name des Produkts",
+      "weight": "Gramm"
+    },
+    "subm.btn.msg": "Hinzufügen"
+  },
+  "sidebar": {
+    "more_cal_norm_msg": "Sie haben mehr als die empfohlene Anzahl an Kalorien zu sich genommen",
+    "have_norm_cal_msg": "Sie haben Ihre Kalorienmenge verbraucht",
+    "for_msg": "Zusammenfassung für",
+    "its_left": "Links",
+    "taken": "Verbraucht",
+    "daily_norm": "Tagessatz",
+    "for_norm": "n% der Norm",
+    "head_msg": "Die Eingabe von Daten ist erforderlich in",
+    "form": "formular"
+  },
+  "modal": {
+    "cal_main_title_msg": "Ihre empfohlene tägliche Kalorienzufuhr beträgt",
+    "cal_sec_title_msg": "Nicht empfohlene Lebensmittel",
+    "cal_empty_prod_msg": "Ihre Diät wird hier angezeigt",
+    "cal_btn_msg": "Mit dem Abnehmen beginnen",
+    "logout_msg": "Möchten Sie sich abmelden?",
+    "logout_yes_btn": "Ja",
+    "logout_no_btn": "Nein"
+  }
+}

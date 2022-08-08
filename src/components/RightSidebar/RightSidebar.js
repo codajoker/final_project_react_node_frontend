@@ -113,13 +113,16 @@ export default function RightSidebar({ date = currentDate }) {
             ) : (
               <Head>
                 {' '}
-                Необхідно ввести дані в{' '}
-                <CalculatorLink to="/calculator">форму</CalculatorLink>!
+                {t('sidebar.head_msg')}{' '}
+                <CalculatorLink to="/calculator">
+                  {t('sidebar.form')}
+                </CalculatorLink>
+                !
               </Head>
             )}
           </div>
           <div>
-            <Head>{t('sidebar.sec.title')}</Head>
+            <Head>{t('modal.cal_sec_title_msg')}</Head>
             {products.length > 0 ? (
               <ProductsList>
                 {products.map((product, index) => {

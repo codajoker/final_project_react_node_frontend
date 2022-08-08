@@ -15,10 +15,26 @@ import { useTranslation } from 'react-i18next';
 const loadOptions = async (inputValue, callback) => {
   const { products } = await getProductByQuery(inputValue);
   callback(
-    products.map(product => {
-      const title =
-        i18next.language === 'en' ? product.title.en : product.title.ua;
-      return { label: title, value: title };
+    products.map(({ title }) => {
+      // const title =
+      //   i18next.language === 'en' ? product.title.en : product.title.ua;
+      // return { label: title, value: title };
+      switch (i18next.language) {
+        case 'uk': {
+          return { label: title.ua, value: title.ua };
+        }
+        case 'en': {
+          return { label: title.en, value: title.en };
+        }
+        case 'de': {
+          return { label: title.de, value: title.de };
+        }
+        case 'pl': {
+          return { label: title.pl, value: title.pl };
+        }
+        default:
+          return { label: title.en, value: title.en };
+      }
     })
   );
 };

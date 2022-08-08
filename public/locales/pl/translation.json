@@ -1,0 +1,112 @@
+{
+  "calories": "kcal",
+  "navigation": {
+    "signin_msg": "Zaloguj się",
+    "signup_msg": "Zarejestruj się",
+    "diary_msg": "Dziennik",
+    "calculator_msg": "Kalkulator",
+    "logout": "Wyjście"
+  },
+  "calc_form": {
+    "title": "Oblicz swoje dzienne spożycie kalorii już teraz",
+    "placeholder": {
+      "height": "Wysokość *",
+      "age": "Wiek  *",
+      "currentWeight": "Aktualna waga *",
+      "goalWeight": "Żądana waga *"
+    },
+    "valid_err_msg": {
+      "required": "Wymagane pole",
+      "height": {
+        "min": "Wysokość powinna wynosić od 100 cm",
+        "max": "Wysokość powinna wynosić do 250 cm",
+        "type_err": "Wysokość musi być liczbą"
+      },
+      "age": {
+        "min": "Wiek musi wynosić co najmniej 18 lat",
+        "max": "Wiek powinien wynosić do 100 lat",
+        "type_err": "Wiek musi być liczbą"
+      },
+      "weight": {
+        "min": "Waga powinna wynosić od 20 kg",
+        "max": "Waga powinna wynosić do 500 kg",
+        "type_err": "Waga musi być liczbą",
+        "quant_err": "Pożądana waga powinna być mniejsza od aktualnej"
+      }
+    },
+    "blood_group_msg": "Grupa krwi *",
+    "submbtn_msg": "Zacznij tracić na wadze"
+  },
+  "auth_form": {
+    "register_title": "Rejestracja",
+    "register_submit_msg": "Zarejestruj się",
+    "login_title": "Logowanie",
+    "placeholder": {
+      "name": "Nazwa *",
+      "email": "Email *",
+      "password": "Hasło *"
+    },
+    "forgot_pass_msg": "Nie pamiętasz hasła?",
+    "verify_msg": "Nie zweryfikowałeś swojego adresu e-mail?",
+    "valid_err_msg": {
+      "max": "Za długo!",
+      "name": {
+        "type_err": "Wpisz swoje imię",
+        "min": "Długość nazwy musi wynosić co najmniej 3 znaki",
+        "req": "Wymagana jest nazwa"
+      },
+      "email": {
+        "type_err": "Wpisz swój adres e-mail",
+        "min": "E-mail musi mieć długość co najmniej 3 znaków",
+        "req": "Wymagany jest adres e-mail",
+        "symbol_err": "Musi zawierać znak @ i kropkę"
+      },
+      "password": {
+        "type_err": "Wpisz swoje hasło",
+        "min": "Długość musi wynosić co najmniej 8 znaków",
+        "req": "Hasło musi być wpisane",
+        "symbol_err": "Może zawierać tylko alfabet łaciński i cyfry"
+      }
+    }
+  },
+  "verify_form": {
+    "title": "Wpisz swój adres e-mail",
+    "sbm_btn": "Wyślij",
+    "back_btn": "Powrót do logowania"
+  },
+  "forgot_passw_form": {
+    "title": "Wpisz swój adres e-mail",
+    "sec_text": "aby przywrócić konto"
+
+  },
+  "diary_form": {
+    "option_no_prod_msg": "Nie ma takiego produktu",
+    "option_loading_msg": "Szukając...",
+    "weight_input_title": "Wpisz ilość zużytego produktu",
+    "placeholder": {
+      "products": "Nazwa produktu",
+      "weight": "Gramów"
+    },
+    "subm.btn.msg": "Dodaj"
+  },
+  "sidebar": {
+    "more_cal_norm_msg": "Wzięłaś więcej niż norma",
+    "have_norm_cal_msg": "Zużyłeś swój limit kalorii",
+    "for_msg": "Podsumowanie dla",
+    "its_left": "Reszta",
+    "taken": "Zużyte",
+    "daily_norm": "Norma stawki dziennej",
+    "for_norm": "n% z normy",
+    "head_msg": "Konieczne jest wprowadzenie danych do",
+    "form": "formularz"
+  },
+  "modal": {
+    "cal_main_title_msg": "Twoje zalecane dzienne spożycie kalorii to",
+    "cal_sec_title_msg": "Żywność niewskazana",
+    "cal_empty_prod_msg": "Twoja dieta będzie wyświetlana tutaj",
+    "cal_btn_msg": "Zacznij tracić na wadze",
+    "logout_msg": "Chcesz się wylogować?",
+    "logout_yes_btn": "Tak",
+    "logout_no_btn": "Nie"
+  }
+}

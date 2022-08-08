@@ -4,9 +4,10 @@
     "signin_msg": "Увійти",
     "signup_msg": "Реєстрація",
     "diary_msg": "Щоденник",
-    "calculator_msg": "Калькулятор"
+    "calculator_msg": "Калькулятор",
+    "logout": "Вихід"
   },
-  "calc-form": {
+  "calc_form": {
     "title": "Порахуй свою денну норму калорій прямо зараз",
     "placeholder": {
       "height": "Зріст *",
@@ -45,6 +46,7 @@
       "email": "Пошта *",
       "password": "Пароль *"
     },
+    "forgot_pass_msg": "Забули пароль?",
     "verify_msg": "Не підвердили електронну адресу?",
     "valid_err_msg": {
       "max": "Надто довго!",
@@ -71,6 +73,10 @@
     "title": "Введіть свою електронну адресу",
     "sbm_btn": "Надіслати",
     "back_btn": "Назад до входу"
+  },
+  "forgot_passw_form": {
+    "title": "Введіть свою електронну адресу",
+    "sec_text": "для відновлення аккаунта"
   },
   "diary_form": {
     "option_no_prod_msg": "Такого продукту нема",

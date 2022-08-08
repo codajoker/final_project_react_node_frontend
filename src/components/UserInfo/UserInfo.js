@@ -14,7 +14,6 @@ import { getUserName } from '../../redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/authOperations';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 export default function UserInfo() {
   const { t } = useTranslation();
@@ -34,8 +33,7 @@ export default function UserInfo() {
     <UserInfoWrap>
       <UserText>{sliced}</UserText>
       <VerticalLine />
-      <UserExit onClick={handleOpen}>{t('logout')}</UserExit>
-      <LanguageSwitcher />
+      <UserExit onClick={handleOpen}>{t('navigation.logout')}</UserExit>
       <Modal open={open} onClose={handleClose}>
         <Wrap>
           <ModalTxt>{t('modal.logout_msg')}</ModalTxt>

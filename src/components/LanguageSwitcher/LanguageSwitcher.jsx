@@ -1,4 +1,6 @@
-import { SelectCss } from './LanguageSwitcher.styled';
+import {
+  SelectCss,
+ } from './LanguageSwitcher.styled';
 import i18next from 'i18next';
 import { useState, useEffect } from 'react';
 
@@ -21,9 +23,12 @@ const LanguageSwitcher = () => {
   return (
     <SelectCss onChange={handleChange} value={lang}>
       <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="pl">Polski</option>
       <option value="uk">Ukrainian</option>
     </SelectCss>
   );
 };
 
 export default LanguageSwitcher;
+
