@@ -3,10 +3,13 @@ import * as yup from 'yup';
 const validationSchema = yup.object().shape({
   height: yup
     .number()
-    .min(100, ('calc_form.valid_err_msg.height.min'))
-    .max(250, ('calc_form.valid_err_msg.height.max'))
-    .typeError(('calc_form.valid_err_msg.height.type_err'))
-    .required(('calc_form.valid_err_msg.required')),
+    .min(100, ('calc-form.valid_err_msg.height.min'))
+    .max(250, ('calc-form.valid_err_msg.height.max'))
+    .typeError(('calc-form.valid_err_msg.height.type_err'))
+    .required(('calc-form.valid_err_msg.required')),
+  sex: yup
+    .string()
+    .typeError(('calc-form.valid_err_msg.age.type_err')),
   age: yup
     .number()
     .min(18, ('calc_form.valid_err_msg.age.min'))

@@ -16,6 +16,7 @@ import {
   RadioFieldWrapper,
   RadioField,
   SubmitButton,
+  FormSelect,
 } from './DailyCaloriesForm.styled';
 import { dailyRateOperations } from '../../redux/dailyRate';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
@@ -24,9 +25,14 @@ import { useEffect } from 'react';
 
 export default function DailyCaloriesForm({ onOpen, getData }) {
   const bloodType = [1, 2, 3, 4];
+  const options = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+  ];
   const { t } = useTranslation();
   const initialValues = {
     height: '',
+    sex: '',
     age: '',
     currentWeight: '',
     goalWeight: '',
@@ -66,7 +72,9 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
         onSubmit={handleSubmit}
         validateOnBlur
       >
-        {({ errors, touched, isValid, dirty }) => (
+        {({ errors, touched, isValid, dirty, setFieldTouched, setFieldValue }) => 
+        (
+  
           <Form>
             <FormWrapper>
               <InputWrapper>
@@ -76,6 +84,22 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                 />
                 {touched.height && errors.height && (
                   <ErrorDescr>{t(errors.height)}</ErrorDescr>
+                )}
+              </InputWrapper>
+
+              <InputWrapper>
+                <FormSelect
+                  classNamePrefix={'react-select'}
+                  options={options}
+                  placeholder="Sex *"
+                  name="sex"
+                  onChange={(option) => {
+                    setFieldTouched("sex", true);
+                    setFieldValue("sex", option.value);
+                    }}
+                />
+                {touched.sex && errors.sex && (
+                  <ErrorDescr>{errors.sex}</ErrorDescr>
                 )}
               </InputWrapper>
 
@@ -111,7 +135,6 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                   <ErrorDescr>{t(errors.goalWeight)}</ErrorDescr>
                 )}
               </InputWrapper>
-
               <InputWrapper>
                 <LabelRadioBoxes id="blood-group">
                   {t('calc_form.blood_group_msg')}
@@ -126,7 +149,6 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                         name="bloodType"
                         value={value.toString()}
                       />
-
                       <LabelRadioInputs htmlFor={`bloodType${value}`}>
                         {value}
                       </LabelRadioInputs>

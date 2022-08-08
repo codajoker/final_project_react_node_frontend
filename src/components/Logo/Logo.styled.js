@@ -16,12 +16,7 @@ export const LogoWrap = styled.div`
 export const LogoLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  width: 105.3px;
-  margin-right: 16px;
-  @media screen and (min-width: 1280px) {
-    width: 100%;
-    margin-right: 45px;
-  }
+  width: 100%;
 `;
 
 export const LogoImg = styled.div`

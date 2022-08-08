@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
+import Select from 'react-select';
 import * as palette from '../../variables/Variables';
+
 
 const MainPageContainer = styled.div`
   display: flex;
@@ -78,6 +80,9 @@ const InputWrapper = styled.div`
     :nth-child(5) {
       order: 4;
     }
+    :nth-child(6) {
+      order: 6;
+    }
   }
 `;
 
@@ -133,14 +138,12 @@ const LabelRadioBoxes = styled.div`
 `;
 
 const RadioFieldWrapper = styled.div`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 240px;
   top: 30px;
   left: -3px;
-
   @media screen and (min-width: 768px) {
     top: 40px;
   }
@@ -217,6 +220,7 @@ const SubmitButton = styled.button`
   }
 
   @media screen and (min-width: 1280px) {
+    margin-top: 90px;
     margin-left: auto;
   }
 
@@ -232,6 +236,76 @@ const SubmitButton = styled.button`
   }
 `;
 
+
+const FormSelect = styled(Select)`
+  font-size: ${palette.TEXT_FONTSIZE};
+  font-family: 'Verdana';
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+  background: transparent;
+  padding: 0 0 8px 0;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  width: 240px;
+
+  .react-select__control {
+    border: none;
+    height: 40px;
+    width: 240px;
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
+    border-radius: 0;
+    background: transparent;
+    &:hover {
+      border-bottom-color: ${props => props.theme.MAIN_COLOR};
+    }
+    &--is-focused {
+      outline: none;
+      border-bottom-color: ${props => props.theme.MAIN_COLOR};
+      box-shadow: none;
+    }
+  }
+  .react-select__value-container {
+    margin: 0;
+    padding: 8px 0;
+    width: 240px;
+  }
+
+  .react-select__single-value {
+    color: ${props => props.theme.MAIN_COLOR};
+  }
+  .react-select__input-container {
+    color: ${props => props.theme.MAIN_COLOR};
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .react-select__placeholder {
+    color: ${props => props.theme.SECONDARY_COLOR};
+  }
+  .react-select__indicators {
+    display: none;
+  }
+  .react-select__menu {
+    width: 240px;
+    background: ${props => props.theme.SELECT_CONTAINER_COLOR};
+    color: ${props => props.theme.SELECT_PLACEHOLDER_COLOR};
+  }
+
+  .react-select__menu-list{
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${props => props.theme.SIDEBAR_COLOR};
+    }
+    ::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.INTAKE_DAILY_COLOR};
+    }
+  }
+`;
+
 export {
   MainPageContainer,
   FormWrapper,
@@ -244,4 +318,5 @@ export {
   RadioFieldWrapper,
   RadioField,
   SubmitButton,
+  FormSelect
 };
