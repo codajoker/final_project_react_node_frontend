@@ -13,8 +13,12 @@
       "height": "Wysokość *",
       "age": "Wiek  *",
       "currentWeight": "Aktualna waga *",
-      "goalWeight": "Żądana waga *"
+      "goalWeight": "Żądana waga *",
+      "sex": "Płeć *",
+      "man": "Mężczyzna",
+      "women": "Kobieta"
     },
+    "toast_err_msg": "Błąd serwera, spróbuj ponownie później!",
     "valid_err_msg": {
       "required": "Wymagane pole",
       "height": {

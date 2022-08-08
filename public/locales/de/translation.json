@@ -13,8 +13,12 @@
       "height": "Höhe *",
       "age": "Alter  *",
       "currentWeight": "Aktuelles Gewicht *",
-      "goalWeight": "Gewünschtes Gewicht *"
+      "goalWeight": "Gewünschtes Gewicht *",
+      "sex": "Sex *",
+      "man": "Männlich",
+      "women": "Frau"
     },
+    "toast_err_msg": "Serverfehler, versuchen Sie es später noch einmal!",
     "valid_err_msg": {
       "required": "Erforderliches Feld",
       "height": {

@@ -13,8 +13,12 @@
       "height": "Height *",
       "age": "Age  *",
       "currentWeight": "Current weight *",
-      "goalWeight": "Desired weight *"
+      "goalWeight": "Desired weight *",
+      "sex": "Sex *",
+      "man": "Male",
+      "women": "Female"
     },
+    "toast_err_msg": "Server error, try again later!",
     "valid_err_msg": {
       "required": "Required field",
       "height": {

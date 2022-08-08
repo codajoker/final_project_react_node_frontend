@@ -19,8 +19,10 @@ import {
 import { Header, Modal, DailyCaloriesForm } from '../../components/index';
 import { useEffect, useState } from 'react';
 import { fetchDailyRate } from '../../services/dailyRateApi';
+import { useTranslation } from 'react-i18next';
 
 export default function PreviewPage({ theme, toggleTheme }) {
+  const { t } = useTranslation();
   const [modalShow, setModalShow] = useState(false);
   const [dailyRate, setDailyRate] = useState(null);
 
@@ -43,7 +45,7 @@ export default function PreviewPage({ theme, toggleTheme }) {
       const { data } = await fetchDailyRate(userData);      
       setDailyRate(data);
     } catch (error) {
-      toast.error('Помилка серверу, спробуйте пізніше');
+          toast.error(t('calc_form.toast_err_msg'));
     }
   };
 

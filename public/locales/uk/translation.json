@@ -13,8 +13,12 @@
       "height": "Зріст *",
       "age": "Вік *",
       "currentWeight": "Поточна вага *",
-      "goalWeight": "Бажана вага *"
+      "goalWeight": "Бажана вага *",
+      "sex": "Стать *",
+      "man": "Чоловік",
+      "women": "Жінка"
     },
+    "toast_err_msg": "Помилка серверу, спробуйте пізніше!",
     "valid_err_msg": {
       "required": "Обов'язкове поле",
       "height": {
