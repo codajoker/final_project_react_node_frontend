@@ -87,6 +87,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
               <InputWrapper>
                 <FormSelect
                   classNamePrefix={'react-select'}
+                  isSearchable={false}
                   options={options}
                   placeholder="Sex *"
                   name="sex"
