@@ -8,7 +8,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { logOut, refreshToken } from './redux/auth/authOperations.js';
 
-axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
+// axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 function updateAuthHeader() {
   const token = store.getState().auth.token;

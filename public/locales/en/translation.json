@@ -84,6 +84,7 @@
 
   },
   "diary_form": {
+    "remove_prod_msg": "Remove product?",
     "option_no_prod_msg": "There is no such product",
     "option_loading_msg": "Looking for...",
     "weight_input_title": "Enter the amount of product used",
@@ -91,7 +92,10 @@
       "products": "Product name",
       "weight": "Grams"
     },
-    "subm.btn.msg": "Add"
+    "subm_btn_msg": "Add",
+    "save": "Save",
+    "close":"Cancel",
+    "grams": "g"
   },
   "sidebar": {
     "more_cal_norm_msg": "You took more than the norm",
@@ -112,5 +116,16 @@
     "logout_msg": "Do you want to sign out?",
     "logout_yes_btn": "Yes",
     "logout_no_btn": "No"
+  },
+    "tostify_msgs": {
+    "success_reg": "Congratulations on your successful registration.",
+    "err_mail_reg": "We already have a user with this email address.",
+    "success_login": "You have successfully logged into your account.",
+    "err_login": "The email address or password is incorrect.",
+    "verify_mail":"Go to the mail to confirm it.",
+    "success_verify_mail": "Congratulations on successful verification.",
+    "restore_acc": "Go to mail to restore your account.",
+    "reset_pass_success": "Your password has been successfully changed.",
+    "norm_up_info": "You have exceeded the daily calorie limit!"
   }
 }
