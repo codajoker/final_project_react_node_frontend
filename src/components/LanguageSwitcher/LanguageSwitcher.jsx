@@ -1,34 +1,38 @@
-import {
-  SelectCss,
- } from './LanguageSwitcher.styled';
+import { CustomSelect } from './LanguageSwitcher.styled';
+import LanguageIcon from '@mui/icons-material/Language';
 import i18next from 'i18next';
-import { useState, useEffect } from 'react';
 
+const options = [
+  { value: 'en', label:  'En' },
+  { value: 'de', label: 'De' },
+  { value: 'pl', label: 'Pl' },
+  { value: 'uk', label: 'Uk' },
+]
 const LanguageSwitcher = () => {
-  const [lang, setLang] = useState('');
+  const { changeLanguage} = i18next;
 
-  useEffect(() => {
-    const localeLang = window.localStorage.getItem('i18nextLng');
-    if (localeLang.length > 0) {
-      setLang('en');
-    }
-    setLang(localeLang);
-  }, []);
 
-  const handleChange = e => {
-    const selectedLang = e.target.value;
-    setLang(selectedLang);
-    i18next.changeLanguage(selectedLang);
+  const handleChange = options => {
+    const selectedLang = options.value;
+    changeLanguage(selectedLang);
   };
   return (
-    <SelectCss onChange={handleChange} value={lang}>
-      <option value="en">English</option>
-      <option value="de">Deutsch</option>
-      <option value="pl">Polski</option>
-      <option value="uk">Ukrainian</option>
-    </SelectCss>
-  );
+    <CustomSelect
+      onChange={handleChange}
+      classNamePrefix={'react-select'}
+      isSearchable={false}
+      placeholder={<LanguageIcon color='primary' />}
+      options={options}
+      controlShouldRenderValue={false} />
+)
 };
 
 export default LanguageSwitcher;
+
+
+
+
+
+
+
 

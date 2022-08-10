@@ -1,12 +1,35 @@
 import styled from 'styled-components';
+import Selelect from "react-select"
 
-export const SelectCss = styled.select`
-  margin-left: 10px;
-  padding: 0;
-  background: transparent;
-  color: ${props => props.theme.BUTTON_COLOR};
+
+export const CustomSelect = styled(Selelect)`
+margin-left: 10px;
+width: 32px;
+height: 32px;
+
+.react-select__control{
+  cursor: pointer;
+  background-color: transparent;
   border: none;
-  border-radius: 10px;
-  outline: none;
-  z-index: 10;
+
+  &--is-focused {
+    outline: none;
+    border-bottom-color: ${props => props.theme.MAIN_COLOR};
+    box-shadow: none;
+  }
+}
+.react-select__indicators{
+  display: none;
+}
+.react-select__indicator-separator{
+  display: none;
+}
+.react-select__value-container {
+  padding: 0 2px 0 2px;
+}
+  .react-select__menu {
+    width: 44px;
+    background: ${props => props.theme.SELECT_CONTAINER_COLOR};
+    color: ${props => props.theme.SELECT_PLACEHOLDER_COLOR};
+  }
 `;
