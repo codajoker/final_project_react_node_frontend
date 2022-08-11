@@ -1,8 +1,8 @@
 {
   "calories": "kcal",
   "navigation": {
-    "signin_msg": "Zaloguj się",
-    "signup_msg": "Zarejestruj się",
+    "signin_msg": "Zaloguj",
+    "signup_msg": "Zarejestruj",
     "diary_msg": "Dziennik",
     "calculator_msg": "Kalkulator",
     "logout": "Wyjście"
@@ -81,7 +81,6 @@
   "forgot_passw_form": {
     "title": "Wpisz swój adres e-mail",
     "sec_text": "aby przywrócić konto"
-
   },
   "diary_form": {
     "remove_prod_msg": "Usunąć produkt?",
@@ -94,7 +93,7 @@
     },
     "subm_btn_msg": "Dodaj",
     "save": "Zapisz",
-    "close":"Odwołaj",
+    "close": "Odwołaj",
     "grams": "g"
   },
   "sidebar": {

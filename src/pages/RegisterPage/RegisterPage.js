@@ -1,5 +1,5 @@
 import { Container } from '../../styles/Container.styled';
-import {Header, RegistrationForm} from '../../components/index';
+import { Header, RegistrationForm } from '../../components/index';
 import {
   BgBoxDesctop,
   BgBanana,
@@ -39,5 +39,3 @@ export default function RegisterPage() {
     </>
   );
 }
-
-

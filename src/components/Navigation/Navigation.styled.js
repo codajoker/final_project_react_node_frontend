@@ -14,9 +14,12 @@ export const Nav = styled.nav`
 `;
 
 export const NavWrap = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
+  display: none;
+  @media screen and (min-width: 470px) {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
   @media screen and (min-width: 1280px) {
     width: 100%;
     height: 26px;

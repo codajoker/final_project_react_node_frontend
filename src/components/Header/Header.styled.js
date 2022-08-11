@@ -4,7 +4,7 @@ export const HeaderEl = styled.header`
   border-bottom: 2px solid;
   color: ${props => props.theme.LINE_COLOR};
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 20px 20px 16px 20px;
   @media screen and (min-width: 768px) {
@@ -48,6 +48,7 @@ export const BurgerWrap = styled.button`
   }
 `;
 export const HeaderWrap = styled.div`
+  margin-left: auto;
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -56,5 +57,12 @@ export const HeaderWrap = styled.div`
     align-items: flex-end;
     flex-direction: row-reverse;
     justify-content: space-between;
+  }
+`;
+
+export const MenuNavWrap = styled.div`
+  display: block;
+  @media screen and (min-width: 470px) {
+    display: none;
   }
 `;

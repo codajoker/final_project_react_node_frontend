@@ -1,4 +1,9 @@
-import {Header, MobileSidebar, RightSidebar, DailyCaloriesForm} from "../../components/index"
+import {
+  Header,
+  MobileSidebar,
+  RightSidebar,
+  DailyCaloriesForm,
+} from '../../components/index';
 import { Main, SidebarWrapper } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {

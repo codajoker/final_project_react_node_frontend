@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 import { fetchDailyRate } from '../../services/dailyRateApi';
 import { useTranslation } from 'react-i18next';
 
-export default function PreviewPage({ theme, toggleTheme }) {
+export default function PreviewPage() {
   const { t } = useTranslation();
   const [modalShow, setModalShow] = useState(false);
   const [dailyRate, setDailyRate] = useState(null);
@@ -42,16 +42,16 @@ export default function PreviewPage({ theme, toggleTheme }) {
   const handleFetchDailyRate = async userData => {
     setDailyRate(null);
     try {
-      const { data } = await fetchDailyRate(userData);      
+      const { data } = await fetchDailyRate(userData);
       setDailyRate(data);
     } catch (error) {
-          toast.error(t('calc_form.toast_err_msg'));
+      toast.error(t('calc_form.toast_err_msg'));
     }
   };
 
   return (
     <Fragment>
-      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Header />
 
       <Main>
         <DailyCaloriesForm onOpen={handleOpen} getData={handleFetchDailyRate} />
