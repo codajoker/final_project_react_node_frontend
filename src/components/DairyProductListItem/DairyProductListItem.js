@@ -69,7 +69,7 @@ export default function DairyProductListItem({ product, date }) {
                 autoFocus
                 placeholder={weight}
               />
-              <span>г</span>
+              <span>{t('diary_form.grams')}</span>
             </FormInput>
             <ButtonsWrap>
               <EditButton
@@ -78,7 +78,7 @@ export default function DairyProductListItem({ product, date }) {
                 disabled={weight === weight_g}
               >
                 <IoCheckmarkCircleOutline />
-                <span>Зберегти</span>
+                <span>{t('diary_form.save')}</span>
               </EditButton>
               <EditButton
                 type="button"
@@ -86,7 +86,7 @@ export default function DairyProductListItem({ product, date }) {
                 title="Відмінити"
               >
                 <IoCloseCircleOutline />
-                <span>Відмінити</span>
+                <span>{t('diary_form.close')}</span>
               </EditButton>
             </ButtonsWrap>
           </FormEdit>
@@ -96,7 +96,7 @@ export default function DairyProductListItem({ product, date }) {
           <GrEdit />
         </EditButton>
         <div>
-          {calories_kcal} <Calories>кKал</Calories>
+          {calories_kcal} <Calories>{t("calories")}</Calories>
         </div>
       </ProductInfo>
       <button type="button" onClick={handleOpen}>
@@ -104,7 +104,7 @@ export default function DairyProductListItem({ product, date }) {
       </button>
       <Modal open={open} onClose={handleClose}>
         <Wrap>
-          <ModalTxt>{t('diary_product_delete_modal_msg')}</ModalTxt>
+          <ModalTxt>{t('diary_form.remove_prod_msg')}</ModalTxt>
           <BtnWrap>
             <Btn
               onClick={() =>

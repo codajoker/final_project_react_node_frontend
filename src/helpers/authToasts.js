@@ -1,30 +1,33 @@
 import { toast } from 'react-toastify';
+import i18next from 'i18next';
+
+const { t } = i18next;
 
 export const registerSuccessToast = () =>
-  toast.success('Вітаємо з успішною реєстрацією.');
+  toast.success(t('tostify_msgs.success_reg'));
 
 export const alreadyHaveEmailToast = () =>
-  toast.error('У нас вже є користувач із такою електронною адресою.');
+  toast.error(t('tostify_msgs.err_mail_reg'));
 
 export const successfulLoginToast = () =>
-  toast.success('Ви успішно увійшли в обліковий запис.');
+  toast.success(t('tostify_msgs.success_login'));
 
 export const errorLoginToast = () =>
-  toast.error('Електронна адреса або пароль неправильні.');
+  toast.error(t('tostify_msgs.err_login'));
 
 export const verificationSuccessToast = () =>
-  toast.info('Перейдіть на пошту, щоб підтвердити її.', { autoClose: false });
+  toast.info(t('tostify_msgs.verify_mail'), { autoClose: false });
 
 export const verifiedSuccessToast = () =>
-  toast.success('Вітаємо з успішною веріфікацією.');
+  toast.success(t('tostify_msgs.success_verify_mail'));
 
 export const caloriesToast = () =>
-  toast.info('Ви перевищили денну норму калорій!', { autoClose: false });
+  toast.info(t('tostify_msgs.norm_up_info'), { autoClose: false });
 
 export const forgottenPasswordToast = () =>
-  toast.info('Перейдіть на пошту, щоб відновити аккаунт.', {
+  toast.info(t('tostify_msgs.reset_pass_success'), {
     autoClose: false,
   });
 
 export const resetPasswordSuccessToast = () =>
-  toast.success('Ваш пароль успішно змінено.');
+  toast.success(t('tostify_msgs.restore_acc'));

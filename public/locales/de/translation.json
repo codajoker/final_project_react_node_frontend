@@ -13,8 +13,12 @@
       "height": "Höhe *",
       "age": "Alter  *",
       "currentWeight": "Aktuelles Gewicht *",
-      "goalWeight": "Gewünschtes Gewicht *"
+      "goalWeight": "Gewünschtes Gewicht *",
+      "sex": "Sex *",
+      "man": "Männlich",
+      "women": "Frau"
     },
+    "toast_err_msg": "Serverfehler, versuchen Sie es später noch einmal!",
     "valid_err_msg": {
       "required": "Erforderliches Feld",
       "height": {
@@ -79,6 +83,7 @@
     "sec_text": "um das Konto wiederherzustellen"
   },
   "diary_form": {
+    "remove_prod_msg": "Produkt entfernen?",
     "option_no_prod_msg": "Ein solches Produkt gibt es nicht",
     "option_loading_msg": "Ich suche nach...",
     "weight_input_title": "Geben Sie die Menge des verwendeten Produkts ein",
@@ -86,10 +91,13 @@
       "products": "Name des Produkts",
       "weight": "Gramm"
     },
-    "subm.btn.msg": "Hinzufügen"
+    "subm_btn_msg": "Hinzufügen",
+    "save": "Retten Sie",
+    "close":"Stornieren",
+    "grams": "g"
   },
   "sidebar": {
-    "more_cal_norm_msg": "Sie haben mehr als die empfohlene Anzahl an Kalorien zu sich genommen",
+    "more_cal_norm_msg": "Du hast mehr genommen als die Norm",
     "have_norm_cal_msg": "Sie haben Ihre Kalorienmenge verbraucht",
     "for_msg": "Zusammenfassung für",
     "its_left": "Links",
@@ -107,5 +115,16 @@
     "logout_msg": "Möchten Sie sich abmelden?",
     "logout_yes_btn": "Ja",
     "logout_no_btn": "Nein"
+  },
+  "tostify_msgs": {
+    "success_reg": "Herzlichen Glückwunsch zu Ihrer erfolgreichen Registrierung.",
+    "err_mail_reg": "Wir haben bereits einen Benutzer mit dieser E-Mail-Adresse.",
+    "success_login": "Sie haben sich erfolgreich bei Ihrem Konto angemeldet.",
+    "err_login": "Die E-Mail-Adresse oder das Passwort ist falsch.",
+    "verify_mail": "Rufen Sie die Mail auf, um sie zu bestätigen.",
+    "success_verify_mail": "Glückwunsch zur erfolgreichen Überprüfung.",
+    "restore_acc": "Gehen Sie zu Mail, um Ihr Konto wiederherzustellen.",
+    "reset_pass_success": "Ihr Passwort wurde erfolgreich geändert.",
+    "norm_up_info": "Sie haben das tägliche Kalorienlimit überschritten!"
   }
 }

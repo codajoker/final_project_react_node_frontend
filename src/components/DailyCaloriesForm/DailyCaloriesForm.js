@@ -24,12 +24,12 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 
 export default function DailyCaloriesForm({ onOpen, getData }) {
+  const { t } = useTranslation();
   const bloodType = [1, 2, 3, 4];
   const options = [
-    { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' },
+    { value: 'male', label: t("calc_form.placeholder.man") },
+    { value: 'female', label: t("calc_form.placeholder.women") },
   ];
-  const { t } = useTranslation();
   const initialValues = {
     height: '',
     sex: '',
@@ -54,7 +54,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
         onOpen();
       }
     } catch (error) {
-      toast.error('Помилка серверу, спробуйте пізніше!');
+      toast.error(t('calc_form.toast_err_msg'));
     } finally {
       resetForm();
     }
@@ -92,7 +92,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                   classNamePrefix={'react-select'}
                   isSearchable={false}
                   options={options}
-                  placeholder="Sex *"
+                  placeholder={t("calc_form.placeholder.sex")}
                   name="sex"
                   onChange={(option) => {
                     setFieldTouched("sex", true);
@@ -100,7 +100,7 @@ export default function DailyCaloriesForm({ onOpen, getData }) {
                     }}
                 />
                 {touched.sex && errors.sex && (
-                  <ErrorDescr>{errors.sex}</ErrorDescr>
+                  <ErrorDescr>{t(errors.sex)}</ErrorDescr>
                 )}
               </InputWrapper>
 

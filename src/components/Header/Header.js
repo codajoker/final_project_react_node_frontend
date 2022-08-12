@@ -4,10 +4,11 @@ import {
   HeaderDivider,
   UserInfoWrap,
   HeaderWrap,
+  MenuNavWrap,
 } from './Header.styled';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 export default function Header() {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -18,10 +19,17 @@ export default function Header() {
       <HeaderWrap>
         <UserInfoWrap>{isLoggedIn && <UserInfo />}</UserInfoWrap>
         {isLoggedIn && <MobileMenu />}
-        <Navigation />
-        <LanguageSwitcher/>
-      </HeaderWrap>
+        {!isLoggedIn && (
+          <MenuNavWrap>
+            <MobileMenu>
+              <Navigation />
+            </MobileMenu>
+          </MenuNavWrap>
+        )}
 
+        <Navigation />
+      </HeaderWrap>
+      <LanguageSwitcher />
     </HeaderEl>
   );
 }

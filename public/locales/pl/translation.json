@@ -1,8 +1,8 @@
 {
   "calories": "kcal",
   "navigation": {
-    "signin_msg": "Zaloguj się",
-    "signup_msg": "Zarejestruj się",
+    "signin_msg": "Zaloguj",
+    "signup_msg": "Zarejestruj",
     "diary_msg": "Dziennik",
     "calculator_msg": "Kalkulator",
     "logout": "Wyjście"
@@ -13,8 +13,12 @@
       "height": "Wysokość *",
       "age": "Wiek  *",
       "currentWeight": "Aktualna waga *",
-      "goalWeight": "Żądana waga *"
+      "goalWeight": "Żądana waga *",
+      "sex": "Płeć *",
+      "man": "Mężczyzna",
+      "women": "Kobieta"
     },
+    "toast_err_msg": "Błąd serwera, spróbuj ponownie później!",
     "valid_err_msg": {
       "required": "Wymagane pole",
       "height": {
@@ -77,9 +81,9 @@
   "forgot_passw_form": {
     "title": "Wpisz swój adres e-mail",
     "sec_text": "aby przywrócić konto"
-
   },
   "diary_form": {
+    "remove_prod_msg": "Usunąć produkt?",
     "option_no_prod_msg": "Nie ma takiego produktu",
     "option_loading_msg": "Szukając...",
     "weight_input_title": "Wpisz ilość zużytego produktu",
@@ -87,7 +91,10 @@
       "products": "Nazwa produktu",
       "weight": "Gramów"
     },
-    "subm.btn.msg": "Dodaj"
+    "subm_btn_msg": "Dodaj",
+    "save": "Zapisz",
+    "close": "Odwołaj",
+    "grams": "g"
   },
   "sidebar": {
     "more_cal_norm_msg": "Wzięłaś więcej niż norma",
@@ -108,5 +115,16 @@
     "logout_msg": "Chcesz się wylogować?",
     "logout_yes_btn": "Tak",
     "logout_no_btn": "Nie"
+  },
+  "tostify_msgs": {
+    "success_reg": "Gratulujemy udanej rejestracji.",
+    "err_mail_reg": "Mamy już użytkownika o tym adresie e-mail.",
+    "success_login": "Udało Ci się zalogować na swoje konto.",
+    "err_login": "Adres e-mail lub hasło są nieprawidłowe.",
+    "verify_mail": "Idź na pocztę, aby to potwierdzić.",
+    "success_verify_mail": "Gratulujemy udanej weryfikacji.",
+    "restore_acc": "Przejdź do poczty, aby przywrócić swoje konto.",
+    "reset_pass_success": "Twoje hasło zostało pomyślnie zmienione.",
+    "norm_up_info": "Przekroczyłeś dzienny limit kalorii!"
   }
 }
