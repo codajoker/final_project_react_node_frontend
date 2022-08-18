@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import Select from 'react-select';
 import { Button } from '../../styles/Button.styled';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
+import * as palette from '../../variables/Variables';
 
 export const CalendarWrap = styled.div`
   display: flex;
@@ -13,6 +15,93 @@ export const CalendarWrap = styled.div`
     width: 219px;
     height: 38px;
     margin-bottom: 60px;
+  }
+`;
+
+export const MealSelect = styled(Select)`
+  font-size: ${palette.TEXT_FONTSIZE};
+  font-family: 'Verdana';
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  margin-left: 21px;
+  text-align: center;
+
+  .react-select__control {
+    border: none;
+    min-height: 22px;
+    width: 105px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid ${props => props.theme.LINE_COLOR};
+    border-radius: 0;
+    background: transparent;
+    &:hover {
+      border-bottom-color: ${props => props.theme.MAIN_COLOR};
+    }
+    &--is-focused {
+      outline: none;
+      border-bottom-color: ${props => props.theme.MAIN_COLOR};
+      box-shadow: none;
+    }
+  }
+  .react-select__value-container {
+    margin: 0;
+    padding: 0;
+    width: 105px;
+  }
+
+  .react-select__single-value {
+    color: ${props => props.theme.MAIN_COLOR};
+  }
+  .react-select__input-container {
+    color: ${props => props.theme.MAIN_COLOR};
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .react-select__placeholder {
+    color: ${props => props.theme.MAIN_COLOR};
+  }
+  .react-select__indicators {
+    display: none;
+  }
+  .react-select__menu {
+    width: 105px;
+    background: ${props => props.theme.SELECT_CONTAINER_COLOR};
+    color: ${props => props.theme.SELECT_PLACEHOLDER_COLOR};
+  }
+
+  .react-select__menu-list {
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${props => props.theme.SIDEBAR_COLOR};
+    }
+    ::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.INTAKE_DAILY_COLOR};
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 17px;
+    .react-select__menu {
+      width: 125px;
+    }
+    .react-select__menu {
+      width: 125px;
+    }
+    .react-select__control {
+      min-height: 35px;
+      width: 125px;
+    }
+    .react-select__value-container {
+      width: 125px;
+    }
   }
 `;
 
@@ -46,9 +135,6 @@ export const Calendar = styled(Datetime)`
   .rdtPicker td.rdtActive:hover {
     background-color: ${props => props.theme.BUTTON_COLOR};
     text-shadow: 0 -1px 0 ${props => props.theme.BUTTON_COLOR};
-  }
-  @media screen and (min-width: 768px) {
-    width: 219px;
   }
 `;
 

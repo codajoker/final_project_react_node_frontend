@@ -12,31 +12,12 @@ import { getProductByQuery } from '../../services/productsApi';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-const loadOptions = async (inputValue, callback) => {
-  const { products } = await getProductByQuery(inputValue);
-  callback(
-    products.map(({ title }) => {
-      // const title =
-      //   i18next.language === 'en' ? product.title.en : product.title.ua;
-      // return { label: title, value: title };
-      switch (i18next.language) {
-        case 'uk': {
-          return { label: title.ua, value: title.ua };
-        }
-        case 'en': {
-          return { label: title.en, value: title.en };
-        }
-        case 'de': {
-          return { label: title.de, value: title.de };
-        }
-        case 'pl': {
-          return { label: title.pl, value: title.pl };
-        }
-        default:
-          return { label: title.en, value: title.en };
-      }
-    })
-  );
+const loadOptions = async (inputValue) => {
+  const lang = i18next.language === "uk" ? "ua" : i18next.language;
+  const { products } = await getProductByQuery(inputValue, lang);
+  return products.map((product) => {
+    return { label: product.title[lang], id: product._id };
+  })
 };
 
 export default function DiaryProductForm({ onSubmit, className }) {
@@ -49,7 +30,7 @@ export default function DiaryProductForm({ onSubmit, className }) {
     const weightNumber = parseInt(weight);
     if (!selectedProduct || isNaN(weightNumber)) return;
     onSubmit({
-      product: selectedProduct.value,
+      id: selectedProduct.id,
       weight: weightNumber,
     });
     reset();

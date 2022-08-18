@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons';
 import { BsPlusLg } from 'react-icons/bs';
 import { RiCalendar2Line } from 'react-icons/ri';
 import { Container } from '../../styles/Container.styled';
+
 import {
   CalendarWrap,
   CalendarTitle,
@@ -14,6 +15,7 @@ import {
   Calendar,
   PageWrap,
   SidebarWrap,
+  MealSelect,
 } from './DiaryPage.styled';
 import {
   DiaryProductForm,
@@ -33,6 +35,13 @@ import {
 } from '../../redux/products/productsOperations';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 
+const options = [
+  { value: 'breakfast', label: 'Сніданок' },
+  { value: 'lunch', label: 'Обід' },
+  { value: 'dinner', label: 'Вечеря' },
+  { value: 'snack', label: 'Снек' },
+];
+
 export default function DiaryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [date, setDate] = useState(
@@ -41,8 +50,9 @@ export default function DiaryPage() {
       : new Date()
   );
   const [open, setOpen] = useState(false);
-  const isLoading = useSelector(getIsLoading);
+  const [meal, setMeal] = useState('');
   const [mobileAddSelected, setMobileAddSelected] = useState(false);
+  const isLoading = useSelector(getIsLoading);
   const productsList = useSelector(getProductsList);
   const dispatch = useDispatch();
   const today = moment();
@@ -62,10 +72,10 @@ export default function DiaryPage() {
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
   const formSubmitHandler = data => {
-    const { product, weight } = data;
+    const { id, weight } = data;
     const payload = {
       diary_day: formatedDate,
-      meal: { title: product, weight_g: weight },
+      meal: { _id: id, weight_g: weight },
     };
     dispatch(addProduct(payload));
     setMobileAddSelected(false);
@@ -112,6 +122,19 @@ export default function DiaryPage() {
                 }}
               />
             </div>
+
+            <MealSelect
+              className={!mobileAddSelected ? '' : 'hideOnMobile'}
+              classNamePrefix={'react-select'}
+              isSearchable={false}
+              options={options}
+              value={meal}
+              placeholder="Прийом їжі"
+              name="meal"
+              onChange={option => {
+                setMeal(option);
+              }}
+            />
           </CalendarWrap>
           <div>
             <DiaryProductForm
