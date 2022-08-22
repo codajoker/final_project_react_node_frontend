@@ -38,7 +38,7 @@ export default function DailyCalorieIntake({ dailyRate }) {
         <EmptyProducts>{t('modal.cal_empty_prod_msg')}</EmptyProducts>
       )}
       <NavLink to={'/registration'}>
-        <ButtonStart primary>{t('calc-form.submbtn_msg')}</ButtonStart>
+        <ButtonStart primary>{t('calc_form.submbtn_msg')}</ButtonStart>
       </NavLink>
     </CalorieIntake>
   );

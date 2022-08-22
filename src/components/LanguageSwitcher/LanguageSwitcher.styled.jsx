@@ -5,8 +5,7 @@ export const CustomSelect = styled(Selelect)`
   margin-left: 10px;
   width: 32px;
   height: 32px;
-  z-index: 10;
-
+  z-index: 120;
   .react-select__control {
     cursor: pointer;
     background-color: transparent;
@@ -26,6 +25,7 @@ export const CustomSelect = styled(Selelect)`
   }
   .react-select__value-container {
     padding: 0 2px 0 2px;
+    z-index: 110;
   }
   .react-select__menu {
     width: 44px;
