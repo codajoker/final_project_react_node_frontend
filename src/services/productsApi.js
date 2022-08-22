@@ -17,8 +17,8 @@ export const deleteProduct = async (date, id) => {
   return deletedProduct;
 };
 
-export const getProductByQuery = async query => {
-  const { data } = await axios.get(`/product/${query}`);
+export const getProductByQuery = async (name, lang) => {
+  const { data } = await axios.get(`/product/?name=${name}&lang=${lang}`);
   return data;
 };
 

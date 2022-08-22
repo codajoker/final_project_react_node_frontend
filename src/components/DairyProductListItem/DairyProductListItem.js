@@ -1,6 +1,9 @@
 import moment from 'moment';
+import i18next from 'i18next';
 import { useState } from 'react';
+import { Modal } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { GrClose, GrEdit } from 'react-icons/gr';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import {
@@ -21,11 +24,10 @@ import {
   deleteProduct,
   changeProduct,
 } from '../../redux/products/productsOperations';
-import { Modal } from '@mui/material';
 import { Wrap, BtnWrap, ModalTxt, Btn } from '../UserInfo/UserInfo.styled';
-import { useTranslation } from 'react-i18next';
 
 export default function DairyProductListItem({ product, date }) {
+  const lang = i18next.language === "uk" ? "ua" : i18next.language;
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { title, weight_g, calories_kcal, _id } = product;
@@ -53,10 +55,10 @@ export default function DairyProductListItem({ product, date }) {
   return (
     <Product ref={ref}>
       <ProductInfo>
-        <div title={title}>{title}</div>
+        <div title={title[lang]}>{title[lang]}</div>
         {isEdditing ? (
           <FormEdit onSubmit={handleSubmit}>
-            <div>{title}</div>
+            <div>{title[lang]}</div>
             <FormInput>
               <FormInputWeight
                 type="number"
