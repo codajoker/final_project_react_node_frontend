@@ -31,7 +31,7 @@ export const productsSlice = createSlice({
   extraReducers: {
     [addProduct.fulfilled](state, action) {
       const existingProduct = state.productsList.find(
-        x => x._id === action.payload._id
+        x => x._id === action.payload._id && x.meal === action.payload.meal
       );
       if (existingProduct) {
         existingProduct.weight_g = action.payload.weight_g;
@@ -42,8 +42,9 @@ export const productsSlice = createSlice({
       state.isLoading = false;
     },
     [changeProduct.fulfilled](state, action) {
+      console.log(action.payload);
       const index = state.productsList.findIndex(
-        product => product._id === action.payload.foodData._id
+        product => product._id === action.payload.foodData._id && product.meal === action.payload.foodData.meal
       );
       state.productsList[index].weight_g = action.payload.foodData.weight_g;
       state.productsList[index].calories_kcal =
@@ -56,7 +57,7 @@ export const productsSlice = createSlice({
     },
     [deleteProduct.fulfilled](state, action) {
       state.productsList = state.productsList.filter(
-        product => product._id !== action.payload._id
+        product => product._id !== action.payload._id || product.meal !== action.payload.meal
       );
       state.isLoading = false;
     },

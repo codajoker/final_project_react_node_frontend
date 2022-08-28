@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IconContext } from 'react-icons';
 import { RiCalendar2Line } from 'react-icons/ri';
 import {
-  setDate,
-  setMeal,
   setMobileAddSelected,
 } from '../../redux/products/productsSlice';
 import {
@@ -23,10 +21,12 @@ import { DiaryProductForm } from '../../components/index';
 import { addProduct } from '../../redux/products/productsOperations';
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { DATE_FORMAT, MEAL_OPTIONS } from '../../constants';
+import { useSearchParams } from 'react-router-dom';
 
 
 
 export default function DiaryPageHeader() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const date = useSelector(getDate);
@@ -94,7 +94,9 @@ export default function DiaryPageHeader() {
             )}
             timeFormat={false}
             onChange={momentObj => {
-              dispatch(setDate(momentObj.format(DATE_FORMAT)));
+              const newParams = new URLSearchParams(searchParams);
+              newParams.set('date', momentObj.format(DATE_FORMAT));
+              setSearchParams(newParams, {replace: true});
               setOpen(false);
             }}
           />
@@ -110,7 +112,9 @@ export default function DiaryPageHeader() {
           placeholder="Прийом їжі"
           name="meal"
           onChange={option => {
-            dispatch(setMeal(option.value));
+            const newParams = new URLSearchParams(searchParams);
+            newParams.set('meal', option.value);
+            setSearchParams(newParams, {replace: true});
           }}
         />
       </CalendarWrap>

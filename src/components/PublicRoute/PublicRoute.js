@@ -10,5 +10,5 @@ export default function PublicRoute({
   const location = useLocation();
   const from = location.state?.from || '/diary';
   const shouldRedirect = isLoggedIn && restricted;
-  return shouldRedirect ? <Navigate to={from} /> : children;
+  return shouldRedirect ? <Navigate to={from} replace /> : children;
 }

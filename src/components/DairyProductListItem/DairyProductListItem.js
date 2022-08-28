@@ -96,7 +96,7 @@ export default function DairyProductListItem({ product }) {
           <GrEdit />
         </EditButton>
         <div>
-          {calories_kcal} <Calories>{t("calories")}</Calories>
+          {Math.round(calories_kcal)} <Calories>{t("calories")}</Calories>
         </div>
       </ProductInfo>
       <button type="button" onClick={handleOpen}>

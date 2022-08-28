@@ -35,7 +35,7 @@ import { getProductsListByDate } from '../../redux/products/productsOperations';
 import { DATE_FORMAT, MEAL_OPTIONS } from '../../constants';
 
 export default function DiaryPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const date = useSelector(getDate);
   const meal = useSelector(getMeal);
   const mobileAddSelected = useSelector(getMobileAddSelected);
@@ -49,14 +49,8 @@ export default function DiaryPage() {
   ).format(DATE_FORMAT);
   useEffect(() => {
     dispatch(setDate(dateParam));
+    dispatch(getProductsListByDate());
   }, [dateParam]);
-  useEffect(() => {
-    if (date !== null) {
-      dispatch(getProductsListByDate());
-      searchParams.set('date', date);
-      setSearchParams(searchParams);
-    }
-  }, [date]);
 
   const mealParamRaw = searchParams.get("meal");
   const mealParam = MEAL_OPTIONS.map(x => x.value).find(x => x=== mealParamRaw);
@@ -64,10 +58,6 @@ export default function DiaryPage() {
     if(!mealParam) return
     dispatch(setMeal(mealParam));
   }, [mealParam]);
-  useEffect(() => {
-    searchParams.set('meal', meal);
-    setSearchParams(searchParams);
-  }, [meal]);
 
   const isLoading = useSelector(getIsLoading);
   const productsList = useSelector(getProductsList);

@@ -39,7 +39,7 @@ export default function RightSidebar() {
     (total, x) => total + x.calories_kcal,
     0
   );
-  let left = dailyNormCalories - totalDayCalories;
+  let left = Math.round(dailyNormCalories - totalDayCalories);
   let leftCalories =
     left < 0
       ? t('sidebar.more_cal_norm_msg')
@@ -86,7 +86,7 @@ export default function RightSidebar() {
                   <li>
                     <span>{t('sidebar.taken')}</span>
                     <span>
-                      {dailyNormCalories === 0 ? 0 : totalDayCalories}{' '}
+                      {dailyNormCalories === 0 ? 0 : Math.round(totalDayCalories)}{' '}
                       {t('calories')}
                     </span>
                   </li>
