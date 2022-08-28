@@ -10,15 +10,17 @@ import {
 import { useEffect, useState } from 'react';
 import { quotes } from '../../data/quotes';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { getDate } from '../../redux/products/productsSelectors';
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-export default function DairyProductList({ products, date }) {
+export default function DairyProductList({ products }) {
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
-
+  const date = useSelector(getDate);
   const [quoteIndex, setQuoteIndex] = useState(getRandomInt(quotes.length));
   const [quoteToCurrentLang, setQuoteToCurrentLang] = useState(null);
   useEffect(() => {
@@ -40,7 +42,6 @@ export default function DairyProductList({ products, date }) {
               <DairyProductListItem
                 key={product._id}
                 product={product}
-                date={date}
               />
             ))}
           </ProductsList>

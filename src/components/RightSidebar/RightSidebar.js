@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -19,20 +18,21 @@ import {
   getProducts,
 } from '../../redux/dailyRate/dailyRateSelectors';
 import {
+  getDate,
   getIsLoading,
   getProductsList,
 } from '../../redux/products/productsSelectors';
 import { caloriesToast } from '../../helpers/authToasts';
 import { useTranslation } from 'react-i18next';
 
-var currentDate = moment().format('DD.MM.yyyy');
 
-export default function RightSidebar({ date = currentDate }) {
+export default function RightSidebar() {
   const { t } = useTranslation();
   const products = useSelector(getProducts) || [];
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
+  const date = useSelector(getDate)
   const location = useLocation();
 
   const totalDayCalories = productsList.reduce(

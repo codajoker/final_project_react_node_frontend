@@ -5,16 +5,17 @@ export const addProduct = async product => {
   return data;
 };
 
-export const changeProduct = async (date, meal) => {
-  const { data } = await axios.patch('/product/changeProduct', {day: date, meal});
+export const changeProduct = async (day, product) => {
+  const { data } = await axios.patch('/product/changeProduct', {day, product});
   return data;
 };
 
-export const deleteProduct = async (date, id) => {
-  const deletedProduct = await axios.delete(
-    `/product/delDiaryFood/?day=${date}&id=${id}`
+export const deleteProduct = async (date, id, meal) => {
+  const {data} = await axios.delete(
+    `/product/deleteDiaryFood/?day=${date}&id=${id}&meal=${meal}`
   );
-  return deletedProduct;
+ const deletedProduct = data.product;
+ return deletedProduct
 };
 
 export const getProductByQuery = async (name, lang) => {
@@ -31,9 +32,7 @@ export const getProductsListByDate = async date => {
   } catch (error) {
     if (error.response.status === 404) {
       return {
-        data: {
           foodList: [],
-        },
       };
     }
     throw error;

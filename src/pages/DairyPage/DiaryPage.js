@@ -1,167 +1,104 @@
-import moment from 'moment';
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IconContext } from 'react-icons';
 import { BsPlusLg } from 'react-icons/bs';
-import { RiCalendar2Line } from 'react-icons/ri';
 import { Container } from '../../styles/Container.styled';
-
+import { useSearchParams } from 'react-router-dom';
 import {
-  CalendarWrap,
-  CalendarTitle,
   ListWrap,
   AddBtnMobile,
-  Calendar,
   PageWrap,
   SidebarWrap,
-  MealSelect,
 } from './DiaryPage.styled';
 import {
-  DiaryProductForm,
   DairyProductList,
-  RightSidebar,
   Header,
   MobileSidebar,
   Loader,
+  RightSidebar,
+  DiaryPageHeader,
 } from '../../components/index';
 import {
   getIsLoading,
   getProductsList,
+  getDate,
+  getMobileAddSelected,
+  getMeal,
 } from '../../redux/products/productsSelectors';
-import {
-  addProduct,
-  getProductsListByDate,
-} from '../../redux/products/productsOperations';
-import { useDetectClickOutside } from 'react-detect-click-outside';
 
-const options = [
-  { value: 'breakfast', label: 'Сніданок' },
-  { value: 'lunch', label: 'Обід' },
-  { value: 'dinner', label: 'Вечеря' },
-  { value: 'snack', label: 'Снек' },
-];
+import {
+  setDate,
+  setMeal,
+  setMobileAddSelected,
+} from '../../redux/products/productsSlice';
+import moment from 'moment';
+import { getProductsListByDate } from '../../redux/products/productsOperations';
+import { DATE_FORMAT, MEAL_OPTIONS } from '../../constants';
 
 export default function DiaryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [date, setDate] = useState(
-    searchParams.has('date')
-      ? new Date(parseInt(searchParams.get('date')))
-      : new Date()
-  );
-  const [open, setOpen] = useState(false);
-  const [meal, setMeal] = useState('');
-  const [mobileAddSelected, setMobileAddSelected] = useState(false);
-  const isLoading = useSelector(getIsLoading);
-  const productsList = useSelector(getProductsList);
+  const date = useSelector(getDate);
+  const meal = useSelector(getMeal);
+  const mobileAddSelected = useSelector(getMobileAddSelected);
   const dispatch = useDispatch();
-  const today = moment();
-  const disableFutureDt = current => {
-    return current.isBefore(today);
-  };
-  const formatedDate = moment(date).format('DD.MM.yyyy');
 
+  const dateParamRaw = searchParams.get('date');
+  const dateParam = (
+    moment(dateParamRaw, DATE_FORMAT).isValid()
+      ? moment(dateParamRaw, DATE_FORMAT)
+      : moment()
+  ).format(DATE_FORMAT);
   useEffect(() => {
-    dispatch(getProductsListByDate(formatedDate));
-    setSearchParams({ date: date.valueOf() });
+    dispatch(setDate(dateParam));
+  }, [dateParam]);
+  useEffect(() => {
+    if (date !== null) {
+      dispatch(getProductsListByDate());
+      searchParams.set('date', date);
+      setSearchParams(searchParams);
+    }
   }, [date]);
 
-  const closeDropdown = () => {
-    setOpen(false);
-  };
-  const ref = useDetectClickOutside({ onTriggered: closeDropdown });
+  const mealParamRaw = searchParams.get("meal");
+  const mealParam = MEAL_OPTIONS.map(x => x.value).find(x => x=== mealParamRaw);
+  useEffect(() => {
+    if(!mealParam) return
+    dispatch(setMeal(mealParam));
+  }, [mealParam]);
+  useEffect(() => {
+    searchParams.set('meal', meal);
+    setSearchParams(searchParams);
+  }, [meal]);
 
-  const formSubmitHandler = data => {
-    const { id, weight } = data;
-    const payload = {
-      diary_day: formatedDate,
-      meal: { _id: id, weight_g: weight },
-    };
-    dispatch(addProduct(payload));
-    setMobileAddSelected(false);
-  };
-
+  const isLoading = useSelector(getIsLoading);
+  const productsList = useSelector(getProductsList);
+  const filteredProducts = productsList.filter(product => product.meal === meal)
+  if (date === null) return null;
   return (
     <>
       <Header />
       <PageWrap>
-        <MobileSidebar
-          onGoBack={() => setMobileAddSelected(false)}
-          mobileAddSelected={mobileAddSelected}
-        />
+        <MobileSidebar onGoBack={() => dispatch(setMobileAddSelected(false))} />
         <Container>
-          <CalendarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
-            <CalendarTitle>{formatedDate}</CalendarTitle>
-            <div ref={ref}>
-              <Calendar
-                open={open}
-                value={date}
-                isValidDate={disableFutureDt}
-                renderInput={() => (
-                  <IconContext.Provider
-                    value={{
-                      style: {
-                        color: '#9B9FAA',
-                        width: '18px',
-                        height: '20px',
-                        verticalAlign: 'middle',
-                        cursor: 'pointer',
-                      },
-                    }}
-                  >
-                    <RiCalendar2Line
-                      onClick={() => setOpen(!open)}
-                      color="#9B9FAA"
-                    />
-                  </IconContext.Provider>
-                )}
-                timeFormat={false}
-                onChange={momentObj => {
-                  setDate(momentObj.toDate());
-                  setOpen(false);
-                }}
-              />
-            </div>
-
-            <MealSelect
-              className={!mobileAddSelected ? '' : 'hideOnMobile'}
-              classNamePrefix={'react-select'}
-              isSearchable={false}
-              options={options}
-              value={meal}
-              placeholder="Прийом їжі"
-              name="meal"
-              onChange={option => {
-                setMeal(option);
-              }}
-            />
-          </CalendarWrap>
-          <div>
-            <DiaryProductForm
-              onSubmit={formSubmitHandler}
-              className={mobileAddSelected ? '' : 'hideOnMobile'}
-            />
-          </div>
-
+          <DiaryPageHeader />
           <ListWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
             {isLoading ? (
               <Loader />
             ) : (
-              <DairyProductList products={productsList} date={date} />
+              <DairyProductList products={filteredProducts} />
             )}
           </ListWrap>
           {!mobileAddSelected && (
             <AddBtnMobile
               primary
               className={'showOnMobile'}
-              onClick={() => setMobileAddSelected(true)}
+              onClick={() => dispatch(setMobileAddSelected(true))}
             >
               <BsPlusLg size={14} />
             </AddBtnMobile>
           )}
         </Container>
         <SidebarWrap className={mobileAddSelected ? 'hideOnMobile' : ''}>
-          <RightSidebar date={formatedDate} />
+          <RightSidebar />
         </SidebarWrap>
       </PageWrap>
     </>
