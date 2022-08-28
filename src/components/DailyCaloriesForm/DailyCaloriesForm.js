@@ -1,6 +1,5 @@
 import { Formik, Form } from 'formik';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import validationSchema from '../../validators/dailyCaloriesFormValidator';

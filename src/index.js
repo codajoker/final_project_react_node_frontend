@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { logOut, refreshToken } from './redux/auth/authOperations.js';
+import 'react-datetime/css/react-datetime.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://sheltered-fjord-67703.herokuapp.com/';
 
