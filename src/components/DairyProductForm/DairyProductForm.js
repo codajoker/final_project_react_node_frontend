@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { Fragment } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
 import {
   StyledForm,
@@ -12,38 +12,28 @@ import { getProductByQuery } from '../../services/productsApi';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-const loadOptions = async (inputValue) => {
-  const lang = i18next.language === "uk" ? "ua" : i18next.language;
+const loadOptions = async inputValue => {
+  const lang = i18next.language === 'uk' ? 'ua' : i18next.language;
   const { products } = await getProductByQuery(inputValue, lang);
-  return products.map((product) => {
+  return products.map(product => {
     return { label: product.title[lang], id: product._id };
-  })
+  });
 };
 
-export default function DiaryProductForm({ onSubmit, className }) {
+export default function DiaryProductForm({
+  weight,
+  selectedProduct,
+  setSelectedProduct,
+  setWeight,
+  formSubmitHandler,
+  className,
+  submitDisabled
+}) {
   const { t } = useTranslation();
-  let [selectedProduct, setSelectedProduct] = useState(null);
-  let [weight, setWeight] = useState('');
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    const weightNumber = parseInt(weight);
-    if (!selectedProduct || isNaN(weightNumber)) return;
-    onSubmit({
-      id: selectedProduct.id,
-      weight: weightNumber,
-    });
-    reset();
-  };
-
-  const reset = () => {
-    setSelectedProduct(null);
-    setWeight('');
-  };
 
   return (
     <Fragment>
-      <StyledForm onSubmit={handleSubmit} className={className}>
+      <StyledForm onSubmit={formSubmitHandler} className={className}>
         <FormLabel>
           <FormInputProduct
             classNamePrefix={'react-select'}
@@ -77,7 +67,7 @@ export default function DiaryProductForm({ onSubmit, className }) {
         <FormBtnMobile
           type="submit"
           primary
-          disabled={selectedProduct === null || weight === '' ? true : false}
+          disabled={submitDisabled}
         >
           {t('diary_form.subm_btn_msg')}
         </FormBtnMobile>
@@ -85,7 +75,7 @@ export default function DiaryProductForm({ onSubmit, className }) {
         <FormBtn
           type="submit"
           primary
-          disabled={selectedProduct === null || weight === '' ? true : false}
+          disabled={submitDisabled}
         >
           <BsPlusLg size={14} />
         </FormBtn>

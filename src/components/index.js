@@ -14,8 +14,10 @@ import Navigation from './Navigation/Navigation';
 import LoginForm from './LoginForm/LoginForm';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 import UserInfo from './UserInfo/UserInfo';
+import DiaryPageHeader from './DiaryPageHeader/DiaryPageHeader';
 
 export  {
+  DiaryPageHeader,
   DailyCalorieIntake,
   DailyCaloriesForm,
   DiaryProductForm,

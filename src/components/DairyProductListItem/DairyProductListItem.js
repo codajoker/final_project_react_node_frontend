@@ -1,4 +1,3 @@
-import moment from 'moment';
 import i18next from 'i18next';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
@@ -26,20 +25,19 @@ import {
 } from '../../redux/products/productsOperations';
 import { Wrap, BtnWrap, ModalTxt, Btn } from '../UserInfo/UserInfo.styled';
 
-export default function DairyProductListItem({ product, date }) {
+export default function DairyProductListItem({ product }) {
   const lang = i18next.language === "uk" ? "ua" : i18next.language;
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { title, weight_g, calories_kcal, _id } = product;
+  const { title, weight_g, calories_kcal, _id, meal} = product;
   let [isEdditing, setIsEdditing] = useState(false);
   let [weight, setWeight] = useState(weight_g);
-  const meal = { title, weight_g: weight, _id };
-
-  const formatedDate = moment(date).format('DD.MM.yyyy');
+  const changedProduct = { title, weight_g: weight, _id , meal};
+  
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(changeProduct({ date: formatedDate, meal }));
+    dispatch(changeProduct({ product: changedProduct }));
     setIsEdditing(false);
   };
 
@@ -98,7 +96,7 @@ export default function DairyProductListItem({ product, date }) {
           <GrEdit />
         </EditButton>
         <div>
-          {calories_kcal} <Calories>{t("calories")}</Calories>
+          {Math.round(calories_kcal)} <Calories>{t("calories")}</Calories>
         </div>
       </ProductInfo>
       <button type="button" onClick={handleOpen}>
@@ -110,7 +108,7 @@ export default function DairyProductListItem({ product, date }) {
           <BtnWrap>
             <Btn
               onClick={() =>
-                dispatch(deleteProduct({ date: formatedDate, _id }))
+                dispatch(deleteProduct({ _id , meal}))
               }
             >
               {t('modal.logout_yes_btn')}

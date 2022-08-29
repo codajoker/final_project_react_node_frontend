@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -19,27 +18,28 @@ import {
   getProducts,
 } from '../../redux/dailyRate/dailyRateSelectors';
 import {
+  getDate,
   getIsLoading,
   getProductsList,
 } from '../../redux/products/productsSelectors';
 import { caloriesToast } from '../../helpers/authToasts';
 import { useTranslation } from 'react-i18next';
 
-var currentDate = moment().format('DD.MM.yyyy');
 
-export default function RightSidebar({ date = currentDate }) {
+export default function RightSidebar() {
   const { t } = useTranslation();
   const products = useSelector(getProducts) || [];
   const dailyNormCalories = useSelector(getCalories);
   const productsList = useSelector(getProductsList);
   const isLoading = useSelector(getIsLoading);
+  const date = useSelector(getDate)
   const location = useLocation();
 
   const totalDayCalories = productsList.reduce(
     (total, x) => total + x.calories_kcal,
     0
   );
-  let left = dailyNormCalories - totalDayCalories;
+  let left = Math.round(dailyNormCalories - totalDayCalories);
   let leftCalories =
     left < 0
       ? t('sidebar.more_cal_norm_msg')
@@ -86,7 +86,7 @@ export default function RightSidebar({ date = currentDate }) {
                   <li>
                     <span>{t('sidebar.taken')}</span>
                     <span>
-                      {dailyNormCalories === 0 ? 0 : totalDayCalories}{' '}
+                      {dailyNormCalories === 0 ? 0 : Math.round(totalDayCalories)}{' '}
                       {t('calories')}
                     </span>
                   </li>

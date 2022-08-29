@@ -7,39 +7,57 @@ import {
 } from './productsOperations';
 
 const initialState = {
-  meal: [],
+  productsList: [],
   isLoading: false,
+  date: null,
+  mobileAddSelected: false,
+  meal: 'breakfast',
 };
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
+  reducers: {
+    setDate(state, action) {
+      state.date = action.payload;
+    },
+    setMobileAddSelected(state, action) {
+      state.mobileAddSelected = action.payload;
+    },
+    setMeal(state, action) {
+      state.meal = action.payload;
+    },
+  },
   extraReducers: {
     [addProduct.fulfilled](state, action) {
-      const existingProduct = state.meal.find(
-        x => x._id === action.payload._id
+      const existingProduct = state.productsList.find(
+        x => x._id === action.payload._id && x.meal === action.payload.meal
       );
       if (existingProduct) {
         existingProduct.weight_g = action.payload.weight_g;
         existingProduct.calories_kcal = action.payload.calories_kcal;
       } else {
-        state.meal.unshift(action.payload);
+        state.productsList.unshift(action.payload);
       }
       state.isLoading = false;
     },
     [changeProduct.fulfilled](state, action) {
-      const index = state.meal.findIndex(product => product._id === action.payload.foodData._id);
-      state.meal[index].weight_g = action.payload.foodData.weight_g;
-      state.meal[index].calories_kcal = action.payload.foodData.calories_kcal;
+      console.log(action.payload);
+      const index = state.productsList.findIndex(
+        product => product._id === action.payload.foodData._id && product.meal === action.payload.foodData.meal
+      );
+      state.productsList[index].weight_g = action.payload.foodData.weight_g;
+      state.productsList[index].calories_kcal =
+        action.payload.foodData.calories_kcal;
       state.isLoading = false;
     },
     [getProductsListByDate.fulfilled](state, action) {
-      state.meal = action.payload.data.foodList;
+      state.productsList = action.payload.foodList;
       state.isLoading = false;
     },
     [deleteProduct.fulfilled](state, action) {
-      state.meal = state.meal.filter(
-        product => product._id !== action.payload.data.delletedProduct._id
+      state.productsList = state.productsList.filter(
+        product => product._id !== action.payload._id || product.meal !== action.payload.meal
       );
       state.isLoading = false;
     },
@@ -68,5 +86,7 @@ export const productsSlice = createSlice({
     [changeProduct.rejected](state) {
       state.isLoading = false;
     },
- },
+  },
 });
+
+export const { setDate, setMobileAddSelected, setMeal } = productsSlice.actions;
