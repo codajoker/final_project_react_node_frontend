@@ -13,42 +13,42 @@ const product_dictionary = {
     pl: 'napoje bezalkoholowe',
     en: 'soft drinks',
   },
-  грибы: {
+  "грибы": {
     ua: 'гриби',
     de: 'сhampignons',
     fr: 'champignons',
     pl: 'grzyby',
     en: 'mushrooms',
   },
-  зерновые: {
+  "зерновые": {
     ua: 'зернові',
     de: 'getreide',
     fr: 'céréales',
     pl: 'zboża',
     en: 'cereals',
   },
-  колбаса: {
+  "колбаса": {
     ua: 'ковбаса',
     de: 'wurst',
     fr: 'saucisse',
     pl: 'kiełbasa',
     en: 'sausage',
   },
-  кунжут: {
+  "кунжут": {
     ua: 'кунжут',
     de: 'sesam',
     fr: 'sésame',
     pl: 'sezam',
     en: 'sesame',
   },
-  мак: {
+  "мак": {
     ua: 'мак',
     de: 'mohn',
     fr: 'coquelicot',
     pl: 'mak',
     en: 'poppy',
   },
-  молочные: {
+  "молочные": {
     ua: 'молочні',
     de: 'molkereiprodukte',
     fr: 'produits laitiers',
@@ -62,21 +62,21 @@ const product_dictionary = {
     pl: 'oleje i tłuszcze',
     en: 'oils and fats',
   },
-  мучные: {
+  "мучные": {
     ua: 'борошняні',
     de: 'Mehlprodukte',
     fr: 'produits de farine',
     pl: 'produkty mączne',
     en: 'flour products',
   },
-  мясо: {
+  "мясо": {
     ua: "м'ясо",
     de: 'Fleisch',
     fr: 'viande',
     pl: 'mięso',
     en: 'meat',
   },
-  орехи: {
+  "орехи": {
     ua: 'горіхи',
     de: 'Nüsse',
     fr: 'noix',
@@ -90,42 +90,42 @@ const product_dictionary = {
     pl: 'warzywa i zioła',
     en: 'vegetables and herbs',
   },
-  рыба: {
+  "рыба": {
     ua: 'риба',
     de: 'Fisch',
     fr: 'poisson',
     pl: 'ryba',
     en: 'fish',
   },
-  семена: {
+  "семена": {
     ua: 'насіння',
     de: 'Samen',
     fr: 'graines',
     pl: 'nasiona',
     en: 'seeds',
   },
-  фрукты: {
+  "фрукты": {
     ua: 'фрукти',
     de: 'Obst',
     fr: 'fruit',
     pl: 'owoce',
     en: 'fruit',
   },
-  сухофрукты: {
+  "сухофрукты": {
     ua: 'сухофрукти',
     de: 'getrocknete Früchte',
     fr: 'fruits secs',
     pl: 'suszone owoce',
     en: 'dried fruits',
   },
-  ягоды: {
+  "ягоды": {
     ua: 'ягоди',
     de: 'Beeren',
     fr: 'baies',
     pl: 'jagody',
     en: 'berries',
   },
-  яйца: {
+  "яйца": {
     ua: 'яйця',
     de: 'Eier',
     fr: 'œufs',
