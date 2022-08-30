@@ -20,12 +20,20 @@ import {
 import { DiaryProductForm } from '../../components/index';
 import { addProduct } from '../../redux/products/productsOperations';
 import { useDetectClickOutside } from 'react-detect-click-outside';
-import { DATE_FORMAT, MEAL_OPTIONS } from '../../constants';
+import { DATE_FORMAT } from '../../constants';
 import { useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function DiaryPageHeader() {
+  const {t} = useTranslation();
+  const options = [
+    { value: 'breakfast', label: t('meal_option.breakfast') },
+    { value: 'lunch', label: t('meal_option.lunch') },
+    { value: 'dinner', label: t('meal_option.dinner') },
+    { value: 'snack', label: t('meal_option.snack') },
+  ];
   const [searchParams, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
@@ -106,10 +114,10 @@ export default function DiaryPageHeader() {
           className={!mobileAddSelected ? '' : 'hideOnMobile'}
           classNamePrefix={'react-select'}
           isSearchable={false}
-          options={MEAL_OPTIONS}
+          options={options}
           required
-          value={MEAL_OPTIONS.find(x => x.value === meal)}
-          placeholder="Прийом їжі"
+          value={options.find(x => x.value === meal)}
+          placeholder={t('meal_placeholder')}
           name="meal"
           onChange={option => {
             const newParams = new URLSearchParams(searchParams);

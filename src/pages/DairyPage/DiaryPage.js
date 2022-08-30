@@ -58,7 +58,7 @@ export default function DiaryPage() {
     if(!mealParam) return
     dispatch(setMeal(mealParam));
   }, [mealParam]);
-
+  
   const isLoading = useSelector(getIsLoading);
   const productsList = useSelector(getProductsList);
   const filteredProducts = productsList.filter(product => product.meal === meal)

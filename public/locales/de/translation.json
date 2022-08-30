@@ -96,6 +96,13 @@
     "close":"Stornieren",
     "grams": "g"
   },
+  "meal_placeholder": "Mahlzeit",
+  "meal_option": {
+    "breakfast": "Frühstück",
+    "lunch": "Das Mittagessen",
+    "dinner": "Abendessen",
+    "snack": "Snack"
+  },
   "sidebar": {
     "more_cal_norm_msg": "Du hast mehr genommen als die Norm",
     "have_norm_cal_msg": "Sie haben Ihre Kalorienmenge verbraucht",

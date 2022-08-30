@@ -97,6 +97,13 @@
     "close":"Cancel",
     "grams": "g"
   },
+  "meal_placeholder": "Meal",
+  "meal_option": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snack": "Snack"
+  },
   "sidebar": {
     "more_cal_norm_msg": "You took more than the norm",
     "have_norm_cal_msg": "You have consumed your calorie allowance",

@@ -96,6 +96,13 @@
     "close":"Відмінити",
     "grams": "г"
   },
+  "meal_placeholder": "Прийом їжі",
+  "meal_option": {
+    "breakfast": "Сніданок",
+    "lunch": "Обід",
+    "dinner": "Вечеря",
+    "snack": "Снек"
+  },
   "sidebar": {
     "more_cal_norm_msg": "Ви вжили більше норми",
     "have_norm_cal_msg": "Ви вжили свою норму калорій",
