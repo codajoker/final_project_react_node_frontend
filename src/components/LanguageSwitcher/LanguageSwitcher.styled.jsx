@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Selelect from 'react-select';
+import Select from 'react-select';
 
-export const CustomSelect = styled(Selelect)`
+export const CustomSelect = styled(Select)`
   width: 32px;
   height: 32px;
   z-index: 120;
