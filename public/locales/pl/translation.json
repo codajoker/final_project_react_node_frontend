@@ -96,6 +96,13 @@
     "close": "Odwołaj",
     "grams": "g"
   },
+  "meal_placeholder": "Posiłek",
+  "meal_option": {
+    "breakfast": "Śniadanie",
+    "lunch": "Lunch",
+    "dinner": "Kolacja",
+    "snack": "Przekąska"
+  },
   "sidebar": {
     "more_cal_norm_msg": "Wzięłaś więcej niż norma",
     "have_norm_cal_msg": "Zużyłeś swój limit kalorii",
