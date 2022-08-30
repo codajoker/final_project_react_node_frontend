@@ -23,6 +23,7 @@ export const NavWrap = styled.div`
   @media screen and (min-width: 1280px) {
     width: 100%;
     height: 26px;
+    margin-left: -32px;
   }
 `;
 

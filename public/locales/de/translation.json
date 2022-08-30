@@ -76,7 +76,7 @@
   "verify_form": {
     "title": "Geben Sie Ihre E-Mail Adresse ein",
     "sbm_btn": "Senden",
-    "back_btn": "Zurück zur Anmeldung"
+    "back_btn": "Einloggen"
   },
   "forgot_passw_form": {
     "title": "Geben Sie Ihre E-Mail Adresse ein",

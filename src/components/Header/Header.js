@@ -16,6 +16,7 @@ export default function Header() {
     <HeaderEl>
       <Logo />
       <HeaderDivider />
+      <LanguageSwitcher />
       <HeaderWrap>
         <UserInfoWrap>{isLoggedIn && <UserInfo />}</UserInfoWrap>
         {isLoggedIn && <MobileMenu />}
@@ -26,10 +27,8 @@ export default function Header() {
             </MobileMenu>
           </MenuNavWrap>
         )}
-
         <Navigation />
       </HeaderWrap>
-      <LanguageSwitcher />
     </HeaderEl>
   );
 }

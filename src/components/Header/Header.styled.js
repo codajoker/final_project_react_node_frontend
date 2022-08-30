@@ -4,7 +4,6 @@ export const HeaderEl = styled.header`
   border-bottom: 2px solid;
   color: ${props => props.theme.LINE_COLOR};
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 20px 20px 16px 20px;
   @media screen and (min-width: 768px) {
