@@ -46,7 +46,7 @@ const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
   const currentUserEmail = useSelector(getUserEmail);
-
+  const needTheme = location.pathname !== "/verify" && location.pathname !== "/forgot-password"
   const token = useSelector(getToken);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const App = () => {
     !isRefreshing && (
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        {location.pathname !== '/verify' && (
+        {needTheme && (
           <ToggleTheme
             theme={theme}
             toggleTheme={toggleTheme}
