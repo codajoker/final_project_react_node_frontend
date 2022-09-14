@@ -1,4 +1,4 @@
-import ForgotPasswordForm from '../../components/ForgotPasswordForm/ForgotPasswordForm';
+import { Header, ForgotPasswordForm } from '../../components/index';
 import { Container } from '../../styles/Container.styled';
 import {
   BgBoxDesctop,
@@ -17,7 +17,8 @@ import {
 
 export default function ForgotPasswordFormPage() {
   return (
-    <Container>
+    <>
+      <Header />
       <BgBoxTablet>
         <BgBananaTablet />
         <BgStrawberryTablet />
@@ -31,7 +32,10 @@ export default function ForgotPasswordFormPage() {
         <BgLeaves />
         <BgFigure />
       </BgBoxDesctop>
-      <ForgotPasswordForm />
-    </Container>
+
+      <Container>
+        <ForgotPasswordForm />
+      </Container>
+    </>
   );
 }

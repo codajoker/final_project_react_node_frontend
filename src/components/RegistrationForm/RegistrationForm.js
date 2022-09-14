@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { register } from '../../redux/auth/authOperations';
@@ -24,7 +25,6 @@ import {
   HidePasswIcon,
   isMediaMatch,
 } from './RegistrationForm.styled';
-import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   name: nameValidation,

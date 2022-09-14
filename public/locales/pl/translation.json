@@ -82,6 +82,12 @@
     "title": "Wpisz swój adres e-mail",
     "sec_text": "aby przywrócić konto"
   },
+  "reset_passw_form": {
+    "title": "Wpisz nowe hasło",
+    "sbm_btn": "Wyślij",
+    "back_btn": "Powrót do logowania",
+    "input_placeholder_passw": "Potwierdzenie hasła *"
+  },
   "diary_form": {
     "remove_prod_msg": "Usunąć produkt?",
     "option_no_prod_msg": "Nie ma takiego produktu",

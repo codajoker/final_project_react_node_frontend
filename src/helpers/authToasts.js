@@ -12,8 +12,7 @@ export const alreadyHaveEmailToast = () =>
 export const successfulLoginToast = () =>
   toast.success(t('tostify_msgs.success_login'));
 
-export const errorLoginToast = () =>
-  toast.error(t('tostify_msgs.err_login'));
+export const errorLoginToast = () => toast.error(t('tostify_msgs.err_login'));
 
 export const verificationSuccessToast = () =>
   toast.info(t('tostify_msgs.verify_mail'), { autoClose: false });
@@ -25,9 +24,9 @@ export const caloriesToast = () =>
   toast.info(t('tostify_msgs.norm_up_info'), { autoClose: false });
 
 export const forgottenPasswordToast = () =>
-  toast.info(t('tostify_msgs.reset_pass_success'), {
+  toast.info(t('tostify_msgs.restore_acc'), {
     autoClose: false,
   });
 
 export const resetPasswordSuccessToast = () =>
-  toast.success(t('tostify_msgs.restore_acc'));
+  toast.success(t('tostify_msgs.reset_pass_success'));

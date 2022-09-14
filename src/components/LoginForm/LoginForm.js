@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { logIn } from '../../redux/auth/authOperations';
+import { getVerify } from '../../redux/auth/authSelectors';
 import {
   emailValidation,
   passwordValidation,
@@ -24,7 +25,6 @@ import {
   RedirectLink,
   isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
-import { getVerify } from '../../redux/auth/authSelectors';
 
 const validationSchema = yup.object({
   email: emailValidation,
@@ -38,7 +38,7 @@ export default function LoginForm() {
   const toggleShowPassw = () => {
     setShowPassw(!showPassw);
   };
-  const isVerify = useSelector(getVerify)
+  const isVerify = useSelector(getVerify);
 
   const formik = useFormik({
     initialValues: {
@@ -101,7 +101,11 @@ export default function LoginForm() {
         ) : (
           <Stub />
         )}
-        {isVerify === false && <RedirectLink to="/verify">{t('auth_form.verify_msg')}</RedirectLink>}
+        {isVerify === false && (
+          <RedirectLink style={{ marginBottom: '5px' }} to="/verify">
+            {t('auth_form.verify_msg')}
+          </RedirectLink>
+        )}
         <RedirectLink to="/forgot-password">
           {t('auth_form.forgot_pass_msg')}
         </RedirectLink>

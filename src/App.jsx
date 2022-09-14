@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Toast from './components/Toast';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -42,11 +42,9 @@ const ResetPasswordFormPage = lazy(() =>
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-  const location = useLocation();
   const dispatch = useDispatch();
   const isRefreshing = useSelector(getIsRefreshing);
   const currentUserEmail = useSelector(getUserEmail);
-  const needTheme = location.pathname !== "/verify" && location.pathname !== "/forgot-password"
   const token = useSelector(getToken);
 
   useEffect(() => {
@@ -59,13 +57,11 @@ const App = () => {
     !isRefreshing && (
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        {needTheme && (
-          <ToggleTheme
-            theme={theme}
-            toggleTheme={toggleTheme}
-            className={'theme-btn'}
-          />
-        )}
+        <ToggleTheme
+          theme={theme}
+          toggleTheme={toggleTheme}
+          className={'theme-btn'}
+        />
 
         <Suspense fallback={<Loader full />}>
           <Routes>
