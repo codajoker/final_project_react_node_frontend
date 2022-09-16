@@ -82,6 +82,12 @@
     "title": "Geben Sie Ihre E-Mail Adresse ein",
     "sec_text": "um das Konto wiederherzustellen"
   },
+  "reset_passw_form": {
+    "title": "Geben Sie ein neues Kennwort ein",
+    "sbm_btn": "Senden",
+    "back_btn": "Einloggen",
+    "input_placeholder_passw": "Passwort Bestätigung *"
+  },
   "diary_form": {
     "remove_prod_msg": "Produkt entfernen?",
     "option_no_prod_msg": "Ein solches Produkt gibt es nicht",
@@ -93,7 +99,7 @@
     },
     "subm_btn_msg": "Hinzufügen",
     "save": "Retten Sie",
-    "close":"Stornieren",
+    "close": "Stornieren",
     "grams": "g"
   },
   "meal_placeholder": "Mahlzeit",

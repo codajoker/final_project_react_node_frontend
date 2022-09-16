@@ -56,7 +56,7 @@ export default function ResetPasswordForm() {
 
   return (
     <Wrapper className="auth-body mx-auto">
-      <Title>Введіть новий пароль</Title>
+      <Title>{t('reset_passw_form.title')}</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <Label htmlFor="password" style={{ position: 'relative' }}>
@@ -84,14 +84,14 @@ export default function ResetPasswordForm() {
           )}
         </Label>
         {formik.touched.password && Boolean(formik.errors.password) ? (
-          <Text>{formik.touched.password && formik.errors.password}</Text>
+          <Text>{formik.touched.password && t(formik.errors.password)}</Text>
         ) : (
           <Stub />
         )}
 
         <Label htmlFor="confirmPassword" style={{ position: 'relative' }}>
           <Input
-            placeholder={'Підтвердження пароля *'}
+            placeholder={t('reset_passw_form.input_placeholder_passw')}
             id="confirmPassword"
             name="confirmPassword"
             type={showPassw ? 'text' : 'password'}
@@ -116,7 +116,7 @@ export default function ResetPasswordForm() {
         {formik.touched.confirmPassword &&
         Boolean(formik.errors.confirmPassword) ? (
           <Text>
-            {formik.touched.confirmPassword && formik.errors.confirmPassword}
+            {formik.touched.confirmPassword && t(formik.errors.confirmPassword)}
           </Text>
         ) : (
           <Stub />
@@ -128,9 +128,9 @@ export default function ResetPasswordForm() {
             primary
             type="submit"
           >
-            Надіслати
+            {t('reset_passw_form.sbm_btn')}
           </AuthButton>
-          <LinkButton to="/signin">Назад до входу</LinkButton>
+          <LinkButton to="/signin">{t('reset_passw_form.back_btn')}</LinkButton>
         </ButtonWrapper>
       </Form>
     </Wrapper>

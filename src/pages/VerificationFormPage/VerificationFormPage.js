@@ -1,4 +1,4 @@
-import VerificationForm from '../../components/VerificationForm/VerificationForm';
+import { Header, VerificationForm } from '../../components/index';
 import { Container } from '../../styles/Container.styled';
 import {
   BgBoxDesctop,
@@ -17,7 +17,8 @@ import {
 
 export default function VerificationFormPage() {
   return (
-    <Container>
+    <>
+      <Header />
       <BgBoxTablet>
         <BgBananaTablet />
         <BgStrawberryTablet />
@@ -31,7 +32,10 @@ export default function VerificationFormPage() {
         <BgLeaves />
         <BgFigure />
       </BgBoxDesctop>
-      <VerificationForm />
-    </Container>
+
+      <Container>
+        <VerificationForm />
+      </Container>
+    </>
   );
 }

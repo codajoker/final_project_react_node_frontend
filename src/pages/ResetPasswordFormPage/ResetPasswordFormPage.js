@@ -1,4 +1,4 @@
-import ResetPasswordForm from '../../components/ResetPasswordForm/ResetPasswordForm';
+import { Header, ResetPasswordForm } from '../../components/index';
 import { Container } from '../../styles/Container.styled';
 import {
   BgBoxDesctop,
@@ -17,7 +17,8 @@ import {
 
 export default function ResetPasswordFormPage() {
   return (
-    <Container>
+    <>
+      <Header />
       <BgBoxTablet>
         <BgBananaTablet />
         <BgStrawberryTablet />
@@ -31,7 +32,10 @@ export default function ResetPasswordFormPage() {
         <BgLeaves />
         <BgFigure />
       </BgBoxDesctop>
-      <ResetPasswordForm />
-    </Container>
+
+      <Container>
+        <ResetPasswordForm />
+      </Container>
+    </>
   );
 }

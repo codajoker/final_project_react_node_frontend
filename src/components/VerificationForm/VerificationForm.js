@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import { emailValidation } from '../../validators/authValidation';
 import { resendVerifyUser } from '../../services/usersApi';
 import { verificationSuccessToast } from '../../helpers/authToasts';
@@ -17,15 +18,15 @@ import {
   Stub,
   isMediaMatch,
 } from '../RegistrationForm/RegistrationForm.styled';
-import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
   email: emailValidation,
 });
 
 export default function VerificationForm() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -41,7 +42,7 @@ export default function VerificationForm() {
 
   return (
     <Wrapper className="auth-body mx-auto">
-      <Title>{t('verify_form.title') }</Title>
+      <Title>{t('verify_form.title')}</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <Label htmlFor="email"></Label>
